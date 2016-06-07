@@ -1,13 +1,12 @@
 'use strict';
 var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
-var askName = require('inquirer-npm-name');
 var githubUsername = require('github-username');
 var path = require('path');
 var mkdirp = require('mkdirp');
 var _ = require('lodash');
 
-function makeComponentName(name) {
+function makeAppName(name) {
   name = _.kebabCase(name);
   return name;
 }
@@ -30,16 +29,18 @@ module.exports = yeoman.Base.extend({
       'Welcome to the awesome angular 2 App generator!'
     ));
 
-    askName({
+
+    var done = this.async();
+
+    var prompts = [{
       name: 'projectName',
       message: 'What\'s the name of your App?',
-      default: makeComponentName(path.basename(process.cwd())),
-      filter: makeComponentName,
-      validate: function (str) {
-        return str.length > 0;
-      }
-    }, this, function (name) {
-      this.props.projectName = name;
+      default: makeAppName(path.basename(process.cwd())),
+      filter: makeAppName,
+    }];
+
+    this.prompt(prompts, function (props) {
+      this.props = _.extend(this.props, props);
       done();
     }.bind(this));
   },
