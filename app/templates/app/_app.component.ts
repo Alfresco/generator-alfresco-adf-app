@@ -16,7 +16,7 @@ declare var document: any;
   directives: [ROUTER_DIRECTIVES, AuthRouterOutlet, MDL]
 })
 @RouteConfig([
-  {path: '/login', name: 'Login', component: LoginDemoComponent}
+  {path: '/', name: 'Login', component: LoginDemoComponent, useAsDefault: true}
 ])
 export class AppComponent {
   constructor(public auth: AlfrescoAuthenticationService,
