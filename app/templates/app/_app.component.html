@@ -1,0 +1,45 @@
+<!-- Always shows a header, even in smaller screens. -->
+<div mdl class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title"><%= projectName %></span>
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+
+      <!-- Navigation. We hide it in small screens. -->
+      <nav class="mdl-navigation mdl-layout--large-screen-only">
+        <a class="mdl-navigation__link" data-automation-id="login" href="" [routerLink]="['Login']">Login</a>
+      </nav>
+
+      <!-- Right aligned menu below button -->
+      <button id="demo-menu-lower-right" data-automation-id="right-action-menu"
+              class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">more_vert</i>
+      </button>
+
+      <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+          for="demo-menu-lower-right">
+        <li class="mdl-menu__item">Some Action</li>
+        <li class="mdl-menu__item">Another Action</li>
+        <li disabled class="mdl-menu__item">Disabled Action</li>
+        <li class="mdl-menu__item">Yet Another Action</li>
+        <li *ngIf="!isLoggedIn()" class="mdl-menu__item" [routerLink]="['Login']">Login</li>
+        <li *ngIf="isLoggedIn()" class="mdl-menu__item" (click)="onLogout($event)">Logout</li>
+      </ul>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Components List</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="" [routerLink]="['Login']" (click)="hideDrawer()">Login</a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content">
+    <div class="page-content">
+      <alfresco-login method="{{methodName}}"></alfresco-login>
+      <!--<router-outlet></router-outlet>-->
+      <auth-router-outlet></auth-router-outlet>
+    </div>
+  </main>
+</div>

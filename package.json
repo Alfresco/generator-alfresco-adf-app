@@ -1,0 +1,65 @@
+{
+  "name": "generator-ng2-alfresco-app",
+  "version": "0.0.01",
+  "description": "Yeoman generator generating angular 2 Alfresco App",
+  "homepage": "https://github.com/Alfresco/generator-ng2-alfresco-app",
+  "author": {
+    "name": "Eugenio Romano",
+    "email": "eugenio.romano@alfresco.com"
+  },
+  "files": [
+    "generators"
+  ],
+  "main": "generators/index.js",
+  "keywords": [
+    "ng2",
+    "angular2",
+    "component",
+    "generator",
+    "boilerplate",
+    "scaffolding",
+    "yeoman-generator",
+    "custom-component"
+  ],
+  "dependencies": {
+    "generator-license": "^3.0.0",
+    "github-username": "^2.0.0",
+    "inquirer-npm-name": "^1.0.0",
+    "lodash": "^4.6.1",
+    "mkdirp": "^0.5.1",
+    "yeoman-generator": "^0.22.0",
+    "yosay": "^1.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^2.1.0",
+    "eslint-config-xo-space": "^0.10.0",
+    "gulp": "^3.9.0",
+    "gulp-eslint": "^2.0.0",
+    "gulp-exclude-gitignore": "^1.0.0",
+    "gulp-line-ending-corrector": "^1.0.1",
+    "gulp-istanbul": "^0.10.3",
+    "gulp-mocha": "^2.0.0",
+    "gulp-plumber": "^1.0.0",
+    "gulp-nsp": "^2.1.0",
+    "gulp-coveralls": "^0.1.0",
+    "mocha": "^2.2.3",
+    "mockery": "^1.4.0",
+    "yeoman-assert": "^2.0.0",
+    "yeoman-test": "^1.0.0"
+  },
+  "eslintConfig": {
+    "extends": "xo-space",
+    "env": {
+      "mocha": true
+    }
+  },
+  "repository": "Alfresco/generator-ng2-alfresco-app",
+  "scripts": {
+    "prepublish": "gulp prepublish",
+    "test": "gulp"
+  },
+  "publishConfig": {
+    "registry": "http://devproducts.alfresco.me:4873/"
+  },
+  "license": "MIT"
+}

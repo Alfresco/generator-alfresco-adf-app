@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/">
+  <title><%= projectName %></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Material Design Lite -->
+  <link rel="stylesheet" href="node_modules/material-design-lite/material.min.css">
+  <script src="node_modules/material-design-lite/material.min.js"></script>
+  <link rel="stylesheet" href="node_modules/material-design-icons/iconfont/material-icons.css">
+
+  <!-- 1. Load libraries -->
+  <script src="node_modules/es6-shim/es6-shim.min.js"></script>
+  <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
+  <script src="node_modules/angular2/es6/dev/src/testing/shims_for_IE.js"></script>
+  <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+  <script src="node_modules/systemjs/dist/system.src.js"></script>
+  <script src="node_modules/rxjs/bundles/Rx.js"></script>
+  <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+  <script src="node_modules/angular2/bundles/router.dev.js"></script>
+  <script src="node_modules/angular2/bundles/http.dev.js"></script>
+
+  <script src="node_modules/alfresco-js-api/bundle.js"></script>
+
+  <!-- 2. Configure SystemJS -->
+  <script src="systemjs.config.js"></script>
+  <script>
+    System.import('app/main').catch(function(err){ console.error(err); });
+  </script>
+</head>
+<!-- 3. Display the application -->
+<body>
+<style>
+  #loader{
+    margin-top :25%;
+    margin-left :40%;
+    width:300px;
+  }
+  #loader-text{
+    width:300px;
+    white-space: nowrap;
+    text-align: center;
+    position: relative;
+  }
+</style>
+<my-app>
+  <div id="loader">
+    <div>
+      <div id="loader-spin"  class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+    </div>
+    <div id="loader-text">Loading Demo Shell..</div>
+  </div>
+</my-app>
+</body>
+</html>
