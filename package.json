@@ -1,6 +1,6 @@
 {
   "name": "generator-ng2-alfresco-app",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Yeoman generator generating angular 2 Alfresco App",
   "homepage": "https://github.com/Alfresco/generator-ng2-alfresco-app",
   "author": {
@@ -8,9 +8,9 @@
     "email": "eugenio.romano@alfresco.com"
   },
   "files": [
-    "generators"
+    "app"
   ],
-  "main": "generators/index.js",
+  "main": "app/index.js",
   "keywords": [
     "ng2",
     "angular2",
