@@ -27,12 +27,12 @@ module.exports = yeoman.Base.extend({
     var done = this.async();
 
     this.log(yosay(
-      'Welcome to the awesome angular 2 component generator!'
+      'Welcome to the awesome angular 2 App generator!'
     ));
 
     askName({
       name: 'projectName',
-      message: 'What\'s the name of your component?',
+      message: 'What\'s the name of your App?',
       default: makeComponentName(path.basename(process.cwd())),
       filter: makeComponentName,
       validate: function (str) {

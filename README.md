@@ -47,7 +47,7 @@ npm install -g generator-ng2-alfresco-app
 First, move in the folder where you want create your project.
 
 ```bash
-yo ng2-alfresco-component
+yo ng2-alfresco-app
 ```
 
 Which will generate the following project structure:
