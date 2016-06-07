@@ -53,6 +53,7 @@ describe('Alfresco component generator', function () {
         'index.html',
         '.gitignore',
         '.editorconfig',
+        'assets/material.orange-blue.min.css',
         'app/main.ts',
         'app/app.component.ts',
         'app/app.component.html',

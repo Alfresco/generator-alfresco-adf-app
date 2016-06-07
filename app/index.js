@@ -226,6 +226,11 @@ module.exports = yeoman.Base.extend({
       this.templatePath('app/components/router/_AuthRouterOutlet.ts'),
       this.destinationPath('app/components/router/AuthRouterOutlet.ts')
     );
+
+    this.fs.copy(
+      this.templatePath('assets/_material.orange-blue.min.css'),
+      this.destinationPath('assets/material.orange-blue.min.css')
+    );
   },
 
   install: function () {
