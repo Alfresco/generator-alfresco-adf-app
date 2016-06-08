@@ -29,14 +29,11 @@ module.exports = yeoman.Base.extend({
       'Welcome to the awesome angular 2 App generator!'
     ));
 
-
-    var done = this.async();
-
     var prompts = [{
       name: 'projectName',
       message: 'What\'s the name of your App?',
       default: makeAppName(path.basename(process.cwd())),
-      filter: makeAppName,
+      filter: makeAppName
     }];
 
     this.prompt(prompts, function (props) {
@@ -117,6 +114,11 @@ module.exports = yeoman.Base.extend({
 
   writing: function () {
     this.props.projectNameCamelCase = _.chain(this.props.projectName).camelCase().upperFirst();
+
+    this.fs.copy(
+      this.templatePath('_browser-sync-config.js'),
+      this.destinationPath('browser-sync-config.js')
+    );
 
     this.fs.copy(
       this.templatePath('_typings.json'),

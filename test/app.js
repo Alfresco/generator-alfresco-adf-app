@@ -46,6 +46,7 @@ describe('Alfresco component generator', function () {
 
     it('creates files', function () {
       var expected = [
+        'browser-sync-config.js',
         'typings.json',
         'tslint.json',
         'systemjs.config.js',

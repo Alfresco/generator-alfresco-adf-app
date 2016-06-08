@@ -52,7 +52,7 @@ yo ng2-alfresco-app
 
 Which will generate the following project structure:
 
-
+     ├──  browser-sync-config.js
      ├──  typings.json
      ├──  tslint.json
      ├──  systemjs.config.js
