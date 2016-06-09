@@ -112,6 +112,42 @@ module.exports = yeoman.Base.extend({
     }
   },
 
+  askForAlfrescoComponent: function () {
+    var done = this.async();
+
+    var prompts = [{
+      name: 'navigationBar',
+      message: 'Do you want include a navigation bar?',
+      type    : 'confirm',
+      default: true
+    }, {
+      name: 'drawer',
+      message: 'Do you want include a drawer bar?',
+      type    : 'confirm',
+      default: true
+    }, {
+      name: 'searchBar',
+      message: 'Do you want include a search bar?',
+      type    : 'confirm',
+      default: true
+    }, {
+      name: 'contentPage',
+      message: 'Do you want include a ECM Content Page?',
+      type    : 'confirm',
+      default: true
+    }, {
+      name: 'bpmTaskPage',
+      message: 'Do you want include a BPM Tasks Page?',
+      type    : 'confirm',
+      default: true
+    }];
+
+    this.prompt(prompts, function (props) {
+      this.props = _.extend(this.props, props);
+      done();
+    }.bind(this));
+  },
+
   writing: function () {
     this.props.projectNameCamelCase = _.chain(this.props.projectName).camelCase().upperFirst();
 
@@ -201,21 +237,35 @@ module.exports = yeoman.Base.extend({
   },
 
   writeApp: function () {
-    this.fs.copy(
+    this.fs.copyTpl(
       this.templatePath('app/_main.ts'),
-      this.destinationPath('app/main.ts')
+      this.destinationPath('app/main.ts'),
+      {
+        contentPage : this.props.contentPage
+      }
     );
 
-    this.fs.copy(
+    this.fs.copyTpl(
       this.templatePath('app/_app.component.ts'),
-      this.destinationPath('app/app.component.ts')
+      this.destinationPath('app/app.component.ts'),
+      {
+        projectName: this.props.projectName,
+        navigationBar: this.props.navigationBar,
+        drawerBar : this.props.drawer,
+        searchBar : this.props.searchBar,
+        contentPage : this.props.contentPage
+      }
     );
 
     this.fs.copyTpl(
       this.templatePath('app/_app.component.html'),
       this.destinationPath('app/app.component.html'),
       {
-        projectName: this.props.projectName
+        projectName: this.props.projectName,
+        navigationBar: this.props.navigationBar,
+        drawerBar : this.props.drawer,
+        searchBar : this.props.searchBar,
+        contentPage : this.props.contentPage
       }
     );
 
@@ -243,6 +293,31 @@ module.exports = yeoman.Base.extend({
       this.templatePath('app/fonts/_Muli-Regular.ttf'),
       this.destinationPath('app/fonts/Muli-Regular.ttf')
     );
+
+    if(this.props.searchBar){
+      this.fs.copy(
+        this.templatePath('app/components/search/_search.component.html'),
+        this.destinationPath('app/components/search/search.component.html')
+      );
+
+      this.fs.copy(
+        this.templatePath('app/components/search/_search.component.ts'),
+        this.destinationPath('app/components/search/search.component.ts')
+      );
+    }
+
+    if(this.props.contentPage){
+      this.fs.copy(
+        this.templatePath('app/components/files/_files.component.html'),
+        this.destinationPath('app/components/files/files.component.html')
+      );
+
+      this.fs.copy(
+        this.templatePath('app/components/files/_files.component.ts'),
+        this.destinationPath('app/components/files/files.component.ts')
+      );
+    }
+
   },
 
   install: function () {

@@ -7,10 +7,20 @@
       <!-- Add spacer, to align navigation to the right -->
       <div class="mdl-layout-spacer"></div>
 
+      <% if (searchBar == true) { %>
+      <!-- Search box -->
+      <alfresco-search-control *ngIf="isLoggedIn()" [searchTerm]="searchTerm"
+                               (searchChange)="searchTermChange($event);" [autocomplete]="false"></alfresco-search-control>
+      <% } %>
+
+      <% if (navigationBar == true) { %>
       <!-- Navigation. We hide it in small screens. -->
-      <nav class="mdl-navigation mdl-layout--large-screen-only">
+      <nav id="navigation-bar" class="mdl-navigation mdl-layout--large-screen-only">
+        <% if (contentPage == true) { %>{<a class="mdl-navigation__link" data-automation-id="files" href="" [routerLink]="['Files']">DocumentList</a>
+        <a class="mdl-navigation__link" data-automation-id="uploader" href="" [routerLink]="['Uploader']">Uploader</a><% } %>
         <a class="mdl-navigation__link" data-automation-id="login" href="" [routerLink]="['Login']">Login</a>
       </nav>
+      <% } %>
 
       <!-- Right aligned menu below button -->
       <button id="demo-menu-lower-right" data-automation-id="right-action-menu"
@@ -32,12 +42,16 @@
       </ul>
     </div>
   </header>
-  <div class="mdl-layout__drawer">
+
+  <% if (drawerBar == true) { %>
+  <div  id="drawer-bar" class="mdl-layout__drawer">
     <span class="mdl-layout-title">Components List</span>
     <nav class="mdl-navigation">
       <a class="mdl-navigation__link" href="" [routerLink]="['Login']" (click)="hideDrawer()">Login</a>
     </nav>
   </div>
+ <% } %>
+
   <main class="mdl-layout__content">
     <div class="page-content">
       <alfresco-login method="{{methodName}}"></alfresco-login>
