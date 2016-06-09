@@ -30,25 +30,22 @@ import { FilesComponent } from './components/files/files.component';<% } %>
 <% if (contentPage == true) { %>import { SearchComponent } from './components/search/search.component';
 import { ALFRESCO_SEARCH_DIRECTIVES } from 'ng2-alfresco-search/dist/ng2-alfresco-search';<% } %>
 import { LoginDemoComponent } from './components/login/login-demo.component';
-import { TasksDemoComponent } from './components/tasks/tasks-demo.component';
 
 declare var document: any;
 
 @Component({
   selector: 'alfresco-app',
   templateUrl: 'app/app.component.html',
-  styleUrls: ['app/app.component.css'],
   directives: [<% if (searchBar == true) { %>ALFRESCO_SEARCH_DIRECTIVES,<% } %> ROUTER_DIRECTIVES, AuthRouterOutlet, MDL],
   pipes: [AlfrescoPipeTranslate]
 })
 @RouteConfig([
   {path: '/', name: 'Login', component: LoginDemoComponent, useAsDefault: true},
-  {path: '/login', name: 'Login', component: LoginDemoComponent},
   <% if (contentPage == true) { %>{path: '/home', name: 'Home', component: FilesComponent},
   {path: '/files', name: 'Files', component: FilesComponent},
   {path: '/uploader', name: 'Uploader', component: UploadButtonComponent},<% } %>
   <% if (searchBar == true) { %>{path: '/search', name: 'Search', component: SearchComponent},<% } %>
-  {path: '/tasks', name: 'Tasks', component: TasksDemoComponent}
+  {path: '/login', name: 'Login', component: LoginDemoComponent}
 ])
 export class AppComponent {
   translate: AlfrescoTranslationService;
