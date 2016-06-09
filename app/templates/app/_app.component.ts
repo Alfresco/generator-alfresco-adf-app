@@ -11,7 +11,7 @@ import { LoginDemoComponent } from './components/login/login-demo.component';
 declare var document: any;
 
 @Component({
-  selector: 'my-app',
+  selector: 'alfresco-app',
   templateUrl: 'app/app.component.html',
   directives: [ROUTER_DIRECTIVES, AuthRouterOutlet, MDL]
 })
