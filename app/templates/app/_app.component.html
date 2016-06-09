@@ -16,7 +16,7 @@
       <% if (navigationBar == true) { %>
       <!-- Navigation. We hide it in small screens. -->
       <nav id="navigation-bar" class="mdl-navigation mdl-layout--large-screen-only">
-        <% if (contentPage == true) { %>{<a class="mdl-navigation__link" data-automation-id="files" href="" [routerLink]="['Files']">DocumentList</a>
+        <% if (contentPage == true) { %><a class="mdl-navigation__link" data-automation-id="files" href="" [routerLink]="['Files']">DocumentList</a>
         <a class="mdl-navigation__link" data-automation-id="uploader" href="" [routerLink]="['Uploader']">Uploader</a><% } %>
         <a class="mdl-navigation__link" data-automation-id="login" href="" [routerLink]="['Login']">Login</a>
       </nav>
@@ -30,16 +30,14 @@
 
       <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
           for="demo-menu-lower-right">
-        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
-            for="demo-menu-lower-right">
-          <li class="mdl-menu__item " (click)="changeLanguage('en')"><span class="flag-icon flag-icon-gb"></span> English</li>
-          <li class="mdl-menu__item" (click)="changeLanguage('gr')"><span class="flag-icon flag-icon-gr"></span> Greek</li>
-          <li class="mdl-menu__item" (click)="changeLanguage('it')"><span class="flag-icon flag-icon-it"></span> Italian</li>
-          <li *ngIf="!isLoggedIn()" class="mdl-menu__item" >More</li>
-          <li *ngIf="!isLoggedIn()" class="mdl-menu__item" [routerLink]="['Login']">Login</li>
-          <li *ngIf="isLoggedIn()" class="mdl-menu__item" (click)="onLogout($event)">Logout</li>
-        </ul>
+        <li class="mdl-menu__item " (click)="changeLanguage('en')"><span class="flag-icon flag-icon-gb"></span> English</li>
+        <li class="mdl-menu__item" (click)="changeLanguage('gr')"><span class="flag-icon flag-icon-gr"></span> Greek</li>
+        <li class="mdl-menu__item" (click)="changeLanguage('it')"><span class="flag-icon flag-icon-it"></span> Italian</li>
+        <li *ngIf="!isLoggedIn()" class="mdl-menu__item" >More</li>
+        <li *ngIf="!isLoggedIn()" class="mdl-menu__item" [routerLink]="['Login']">Login</li>
+        <li *ngIf="isLoggedIn()" class="mdl-menu__item" (click)="onLogout($event)">Logout</li>
       </ul>
+
     </div>
   </header>
 

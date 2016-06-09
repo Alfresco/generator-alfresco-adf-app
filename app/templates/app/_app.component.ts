@@ -25,9 +25,9 @@ import {
   AlfrescoPipeTranslate,
   AlfrescoAuthenticationService
 } from 'ng2-alfresco-core/dist/ng2-alfresco-core';
-<% if (searchBar == true) { %>import { UploadButtonComponent } from 'ng2-alfresco-upload/dist/ng2-alfresco-upload';
+<% if (contentPage == true) { %>import { UploadButtonComponent } from 'ng2-alfresco-upload/dist/ng2-alfresco-upload';
 import { FilesComponent } from './components/files/files.component';<% } %>
-<% if (contentPage == true) { %>import { SearchComponent } from './components/search/search.component';
+<% if (searchBar == true) { %>import { SearchComponent } from './components/search/search.component';
 import { ALFRESCO_SEARCH_DIRECTIVES } from 'ng2-alfresco-search/dist/ng2-alfresco-search';<% } %>
 import { LoginDemoComponent } from './components/login/login-demo.component';
 
