@@ -55,6 +55,8 @@ describe('Alfresco component generator', function () {
         '.gitignore',
         '.editorconfig',
         'assets/material.orange-blue.min.css',
+        'app/css/muli-font.css',
+        'app/fonts/Muli-Regular.ttf',
         'app/main.ts',
         'app/app.component.ts',
         'app/app.component.html',

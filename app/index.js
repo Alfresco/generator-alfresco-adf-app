@@ -233,6 +233,16 @@ module.exports = yeoman.Base.extend({
       this.templatePath('assets/_material.orange-blue.min.css'),
       this.destinationPath('assets/material.orange-blue.min.css')
     );
+
+    this.fs.copy(
+      this.templatePath('app/css/_muli-font.css'),
+      this.destinationPath('app/css/muli-font.css')
+    );
+
+    this.fs.copy(
+      this.templatePath('app/fonts/_Muli-Regular.ttf'),
+      this.destinationPath('app/fonts/Muli-Regular.ttf')
+    );
   },
 
   install: function () {

@@ -4,7 +4,7 @@
 }
 
 html, body {
-    font-family: "Helvetica", "Arial", sans-serif !important;
+    font-family: 'Muli', "Helvetica", "Arial", sans-serif !important;
 }
 
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
@@ -18,7 +18,6 @@ h1, h2 {
 h3, h4 {
     font-family: 'Muli', "Helvetica", "Arial", sans-serif !important;
 }
-
 
 h5, h6 {
     font-family: 'Muli', "Helvetica", "Arial", sans-serif !important;
