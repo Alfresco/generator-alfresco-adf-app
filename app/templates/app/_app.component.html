@@ -19,6 +19,7 @@
         <% if (contentPage == true) { %><a class="mdl-navigation__link" data-automation-id="files" href="" [routerLink]="['Files']">Document library</a>
         <a class="mdl-navigation__link" data-automation-id="uploader" href="" [routerLink]="['Uploader']">Uploader</a><% } %>
         <% if (bpmTaskPage == true) { %><a class="mdl-navigation__link" data-automation-id="tasks" href="" [routerLink]="['Tasks']">Tasks</a><% } %>
+        <% if (chartPage == true) { %><a class="mdl-navigation__link" data-automation-id="tasks" href="" [routerLink]="['Chart']">Chart</a><% } %>
       </nav>
       <% } %>
 
@@ -48,6 +49,7 @@
       <% if (contentPage == true) { %> <a class="mdl-navigation__link" href="" [routerLink]="['Files']" (click)="hideDrawer()">Document library</a>
       <a class="mdl-navigation__link" href="" [routerLink]="['Uploader']" (click)="hideDrawer()">Uploader</a><% } %>
       <% if (bpmTaskPage == true) { %><a class="mdl-navigation__link" href="" [routerLink]="['Tasks']" (click)="hideDrawer()">Tasks</a><% } %>
+      <% if (chartPage == true) { %><a class="mdl-navigation__link" href="" [routerLink]="['Chart']" (click)="hideDrawer()">Chart</a><% } %>
     </nav>
   </div>
  <% } %>

@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Google Material Design Lite -->
   <link rel="stylesheet" href="./assets/material.orange-blue.min.css">
+
+  <link href="app/css/app.css" rel="stylesheet">
   <link href="app/css/muli-font.css" rel="stylesheet">
 
   <script src="node_modules/material-design-lite/material.min.js"></script>
@@ -24,6 +26,12 @@
   <script src="node_modules/angular2/bundles/http.dev.js"></script>
 
   <script src="node_modules/alfresco-js-api/bundle.js"></script>
+
+  <% if (contentPage == true) { %><script src="node_modules/pdfjs-dist/build/pdf.js"></script>
+  <script src="node_modules/pdfjs-dist/build/pdf.worker.js"></script>
+  <script src="node_modules/pdfjs-dist/web/pdf_viewer.js"></script><% } %>
+  <% if (chartPage == true) { %><script src="./assets/Chart.min.js"></script><% } %>
+
 
   <!-- 2. Configure SystemJS -->
   <script src="systemjs.config.js"></script>

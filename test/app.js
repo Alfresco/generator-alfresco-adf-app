@@ -40,6 +40,7 @@ describe('Alfresco component generator', function () {
           searchBar: true,
           contentPage: true,
           bpmTaskPage: true,
+          chartPage: true,
           license: 'MIT'
         })
         .withOptions({'skip-install': true})
@@ -61,11 +62,15 @@ describe('Alfresco component generator', function () {
         '.gitignore',
         '.editorconfig',
         'assets/material.orange-blue.min.css',
+        'assets/Chart.min.js',
         'app/css/muli-font.css',
+        'app/css/app.css',
         'app/fonts/Muli-Regular.ttf',
         'app/main.ts',
         'app/app.component.ts',
         'app/app.component.html',
+        'app/components/chart/chart.component.ts',
+        'app/components/chart/chart.component.html',
         'app/components/tasks/tasks-demo.component.ts',
         'app/components/tasks/activiti.service.ts',
         'app/components/files/files.component.html',
@@ -99,23 +104,23 @@ describe('Alfresco component generator', function () {
       assert.fileContent('package.json', '"app-keyword"');
     });
 
-    it('fill the index.html with the search bar', function () {
+    it('fill the app.component.html with the search bar', function () {
       assert.fileContent('app/app.component.html', 'alfresco-search-control');
     });
 
-    it('fill the index.html with the navigation bar', function () {
+    it('fill the app.component.html with the navigation bar', function () {
       assert.fileContent('app/app.component.html', 'id="navigation-bar"');
     });
 
-    it('fill the index.html with the navigation bar', function () {
+    it('fill the app.component.html with the navigation bar', function () {
       assert.fileContent('app/app.component.html', 'id="drawer-bar"');
     });
 
-    it('fill the index.html with the search bar', function () {
+    it('fill the app.component.ts with the search bar', function () {
       assert.fileContent('app/app.component.ts', 'SearchComponent');
     });
 
-    it('sill the app.component with the files component', function () {
+    it('sill the app.component.ts with the files component', function () {
       assert.fileContent('app/app.component.ts', 'FilesComponent');
       assert.fileContent('app/app.component.ts', '\'http://servertTest:8080/share\'');
     });
@@ -132,6 +137,16 @@ describe('Alfresco component generator', function () {
     it('fill the app.component with the TasksDemoComponent', function () {
       assert.fileContent('app/app.component.ts', '/components/tasks/tasks-demo.component');
       assert.fileContent('app/app.component.ts', 'component: TasksDemoComponent');
+    });
+
+    it('fill the index.html with chart library', function () {
+      assert.fileContent('index.html', 'Chart.min.js');
+    });
+
+    it('fill the index.html with pdf library', function () {
+      assert.fileContent('index.html', 'pdf.js');
+      assert.fileContent('index.html', 'pdf.worker.js');
+      assert.fileContent('index.html', 'pdf_viewer.js');
     });
 
   });
@@ -154,6 +169,7 @@ describe('Alfresco component generator', function () {
           searchBar: false,
           contentPage: false,
           bpmTaskPage: false,
+          chartPage: false,
           license: 'MIT'
         })
         .withOptions({'skip-install': true})
@@ -167,43 +183,61 @@ describe('Alfresco component generator', function () {
         'app/components/files/files.component.html',
         'app/components/files/files.component.ts',
         'app/components/tasks/tasks-demo.component.ts',
-        'app/components/tasks/activiti.service.ts'
+        'app/components/tasks/activiti.service.ts',
+        'app/components/chart/chart.component.ts',
+        'app/components/chart/chart.component.html',
+        'app/assets/Chart.min.js'
       ];
       assert.noFile(expected);
     });
 
-    it('not fill the index.html with the search bar', function () {
+    it('not fill the app.component.html with the search bar', function () {
       assert.noFileContent('app/app.component.html', 'alfresco-search-control');
     });
 
-    it('notfill the index.html with the navigation bar', function () {
+    it('notfill the app.component.html with the navigation bar', function () {
       assert.noFileContent('app/app.component.html', 'id="navigation-bar"');
     });
 
-    it('not fill the app.component with the navigation bar', function () {
+    it('not fill the app.component.html with the navigation bar', function () {
       assert.noFileContent('app/app.component.html', 'id="drawer-bar"');
     });
 
-    it('not fill the app.component with the search bar', function () {
+    it('not fill the app.component.ts with the search bar', function () {
       assert.noFileContent('app/app.component.ts', 'SearchComponent');
     });
 
-    it('not fill the app.component with the files component', function () {
+    it('not fill the app.component.ts with the files component', function () {
       assert.noFileContent('app/app.component.ts', 'FilesComponent');
     });
 
-    it('not fill the app.component with the UploadButtonComponent', function () {
+    it('not fill the app.component.ts with the UploadButtonComponent', function () {
       assert.noFileContent('app/app.component.ts', 'UploadButtonComponent');
     });
 
-    it('not fill the app.component with the UploadService', function () {
+    it('not fill the app.main.ts with the UploadService', function () {
       assert.noFileContent('app/main.ts', 'UploadService');
       assert.noFileContent('app/main.ts', 'ng2-alfresco-upload/dist/ng2-alfresco-upload');
     });
 
-    it('not fill the app.component with the TasksDemoComponent', function () {
+    it('not fill the app.component.ts with the TasksDemoComponent', function () {
       assert.noFileContent('app/app.component.ts', '/components/tasks/tasks-demo.component');
       assert.noFileContent('app/app.component.ts', 'component: TasksDemoComponent');
+    });
+
+    it('not fill the app.component.ts with the ChartComponent', function () {
+      assert.noFileContent('app/app.component.ts', '/components/chart/chart.component');
+      assert.noFileContent('app/app.component.ts', 'component: ChartComponent');
+    });
+
+    it('not fill the index.html with chart library', function () {
+      assert.noFileContent('index.html', 'Chart.min.js');
+    });
+
+    it('not fill the index.html with pdf library', function () {
+      assert.noFileContent('index.html', 'psf.js');
+      assert.noFileContent('index.html', 'pdf.worker..js');
+      assert.noFileContent('index.html', 'pdf_viewer.js');
     });
   });
 

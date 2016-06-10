@@ -27,6 +27,7 @@
     'ng2-alfresco-upload': 'node_modules/ng2-alfresco-upload',
     'ng2-alfresco-viewer': 'node_modules/ng2-alfresco-viewer',
     'rxjs': 'node_modules/rxjs',
+    'ng2-charts': 'node_modules/ng2-charts',
     'ng2-translate': 'node_modules/ng2-translate'
   };
 
@@ -36,6 +37,7 @@
       format: 'register',
       defaultExtension: 'js'
     },
+    'ng2-charts' : {defaultExtension: 'js'},
     'ng2-alfresco-core': {defaultExtension: 'js'},
     'ng2-alfresco-datatable': {defaultExtension: 'js'},
     'ng2-alfresco-documentlist': {defaultExtension: 'js'},

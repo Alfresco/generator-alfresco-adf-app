@@ -31,6 +31,7 @@ import { FilesComponent } from './components/files/files.component';<% } %>
 import { ALFRESCO_SEARCH_DIRECTIVES } from 'ng2-alfresco-search/dist/ng2-alfresco-search';<% } %>
 import { LoginDemoComponent } from './components/login/login-demo.component';
 <% if (bpmTaskPage == true) { %>import { TasksDemoComponent } from './components/tasks/tasks-demo.component';<% } %>
+<% if (chartPage == true) { %>import { ChartComponent } from './components/chart/chart.component';<% } %>
 
 declare var document: any;
 
@@ -47,6 +48,7 @@ declare var document: any;
   {path: '/uploader', name: 'Uploader', component: UploadButtonComponent},<% } %>
   <% if (searchBar == true) { %>{path: '/search', name: 'Search', component: SearchComponent},<% } %>
   <% if (bpmTaskPage == true) { %>{path: '/tasks', name: 'Tasks', component: TasksDemoComponent},<% } %>
+  <% if (chartPage == true) { %>{path: '/chart', name: 'Chart', component: ChartComponent},<% } %>
   {path: '/login', name: 'Login', component: LoginDemoComponent}
 ])
 export class AppComponent {

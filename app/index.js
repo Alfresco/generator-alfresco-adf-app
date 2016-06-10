@@ -137,12 +137,17 @@ module.exports = yeoman.Base.extend({
       default: true
     }, {
       name: 'contentPage',
-      message: 'Do you want include a ECM Content Page?',
+      message: 'Do you want include a Document List?',
       type: 'confirm',
       default: true
     }, {
       name: 'bpmTaskPage',
-      message: 'Do you want include a BPM Tasks Page?',
+      message: 'Do you want include a Tasks List?',
+      type: 'confirm',
+      default: true
+    }, {
+      name: 'chartPage',
+      message: 'Do you want include a sample dashboard?',
       type: 'confirm',
       default: true
     }];
@@ -195,7 +200,9 @@ module.exports = yeoman.Base.extend({
       this.templatePath('_index.html'),
       this.destinationPath('index.html'),
       {
-        projectName: this.props.projectName
+        projectName: this.props.projectName,
+        contentPage: this.props.contentPage,
+        chartPage: this.props.chartPage
       }
     );
 
@@ -260,6 +267,7 @@ module.exports = yeoman.Base.extend({
         searchBar: this.props.searchBar,
         contentPage: this.props.contentPage,
         bpmTaskPage: this.props.bpmTaskPage,
+        chartPage: this.props.chartPage,
         alfrescoServerHost: this.props.alfrescoServerHost
       }
     );
@@ -273,7 +281,8 @@ module.exports = yeoman.Base.extend({
         drawerBar: this.props.drawer,
         searchBar: this.props.searchBar,
         contentPage: this.props.contentPage,
-        bpmTaskPage: this.props.bpmTaskPage
+        bpmTaskPage: this.props.bpmTaskPage,
+        chartPage: this.props.chartPage
       }
     );
 
@@ -295,6 +304,11 @@ module.exports = yeoman.Base.extend({
     this.fs.copy(
       this.templatePath('app/css/_muli-font.css'),
       this.destinationPath('app/css/muli-font.css')
+    );
+
+    this.fs.copy(
+      this.templatePath('app/css/_app.css'),
+      this.destinationPath('app/css/app.css')
     );
 
     this.fs.copy(
@@ -348,6 +362,22 @@ module.exports = yeoman.Base.extend({
       );
     }
 
+    if (this.props.chartPage) {
+      this.fs.copy(
+        this.templatePath('app/components/chart/_chart.component.ts'),
+        this.destinationPath('app/components/chart/chart.component.ts')
+      );
+
+      this.fs.copy(
+        this.templatePath('app/components/chart/_chart.component.html'),
+        this.destinationPath('app/components/chart/chart.component.html')
+      );
+
+      this.fs.copy(
+        this.templatePath('assets/_Chart.min.js'),
+        this.destinationPath('assets/Chart.min.js')
+      );
+    }
   },
 
   install: function () {
