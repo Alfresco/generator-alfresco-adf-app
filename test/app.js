@@ -70,6 +70,9 @@ describe('Alfresco component generator', function () {
         'app/components/search/search.component.html',
         'app/components/search/search.component.ts',
         'app/components/login/login-demo.component.ts',
+        'app/components/router/AuthRouterOutlet.ts',
+        'i18n/en.json',
+        'i18n/it.json',
         'app/components/router/AuthRouterOutlet.ts'
       ];
       assert.file(expected);

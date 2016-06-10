@@ -294,6 +294,16 @@ module.exports = yeoman.Base.extend({
       this.destinationPath('app/fonts/Muli-Regular.ttf')
     );
 
+    this.fs.copy(
+      this.templatePath('i18n/_en.json'),
+      this.destinationPath('i18n/en.json')
+    );
+
+    this.fs.copy(
+      this.templatePath('i18n/_it.json'),
+      this.destinationPath('i18n/it.json')
+    );
+
     if(this.props.searchBar){
       this.fs.copy(
         this.templatePath('app/components/search/_search.component.html'),

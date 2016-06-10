@@ -3,11 +3,8 @@
   <img title="yeoman generator" src='https://github.com/yeoman/media/blob/master/optimized/yeoman-150x150-opaque.png' alt='yeoman logo'  />
 </p>
 <p align="center">
-  <a title='Build Status' href="https://travis-ci.org/Alfresco/generator-ng2-alfresco-app">
-    <img src='https://travis-ci.org/Alfresco/generator-ng2-alfresco-app.svg?branch=master' alt='Build Status'  />
-  </a>
-  <a href='https://coveralls.io/r/Alfresco/generator-ng2-alfresco-app'>
-    <img src='https://img.shields.io/coveralls/Alfresco/generator-ng2-alfresco-app.svg' alt='Coverage Status' />
+  <a title='Build Status' href="https://travis-ci.com/Alfresco/generator-ng2-alfresco-app">
+    <img src='https://travis-ci.com/Alfresco/generator-ng2-alfresco-app.svg?token=FPzV2wyyCU8imY6wHR2B&branch=master' alt='Build Status'  />
   </a>
   <a href='https://github.com/Alfresco/generator-ng2-alfresco-app/blob/master/LICENSE'>
     <img src='https://img.shields.io/badge/license-MIT-blue.svg' alt='license' />
@@ -66,7 +63,8 @@ Which will generate the following project structure:
      ├──  app/main.ts
      ├──  app/app.component.ts
      ├──  app/app.component.html
-     ├──  app/components/router/_AuthRouterOutlet.ts
+     ├──  app/components/router/_AuthRouterOutlet.ts   
+     ├──  app/components/*[Any Component selected in the generator]* 
      └──  app/components/login/login-demo.component.ts
 
 And run `npm install` for you to fetch all dependencies.
