@@ -42,7 +42,7 @@ export class TasksDemoComponent implements OnInit {
 
     ngOnInit() {
         this.activitiService
-            .login('denys.vuika@alfresco.com', 'test')
+          .login('john.sotiropoulos@acme.com', 'admin')
             .then(() => {
                 this.activitiService
                     .getTasks()

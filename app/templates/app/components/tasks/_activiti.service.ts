@@ -46,8 +46,8 @@ export class ActivitiService {
     getTasks() {
         // emulate filter value
         let data = JSON.stringify({
-            'page': 0,
-            'filterId': 3,
+          'page': 0,
+            'filterId': 4008,
             'filter': {
                 'sort': 'created-desc',
                 'name': '',
