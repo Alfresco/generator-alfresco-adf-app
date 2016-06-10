@@ -34,11 +34,12 @@ describe('Alfresco component generator', function () {
           authorEmail: 'Sonikku.Hejjihoggu@alfresco.com',
           authorUrl: 'http://Hejjihoggu.io',
           keywords: ['app-keyword', 'angular2-keyword'],
+          alfrescoServerHost: 'http://servertTest:8080/share',
           navigationBar: true,
-          drawerBar : true,
-          searchBar : true,
-          contentPage : true,
-          bpmTaskPage : true,
+          drawerBar: true,
+          searchBar: true,
+          contentPage: true,
+          bpmTaskPage: true,
           license: 'MIT'
         })
         .withOptions({'skip-install': true})
@@ -65,6 +66,8 @@ describe('Alfresco component generator', function () {
         'app/main.ts',
         'app/app.component.ts',
         'app/app.component.html',
+        'app/components/tasks/tasks-demo.component.ts',
+        'app/components/tasks/activiti.service.ts',
         'app/components/files/files.component.html',
         'app/components/files/files.component.ts',
         'app/components/search/search.component.html',
@@ -114,6 +117,7 @@ describe('Alfresco component generator', function () {
 
     it('sill the app.component with the files component', function () {
       assert.fileContent('app/app.component.ts', 'FilesComponent');
+      assert.fileContent('app/app.component.ts', '\'http://servertTest:8080/share\'');
     });
 
     it('fill the app.component with the UploadButtonComponent', function () {
@@ -123,6 +127,11 @@ describe('Alfresco component generator', function () {
     it('fill the app.component with the UploadService', function () {
       assert.fileContent('app/main.ts', 'UploadService');
       assert.fileContent('app/main.ts', 'ng2-alfresco-upload/dist/ng2-alfresco-upload');
+    });
+
+    it('fill the app.component with the TasksDemoComponent', function () {
+      assert.fileContent('app/app.component.ts', '/components/tasks/tasks-demo.component');
+      assert.fileContent('app/app.component.ts', 'component: TasksDemoComponent');
     });
 
   });
@@ -139,11 +148,12 @@ describe('Alfresco component generator', function () {
           authorEmail: 'Sonikku.Hejjihoggu@alfresco.com',
           authorUrl: 'http://Hejjihoggu.io',
           keywords: ['app-keyword', 'angular2-keyword'],
+          alfrescoServerHost: 'http://servertTest:8080/share',
           navigationBar: false,
-          drawer : false,
-          searchBar : false,
-          contentPage : false,
-          bpmTaskPage : false,
+          drawer: false,
+          searchBar: false,
+          contentPage: false,
+          bpmTaskPage: false,
           license: 'MIT'
         })
         .withOptions({'skip-install': true})
@@ -155,7 +165,9 @@ describe('Alfresco component generator', function () {
         'app/components/search/search.component.html',
         'app/components/search/search.component.ts',
         'app/components/files/files.component.html',
-        'app/components/files/files.component.ts'
+        'app/components/files/files.component.ts',
+        'app/components/tasks/tasks-demo.component.ts',
+        'app/components/tasks/activiti.service.ts'
       ];
       assert.noFile(expected);
     });
@@ -189,6 +201,10 @@ describe('Alfresco component generator', function () {
       assert.noFileContent('app/main.ts', 'ng2-alfresco-upload/dist/ng2-alfresco-upload');
     });
 
+    it('not fill the app.component with the TasksDemoComponent', function () {
+      assert.noFileContent('app/app.component.ts', '/components/tasks/tasks-demo.component');
+      assert.noFileContent('app/app.component.ts', 'component: TasksDemoComponent');
+    });
   });
 
 });

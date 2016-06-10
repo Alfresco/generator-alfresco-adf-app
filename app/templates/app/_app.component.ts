@@ -30,6 +30,7 @@ import { FilesComponent } from './components/files/files.component';<% } %>
 <% if (searchBar == true) { %>import { SearchComponent } from './components/search/search.component';
 import { ALFRESCO_SEARCH_DIRECTIVES } from 'ng2-alfresco-search/dist/ng2-alfresco-search';<% } %>
 import { LoginDemoComponent } from './components/login/login-demo.component';
+<% if (bpmTaskPage == true) { %>import { TasksDemoComponent } from './components/tasks/tasks-demo.component';<% } %>
 
 declare var document: any;
 
@@ -45,6 +46,7 @@ declare var document: any;
   {path: '/files', name: 'Files', component: FilesComponent},
   {path: '/uploader', name: 'Uploader', component: UploadButtonComponent},<% } %>
   <% if (searchBar == true) { %>{path: '/search', name: 'Search', component: SearchComponent},<% } %>
+  <% if (bpmTaskPage == true) { %>{path: '/tasks', name: 'Tasks', component: TasksDemoComponent},<% } %>
   {path: '/login', name: 'Login', component: LoginDemoComponent}
 ])
 export class AppComponent {
@@ -55,7 +57,7 @@ export class AppComponent {
               public router: Router,
               translate: AlfrescoTranslationService,
               alfrescoSettingsService: AlfrescoSettingsService) {
-    alfrescoSettingsService.host = 'http://192.168.99.100:8080';
+    alfrescoSettingsService.host = '<%= alfrescoServerHost %>';
 
     this.translate = translate;
     this.translate.addTranslationFolder();

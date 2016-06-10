@@ -18,6 +18,7 @@
       <nav id="navigation-bar" class="mdl-navigation mdl-layout--large-screen-only">
         <% if (contentPage == true) { %><a class="mdl-navigation__link" data-automation-id="files" href="" [routerLink]="['Files']">DocumentList</a>
         <a class="mdl-navigation__link" data-automation-id="uploader" href="" [routerLink]="['Uploader']">Uploader</a><% } %>
+        <% if (bpmTaskPage == true) { %><a class="mdl-navigation__link" data-automation-id="tasks" href="" [routerLink]="['Tasks']">Tasks</a><% } %>
         <a class="mdl-navigation__link" data-automation-id="login" href="" [routerLink]="['Login']">Login</a>
       </nav>
       <% } %>
@@ -45,7 +46,10 @@
   <div  id="drawer-bar" class="mdl-layout__drawer">
     <span class="mdl-layout-title">Components List</span>
     <nav class="mdl-navigation">
+      <% if (contentPage == true) { %> <a class="mdl-navigation__link" href="" [routerLink]="['Files']" (click)="hideDrawer()">DocumentList</a>
+      <a class="mdl-navigation__link" href="" [routerLink]="['Uploader']" (click)="hideDrawer()">Uploader</a><% } %>
       <a class="mdl-navigation__link" href="" [routerLink]="['Login']" (click)="hideDrawer()">Login</a>
+      <% if (bpmTaskPage == true) { %><a class="mdl-navigation__link" href="" [routerLink]="['Tasks']" (click)="hideDrawer()">Tasks</a><% } %>
     </nav>
   </div>
  <% } %>

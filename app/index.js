@@ -79,6 +79,11 @@ module.exports = yeoman.Base.extend({
       filter: function (words) {
         return words.split(/\s*,\s*/g);
       }
+    }, {
+      name: 'alfrescoServerHost',
+      message: 'Which is your Alfresco share server URL?',
+      default: 'http://192.168.99.100:8080',
+      store: true
     }];
 
     this.prompt(prompts, function (props) {
@@ -118,27 +123,27 @@ module.exports = yeoman.Base.extend({
     var prompts = [{
       name: 'navigationBar',
       message: 'Do you want include a navigation bar?',
-      type    : 'confirm',
+      type: 'confirm',
       default: true
     }, {
       name: 'drawer',
       message: 'Do you want include a drawer bar?',
-      type    : 'confirm',
+      type: 'confirm',
       default: true
     }, {
       name: 'searchBar',
       message: 'Do you want include a search bar?',
-      type    : 'confirm',
+      type: 'confirm',
       default: true
     }, {
       name: 'contentPage',
       message: 'Do you want include a ECM Content Page?',
-      type    : 'confirm',
+      type: 'confirm',
       default: true
     }, {
       name: 'bpmTaskPage',
       message: 'Do you want include a BPM Tasks Page?',
-      type    : 'confirm',
+      type: 'confirm',
       default: true
     }];
 
@@ -241,7 +246,7 @@ module.exports = yeoman.Base.extend({
       this.templatePath('app/_main.ts'),
       this.destinationPath('app/main.ts'),
       {
-        contentPage : this.props.contentPage
+        contentPage: this.props.contentPage
       }
     );
 
@@ -251,9 +256,11 @@ module.exports = yeoman.Base.extend({
       {
         projectName: this.props.projectName,
         navigationBar: this.props.navigationBar,
-        drawerBar : this.props.drawer,
-        searchBar : this.props.searchBar,
-        contentPage : this.props.contentPage
+        drawerBar: this.props.drawer,
+        searchBar: this.props.searchBar,
+        contentPage: this.props.contentPage,
+        bpmTaskPage: this.props.bpmTaskPage,
+        alfrescoServerHost: this.props.alfrescoServerHost
       }
     );
 
@@ -263,9 +270,10 @@ module.exports = yeoman.Base.extend({
       {
         projectName: this.props.projectName,
         navigationBar: this.props.navigationBar,
-        drawerBar : this.props.drawer,
-        searchBar : this.props.searchBar,
-        contentPage : this.props.contentPage
+        drawerBar: this.props.drawer,
+        searchBar: this.props.searchBar,
+        contentPage: this.props.contentPage,
+        bpmTaskPage: this.props.bpmTaskPage
       }
     );
 
@@ -304,7 +312,7 @@ module.exports = yeoman.Base.extend({
       this.destinationPath('i18n/it.json')
     );
 
-    if(this.props.searchBar){
+    if (this.props.searchBar) {
       this.fs.copy(
         this.templatePath('app/components/search/_search.component.html'),
         this.destinationPath('app/components/search/search.component.html')
@@ -316,7 +324,7 @@ module.exports = yeoman.Base.extend({
       );
     }
 
-    if(this.props.contentPage){
+    if (this.props.contentPage) {
       this.fs.copy(
         this.templatePath('app/components/files/_files.component.html'),
         this.destinationPath('app/components/files/files.component.html')
@@ -325,6 +333,18 @@ module.exports = yeoman.Base.extend({
       this.fs.copy(
         this.templatePath('app/components/files/_files.component.ts'),
         this.destinationPath('app/components/files/files.component.ts')
+      );
+    }
+
+    if (this.props.bpmTaskPage) {
+      this.fs.copy(
+        this.templatePath('app/components/tasks/_tasks-demo.component.ts'),
+        this.destinationPath('app/components/tasks/tasks-demo.component.ts')
+      );
+
+      this.fs.copy(
+        this.templatePath('app/components/tasks/_activiti.service.ts'),
+        this.destinationPath('app/components/tasks/activiti.service.ts')
       );
     }
 

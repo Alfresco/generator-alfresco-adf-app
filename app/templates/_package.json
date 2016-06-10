@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "author": "<%= authorName %>",
   "scripts": {
+    "postinstall" : "typings install && npm run tsc",
     "start": "npm run tslint && typings install && concurrently \"npm run tsc:w\" \"npm run serve\" ",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
