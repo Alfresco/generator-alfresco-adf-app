@@ -15,16 +15,16 @@
  * limitations under the License.
  */
 
-import { Component } from 'angular2/core';
-import { ALFRESCO_SEARCH_DIRECTIVES } from 'ng2-alfresco-search/dist/ng2-alfresco-search';
+import { Component } from '@angular/core';
+import { ALFRESCO_SEARCH_DIRECTIVES } from 'ng2-alfresco-search';
 
 declare let __moduleName: string;
 
 @Component({
-    moduleId: __moduleName,
-    selector: 'search-component',
-    templateUrl: './search.component.html',
-    styles: [`
+  moduleId: __moduleName,
+  selector: 'search-component',
+  templateUrl: './search.component.html',
+  styles: [`
         :host div {
             padding: 0 20px;
         }
@@ -32,10 +32,10 @@ declare let __moduleName: string;
             font-size: 22px;
         }
     `],
-    directives: [ ALFRESCO_SEARCH_DIRECTIVES ]
+  directives: [ ALFRESCO_SEARCH_DIRECTIVES ]
 })
 export class SearchComponent {
-    constructor() {
-        console.log('SearchComponent constructor');
-    }
+  constructor() {
+    console.log('SearchComponent constructor');
+  }
 }

@@ -15,60 +15,60 @@
  * limitations under the License.
  */
 
-import { Component, OnInit } from 'angular2/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivitiService } from './activiti.service';
 import {
-    ALFRESCO_DATATABLE_DIRECTIVES,
-    ObjectDataTableAdapter
-} from 'ng2-alfresco-datatable/dist/ng2-alfresco-datatable';
+  ALFRESCO_DATATABLE_DIRECTIVES,
+  ObjectDataTableAdapter
+} from 'ng2-alfresco-datatable';
 
 @Component({
-    selector: 'tasks-demo',
-    template: `
+  selector: 'tasks-demo',
+  template: `
         <div class="container">
             <alfresco-datatable [data]="tasks"></alfresco-datatable>
         </div>
     `,
-    directives: [ALFRESCO_DATATABLE_DIRECTIVES],
-    providers: [ActivitiService],
-    styles: [':host > .container { padding: 10px; }']
+  directives: [ALFRESCO_DATATABLE_DIRECTIVES],
+  providers: [ActivitiService],
+  styles: [':host > .container { padding: 10px; }']
 })
 export class TasksDemoComponent implements OnInit {
 
-    tasks: ObjectDataTableAdapter;
+  tasks: ObjectDataTableAdapter;
 
-    constructor(
-        private activitiService: ActivitiService) {}
+  constructor(
+    private activitiService: ActivitiService) {}
 
-    ngOnInit() {
+  ngOnInit() {
+    this.activitiService
+      .login('denys.vuika@alfresco.com', 'test')
+      .then(() => {
         this.activitiService
-          .login('john.sotiropoulos@acme.com', 'admin')
-            .then(() => {
-                this.activitiService
-                    .getTasks()
-                    .then((data) => {
-                        let tasks = data || [];
-                        console.log(tasks);
-                        this.loadTasks(tasks);
-                    });
-            });
-    }
+          .getTasks()
+          .then((data) => {
+            let tasks = data || [];
+            console.log(tasks);
+            this.loadTasks(tasks);
+          });
+      });
+  }
 
-    private loadTasks(tasks: any[]) {
-        tasks = tasks.map(t => {
-            t.name = t.name || 'Nameless task';
-            if (t.name.length > 50) {
-                t.name = t.name.substring(0, 50) + '...';
-            }
-            return t;
-        });
+  private loadTasks(tasks: any[]) {
+    tasks = tasks.map(t => {
+      t.name = t.name || 'Nameless task';
+      if (t.name.length > 50) {
+        t.name = t.name.substring(0, 50) + '...';
+      }
+      return t;
+    });
 
-        this.tasks = new ObjectDataTableAdapter(tasks, [
-            { type: 'text', key: 'id', title: 'Id'},
-            { type: 'text', key: 'name', title: 'Name', cssClass: 'full-width name-column', sortable: true },
-            { type: 'text', key: 'formKey', title: 'Form Key', sortable: true },
-            { type: 'text', key: 'created', title: 'Created', sortable: true }
-        ]);
-    }
+    this.tasks = new ObjectDataTableAdapter(tasks, [
+      { type: 'text', key: 'id', title: 'Id'},
+      { type: 'text', key: 'name', title: 'Name', cssClass: 'full-width name-column', sortable: true },
+      { type: 'text', key: 'formKey', title: 'Form Key', sortable: true },
+      { type: 'text', key: 'created', title: 'Created', sortable: true }
+    ]);
+  }
 
 }

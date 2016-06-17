@@ -15,70 +15,71 @@
  * limitations under the License.
  */
 
-import { Injectable } from 'angular2/core';
-import { Http, Headers, RequestOptions, Response } from 'angular2/http';
+import { Injectable } from '@angular/core';
+import { Http, Headers, RequestOptions, Response } from '@angular/http';
+// import { Observable } from 'rxjs/Rx';
 
 @Injectable()
 export class ActivitiService {
 
-    constructor(private http: Http) {}
+  constructor(private http: Http) {}
 
-    login(username: string, password: string) {
-        let url = 'http://localhost:9999/activiti-app/app/authentication';
-        let headers = new Headers({
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'Cache-Control': 'no-cache'
-        });
-        let options = new RequestOptions({ headers: headers });
-        let data = 'j_username='
-            + encodeURIComponent(username)
-            + '&j_password='
-            + encodeURIComponent(password)
-            + '&_spring_security_remember_me=true&submit=Login';
+  login(username: string, password: string) {
+    let url = 'http://localhost:9999/activiti-app/app/authentication';
+    let headers = new Headers({
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Cache-Control': 'no-cache'
+    });
+    let options = new RequestOptions({ headers: headers });
+    let data = 'j_username='
+      + encodeURIComponent(username)
+      + '&j_password='
+      + encodeURIComponent(password)
+      + '&_spring_security_remember_me=true&submit=Login';
 
-        return this.http
-            .post(url, data, options)
-            .toPromise()
-            // .then(res => console.log(res))
-            .catch(this.handleError);
-    }
+    return this.http
+      .post(url, data, options)
+      .toPromise()
+      // .then(res => console.log(res))
+      .catch(this.handleError);
+  }
 
-    getTasks() {
-        // emulate filter value
-        let data = JSON.stringify({
-          'page': 0,
-            'filterId': 4008,
-            'filter': {
-                'sort': 'created-desc',
-                'name': '',
-                'state': 'open',
-                'assignment': 'involved'
-            },
-            'appDefinitionId': null
-        });
+  getTasks() {
+    // emulate filter value
+    let data = JSON.stringify({
+      'page': 0,
+      'filterId': 3,
+      'filter': {
+        'sort': 'created-desc',
+        'name': '',
+        'state': 'open',
+        'assignment': 'involved'
+      },
+      'appDefinitionId': null
+    });
 
-        let url = 'http://localhost:9999/activiti-app/app/rest/filter/tasks';
-        let headers = new Headers({
-            'Content-Type': 'application/json',
-            'Cache-Control': 'no-cache'
-        });
-        let options = new RequestOptions({ headers: headers });
+    let url = 'http://localhost:9999/activiti-app/app/rest/filter/tasks';
+    let headers = new Headers({
+      'Content-Type': 'application/json',
+      'Cache-Control': 'no-cache'
+    });
+    let options = new RequestOptions({ headers: headers });
 
-        return this.http
-            .post(url, data, options)
-            .toPromise()
-            .then(this.parseJSON)
-            .catch(this.handleError);
-    }
+    return this.http
+      .post(url, data, options)
+      .toPromise()
+      .then(this.parseJSON)
+      .catch(this.handleError);
+  }
 
-    private parseJSON(res: Response) {
-        let body = res.json();
-        return body.data || { };
-    }
+  private parseJSON(res: Response) {
+    let body = res.json();
+    return body.data || { };
+  }
 
-    private handleError(error: any) {
-        console.error('An error occurred', error);
-        return Promise.reject(error.message || error);
-    }
+  private handleError(error: any) {
+    console.error('An error occurred', error);
+    return Promise.reject(error.message || error);
+  }
 
 }

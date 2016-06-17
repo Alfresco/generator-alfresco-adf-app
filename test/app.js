@@ -62,7 +62,6 @@ describe('Alfresco component generator', function () {
         '.gitignore',
         '.editorconfig',
         'assets/material.orange-blue.min.css',
-        'assets/Chart.min.js',
         'app/css/muli-font.css',
         'app/css/app.css',
         'app/fonts/Muli-Regular.ttf',
@@ -77,11 +76,12 @@ describe('Alfresco component generator', function () {
         'app/components/files/files.component.ts',
         'app/components/search/search.component.html',
         'app/components/search/search.component.ts',
+        'app/components/search/search-bar.component.html',
+        'app/components/search/search-bar.component.ts',
         'app/components/login/login-demo.component.ts',
-        'app/components/router/AuthRouterOutlet.ts',
+        'app/components/login/login-demo.component.html',
         'i18n/en.json',
         'i18n/it.json',
-        'app/components/router/AuthRouterOutlet.ts'
       ];
       assert.file(expected);
     });
@@ -101,11 +101,11 @@ describe('Alfresco component generator', function () {
       assert.fileContent('package.json', '"author": "Alfresco Team"');
       assert.fileContent('package.json', '"description": "A awesome alfresco APP"');
       assert.fileContent('package.json', '"url": "https://github.com/componentCreatorAccount/app-fake/issues"');
-      assert.fileContent('package.json', '"app-keyword"');
+      //assert.fileContent('package.json', '"app-keyword"');
     });
 
     it('fill the app.component.html with the search bar', function () {
-      assert.fileContent('app/app.component.html', 'alfresco-search-control');
+      assert.fileContent('app/app.component.html', 'search-bar');
     });
 
     it('fill the app.component.html with the navigation bar', function () {
@@ -131,16 +131,12 @@ describe('Alfresco component generator', function () {
 
     it('fill the app.component with the UploadService', function () {
       assert.fileContent('app/main.ts', 'UploadService');
-      assert.fileContent('app/main.ts', 'ng2-alfresco-upload/dist/ng2-alfresco-upload');
+      assert.fileContent('app/main.ts', 'ng2-alfresco-upload');
     });
 
     it('fill the app.component with the TasksDemoComponent', function () {
       assert.fileContent('app/app.component.ts', '/components/tasks/tasks-demo.component');
       assert.fileContent('app/app.component.ts', 'component: TasksDemoComponent');
-    });
-
-    it('fill the index.html with chart library', function () {
-      assert.fileContent('index.html', 'Chart.min.js');
     });
 
     it('fill the index.html with pdf library', function () {
@@ -192,7 +188,7 @@ describe('Alfresco component generator', function () {
     });
 
     it('not fill the app.component.html with the search bar', function () {
-      assert.noFileContent('app/app.component.html', 'alfresco-search-control');
+      assert.noFileContent('app/app.component.html', 'search-bar');
     });
 
     it('notfill the app.component.html with the navigation bar', function () {
@@ -217,7 +213,7 @@ describe('Alfresco component generator', function () {
 
     it('not fill the app.main.ts with the UploadService', function () {
       assert.noFileContent('app/main.ts', 'UploadService');
-      assert.noFileContent('app/main.ts', 'ng2-alfresco-upload/dist/ng2-alfresco-upload');
+      assert.noFileContent('app/main.ts', 'ng2-alfresco-upload');
     });
 
     it('not fill the app.component.ts with the TasksDemoComponent', function () {
@@ -228,10 +224,6 @@ describe('Alfresco component generator', function () {
     it('not fill the app.component.ts with the ChartComponent', function () {
       assert.noFileContent('app/app.component.ts', '/components/chart/chart.component');
       assert.noFileContent('app/app.component.ts', 'component: ChartComponent');
-    });
-
-    it('not fill the index.html with chart library', function () {
-      assert.noFileContent('index.html', 'Chart.min.js');
     });
 
     it('not fill the index.html with pdf library', function () {

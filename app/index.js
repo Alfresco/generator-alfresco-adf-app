@@ -292,8 +292,8 @@ module.exports = yeoman.Base.extend({
     );
 
     this.fs.copy(
-      this.templatePath('app/components/router/_AuthRouterOutlet.ts'),
-      this.destinationPath('app/components/router/AuthRouterOutlet.ts')
+      this.templatePath('app/components/login/_login-demo.component.html'),
+      this.destinationPath('app/components/login/login-demo.component.html')
     );
 
     this.fs.copy(
@@ -336,6 +336,17 @@ module.exports = yeoman.Base.extend({
         this.templatePath('app/components/search/_search.component.ts'),
         this.destinationPath('app/components/search/search.component.ts')
       );
+
+      this.fs.copy(
+        this.templatePath('app/components/search/_search-bar.component.ts'),
+        this.destinationPath('app/components/search/search-bar.component.ts')
+      );
+
+      this.fs.copy(
+        this.templatePath('app/components/search/_search-bar.component.html'),
+        this.destinationPath('app/components/search/search-bar.component.html')
+      );
+
     }
 
     if (this.props.contentPage) {
@@ -371,11 +382,6 @@ module.exports = yeoman.Base.extend({
       this.fs.copy(
         this.templatePath('app/components/chart/_chart.component.html'),
         this.destinationPath('app/components/chart/chart.component.html')
-      );
-
-      this.fs.copy(
-        this.templatePath('assets/_Chart.min.js'),
-        this.destinationPath('assets/Chart.min.js')
       );
     }
   },

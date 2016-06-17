@@ -15,20 +15,19 @@
  * limitations under the License.
  */
 
-import { Component } from 'angular2/core';
-import { Router, RouteConfig, ROUTER_DIRECTIVES } from 'angular2/router';
-import { MDL } from 'ng2-alfresco-core/dist/ng2-alfresco-core';
-import { AuthRouterOutlet } from './components/router/AuthRouterOutlet';
+import { Component } from '@angular/core';
+import { Router, RouteConfig, ROUTER_DIRECTIVES } from '@angular/router-deprecated';
 import {
+  MDL,
   AlfrescoSettingsService,
   AlfrescoTranslationService,
   AlfrescoPipeTranslate,
   AlfrescoAuthenticationService
-} from 'ng2-alfresco-core/dist/ng2-alfresco-core';
-<% if (contentPage == true) { %>import { UploadButtonComponent } from 'ng2-alfresco-upload/dist/ng2-alfresco-upload';
+} from 'ng2-alfresco-core';
+<% if (contentPage == true) { %>import { UploadButtonComponent } from 'ng2-alfresco-upload';
 import { FilesComponent } from './components/files/files.component';<% } %>
 <% if (searchBar == true) { %>import { SearchComponent } from './components/search/search.component';
-import { ALFRESCO_SEARCH_DIRECTIVES } from 'ng2-alfresco-search/dist/ng2-alfresco-search';<% } %>
+import { SearchBarComponent } from './components/search/search-bar.component';<% } %>
 import { LoginDemoComponent } from './components/login/login-demo.component';
 <% if (bpmTaskPage == true) { %>import { TasksDemoComponent } from './components/tasks/tasks-demo.component';<% } %>
 <% if (chartPage == true) { %>import { ChartComponent } from './components/chart/chart.component';<% } %>
@@ -38,7 +37,7 @@ declare var document: any;
 @Component({
   selector: 'alfresco-app',
   templateUrl: 'app/app.component.html',
-  directives: [<% if (searchBar == true) { %>ALFRESCO_SEARCH_DIRECTIVES,<% } %> ROUTER_DIRECTIVES, AuthRouterOutlet, MDL],
+  directives: [<% if (searchBar == true) { %>SearchBarComponent, <% } %>ROUTER_DIRECTIVES, MDL],
   pipes: [AlfrescoPipeTranslate]
 })
 @RouteConfig([
@@ -89,18 +88,5 @@ export class AppComponent {
     // todo: workaround for drawer closing
     document.querySelector('.mdl-layout').MaterialLayout.toggleDrawer();
   }
-
-<% if (searchBar == true) { %>
-  /**
-   * Called when a new search term is submitted
-   *
-   * @param params Parameters relating to the search
-   */
-  searchTermChange(params) {
-    this.router.navigate(['Search', {
-      q: params.value
-    }]);
-  }
-<% } %>
 
 }

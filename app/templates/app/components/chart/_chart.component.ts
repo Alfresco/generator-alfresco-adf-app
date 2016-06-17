@@ -1,80 +1,40 @@
-import { Component } from 'angular2/core';
-import { CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass } from 'angular2/common';
-import { CHART_DIRECTIVES } from 'ng2-charts/ng2-charts';
+import {Component} from '@angular/core';
+import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass} from '@angular/common';
+
+import {CHART_DIRECTIVES} from 'ng2-charts/ng2-charts';
 
 declare let __moduleName: string;
 
 @Component({
-    moduleId: __moduleName,
-    selector: 'base-chart-demo',
-    templateUrl: './chart.component.html',
-    directives: [CHART_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES]
+  moduleId: __moduleName,
+  selector: 'base-chart-demo',
+  templateUrl: './chart.component.html',
+  directives: [CHART_DIRECTIVES, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES]
 })
 export class ChartComponent {
-    // lineChart
-    public lineChartData: Array<any> = [
-        [65, 59, 80, 81, 56, 55, 40],
-        [28, 48, 40, 19, 86, 27, 90],
-        [18, 48, 77, 9, 100, 27, 40]
-    ];
-    public lineChartLabels: Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-    public lineChartSeries: Array<any> = ['Series A', 'Series B', 'Series C'];
-    public lineChartOptions: any = {
-        animation: false,
-        responsive: true,
-        multiTooltipTemplate: '<%if (datasetLabel){%><%=datasetLabel %>: <%}%><%= value %>'
-    };
-    public lineChartColours: Array<any> = [
-        { // grey
-            fillColor: 'rgba(148,159,177,0.2)',
-            strokeColor: 'rgba(148,159,177,1)',
-            pointColor: 'rgba(148,159,177,1)',
-            pointStrokeColor: '#fff',
-            pointHighlightFill: '#fff',
-            pointHighlightStroke: 'rgba(148,159,177,0.8)'
-        },
-        { // dark grey
-            fillColor: 'rgba(77,83,96,0.2)',
-            strokeColor: 'rgba(77,83,96,1)',
-            pointColor: 'rgba(77,83,96,1)',
-            pointStrokeColor: '#fff',
-            pointHighlightFill: '#fff',
-            pointHighlightStroke: 'rgba(77,83,96,1)'
-        },
-        { // grey
-            fillColor: 'rgba(148,159,177,0.2)',
-            strokeColor: 'rgba(148,159,177,1)',
-            pointColor: 'rgba(148,159,177,1)',
-            pointStrokeColor: '#fff',
-            pointHighlightFill: '#fff',
-            pointHighlightStroke: 'rgba(148,159,177,0.8)'
-        }
-    ];
-    public lineChartLegend: boolean = true;
-    public lineChartType: string = 'Line';
+  // lineChart
+  public lineChartData: Array<any> = [
+    [65, 59, 80, 81, 56, 55, 40],
+    [28, 48, 40, 19, 86, 27, 90]
+  ];
+  public lineChartLabels: Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  public lineChartType: string = 'line';
+  public pieChartType: string = 'pie';
 
-    public randomize(): void {
-        let _lineChartData: Array<any> = [];
-        for (let i = 0; i < this.lineChartData.length; i++) {
-            _lineChartData[i] = [];
-            for (let j = 0; j < this.lineChartData[i].length; j++) {
-                _lineChartData[i].push(Math.floor((Math.random() * 100) + 1));
+  // Pie
+  public pieChartLabels: string[] = ['Download Sales', 'In-Store Sales', 'Mail Sales'];
+  public pieChartData: number[] = [300, 500, 100];
 
-            }
-        }
-        this.lineChartData = _lineChartData;
-    }
+  public randomizeType(): void {
+    this.lineChartType = this.lineChartType === 'line' ? 'bar' : 'line';
+    this.pieChartType = this.pieChartType === 'doughnut' ? 'pie' : 'doughnut';
+  }
 
-    public constructor() {
-        console.log('line demo');
-    }
+  public chartClicked(e: any): void {
+    console.log(e);
+  }
 
-    // events
-    public chartClicked(e: any): void {
-        console.log(e);
-    }
-
-    public chartHovered(e: any): void {
-        console.log(e);
-    }
+  public chartHovered(e: any): void {
+    console.log(e);
+  }
 }

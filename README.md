@@ -109,6 +109,9 @@ Eugenio Romano (contributor)| [Eugenio Romano](https://github.com/eromano) | [@R
 
 All contributors [contributors](https://github.com/alfresco/generator-ng2-alfresco-app/graphs/contributors).
 
+ * 2016-06-17  v0.0.14 Angular RC2
+ * 2016-06-03  v0.0.13 Angular Beta  
+
 ## License
 [MIT](https://github.com/alfresco/generator-ng2-alfresco-app/blob/master/LICENSE)
  
