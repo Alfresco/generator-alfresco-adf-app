@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "author": "<%= authorName %>",
   "scripts": {
-    "clean": "rm -rf node_modules typings",
+    "clean": "rimraf node_modules typings",
     "postinstall" : "typings install && npm run tsc",
     "start": "npm run tslint && typings install && concurrently \"npm run tsc:w\" \"npm run serve\" ",
     "tsc": "tsc",
@@ -82,7 +82,8 @@
     "ng2-alfresco-upload": "^0.1.0",
     "ng2-alfresco-viewer": "^0.1.13",
     "ng2-charts": "1.1.0",
-    "chart.js": "^2.1.4"
+    "chart.js": "^2.1.4",
+    "rimraf": "^2.5.2"
   },
   "devDependencies": {
     "browser-sync": "^2.10.0",
