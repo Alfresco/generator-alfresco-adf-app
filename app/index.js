@@ -58,7 +58,7 @@ module.exports = yeoman.Base.extend({
 
     var prompts = [{
       name: 'description',
-      message: 'How would you describe the element?'
+      message: 'How would you describe the app?'
     }, {
       name: 'authorName',
       message: 'Author\'s Name',
@@ -81,8 +81,8 @@ module.exports = yeoman.Base.extend({
       }
     }, {
       name: 'alfrescoServerHost',
-      message: 'Which is your Alfresco share server URL?',
-      default: 'http://192.168.99.100:8080',
+      message: 'Which is your Alfresco platform server URL?',
+      default: 'http://127.0.0.1:8080',
       store: true
     }];
 
