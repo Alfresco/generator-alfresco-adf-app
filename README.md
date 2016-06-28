@@ -21,12 +21,12 @@
 
 ## Introduction
 
-See the following [page](Introduction.md) for an introduction to the Alfresco Application Development Framework. 
+See the following [page](https://github.com/Alfresco/app-dev-framework/blob/master/Introduction.md) for an introduction to the Alfresco Application Development Framework. 
 
 ## Prerequisites
 
 Before you start using this development framework and the generator, make sure you have installed all required software and done all the 
-necessary configuration, see this [page](Prerequisites.md).
+necessary configuration, see this [page](https://github.com/Alfresco/app-dev-framework/blob/master/Prerequisites.md).
 
 ## Installing Yeoman and the App Generator
 
