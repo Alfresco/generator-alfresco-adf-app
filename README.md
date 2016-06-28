@@ -19,32 +19,35 @@
 
 >Yeoman generator generating a Angular2 Alfresco App scaffold
 
-##  Use before the release on npm need this steps:
-Private Npm repository configuration. All the components are stored in our private repository, the address is [http://devproducts.alfresco.me:4873](http://devproducts.alfresco.me:4873).
-The repository is visible only from the Alfresco VPN.
+## Introduction
 
-How to configure it:
+See the following [page](Introduction.md) for an introduction to the Alfresco Application Development Framework. 
 
-```bash
-npm set registry http://devproducts.alfresco.me:4873
-npm adduser --registry http://devproducts.alfresco.me:4873
-```
+## Prerequisites
 
-## Installation and use
+Before you start using this development framework and the generator, make sure you have installed all required software and done all the 
+necessary configuration, see this [page](Prerequisites.md).
 
-First, install [Yeoman](http://yeoman.io) and generator-ng2-alfresco-app using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+## Installing Yeoman and the App Generator
+
+First, install [Yeoman](http://yeoman.io):
 
 ```bash
-npm install -g yo
-npm install -g generator-ng2-alfresco-app
+$ sudo npm install -g yo
 ```
 
-##  Generate your new project:
+Then the Alfresco Application Generator:
+ 
+```bash
+$ sudo npm install -g generator-ng2-alfresco-app
+```
+ 
+##  Generating a new application project:
 
 First, move in the folder where you want create your project.
 
 ```bash
-yo ng2-alfresco-app
+$ yo ng2-alfresco-app
 ```
 
 Which will generate the following project structure:
