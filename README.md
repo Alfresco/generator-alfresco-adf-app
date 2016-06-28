@@ -1,4 +1,4 @@
-<h1 align="center">Yeoman Generator Angular 2 Alfresco Component</h1>
+<h1 align="center">Yeoman Generator Angular 2 Alfresco Application</h1>
 <p align="center">
   <img title="yeoman generator" src='https://github.com/yeoman/media/blob/master/optimized/yeoman-150x150-opaque.png' alt='yeoman logo'  />
 </p>
