@@ -3,8 +3,8 @@
   <img title="yeoman generator" src='https://github.com/yeoman/media/blob/master/optimized/yeoman-150x150-opaque.png' alt='yeoman logo'  />
 </p>
 <p align="center">
-  <a title='Build Status' href="https://travis-ci.com/Alfresco/generator-ng2-alfresco-app">
-    <img src='https://travis-ci.com/Alfresco/generator-ng2-alfresco-app.svg?token=FPzV2wyyCU8imY6wHR2B&branch=master' alt='Build Status'  />
+  <a title='Build Status' href="https://travis-ci.org/Alfresco/generator-ng2-alfresco-app">
+    <img src='https://travis-ci.org/Alfresco/generator-ng2-alfresco-app.svg?branch=master' alt='Build Status'  />
   </a>
   <a href='https://coveralls.io/github/Alfresco/generator-ng2-alfresco-app?branch=master'>
     <img src='https://coveralls.io/repos/github/Alfresco/generator-ng2-alfresco-app/badge.svg?branch=master&t=ifp17Y' alt='Coverage Status' />
