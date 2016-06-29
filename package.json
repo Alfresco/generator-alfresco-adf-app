@@ -55,7 +55,8 @@
   "repository": "Alfresco/generator-ng2-alfresco-app",
   "scripts": {
     "prepublish": "gulp prepublish",
-    "test": "gulp"
+    "test": "gulp",
+    "coveralls": "gulp coveralls"
   },
   "publishConfig": {
     "registry": "http://devproducts.alfresco.me:4873/"
