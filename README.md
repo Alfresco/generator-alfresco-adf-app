@@ -6,6 +6,9 @@
   <a title='Build Status' href="https://travis-ci.com/Alfresco/generator-ng2-alfresco-app">
     <img src='https://travis-ci.com/Alfresco/generator-ng2-alfresco-app.svg?token=FPzV2wyyCU8imY6wHR2B&branch=master' alt='Build Status'  />
   </a>
+  <a href='https://coveralls.io/github/Alfresco/generator-ng2-alfresco-app?branch=master'>
+    <img src='https://coveralls.io/repos/github/Alfresco/generator-ng2-alfresco-app/badge.svg?branch=master&t=ifp17Y' alt='Coverage Status' />
+  </a>
   <a href='https://github.com/Alfresco/generator-ng2-alfresco-app/blob/master/LICENSE'>
     <img src='https://img.shields.io/badge/license-MIT-blue.svg' alt='license' />
   </a>
