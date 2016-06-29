@@ -58,8 +58,5 @@
     "test": "gulp",
     "coveralls": "gulp coveralls"
   },
-  "publishConfig": {
-    "registry": "http://devproducts.alfresco.me:4873/"
-  },
   "license": "MIT"
 }
