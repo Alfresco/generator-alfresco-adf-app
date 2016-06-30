@@ -29,7 +29,7 @@ See the following [page](https://github.com/Alfresco/alfresco-ng2-components/blo
 ## Prerequisites
 
 Before you start using this development framework and the generator, make sure you have installed all required software and done all the 
-necessary configuration, see this [page](https://github.com/Alfresco/alfresco-ng2-components/blob/master/PREREQUISITES.md).
+necessary configuration, see this [page](PREREQUISITES.md).
 
 ## Installing Yeoman and the App Generator
 
@@ -53,7 +53,7 @@ First, move in the folder where you want create your project.
 $ yo ng2-alfresco-app
 ```
 
-Which will generate the following project structure:
+Which will generate the following project structure and run `npm install` for you to fetch all dependencies:
 
      ├──  browser-sync-config.js
      ├──  typings.json
@@ -73,29 +73,34 @@ Which will generate the following project structure:
      ├──  app/components/*[Any Component selected in the generator]* 
      └──  app/components/login/login-demo.component.ts
 
-And run `npm install` for you to fetch all dependencies.
 
-## Develop command list 
+## Building and running command for the generated project
 
-* To test your project
+* Start the project and watch for changes
 
-    ```sh
-    $ npm run test
-    ```
+```sh
+npm start
+```
 
-* To build the distribution files before releasing a new version.
+## Optional utility commands
 
-    ```sh
-    $ npm run build
-    ```
+* Clean the project from node_modules and typings folder
 
-* To provide a live demo
+```sh
+npm run clean
+```
 
-    ```sh
-    $ npm run deploy
-    ```
-    
-## Contributing
+>`start` script also includes live reload and watchers for all the `.ts` files.
+TypeScript watchers are also configured for `node_modules` folder within demo shell
+and provide live reload for all the component libraries as well.
+
+*  Install dependencies or reinstall after the clean
+
+```sh
+npm install
+```
+
+## Contributing to the generator
 
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-new-feature`
@@ -103,6 +108,15 @@ And run `npm install` for you to fetch all dependencies.
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request
 
+>to Contribute to the existing code base Add test cases to cover the new behaviour, and make sure all the existing tests are still green.
+
+* To test the generator 
+
+    ```sh
+    $ npm run test
+    ```
+
+    
 ## History
 
 For detailed changelog, see [Releases](https://github.com/Alfresco/generator-ng2-alfresco-app/releases).
@@ -115,7 +129,8 @@ Eugenio Romano (contributor)| [Eugenio Romano](https://github.com/eromano) | [@R
 
 All contributors [contributors](https://github.com/alfresco/generator-ng2-alfresco-app/graphs/contributors).
 
- * 2016-06-17  v0.0.18 Angular RC3 
+ * 2016-06-30  v0.0.19 Bug Fixing and update documentation 
+ * 2016-06-30  v0.0.18 Angular RC3 
  * 2016-06-17  v0.0.14 Angular RC2
  * 2016-06-03  v0.0.13 Angular Beta  
 

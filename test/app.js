@@ -58,6 +58,7 @@ describe('Alfresco component generator', function () {
         'tslint.json',
         'systemjs.config.js',
         'README.md',
+        'PREREQUISITES.md',
         'index.html',
         '.gitignore',
         '.editorconfig',
@@ -72,6 +73,7 @@ describe('Alfresco component generator', function () {
         'app/components/chart/chart.component.html',
         'app/components/tasks/tasks-demo.component.ts',
         'app/components/tasks/activiti.service.ts',
+        'app/components/files/files.component.css',
         'app/components/files/files.component.html',
         'app/components/files/files.component.ts',
         'app/components/search/search.component.html',
@@ -132,6 +134,11 @@ describe('Alfresco component generator', function () {
     it('fill the app.component with the UploadService', function () {
       assert.fileContent('app/main.ts', 'UploadService');
       assert.fileContent('app/main.ts', 'ng2-alfresco-upload');
+    });
+
+    it('fill the app.main.ts with the SearchBar', function () {
+      assert.fileContent('app/main.ts', 'ALFRESCO_SEARCH_PROVIDERS');
+      assert.fileContent('app/main.ts', 'ng2-alfresco-search');
     });
 
     it('fill the app.component with the TasksDemoComponent', function () {
@@ -214,6 +221,11 @@ describe('Alfresco component generator', function () {
     it('not fill the app.main.ts with the UploadService', function () {
       assert.noFileContent('app/main.ts', 'UploadService');
       assert.noFileContent('app/main.ts', 'ng2-alfresco-upload');
+    });
+
+    it('not fill the app.main.ts with the SearchBar', function () {
+      assert.noFileContent('app/main.ts', 'ALFRESCO_SEARCH_PROVIDERS');
+      assert.noFileContent('app/main.ts', 'ng2-alfresco-search');
     });
 
     it('not fill the app.component.ts with the TasksDemoComponent', function () {
