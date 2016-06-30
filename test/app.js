@@ -73,6 +73,7 @@ describe('Alfresco component generator', function () {
         'app/components/chart/chart.component.html',
         'app/components/tasks/tasks-demo.component.ts',
         'app/components/tasks/activiti.service.ts',
+        'app/components/files/files.component.css',
         'app/components/files/files.component.html',
         'app/components/files/files.component.ts',
         'app/components/search/search.component.html',

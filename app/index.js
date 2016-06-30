@@ -362,6 +362,11 @@ module.exports = yeoman.Base.extend({
       );
 
       this.fs.copy(
+        this.templatePath('app/components/files/_files.component.css'),
+        this.destinationPath('app/components/files/files.component.css')
+      );
+
+      this.fs.copy(
         this.templatePath('app/components/files/_files.component.ts'),
         this.destinationPath('app/components/files/files.component.ts')
       );
