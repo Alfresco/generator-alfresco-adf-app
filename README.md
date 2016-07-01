@@ -1,6 +1,6 @@
 <h1 align="center">Yeoman Generator Angular 2 Alfresco Application</h1>
 <p align="center">
-  <img title="yeoman generator" src='https://github.com/yeoman/media/blob/master/optimized/yeoman-150x150-opaque.png' alt='yeoman logo'  />
+  <img title="yeoman generator" src='assets/yeoman.png' alt='yeoman logo'  />
 </p>
 <p align="center">
   <a title='Build Status' href="https://travis-ci.org/Alfresco/generator-ng2-alfresco-app">

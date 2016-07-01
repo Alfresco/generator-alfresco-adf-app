@@ -43,6 +43,7 @@
     "gulp-coveralls": "^0.1.0",
     "mocha": "^2.2.3",
     "mockery": "^1.4.0",
+    "rimraf": "2.5.2",
     "yeoman-assert": "^2.0.0",
     "yeoman-test": "^1.0.0"
   },
@@ -54,6 +55,7 @@
   },
   "repository": "Alfresco/generator-ng2-alfresco-app",
   "scripts": {
+    "clean": "rimraf node_modules typings",
     "prepublish": "gulp prepublish",
     "test": "gulp",
     "coveralls": "gulp coveralls"
