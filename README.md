@@ -104,9 +104,11 @@ npm install
 
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-new-feature`
-3. Commit your changes: `git commit -m 'Add some feature'`
-4. Push to the branch: `git push origin my-new-feature`
-5. Submit a pull request
+3. Make some changes 
+4. Add the changes to the index: `git add .`
+5. Commit your changes: `git commit -m 'Add some feature'`
+6. Push to the branch: `git push origin my-new-feature`
+7. Submit a pull request
 
 >to Contribute to the existing code base Add test cases to cover the new behaviour, and make sure all the existing tests are still green.
 
@@ -135,5 +137,5 @@ All contributors [contributors](https://github.com/alfresco/generator-ng2-alfres
  * 2016-06-03  v0.0.13 Angular Beta  
 
 ## License
-[MIT](https://github.com/alfresco/generator-ng2-alfresco-app/blob/master/LICENSE)
+[Apache Version 2.0](https://github.com/alfresco/generator-ng2-alfresco-app/blob/master/LICENSE)
  
