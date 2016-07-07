@@ -29,7 +29,7 @@ See the following [page](https://github.com/Alfresco/alfresco-ng2-components/blo
 ## Prerequisites
 
 Before you start using this development framework and the generator, make sure you have installed all required software and done all the 
-necessary configuration, see this [page](PREREQUISITES.md).
+necessary configuration, see this [page](https://github.com/Alfresco/app-dev-framework/blob/master/PREREQUISITES.md).
 
 ## Installing Yeoman and the App Generator
 
