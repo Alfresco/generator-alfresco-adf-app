@@ -165,7 +165,7 @@ Eugenio Romano (contributor)| [Eugenio Romano](https://github.com/eromano) | [@R
 
 All contributors [contributors](https://github.com/alfresco/generator-ng2-alfresco-app/graphs/contributors).
 
- * 2016-07-11..v0.0.22 Add basic support for generate command of angular-cli
+ * 2016-07-11  v0.0.22 Add basic support for generate command of angular-cli
  * 2016-07-01  v0.0.20 Point to a fixed components version 
  * 2016-06-30  v0.0.19 Bug Fixing and update documentation 
  * 2016-06-30  v0.0.18 Angular RC3 
