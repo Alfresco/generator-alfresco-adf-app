@@ -195,7 +195,7 @@ module.exports = yeoman.Base.extend({
         chartPage: this.props.chartPage
       }
     );
-    
+
     this.fs.copyTpl(
       this.templatePath('_README.md'),
       this.destinationPath('README.md'),
