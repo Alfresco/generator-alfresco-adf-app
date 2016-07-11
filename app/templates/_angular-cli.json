@@ -1,0 +1,22 @@
+{
+  "project": {
+    "version": "0.1.0",
+    "name": "<%= projectName %>"
+  },
+  "apps": [
+    {
+      "main": "app/main.ts",
+      "tsconfig": "tsconfig.json",
+      "mobile": false
+    }
+  ],
+  "addons": [],
+  "packages": [],
+  "defaults": {
+    "prefix": "app",
+    "sourceDir": "",
+    "styleExt": "css",
+    "prefixInterfaces": false,
+    "lazyRoutePrefix": "+"
+  }
+}

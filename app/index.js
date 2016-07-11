@@ -187,6 +187,16 @@ module.exports = yeoman.Base.extend({
     );
 
     this.fs.copyTpl(
+      this.templatePath('_angular-cli.json'),
+      this.destinationPath('angular-cli.json'),
+      {
+        projectName: this.props.projectName,
+        contentPage: this.props.contentPage,
+        chartPage: this.props.chartPage
+      }
+    );
+
+    this.fs.copyTpl(
       this.templatePath('_README.md'),
       this.destinationPath('README.md'),
       {

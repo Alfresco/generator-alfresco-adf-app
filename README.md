@@ -100,6 +100,40 @@ and provide live reload for all the component libraries as well.
 npm install
 ```
 
+## Support Angular Cli
+
+If you are familiar with angular-cli, you can use the following command also inside the generated project.
+
+```bash
+ng generate component my-new-component
+ng g component my-new-component # using the alias
+
+# components support relative path generation
+# if in the directory src/app/feature/ and you run
+ng g component new-cmp
+# your component will be generated in src/app/feature/new-cmp
+# but if you were to run
+ng g component ../newer-cmp
+# your component will be generated in src/app/newer-cmp
+```
+You can find all possible blueprints in the table below:
+
+Scaffold  | Usage
+---       | ---
+Component | `ng g component my-new-component`
+Directive | `ng g directive my-new-directive`
+Pipe      | `ng g pipe my-new-pipe`
+Service   | `ng g service my-new-service`
+Class     | `ng g class my-new-class`
+Interface | `ng g interface my-new-interface`
+Enum      | `ng g enum my-new-enum`
+
+If you don't have the angular-cli installed and you want to install it run the following command:
+
+```bash
+npm install -g angular-cli
+```
+
 ## Contributing to the generator
 
 1. Fork it!
@@ -131,12 +165,12 @@ Eugenio Romano (contributor)| [Eugenio Romano](https://github.com/eromano) | [@R
 
 All contributors [contributors](https://github.com/alfresco/generator-ng2-alfresco-app/graphs/contributors).
 
+ * 2016-07-11  v0.0.21 Add basic support for generate command of angular-cli
  * 2016-07-01  v0.0.20 Point to a fixed components version 
  * 2016-06-30  v0.0.19 Bug Fixing and update documentation 
  * 2016-06-30  v0.0.18 Angular RC3 
  * 2016-06-17  v0.0.14 Angular RC2
  * 2016-06-03  v0.0.13 Angular Beta  
-
 ## License
 [Apache Version 2.0](https://github.com/alfresco/generator-ng2-alfresco-app/blob/master/LICENSE)
  
