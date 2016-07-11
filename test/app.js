@@ -169,7 +169,8 @@ describe('Alfresco component generator', function () {
         'app/components/login/login-demo.component.ts',
         'app/components/login/login-demo.component.html',
         'i18n/en.json',
-        'i18n/it.json'
+        'i18n/it.json',
+        'angular-cli.json'
       ];
       assert.file(expected);
     });
