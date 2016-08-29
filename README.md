@@ -56,6 +56,7 @@ $ yo ng2-alfresco-app
 Which will generate the following project structure and run `npm install` for you to fetch all dependencies:
 
      ├──  browser-sync-config.js
+     ├──  package.json
      ├──  typings.json
      ├──  tslint.json
      ├──  systemjs.config.js
