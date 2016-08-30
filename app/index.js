@@ -81,8 +81,13 @@ module.exports = yeoman.Base.extend({
       }
     }, {
       name: 'alfrescoServerHost',
-      message: 'Which is your Alfresco platform server URL?',
+      message: 'What is your Alfresco platform server URL?',
       default: 'http://127.0.0.1:8080',
+      store: true
+    }, {
+      name: 'activitiServerHost',
+      message: 'What is your Activiti platform server URL?',
+      default: 'http://127.0.0.1:9999',
       store: true
     }];
 
@@ -269,7 +274,29 @@ module.exports = yeoman.Base.extend({
       this.destinationPath('app/main.ts'),
       {
         contentPage: this.props.contentPage,
-        searchBar: this.props.searchBar
+        searchBar: this.props.searchBar,
+        bpmTaskPage: this.props.bpmTaskPage
+      }
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('app/components/_index.ts'),
+      this.destinationPath('app/components/index.ts'),
+      {
+        contentPage: this.props.contentPage,
+        searchBar: this.props.searchBar,
+        bpmTaskPage: this.props.bpmTaskPage
+      }
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('app/_app.routes.ts'),
+      this.destinationPath('app/app.routes.ts'),
+      {
+        searchBar: this.props.searchBar,
+        contentPage: this.props.contentPage,
+        bpmTaskPage: this.props.bpmTaskPage,
+        chartPage: this.props.chartPage
       }
     );
 
@@ -277,14 +304,9 @@ module.exports = yeoman.Base.extend({
       this.templatePath('app/_app.component.ts'),
       this.destinationPath('app/app.component.ts'),
       {
-        projectName: this.props.projectName,
-        navigationBar: this.props.navigationBar,
-        drawerBar: this.props.drawer,
         searchBar: this.props.searchBar,
-        contentPage: this.props.contentPage,
-        bpmTaskPage: this.props.bpmTaskPage,
-        chartPage: this.props.chartPage,
-        alfrescoServerHost: this.props.alfrescoServerHost
+        alfrescoServerHost: this.props.alfrescoServerHost,
+        activitiServerHost: this.props.activitiServerHost
       }
     );
 
@@ -315,6 +337,16 @@ module.exports = yeoman.Base.extend({
     this.fs.copy(
       this.templatePath('assets/_material.orange-blue.min.css'),
       this.destinationPath('assets/material.orange-blue.min.css')
+    );
+
+    this.fs.copy(
+      this.templatePath('assets/_license_header.txt'),
+      this.destinationPath('assets/license_header.txt')
+    );
+
+    this.fs.copy(
+      this.templatePath('server/_versions.js'),
+      this.destinationPath('server/versions.js')
     );
 
     this.fs.copy(
@@ -384,14 +416,20 @@ module.exports = yeoman.Base.extend({
 
     if (this.props.bpmTaskPage) {
       this.fs.copy(
-        this.templatePath('app/components/tasks/_tasks-demo.component.ts'),
-        this.destinationPath('app/components/tasks/tasks-demo.component.ts')
+        this.templatePath('app/components/tasks/_activiti-demo.component.ts'),
+        this.destinationPath('app/components/tasks/activiti-demo.component.ts')
       );
 
       this.fs.copy(
-        this.templatePath('app/components/tasks/_activiti.service.ts'),
-        this.destinationPath('app/components/tasks/activiti.service.ts')
+        this.templatePath('app/components/tasks/_activiti-demo.component.css'),
+        this.destinationPath('app/components/tasks/activiti-demo.component.css')
       );
+
+      this.fs.copy(
+        this.templatePath('app/components/tasks/_activiti-demo.component.html'),
+        this.destinationPath('app/components/tasks/activiti-demo.component.html')
+      );
+
     }
 
     if (this.props.chartPage) {

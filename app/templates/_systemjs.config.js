@@ -9,7 +9,7 @@
     '@angular':                   'node_modules/@angular',
     'angular2-in-memory-web-api': 'node_modules/angular2-in-memory-web-api',
     'rxjs':                       'node_modules/rxjs',
-    'ng2-charts': 'node_modules/ng2-charts',
+
     'ng2-translate': 'node_modules/ng2-translate',
     'ng2-alfresco-core': 'node_modules/ng2-alfresco-core/dist',
     'ng2-alfresco-datatable': 'node_modules/ng2-alfresco-datatable/dist',
@@ -17,22 +17,33 @@
     'ng2-alfresco-login': 'node_modules/ng2-alfresco-login/dist',
     'ng2-alfresco-search': 'node_modules/ng2-alfresco-search/dist',
     'ng2-alfresco-upload': 'node_modules/ng2-alfresco-upload/dist',
-    'ng2-alfresco-viewer': 'node_modules/ng2-alfresco-viewer/dist'
+    'ng2-activiti-form': 'node_modules/ng2-activiti-form/dist',
+    'ng2-alfresco-viewer': 'node_modules/ng2-alfresco-viewer/dist',
+    'ng2-alfresco-webscript': 'node_modules/ng2-alfresco-webscript/dist',
+    'ng2-activiti-processlist': 'node_modules/ng2-activiti-processlist/dist',
+    'ng2-activiti-tasklist': 'node_modules/ng2-activiti-tasklist/dist',
+    'ng2-charts': 'node_modules/ng2-charts'
   };
   // packages tells the System loader how to load when no filename and/or no extension
   var packages = {
     'app':                        { main: 'main.js',  defaultExtension: 'js' },
     'rxjs':                       { defaultExtension: 'js' },
     'angular2-in-memory-web-api': { main: 'index.js', defaultExtension: 'js' },
+
     'ng2-translate': { defaultExtension: 'js' },
-    'ng2-charts' : {defaultExtension: 'js'},
+
     'ng2-alfresco-core': { main: 'index.js', defaultExtension: 'js'},
     'ng2-alfresco-datatable': { main: 'index.js', defaultExtension: 'js'},
     'ng2-alfresco-documentlist': { main: 'index.js', defaultExtension: 'js'},
     'ng2-alfresco-login': { main: 'index.js', defaultExtension: 'js'},
     'ng2-alfresco-search': { main: 'index.js', defaultExtension: 'js'},
     'ng2-alfresco-upload': { main: 'index.js', defaultExtension: 'js'},
-    'ng2-alfresco-viewer': { main: 'index.js', defaultExtension: 'js'}
+    'ng2-alfresco-viewer': { main: 'index.js', defaultExtension: 'js'},
+    'ng2-activiti-form': { main: 'index.js', defaultExtension: 'js'},
+    'ng2-activiti-processlist': { main: 'index.js', defaultExtension: 'js'},
+    'ng2-activiti-tasklist': { main: 'index.js', defaultExtension: 'js'},
+    'ng2-alfresco-webscript': { main: 'index.js', defaultExtension: 'js'},
+    'ng2-charts': { main: 'ng2-charts.js', defaultExtension: 'js'}
   };
   var ngPackageNames = [
     'common',
@@ -55,8 +66,13 @@
   }
   // Most environments should use UMD; some (Karma) need the individual index files
   var setPackageConfig = System.packageWithIndex ? packIndex : packUmd;
+
   // Add package entries for angular packages
   ngPackageNames.forEach(setPackageConfig);
+
+  // No umd for router yet
+  packages['@angular/router'] = { main: 'index.js', defaultExtension: 'js' };
+
   var config = {
     map: map,
     packages: packages

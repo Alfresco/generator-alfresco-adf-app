@@ -51,8 +51,9 @@ describe('Alfresco component generator', function () {
       var expected = [
         'app/components/chart/chart.component.ts',
         'app/components/chart/chart.component.html',
-        'app/components/tasks/tasks-demo.component.ts',
-        'app/components/tasks/activiti.service.ts',
+        'app/components/tasks/activiti-demo.component.ts',
+        'app/components/tasks/activiti-demo.component.html',
+        'app/components/tasks/activiti-demo.component.css',
         'app/components/files/files.component.html',
         'app/components/files/files.component.ts',
         'app/components/search/search.component.html',
@@ -76,16 +77,12 @@ describe('Alfresco component generator', function () {
       assert.noFileContent('app/app.component.html', 'id="drawer-bar"');
     });
 
-    it('not fill the app.component.ts with the search bar', function () {
-      assert.noFileContent('app/app.component.ts', 'SearchComponent');
+    it('not fill the app.routes.ts with the search bar', function () {
+      assert.noFileContent('app/app.routes.ts', 'SearchComponent');
     });
 
-    it('not fill the app.component.ts with the files component', function () {
-      assert.noFileContent('app/app.component.ts', 'FilesComponent');
-    });
-
-    it('not fill the app.component.ts with the UploadButtonComponent', function () {
-      assert.noFileContent('app/app.component.ts', 'UploadButtonComponent');
+    it('not fill the app.routes.ts with the UploadButtonComponent', function () {
+      assert.noFileContent('app/app.routes.ts', 'UploadButtonComponent');
     });
 
     it('not fill the app.main.ts with the UploadService', function () {
@@ -154,12 +151,15 @@ describe('Alfresco component generator', function () {
         'app/css/app.css',
         'app/fonts/Muli-Regular.ttf',
         'app/main.ts',
+        'app/components/index.ts',
+        'app/app.routes.ts',
         'app/app.component.ts',
         'app/app.component.html',
         'app/components/chart/chart.component.ts',
         'app/components/chart/chart.component.html',
-        'app/components/tasks/tasks-demo.component.ts',
-        'app/components/tasks/activiti.service.ts',
+        'app/components/tasks/activiti-demo.component.html',
+        'app/components/tasks/activiti-demo.component.css',
+        'app/components/tasks/activiti-demo.component.ts',
         'app/components/files/files.component.html',
         'app/components/files/files.component.ts',
         'app/components/search/search.component.html',
@@ -205,27 +205,16 @@ describe('Alfresco component generator', function () {
       assert.fileContent('app/app.component.html', 'id="drawer-bar"');
     });
 
-    it('fill the app.component.ts with the search bar', function () {
-      assert.fileContent('app/app.component.ts', 'SearchComponent');
+    it('fill the app.routes.ts with the search bar', function () {
+      assert.fileContent('app/app.routes.ts', 'SearchComponent');
     });
 
-    it('sill the app.component.ts with the files component', function () {
-      assert.fileContent('app/app.component.ts', 'FilesComponent');
-      assert.fileContent('app/app.component.ts', '\'http://servertTest:8080/share\'');
+    it('fill the app.routes.ts with the files component', function () {
+      assert.fileContent('app/app.routes.ts', 'FilesComponent');
     });
 
-    it('fill the app.component with the UploadButtonComponent', function () {
-      assert.fileContent('app/app.component.ts', 'UploadButtonComponent');
-    });
-
-    it('fill the app.component with the UploadService', function () {
-      assert.fileContent('app/main.ts', 'UploadService');
-      assert.fileContent('app/main.ts', 'ng2-alfresco-upload');
-    });
-
-    it('fill the app.component with the TasksDemoComponent', function () {
-      assert.fileContent('app/app.component.ts', '/components/tasks/tasks-demo.component');
-      assert.fileContent('app/app.component.ts', 'component: TasksDemoComponent');
+    it('fill the routes with the ActivitiDemoComponent', function () {
+      assert.fileContent('app/app.routes.ts', 'component: ActivitiDemoComponent');
     });
 
     it('fill the index.html with pdf library', function () {
@@ -233,7 +222,5 @@ describe('Alfresco component generator', function () {
       assert.fileContent('index.html', 'pdf.worker.js');
       assert.fileContent('index.html', 'pdf_viewer.js');
     });
-
   });
-
 });
