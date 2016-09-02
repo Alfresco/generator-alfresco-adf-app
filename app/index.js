@@ -13,11 +13,11 @@ function validateEmail(email) {
 
 module.exports = yeoman.Base.extend({
 
-  initializing: function () {
+  initializing: function() {
     this.props = {};
   },
 
-  prompting: function () {
+  prompting: function() {
     var done = this.async();
 
     this.log(alflogo(
@@ -27,18 +27,18 @@ module.exports = yeoman.Base.extend({
     var prompts = [{
       name: 'projectName',
       message: 'What\'s the name of your App?',
-      validate: function (str) {
+      validate: function(str) {
         return str.length > 0;
       }
     }];
 
-    this.prompt(prompts, function (props) {
+    this.prompt(prompts, function(props) {
       this.props = _.extend(this.props, props);
       done();
     }.bind(this));
   },
 
-  default: function () {
+  default: function() {
     if (path.basename(this.destinationPath()) !== this.props.projectName) {
       this.log(
         'Your generator must be inside a folder named ' + this.props.projectName + '\n' +
@@ -49,7 +49,7 @@ module.exports = yeoman.Base.extend({
     }
   },
 
-  askFor: function () {
+  askFor: function() {
     var done = this.async();
 
     var prompts = [{
@@ -72,7 +72,7 @@ module.exports = yeoman.Base.extend({
     }, {
       name: 'keywords',
       message: 'Package keywords (comma to split)',
-      filter: function (words) {
+      filter: function(words) {
         return words.split(/\s*,\s*/g);
       }
     }, {
@@ -87,17 +87,17 @@ module.exports = yeoman.Base.extend({
       store: true
     }];
 
-    this.prompt(prompts, function (props) {
+    this.prompt(prompts, function(props) {
       this.props = _.extend(this.props, props);
       done();
     }.bind(this));
   },
 
-  askForGithubAccount: function () {
+  askForGithubAccount: function() {
     var done = this.async();
 
     if (validateEmail(this.props.authorEmail)) {
-      githubUsername(this.props.authorEmail, function (err, username) {
+      githubUsername(this.props.authorEmail, function(err, username) {
         if (err) {
           username = username || '';
         }
@@ -108,7 +108,7 @@ module.exports = yeoman.Base.extend({
           default: username
         }];
 
-        this.prompt(prompts, function (props) {
+        this.prompt(prompts, function(props) {
           this.props = _.extend(this.props, props);
           done();
         }.bind(this));
@@ -118,7 +118,7 @@ module.exports = yeoman.Base.extend({
     }
   },
 
-  askForAlfrescoComponent: function () {
+  askForAlfrescoComponent: function() {
     var done = this.async();
 
     var prompts = [{
@@ -153,19 +153,14 @@ module.exports = yeoman.Base.extend({
       default: true
     }];
 
-    this.prompt(prompts, function (props) {
+    this.prompt(prompts, function(props) {
       this.props = _.extend(this.props, props);
       done();
     }.bind(this));
   },
 
-  writing: function () {
+  writing: function() {
     this.props.projectNameCamelCase = _.chain(this.props.projectName).camelCase().upperFirst();
-
-    this.fs.copy(
-      this.templatePath('_browser-sync-config.js'),
-      this.destinationPath('browser-sync-config.js')
-    );
 
     this.fs.copy(
       this.templatePath('_typings.json'),
@@ -259,7 +254,7 @@ module.exports = yeoman.Base.extend({
 
   },
 
-  writeApp: function () {
+  writeApp: function() {
     this.fs.copyTpl(
       this.templatePath('app/_main.ts'),
       this.destinationPath('app/main.ts'),
@@ -436,7 +431,7 @@ module.exports = yeoman.Base.extend({
     }
   },
 
-  install: function () {
+  install: function() {
     if (this.options.install) {
       this.npmInstall();
     }
