@@ -190,7 +190,7 @@ describe('Alfresco component generator', function() {
 
     it('fill the package.json with project data', function() {
       assert.fileContent('package.json', '"name": "app-fake"');
-      assert.fileContent('package.json', '"author": "Alfresco Team"');
+      assert.fileContent('package.json', '"author": "Alfresco Team <Sonikku.Hejjihoggu@alfresco.com>"');
       assert.fileContent('package.json', '"description": "A awesome alfresco APP"');
       assert.fileContent('package.json', '"url": "https://github.com/componentCreatorAccount/app-fake/issues"');
       //assert.fileContent('package.json', '"app-keyword"');
