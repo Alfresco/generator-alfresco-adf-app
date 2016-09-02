@@ -6,11 +6,6 @@ var path = require('path');
 var mkdirp = require('mkdirp');
 var _ = require('lodash');
 
-function makeAppName(name) {
-  name = _.kebabCase(name);
-  return name;
-}
-
 function validateEmail(email) {
   var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(email);
@@ -32,8 +27,9 @@ module.exports = yeoman.Base.extend({
     var prompts = [{
       name: 'projectName',
       message: 'What\'s the name of your App?',
-      default: makeAppName(path.basename(process.cwd())),
-      filter: makeAppName
+      validate: function (str) {
+        return str.length > 0;
+      }
     }];
 
     this.prompt(prompts, function (props) {
