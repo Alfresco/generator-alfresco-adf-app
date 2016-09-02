@@ -446,7 +446,7 @@ module.exports = yeoman.Base.extend({
   },
 
   install: function () {
-    if (!this.options['skip-install']) {
+    if (this.options.install) {
       this.npmInstall();
     }
   }
