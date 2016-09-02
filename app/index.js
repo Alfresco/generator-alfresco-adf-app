@@ -62,7 +62,8 @@ module.exports = yeoman.Base.extend({
 
     var prompts = [{
       name: 'description',
-      message: 'How would you describe the app?'
+      message: 'How would you describe the app?',
+      default: 'Alfresco Angular 2 Application Example'
     }, {
       name: 'authorName',
       message: 'Author\'s Name',
@@ -97,6 +98,13 @@ module.exports = yeoman.Base.extend({
 
     this.prompt(prompts, function(props) {
       this.props = _.extend(this.props, props);
+
+      var projectAuthor = this.props.authorName;
+      if (this.props.authorEmail) {
+        projectAuthor += ' <' + this.props.authorEmail + '>';
+      }
+      this.props.projectAuthor = projectAuthor;
+
       done();
     }.bind(this));
   },

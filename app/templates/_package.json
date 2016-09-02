@@ -2,7 +2,7 @@
   "name": "<%= projectName %>",
   "description": "<%= description %>",
   "version": "0.1.0",
-  "author": "<%= authorName %>",
+  "author": "<%- projectAuthor %>",
   "scripts": {
     "postinstall": "typings install",
     "clean": "rimraf node_modules typings",
@@ -23,13 +23,6 @@
   "bugs": {
     "url": "https://github.com/<%= githubAccount %>/<%= projectName %>/issues"
   },
-  "license": "Apache-2.0",
-  "contributors": [
-    {
-      "name": "",
-      "email": ""
-    }
-  ],
   "keywords": [
     "ng2",
     "angular",
