@@ -36,7 +36,7 @@ describe('Alfresco component generator', function() {
           keywords: ['app-keyword', 'angular2-keyword'],
           alfrescoServerHost: 'http://servertTest:8080/share',
           navigationBar: false,
-          drawer: false,
+          drawerBar: false,
           searchBar: false,
           contentPage: false,
           bpmTaskPage: false,

@@ -3,20 +3,17 @@
   <img title="yeoman generator" src='assets/yeoman.png' alt='yeoman logo'  />
 </p>
 <p align="center">
+  <a href="https://nodei.co/npm/generator-ng2-alfresco-app/">
+    <img src="http://img.shields.io/npm/v/generator-ng2-alfresco-app.svg" alt='npm version' >
+  </a>
   <a title='Build Status' href="https://travis-ci.org/Alfresco/generator-ng2-alfresco-app">
     <img src='https://travis-ci.org/Alfresco/generator-ng2-alfresco-app.svg?branch=master' alt='Build Status'  />
   </a>
   <a href='https://codecov.io/gh/Alfresco/generator-ng2-alfresco-app'>
     <img src='https://img.shields.io/codecov/c/github/Alfresco/generator-ng2-alfresco-app/master.svg?maxAge=2592000' alt='Coverage Status' />
   </a>
-  <a href='https://github.com/Alfresco/generator-ng2-alfresco-app/blob/master/LICENSE'>
-    <img src='https://img.shields.io/badge/license-MIT-blue.svg' alt='license' />
-  </a>
   <a alt='downloads stats' href='https://npmjs.org/package/generator-ng2-alfresco-app'>
     <img src='https://img.shields.io/npm/dt/generator-ng2-alfresco-app.svg' alt='downloads stats' />
-  </a>
-  <a href="https://nodei.co/npm/generator-ng2-alfresco-app/">
-    <img src="http://img.shields.io/npm/v/generator-ng2-alfresco-app.svg" alt='npm version' >
   </a>
 </p>
 
@@ -170,6 +167,17 @@ set DEBUG=yeoman:generator yo ng2-alfresco-app
 ```
 
 More on [debugging generators](http://yeoman.io/authoring/debugging.html).
+
+## Advanced options
+
+```sh
+yo ng2-alfresco-app --alfresco
+```
+
+Typically used for internal purposes and adds the following extras to the generated project structure:
+
+- adds Alfresco license headers to all code files
+- configures component `package.json` with additional license checker configurations (devDependencies, scripts, etc.)
 
 ## History
 

@@ -14,7 +14,15 @@ function validateEmail(email) {
 module.exports = yeoman.Base.extend({
 
   initializing: function() {
-    this.props = {};
+    this.props = {
+      licenseHeader: '',
+      licenseChecker: false
+    };
+
+    if (this.options.alfresco) {
+      this.props.licenseHeader = this.fs.read(path.join(__dirname, './alfresco-license-header.ts'));
+      this.props.licenseChecker = true;
+    }
   },
 
   prompting: function() {
@@ -127,7 +135,7 @@ module.exports = yeoman.Base.extend({
       type: 'confirm',
       default: true
     }, {
-      name: 'drawer',
+      name: 'drawerBar',
       message: 'Do you want include a drawer bar?',
       type: 'confirm',
       default: true
@@ -185,31 +193,19 @@ module.exports = yeoman.Base.extend({
     this.fs.copyTpl(
       this.templatePath('_angular-cli.json'),
       this.destinationPath('angular-cli.json'),
-      {
-        projectName: this.props.projectName,
-        contentPage: this.props.contentPage,
-        chartPage: this.props.chartPage
-      }
+      this.props
     );
 
     this.fs.copyTpl(
       this.templatePath('_README.md'),
       this.destinationPath('README.md'),
-      {
-        projectName: this.props.projectName,
-        description: this.props.description,
-        githubAccount: this.props.githubAccount
-      }
+      this.props
     );
 
     this.fs.copyTpl(
       this.templatePath('_index.html'),
       this.destinationPath('index.html'),
-      {
-        projectName: this.props.projectName,
-        contentPage: this.props.contentPage,
-        chartPage: this.props.chartPage
-      }
+      this.props
     );
 
     this.fs.copy(
@@ -225,20 +221,23 @@ module.exports = yeoman.Base.extend({
     this.fs.copyTpl(
       this.templatePath('_package.json'),
       this.destinationPath('package.json'),
-      {
-        projectName: this.props.projectName,
-        description: this.props.description,
-        authorName: this.props.authorName,
-        githubAccount: this.props.githubAccount
-      }
+      this.props
     );
 
     var currentPkg = this.fs.readJSON(this.destinationPath('package.json'), {});
     this.props.keywords.push('alfresco-component');
 
-    var pkg = _.extend({
-      keywords: this.props.keywords
-    }, currentPkg);
+    var pkg = _.merge(
+      currentPkg,
+      { keywords: this.props.keywords }
+    );
+
+    if (this.props.licenseChecker) {
+      pkg = _.merge(
+          currentPkg,
+          this.fs.readJSON(path.join(__dirname, './alfresco-license-check.json'), {})
+      );
+    }
 
     this.fs.writeJSON(this.destinationPath('package.json'), pkg);
 
@@ -258,61 +257,37 @@ module.exports = yeoman.Base.extend({
     this.fs.copyTpl(
       this.templatePath('app/_main.ts'),
       this.destinationPath('app/main.ts'),
-      {
-        contentPage: this.props.contentPage,
-        searchBar: this.props.searchBar,
-        bpmTaskPage: this.props.bpmTaskPage
-      }
+      this.props
     );
 
     this.fs.copyTpl(
       this.templatePath('app/components/_index.ts'),
       this.destinationPath('app/components/index.ts'),
-      {
-        contentPage: this.props.contentPage,
-        searchBar: this.props.searchBar,
-        bpmTaskPage: this.props.bpmTaskPage
-      }
+      this.props
     );
 
     this.fs.copyTpl(
       this.templatePath('app/_app.routes.ts'),
       this.destinationPath('app/app.routes.ts'),
-      {
-        searchBar: this.props.searchBar,
-        contentPage: this.props.contentPage,
-        bpmTaskPage: this.props.bpmTaskPage,
-        chartPage: this.props.chartPage
-      }
+      this.props
     );
 
     this.fs.copyTpl(
       this.templatePath('app/_app.component.ts'),
       this.destinationPath('app/app.component.ts'),
-      {
-        searchBar: this.props.searchBar,
-        alfrescoServerHost: this.props.alfrescoServerHost,
-        activitiServerHost: this.props.activitiServerHost
-      }
+      this.props
     );
 
     this.fs.copyTpl(
       this.templatePath('app/_app.component.html'),
       this.destinationPath('app/app.component.html'),
-      {
-        projectName: this.props.projectName,
-        navigationBar: this.props.navigationBar,
-        drawerBar: this.props.drawer,
-        searchBar: this.props.searchBar,
-        contentPage: this.props.contentPage,
-        bpmTaskPage: this.props.bpmTaskPage,
-        chartPage: this.props.chartPage
-      }
+      this.props
     );
 
-    this.fs.copy(
+    this.fs.copyTpl(
       this.templatePath('app/components/login/_login-demo.component.ts'),
-      this.destinationPath('app/components/login/login-demo.component.ts')
+      this.destinationPath('app/components/login/login-demo.component.ts'),
+      this.props
     );
 
     this.fs.copy(
@@ -325,10 +300,12 @@ module.exports = yeoman.Base.extend({
       this.destinationPath('assets/material.orange-blue.min.css')
     );
 
-    this.fs.copy(
-      this.templatePath('assets/_license_header.txt'),
-      this.destinationPath('assets/license_header.txt')
-    );
+    if (this.props.licenseChecker) {
+      this.fs.copy(
+        this.templatePath('assets/_license_header.txt'),
+        this.destinationPath('assets/license_header.txt')
+      );
+    }
 
     this.fs.copy(
       this.templatePath('server/_versions.js'),
@@ -366,14 +343,16 @@ module.exports = yeoman.Base.extend({
         this.destinationPath('app/components/search/search.component.html')
       );
 
-      this.fs.copy(
+      this.fs.copyTpl(
         this.templatePath('app/components/search/_search.component.ts'),
-        this.destinationPath('app/components/search/search.component.ts')
+        this.destinationPath('app/components/search/search.component.ts'),
+        this.props
       );
 
-      this.fs.copy(
+      this.fs.copyTpl(
         this.templatePath('app/components/search/_search-bar.component.ts'),
-        this.destinationPath('app/components/search/search-bar.component.ts')
+        this.destinationPath('app/components/search/search-bar.component.ts'),
+        this.props
       );
 
       this.fs.copy(
@@ -394,16 +373,18 @@ module.exports = yeoman.Base.extend({
         this.destinationPath('app/components/files/files.component.css')
       );
 
-      this.fs.copy(
+      this.fs.copyTpl(
         this.templatePath('app/components/files/_files.component.ts'),
-        this.destinationPath('app/components/files/files.component.ts')
+        this.destinationPath('app/components/files/files.component.ts'),
+        this.props
       );
     }
 
     if (this.props.bpmTaskPage) {
-      this.fs.copy(
+      this.fs.copyTpl(
         this.templatePath('app/components/tasks/_activiti-demo.component.ts'),
-        this.destinationPath('app/components/tasks/activiti-demo.component.ts')
+        this.destinationPath('app/components/tasks/activiti-demo.component.ts'),
+        this.props
       );
 
       this.fs.copy(
@@ -419,9 +400,10 @@ module.exports = yeoman.Base.extend({
     }
 
     if (this.props.chartPage) {
-      this.fs.copy(
+      this.fs.copyTpl(
         this.templatePath('app/components/chart/_chart.component.ts'),
-        this.destinationPath('app/components/chart/chart.component.ts')
+        this.destinationPath('app/components/chart/chart.component.ts'),
+        this.props
       );
 
       this.fs.copy(
