@@ -207,11 +207,6 @@ module.exports = yeoman.Base.extend({
       }
     );
 
-    this.fs.copy(
-      this.templatePath('_PREREQUISITES.md'),
-      this.destinationPath('PREREQUISITES.md')
-    );
-
     this.fs.copyTpl(
       this.templatePath('_index.html'),
       this.destinationPath('index.html'),
