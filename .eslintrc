@@ -2,9 +2,17 @@
   "extends": "eslint:recommended",
   "env": {
     "node": true,
-    "mocha": true
+    "mocha": true,
+    "browser": true,
+    "jasmine": true,
+    "es6": true
+  },
+  "globals": {
+      "System": true,
+      "__karma__": true
   },
   "rules": {
+    "no-console": 0,
     "array-bracket-spacing": [
       2,
       "never"
@@ -44,7 +52,7 @@
     "space-before-function-paren": [
       2,
       {
-        "anonymous": "always",
+        "anonymous": "never",
         "named": "never"
       }
     ],
@@ -113,7 +121,10 @@
     "no-new-object": 2,
     "no-spaced-func": 2,
     "no-trailing-spaces": 2,
-    "no-underscore-dangle": 2,
+    "no-underscore-dangle": [
+      2,
+      allow: ['__karma__']
+    ],
     "semi": 2,
     "semi-spacing": [
       2,

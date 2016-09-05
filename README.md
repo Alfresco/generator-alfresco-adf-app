@@ -3,20 +3,17 @@
   <img title="yeoman generator" src='assets/yeoman.png' alt='yeoman logo'  />
 </p>
 <p align="center">
+  <a href="https://nodei.co/npm/generator-ng2-alfresco-app/">
+    <img src="http://img.shields.io/npm/v/generator-ng2-alfresco-app.svg" alt='npm version' >
+  </a>
   <a title='Build Status' href="https://travis-ci.org/Alfresco/generator-ng2-alfresco-app">
     <img src='https://travis-ci.org/Alfresco/generator-ng2-alfresco-app.svg?branch=master' alt='Build Status'  />
   </a>
   <a href='https://codecov.io/gh/Alfresco/generator-ng2-alfresco-app'>
     <img src='https://img.shields.io/codecov/c/github/Alfresco/generator-ng2-alfresco-app/master.svg?maxAge=2592000' alt='Coverage Status' />
   </a>
-  <a href='https://github.com/Alfresco/generator-ng2-alfresco-app/blob/master/LICENSE'>
-    <img src='https://img.shields.io/badge/license-MIT-blue.svg' alt='license' />
-  </a>
   <a alt='downloads stats' href='https://npmjs.org/package/generator-ng2-alfresco-app'>
     <img src='https://img.shields.io/npm/dt/generator-ng2-alfresco-app.svg' alt='downloads stats' />
-  </a>
-  <a href="https://nodei.co/npm/generator-ng2-alfresco-app/">
-    <img src="http://img.shields.io/npm/v/generator-ng2-alfresco-app.svg" alt='npm version' >
   </a>
 </p>
 
@@ -24,63 +21,69 @@
 
 ## Introduction
 
-See the following [page](https://github.com/Alfresco/alfresco-ng2-components/blob/master/INTRODUCTION.md) for an introduction to the Alfresco Application Development Framework. 
+See the following [page](https://github.com/Alfresco/alfresco-ng2-components/blob/master/INTRODUCTION.md) for an introduction to the Alfresco Application Development Framework.
 
 ## Prerequisites
 
-Before you start using this development framework and the generator, make sure you have installed all required software and done all the 
+Before you start using this development framework and the generator, make sure you have installed all required software and done all the
 necessary configuration, see this [page](https://github.com/Alfresco/app-dev-framework/blob/master/PREREQUISITES.md).
 
 ## Installing Yeoman and the App Generator
 
 First, install [Yeoman](http://yeoman.io):
 
-```bash
-$ npm install -g yo
+```sh
+npm install -g yo
 ```
 
 Then the Alfresco Application Generator:
- 
-```bash
-$ npm install -g generator-ng2-alfresco-app
+
+```sh
+npm install -g generator-ng2-alfresco-app
 ```
- 
+
 ##  Generating a new application project:
 
 First, move in the folder where you want create your project.
 
-```bash
-$ yo ng2-alfresco-app
+```sh
+yo ng2-alfresco-app
 ```
 
-Which will generate the following project structure and run `npm install` for you to fetch all dependencies:
+Which will generate the following project structure similar to the following:
 
-     ├──  browser-sync-config.js
-     ├──  package.json
-     ├──  typings.json
-     ├──  tslint.json
-     ├──  systemjs.config.js
-     ├──  README.md
-     ├──  index.html
-     ├──  .gitignore
-     ├──  .editorconfig
-     ├──  assets/material.orange-blue.min.css
-     ├──  app/css/muli-font.css
-     ├──  app/fonts/Muli-Regular.ttf
-     ├──  app/main.ts
-     ├──  app/app.component.ts
-     ├──  app/app.component.html
-     ├──  app/components/router/_AuthRouterOutlet.ts   
-     ├──  app/components/*[Any Component selected in the generator]* 
-     └──  app/components/login/login-demo.component.ts
+    ├──  browser-sync-config.js
+    ├──  package.json
+    ├──  typings.json
+    ├──  tslint.json
+    ├──  systemjs.config.js
+    ├──  README.md
+    ├──  index.html
+    ├──  .gitignore
+    ├──  .editorconfig
+    ├──  assets/material.orange-blue.min.css
+    ├──  app/css/muli-font.css
+    ├──  app/fonts/Muli-Regular.ttf
+    ├──  app/main.ts
+    ├──  app/app.component.ts
+    ├──  app/app.component.html
+    ├──  app/components/router/_AuthRouterOutlet.ts
+    ├──  app/components/*[Any Component selected in the generator]*
+    └──  app/components/login/login-demo.component.ts
 
-
-## Building and running command for the generated project
-
-* Start the project and watch for changes
+You will need to run the following scripts in the generated folder:
 
 ```sh
+npm install
 npm start
+```
+
+Commands above install all project dependencies, start the project and watch for changes.
+
+Alternatively you can use generator with install switch to trigger automatic installation of dependencies via npm install script:
+
+```sh
+yo ng2-alfresco-app --install
 ```
 
 ## Optional utility commands
@@ -105,7 +108,7 @@ npm install
 
 If you are familiar with angular-cli, you can use the following command also inside the generated project.
 
-```bash
+```sh
 ng generate component my-new-component
 ng g component my-new-component # using the alias
 
@@ -131,7 +134,7 @@ Enum      | `ng g enum my-new-enum`
 
 If you don't have the angular-cli installed and you want to install it run the following command:
 
-```bash
+```sh
 npm install -g angular-cli
 ```
 
@@ -139,7 +142,7 @@ npm install -g angular-cli
 
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-new-feature`
-3. Make some changes 
+3. Make some changes
 4. Add the changes to the index: `git add .`
 5. Commit your changes: `git commit -m 'Add some feature'`
 6. Push to the branch: `git push origin my-new-feature`
@@ -147,31 +150,48 @@ npm install -g angular-cli
 
 >to Contribute to the existing code base Add test cases to cover the new behaviour, and make sure all the existing tests are still green.
 
-* To test the generator 
+To test the generator:
 
-    ```sh
-    $ npm run test
-    ```
+```sh
+npm test
+```
 
-    
+### Debugging generator
+
+```sh
+# OS X / Linux
+DEBUG=yeoman:generator yo ng2-alfresco-app
+
+# Windows
+set DEBUG=yeoman:generator yo ng2-alfresco-app
+```
+
+More on [debugging generators](http://yeoman.io/authoring/debugging.html).
+
+## Advanced options
+
+```sh
+yo ng2-alfresco-app --alfresco
+```
+
+Typically used for internal purposes and adds the following extras to the generated project structure:
+
+- adds Alfresco license headers to all code files
+- configures component `package.json` with additional license checker configurations (devDependencies, scripts, etc.)
+
 ## History
 
 For detailed changelog, see [Releases](https://github.com/Alfresco/generator-ng2-alfresco-app/releases).
 
 ## Contributors
 
-Contributor | GitHub profile | Twitter profile |
---- | --- | ---
-Eugenio Romano (contributor)| [Eugenio Romano](https://github.com/eromano) | [@RomanoEugenio](https://twitter.com/RomanoEugenio)
+| Contributor | GitHub profile | Twitter profile |
+| --- | --- | ---
+| Eugenio Romano | [Eugenio Romano](https://github.com/eromano) | [@RomanoEugenio](https://twitter.com/RomanoEugenio)
+| Denys Vuika | [Denys Vuika](https://github.com/denisvuyka) | [@denisvuyka](https://twitter.com/denisvuyka) |
 
-All contributors [contributors](https://github.com/alfresco/generator-ng2-alfresco-app/graphs/contributors).
+[See all contributors](https://github.com/alfresco/generator-ng2-alfresco-app/graphs/contributors)
 
- * 2016-07-11  v0.0.22 Add basic support for generate command of angular-cli
- * 2016-07-01  v0.0.20 Point to a fixed components version 
- * 2016-06-30  v0.0.19 Bug Fixing and update documentation 
- * 2016-06-30  v0.0.18 Angular RC3 
- * 2016-06-17  v0.0.14 Angular RC2
- * 2016-06-03  v0.0.13 Angular Beta  
 ## License
+
 [Apache Version 2.0](https://github.com/alfresco/generator-ng2-alfresco-app/blob/master/LICENSE)
- 
