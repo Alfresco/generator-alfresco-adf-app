@@ -5,25 +5,25 @@ var helpers = require('yeoman-test');
 var mockery = require('mockery');
 var os = require('os');
 
-describe('Alfresco component generator', function () {
-  before(function () {
+describe('Alfresco component generator', function() {
+  before(function() {
     mockery.enable({
       warnOnReplace: false,
       warnOnUnregistered: false
     });
   });
 
-  after(function () {
+  after(function() {
     mockery.disable();
   });
 
-  it('Can be imported without blowing up', function () {
+  it('Can be imported without blowing up', function() {
     var app = require('../app');
     assert(app !== undefined);
   });
 
-  describe('Not include component', function () {
-    before(function (done) {
+  describe('Not include component', function() {
+    before(function(done) {
       helpers.run(path.join(__dirname, '../app'))
         .inDir(path.join(os.tmpdir(), './temp'))
         .withPrompts({
@@ -36,18 +36,20 @@ describe('Alfresco component generator', function () {
           keywords: ['app-keyword', 'angular2-keyword'],
           alfrescoServerHost: 'http://servertTest:8080/share',
           navigationBar: false,
-          drawer: false,
+          drawerBar: false,
           searchBar: false,
           contentPage: false,
           bpmTaskPage: false,
           chartPage: false,
           license: 'MIT'
         })
-        .withOptions({'skip-install': true})
+        .on('error', function(error) {
+          console.log(error);
+        })
         .on('end', done);
     });
 
-    it('creates files', function () {
+    it('creates files', function() {
       var expected = [
         'app/components/chart/chart.component.ts',
         'app/components/chart/chart.component.html',
@@ -65,50 +67,50 @@ describe('Alfresco component generator', function () {
       assert.noFile(expected);
     });
 
-    it('not fill the app.component.html with the search bar', function () {
+    it('not fill the app.component.html with the search bar', function() {
       assert.noFileContent('app/app.component.html', 'search-bar');
     });
 
-    it('notfill the app.component.html with the navigation bar', function () {
+    it('notfill the app.component.html with the navigation bar', function() {
       assert.noFileContent('app/app.component.html', 'id="navigation-bar"');
     });
 
-    it('not fill the app.component.html with the navigation bar', function () {
+    it('not fill the app.component.html with the navigation bar', function() {
       assert.noFileContent('app/app.component.html', 'id="drawer-bar"');
     });
 
-    it('not fill the app.routes.ts with the search bar', function () {
+    it('not fill the app.routes.ts with the search bar', function() {
       assert.noFileContent('app/app.routes.ts', 'SearchComponent');
     });
 
-    it('not fill the app.routes.ts with the UploadButtonComponent', function () {
+    it('not fill the app.routes.ts with the UploadButtonComponent', function() {
       assert.noFileContent('app/app.routes.ts', 'UploadButtonComponent');
     });
 
-    it('not fill the app.main.ts with the UploadService', function () {
+    it('not fill the app.main.ts with the UploadService', function() {
       assert.noFileContent('app/main.ts', 'UploadService');
       assert.noFileContent('app/main.ts', 'ng2-alfresco-upload');
     });
 
-    it('not fill the app.component.ts with the TasksDemoComponent', function () {
+    it('not fill the app.component.ts with the TasksDemoComponent', function() {
       assert.noFileContent('app/app.component.ts', '/components/tasks/tasks-demo.component');
       assert.noFileContent('app/app.component.ts', 'component: TasksDemoComponent');
     });
 
-    it('not fill the app.component.ts with the ChartComponent', function () {
+    it('not fill the app.component.ts with the ChartComponent', function() {
       assert.noFileContent('app/app.component.ts', '/components/chart/chart.component');
       assert.noFileContent('app/app.component.ts', 'component: ChartComponent');
     });
 
-    it('not fill the index.html with pdf library', function () {
+    it('not fill the index.html with pdf library', function() {
       assert.noFileContent('index.html', 'psf.js');
       assert.noFileContent('index.html', 'pdf.worker..js');
       assert.noFileContent('index.html', 'pdf_viewer.js');
     });
   });
 
-  describe('Include Optional component', function () {
-    before(function (done) {
+  describe('Include Optional component', function() {
+    before(function(done) {
       helpers.run(path.join(__dirname, '../app'))
         .inDir(path.join(os.tmpdir(), './temp'))
         .withPrompts({
@@ -128,17 +130,18 @@ describe('Alfresco component generator', function () {
           chartPage: true,
           license: 'MIT'
         })
-        .withOptions({'skip-install': true})
+        .on('error', function(error) {
+          console.log(error);
+        })
         .on('end', done);
     });
 
-    it('created and CD into a folder named like the component', function () {
+    it('created and CD into a folder named like the component', function() {
       assert.equal(path.basename(process.cwd()), 'app-fake');
     });
 
-    it('creates files', function () {
+    it('creates files', function() {
       var expected = [
-        'browser-sync-config.js',
         'typings.json',
         'tslint.json',
         'systemjs.config.js',
@@ -175,49 +178,49 @@ describe('Alfresco component generator', function () {
       assert.file(expected);
     });
 
-    it('fill the README with project data', function () {
+    it('fill the README with project data', function() {
       assert.fileContent('README.md', 'app-fake');
       assert.fileContent('README.md', 'A awesome alfresco APP');
       assert.fileContent('README.md', 'https://github.com/componentCreatorAccount/app-fake/releases');
     });
 
-    it('fill the app.component.html with project data', function () {
+    it('fill the app.component.html with project data', function() {
       assert.fileContent('app/app.component.html', 'app-fake');
     });
 
-    it('fill the package.json with project data', function () {
+    it('fill the package.json with project data', function() {
       assert.fileContent('package.json', '"name": "app-fake"');
-      assert.fileContent('package.json', '"author": "Alfresco Team"');
+      assert.fileContent('package.json', '"author": "Alfresco Team <Sonikku.Hejjihoggu@alfresco.com>"');
       assert.fileContent('package.json', '"description": "A awesome alfresco APP"');
       assert.fileContent('package.json', '"url": "https://github.com/componentCreatorAccount/app-fake/issues"');
       //assert.fileContent('package.json', '"app-keyword"');
     });
 
-    it('fill the app.component.html with the search bar', function () {
+    it('fill the app.component.html with the search bar', function() {
       assert.fileContent('app/app.component.html', 'search-bar');
     });
 
-    it('fill the app.component.html with the navigation bar', function () {
+    it('fill the app.component.html with the navigation bar', function() {
       assert.fileContent('app/app.component.html', 'id="navigation-bar"');
     });
 
-    it('fill the app.component.html with the navigation bar', function () {
+    it('fill the app.component.html with the navigation bar', function() {
       assert.fileContent('app/app.component.html', 'id="drawer-bar"');
     });
 
-    it('fill the app.routes.ts with the search bar', function () {
+    it('fill the app.routes.ts with the search bar', function() {
       assert.fileContent('app/app.routes.ts', 'SearchComponent');
     });
 
-    it('fill the app.routes.ts with the files component', function () {
+    it('fill the app.routes.ts with the files component', function() {
       assert.fileContent('app/app.routes.ts', 'FilesComponent');
     });
 
-    it('fill the routes with the ActivitiDemoComponent', function () {
+    it('fill the routes with the ActivitiDemoComponent', function() {
       assert.fileContent('app/app.routes.ts', 'component: ActivitiDemoComponent');
     });
 
-    it('fill the index.html with pdf library', function () {
+    it('fill the index.html with pdf library', function() {
       assert.fileContent('index.html', 'pdf.js');
       assert.fileContent('index.html', 'pdf.worker.js');
       assert.fileContent('index.html', 'pdf_viewer.js');
