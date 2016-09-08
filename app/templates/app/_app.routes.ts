@@ -10,11 +10,11 @@ import {
 } from './components/index';
 
 export const routes: RouterConfig = [
-    { path: 'home', component: FilesComponent },
-  <% if (searchBar == true) { %>  { path: 'search', component: SearchComponent }, <% } %>
-  <% if (contentPage == true) { %>  { path: 'files', component: FilesComponent }, <% } %>
-  <% if (bpmTaskPage == true) { %>  { path: 'activiti', component: ActivitiDemoComponent }, <% } %>
-  <% if (chartPage == true) { %>  { path: 'chart', component: ChartComponent }, <% } %>
+  <% if (contentPage == true) { %>{ path: 'home', component: FilesComponent },<% } %>
+  <% if (searchBar == true) { %>{ path: 'search', component: SearchComponent },<% } %>
+  <% if (contentPage == true) { %>{ path: 'files', component: FilesComponent },<% } %>
+  <% if (bpmTaskPage == true) { %>{ path: 'activiti', component: ActivitiDemoComponent },<% } %>
+  <% if (chartPage == true) { %>{ path: 'chart', component: ChartComponent },<% } %>
     { path: '', component: LoginDemoComponent },
     { path: 'login', component: LoginDemoComponent }
 ];
