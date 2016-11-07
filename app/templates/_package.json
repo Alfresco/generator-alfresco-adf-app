@@ -14,7 +14,7 @@
     "serve": "wsrv -O http://localhost:3000 -s -p 3000 -a 0.0.0.0",
     "serve:dev": "wsrv -O http://localhost:3000 -s -l -p 3000 -a 0.0.0.0",
     "tslint": "tslint -c tslint.json *.ts && tslint -c tslint.json 'app/{,**/}**.ts'",
-    "link": "npm link alfresco-js-api ng2-alfresco-core ng2-alfresco-datatable ng2-alfresco-documentlist ng2-alfresco-login ng2-alfresco-search ng2-alfresco-upload ng2-alfresco-viewer ng2-activiti-form ng2-activiti-tasklist ng2-alfresco-userinfo ng2-activiti-processlist ng2-alfresco-webscript ng2-alfresco-tag",
+    "link": "npm link alfresco-js-api ng2-activiti-analytics ng2-activiti-diagrams ng2-alfresco-core ng2-alfresco-datatable ng2-alfresco-documentlist ng2-alfresco-login ng2-alfresco-search ng2-alfresco-upload ng2-alfresco-viewer ng2-activiti-form ng2-activiti-tasklist ng2-alfresco-userinfo ng2-activiti-processlist ng2-alfresco-webscript ng2-alfresco-tag",
     "license-check": "echo 'license check is disabled'"
   },
   "repository": {
@@ -63,6 +63,8 @@
     "element.scrollintoviewifneeded-polyfill": "^1.0.1",
 
     "alfresco-js-api": "^0.3.0",
+    "ng2-activiti-analytics": "0.3.3",
+    "ng2-activiti-diagrams": "0.3.3",
     "ng2-alfresco-core": "0.3.2",
     "ng2-alfresco-datatable": "0.3.2",
     "ng2-alfresco-documentlist": "0.3.2",

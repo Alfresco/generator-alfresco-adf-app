@@ -15,6 +15,7 @@ import { UploadModule } from 'ng2-alfresco-upload';
 import { ActivitiFormModule } from 'ng2-activiti-form';
 import { ActivitiTaskListModule } from 'ng2-activiti-tasklist';
 import { ActivitiProcessListModule } from 'ng2-activiti-processlist';
+import { AnalyticsModule } from 'ng2-activiti-analytics';
 <% } %>
 import { LoginModule } from 'ng2-alfresco-login';
 import { UserInfoComponentModule } from 'ng2-alfresco-userinfo';
@@ -56,6 +57,7 @@ import {
         ActivitiFormModule.forRoot(),
         ActivitiTaskListModule.forRoot(),
         ActivitiProcessListModule.forRoot(),
+        AnalyticsModule.forRoot(),
         <% } %>
         LoginModule,
         UserInfoComponentModule.forRoot()

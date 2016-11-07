@@ -40,7 +40,6 @@ describe('Alfresco component generator', function() {
           searchBar: false,
           contentPage: false,
           bpmTaskPage: false,
-          chartPage: false,
           license: 'MIT'
         })
         .on('error', function(error) {
@@ -51,8 +50,6 @@ describe('Alfresco component generator', function() {
 
     it('creates files', function() {
       var expected = [
-        'app/components/chart/chart.component.ts',
-        'app/components/chart/chart.component.html',
         'app/components/tasks/activiti-demo.component.ts',
         'app/components/tasks/activiti-demo.component.html',
         'app/components/tasks/activiti-demo.component.css',
@@ -61,8 +58,7 @@ describe('Alfresco component generator', function() {
         'app/components/search/search.component.html',
         'app/components/search/search.component.ts',
         'app/components/search/search-bar.component.html',
-        'app/components/search/search-bar.component.ts',
-        'app/assets/Chart.min.js'
+        'app/components/search/search-bar.component.ts'
       ];
       assert.noFile(expected);
     });
@@ -96,17 +92,6 @@ describe('Alfresco component generator', function() {
       assert.noFileContent('app/app.component.ts', '/components/tasks/tasks-demo.component');
       assert.noFileContent('app/app.component.ts', 'component: TasksDemoComponent');
     });
-
-    it('not fill the app.component.ts with the ChartComponent', function() {
-      assert.noFileContent('app/app.component.ts', '/components/chart/chart.component');
-      assert.noFileContent('app/app.component.ts', 'component: ChartComponent');
-    });
-
-    it('not fill the index.html with pdf library', function() {
-      assert.noFileContent('index.html', 'psf.js');
-      assert.noFileContent('index.html', 'pdf.worker..js');
-      assert.noFileContent('index.html', 'pdf_viewer.js');
-    });
   });
 
   describe('Include Optional component', function() {
@@ -127,7 +112,6 @@ describe('Alfresco component generator', function() {
           searchBar: true,
           contentPage: true,
           bpmTaskPage: true,
-          chartPage: true,
           license: 'MIT'
         })
         .on('error', function(error) {
@@ -158,8 +142,6 @@ describe('Alfresco component generator', function() {
         'app/app.routes.ts',
         'app/app.component.ts',
         'app/app.component.html',
-        'app/components/chart/chart.component.ts',
-        'app/components/chart/chart.component.html',
         'app/components/tasks/activiti-demo.component.html',
         'app/components/tasks/activiti-demo.component.css',
         'app/components/tasks/activiti-demo.component.ts',
