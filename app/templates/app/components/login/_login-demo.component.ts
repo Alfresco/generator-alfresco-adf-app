@@ -1,7 +1,6 @@
 <%- licenseHeader %>
-import {Component} from '@angular/core';
-import {AlfrescoLoginComponent} from 'ng2-alfresco-login';
-import {ROUTER_DIRECTIVES, Router} from '@angular/router';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 declare let __moduleName: string;
 
@@ -9,8 +8,7 @@ declare let __moduleName: string;
   moduleId: __moduleName,
   selector: 'login-demo',
   templateUrl: './login-demo.component.html',
-  directives: [ROUTER_DIRECTIVES, AlfrescoLoginComponent],
-  pipes: []
+  styleUrls: ['./login-demo.component.css']
 })
 export class LoginDemoComponent {
 

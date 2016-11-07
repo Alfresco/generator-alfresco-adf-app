@@ -162,11 +162,6 @@ module.exports = yeoman.Base.extend({
       message: 'Do you want include a Tasks List?',
       type: 'confirm',
       default: true
-    }, {
-      name: 'chartPage',
-      message: 'Do you want include a sample dashboard?',
-      type: 'confirm',
-      default: true
     }];
 
     this.prompt(prompts, function(props) {
@@ -281,6 +276,12 @@ module.exports = yeoman.Base.extend({
     );
 
     this.fs.copyTpl(
+      this.templatePath('app/_app.module.ts'),
+      this.destinationPath('app/app.module.ts'),
+      this.props
+    );
+
+    this.fs.copyTpl(
       this.templatePath('app/_app.component.ts'),
       this.destinationPath('app/app.component.ts'),
       this.props
@@ -293,14 +294,27 @@ module.exports = yeoman.Base.extend({
     );
 
     this.fs.copyTpl(
+      this.templatePath('app/_app.component.css'),
+      this.destinationPath('app/app.component.css'),
+      this.props
+    );
+
+    this.fs.copyTpl(
       this.templatePath('app/components/login/_login-demo.component.ts'),
       this.destinationPath('app/components/login/login-demo.component.ts'),
       this.props
     );
 
-    this.fs.copy(
+    this.fs.copyTpl(
       this.templatePath('app/components/login/_login-demo.component.html'),
-      this.destinationPath('app/components/login/login-demo.component.html')
+      this.destinationPath('app/components/login/login-demo.component.html'),
+      this.props
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('app/components/login/_login-demo.component.css'),
+      this.destinationPath('app/components/login/login-demo.component.css'),
+      this.props
     );
 
     this.fs.copy(
@@ -314,11 +328,6 @@ module.exports = yeoman.Base.extend({
         this.destinationPath('assets/license_header.txt')
       );
     }
-
-    this.fs.copy(
-      this.templatePath('server/_versions.js'),
-      this.destinationPath('server/versions.js')
-    );
 
     this.fs.copy(
       this.templatePath('app/css/_muli-font.css'),
@@ -405,19 +414,11 @@ module.exports = yeoman.Base.extend({
         this.destinationPath('app/components/tasks/activiti-demo.component.html')
       );
 
-    }
-
-    if (this.props.chartPage) {
-      this.fs.copyTpl(
-        this.templatePath('app/components/chart/_chart.component.ts'),
-        this.destinationPath('app/components/chart/chart.component.ts'),
-        this.props
-      );
-
       this.fs.copy(
-        this.templatePath('app/components/chart/_chart.component.html'),
-        this.destinationPath('app/components/chart/chart.component.html')
+        this.templatePath('app/js/Polyline.js'),
+        this.destinationPath('app/js/Polyline.js')
       );
+
     }
   },
 
