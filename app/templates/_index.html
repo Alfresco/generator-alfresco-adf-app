@@ -1,62 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <base href="/">
-  <title><%= projectName %></title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Google Material Design Lite -->
-  <link rel="stylesheet" href="./assets/material.orange-blue.min.css">
+    <base href="/">
+    <title><%= projectName %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link href="app/css/app.css" rel="stylesheet">
-  <link href="app/css/muli-font.css" rel="stylesheet">
+    <link href="app/css/app.css" rel="stylesheet">
+    <link href="app/css/muli-font.css" rel="stylesheet">
 
-  <script src="node_modules/material-design-lite/material.min.js"></script>
-  <link rel="stylesheet" href="node_modules/material-design-icons/iconfont/material-icons.css">
-  <link href="node_modules/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96">
 
-  <!-- 1. Load libraries -->
-  <script src="node_modules/core-js/client/shim.min.js"></script>
+    <!-- Google Material Design Lite -->
+    <link href="./assets/material.orange-blue.min.css" rel="stylesheet">
+    <script src="node_modules/material-design-lite/material.min.js"></script>
+    <link href="node_modules/material-design-icons/iconfont/material-icons.css" rel="stylesheet">
 
-  <script src="node_modules/zone.js/dist/zone.js"></script>
-  <script src="node_modules/reflect-metadata/Reflect.js"></script>
-  <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <link href="node_modules/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet" type="text/css">
+    <link href="node_modules/md-date-time-picker/dist/css/mdDateTimePicker.css" media="all" rel="stylesheet">
 
-  <script src="node_modules/alfresco-js-api/dist/alfresco-js-api.js"></script>
+    <!-- 1. Load libraries -->
+    <!-- Polyfill(s) for Safari (pre-10.x) -->
+    <script src="node_modules/intl/dist/Intl.min.js"></script>
+    <script src="node_modules/intl/locale-data/jsonp/en.js"></script>
 
-  <% if (contentPage == true) { %><script src="node_modules/pdfjs-dist/build/pdf.js"></script>
-  <script src="node_modules/pdfjs-dist/build/pdf.worker.js"></script>
-  <script src="node_modules/pdfjs-dist/web/pdf_viewer.js"></script><% } %>
-  <% if (chartPage == true) { %><script src="node_modules/chart.js/dist/Chart.bundle.min.js"></script><% } %>
+    <!-- Polyfill(s) for older browsers -->
+    <script src="node_modules/core-js/client/shim.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/dom4/1.8.3/dom4.js"></script>
+    <script src="node_modules/element.scrollintoviewifneeded-polyfill/index.js"></script>
 
+    <!-- Polyfill(s) for dialogs -->
+    <script src="node_modules/dialog-polyfill/dialog-polyfill.js"></script>
+    <link href="node_modules/dialog-polyfill/dialog-polyfill.css" rel="stylesheet" type="text/css" />
 
-  <!-- 2. Configure SystemJS -->
-  <script src="systemjs.config.js"></script>
-  <script>
-    System.import('app').catch(function(err){ console.error(err); });
-  </script>
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+
+    <script src="node_modules/moment/min/moment.min.js"></script>
+    <script src="/app/js/Polyline.js"></script>
+    <script src="node_modules/pdfjs-dist/web/compatibility.js"></script>
+    <script src="node_modules/pdfjs-dist/build/pdf.js"></script>
+    <script src="node_modules/pdfjs-dist/build/pdf.worker.js"></script>
+    <script src="node_modules/pdfjs-dist/web/pdf_viewer.js"></script>
+    <script src="node_modules/chart.js/dist/Chart.bundle.min.js"></script>
+    <script src="node_modules/raphael/raphael.min.js"></script>
+    <script src="node_modules/md-date-time-picker/dist/js/mdDateTimePicker.min.js"></script>
+    <script src="node_modules/md-date-time-picker/dist/js/draggabilly.pkgd.min.js"></script>
+
+    <!-- 2. Configure SystemJS -->
+    <script src="systemjs.config.js"></script>
+    <script>
+        System.import('app').catch(function(err){ console.error(err); });
+    </script>
 </head>
 <!-- 3. Display the application -->
 <body>
-<style>
-  #loader{
-    margin-top :25%;
-    margin-left :40%;
-    width:300px;
-  }
-  #loader-text{
-    width:300px;
-    white-space: nowrap;
-    text-align: center;
-    position: relative;
-  }
-</style>
-<alfresco-app>
-  <div id="loader">
-    <div>
-      <div id="loader-spin"  class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
-    </div>
-    <div id="loader-text">Loading Demo Shell..</div>
-  </div>
-</alfresco-app>
+    <alfresco-app>
+        <div id="loader-container" class="loader-container">
+            <div class="loader-item">
+                <div id="loader-spin" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+                <div id="loader-text" class="loader-text">Loading Demo Shell..</div>
+            </div >
+        </div>
+    </alfresco-app>
 </body>
 </html>

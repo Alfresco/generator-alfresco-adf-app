@@ -5,15 +5,16 @@
   "author": "<%- projectAuthor %>",
   "scripts": {
     "clean": "npm install rimraf && rimraf dist node_modules typings",
-    "build": "npm run tslint && npm run tsc && npm run licensecheck",
+    "build": "npm run tslint && npm run tsc && npm run license-check",
     "start": "npm run build && npm run serve",
     "start:dev": "npm run build && concurrently \"npm run tsc:w\" \"npm run serve:dev\" ",
     "aws": "node app.js",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
-    "serve": "wsrv -O http://localhost:3000 -s -p 3000 -a 0.0.0.0 -x ./server/versions.js",
-    "serve:dev": "wsrv -O http://localhost:3000 -s -l -p 3000 -a 0.0.0.0 -x ./server/versions.js",
+    "serve": "wsrv -O http://localhost:3000 -s -p 3000 -a 0.0.0.0",
+    "serve:dev": "wsrv -O http://localhost:3000 -s -l -p 3000 -a 0.0.0.0",
     "tslint": "tslint -c tslint.json *.ts && tslint -c tslint.json 'app/{,**/}**.ts'",
+    "link": "npm link alfresco-js-api ng2-alfresco-core ng2-alfresco-datatable ng2-alfresco-documentlist ng2-alfresco-login ng2-alfresco-search ng2-alfresco-upload ng2-alfresco-viewer ng2-activiti-form ng2-activiti-tasklist ng2-alfresco-userinfo ng2-activiti-processlist ng2-alfresco-webscript ng2-alfresco-tag",
     "license-check": "echo 'license check is disabled'"
   },
   "repository": {
@@ -71,6 +72,7 @@
     "ng2-alfresco-viewer": "0.3.2",
     "ng2-activiti-form": "0.3.3",
     "ng2-activiti-tasklist": "0.3.3",
+    "ng2-alfresco-userinfo": "0.3.2",
     "ng2-activiti-processlist": "0.3.3",
     "ng2-alfresco-webscript": "0.3.2",
     "ng2-alfresco-tag": "0.3.2"

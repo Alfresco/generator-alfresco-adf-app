@@ -1,8 +1,5 @@
 <%- licenseHeader %>
 import { Component } from '@angular/core';
-import { AlfrescoContentService } from 'ng2-alfresco-core';
-import { ALFRESCO_SEARCH_DIRECTIVES } from 'ng2-alfresco-search';
-import { VIEWERCOMPONENT } from 'ng2-alfresco-viewer';
 
 declare let __moduleName: string;
 
@@ -20,25 +17,17 @@ declare let __moduleName: string;
         :host tbody tr {
             cursor: pointer;
         }
-    `],
-  directives: [ ALFRESCO_SEARCH_DIRECTIVES, VIEWERCOMPONENT ]
+    `]
 })
 export class SearchComponent {
 
-  previewContentUrl: string;
-  previewName: string;
-  previewMimeType: string;
-  previewActive: boolean = false;
-
-  constructor(public contentService: AlfrescoContentService) {
-  }
+  fileShowed: boolean = false;
+  fileNodeId: string;
 
   onFileClicked(event) {
-    if (event.value.entry.isFile) {
-      this.previewName = event.value.entry.name;
-      this.previewMimeType = event.value.entry.content.mimeType;
-      this.previewContentUrl = this.contentService.getContentUrl(event.value);
-      this.previewActive = true;
-    }
+      if (event.value.entry.isFile) {
+          this.fileNodeId = event.value.entry.id;
+          this.fileShowed = true;
+      }
   }
 }

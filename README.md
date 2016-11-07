@@ -88,6 +88,12 @@ yo ng2-alfresco-app --install
 
 ## Optional utility commands
 
+* Link all ADF components locally
+
+```sh
+npm run link
+```
+
 * Clean the project from node_modules and typings folder
 
 ```sh
