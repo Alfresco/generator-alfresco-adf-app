@@ -1,13 +1,17 @@
 @media only screen and (max-width: 640px) {
-    .mdl-layout__header.header-search-expanded .mdl-layout-title {
-        display: none;
-    }
+  .mdl-layout__header.header-search-expanded .mdl-layout-title {
+    display: none;
+  }
 }
 
 .mdl-layout-title {
-    font-size: 17px;
+  font-size: 17px;
 }
 
 .user-profile {
-    margin-right: 3px;
+  margin-right: 50px;
+}
+
+.mdl-layout__header-row{
+  padding: 0px 15px 0px 15px;
 }

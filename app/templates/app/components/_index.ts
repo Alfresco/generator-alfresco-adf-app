@@ -1,5 +1,6 @@
 <%- licenseHeader %>
 export { LoginDemoComponent } from './login/login-demo.component';
+export { SettingComponent } from './setting/setting.component';
 <% if (contentPage == true) { %>
 export { FilesComponent } from './files/files.component';
 <% } %>

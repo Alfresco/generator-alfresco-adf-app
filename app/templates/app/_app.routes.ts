@@ -6,7 +6,8 @@ import {
 <% if (searchBar == true) { %> SearchComponent,<% } %>
 <% if (contentPage == true) { %> FilesComponent,<% } %>
 <% if (bpmTaskPage == true) { %> ActivitiDemoComponent,<% } %>
-    LoginDemoComponent
+    LoginDemoComponent,
+      SettingComponent
 } from './components/index';
 
 export const appRoutes: Routes = [
@@ -24,7 +25,8 @@ export const appRoutes: Routes = [
     { path: 'activiti', component: ActivitiDemoComponent },
   <% } %>
     { path: '', component: LoginDemoComponent },
-    { path: 'login', component: LoginDemoComponent }
+    { path: 'login', component: LoginDemoComponent },
+    { path: 'settings', component: SettingComponent }
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
