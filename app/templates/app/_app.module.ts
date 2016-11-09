@@ -36,7 +36,8 @@ import {
   <% if (contentPage == true) { %>
     FilesComponent,
   <% } %>
-    LoginDemoComponent
+    LoginDemoComponent,
+      SettingComponent
 } from './components/index';
 
 @NgModule({
@@ -74,7 +75,8 @@ import {
         <% if (contentPage == true) { %>
         FilesComponent,
         <% } %>
-        LoginDemoComponent
+        LoginDemoComponent,
+          SettingComponent
     ],
     providers: [],
     bootstrap: [ AppComponent ]

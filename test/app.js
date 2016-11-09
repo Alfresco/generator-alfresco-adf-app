@@ -35,7 +35,7 @@ describe('Alfresco component generator', function() {
           authorUrl: 'http://Hejjihoggu.io',
           keywords: ['app-keyword', 'angular2-keyword'],
           alfrescoServerHost: 'http://servertTest:8080/share',
-          navigationBar: false,
+          userInfo: false,
           drawerBar: false,
           searchBar: false,
           contentPage: false,
@@ -107,7 +107,7 @@ describe('Alfresco component generator', function() {
           authorUrl: 'http://Hejjihoggu.io',
           keywords: ['app-keyword', 'angular2-keyword'],
           alfrescoServerHost: 'http://servertTest:8080/share',
-          navigationBar: true,
+          userInfo: true,
           drawerBar: true,
           searchBar: true,
           contentPage: true,
@@ -182,12 +182,12 @@ describe('Alfresco component generator', function() {
       assert.fileContent('app/app.component.html', 'search-bar');
     });
 
-    it('fill the app.component.html with the navigation bar', function() {
-      assert.fileContent('app/app.component.html', 'id="navigation-bar"');
+    it('fill the app.component.html with the user info component', function() {
+      assert.fileContent('app/app.component.html', 'class="user-profile"');
     });
 
-    it('fill the app.component.html with the navigation bar', function() {
-      assert.fileContent('app/app.component.html', 'id="drawer-bar"');
+    it('fill the app.component.html with the user info component', function() {
+      assert.fileContent('app/app.component.html', 'class="user-profile"');
     });
 
     it('fill the app.routes.ts with the search bar', function() {

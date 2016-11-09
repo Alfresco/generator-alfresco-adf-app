@@ -138,8 +138,8 @@ module.exports = yeoman.Base.extend({
     var done = this.async();
 
     var prompts = [{
-      name: 'navigationBar',
-      message: 'Do you want include a navigation bar?',
+      name: 'userInfo',
+      message: 'Do you want include the User info component?',
       type: 'confirm',
       default: true
     }, {
@@ -377,6 +377,24 @@ module.exports = yeoman.Base.extend({
         this.destinationPath('app/components/search/search-bar.component.html')
       );
 
+    }
+
+    if (this.props.userInfo) {
+      this.fs.copy(
+        this.templatePath('app/components/setting/_setting.component.css'),
+        this.destinationPath('app/components/setting/setting.component.css')
+      );
+
+      this.fs.copy(
+        this.templatePath('app/components/setting/_setting.component.html'),
+        this.destinationPath('app/components/setting/setting.component.html')
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('app/components/setting/_setting.component.ts'),
+        this.destinationPath('app/components/setting/setting.component.ts'),
+        this.props
+      );
     }
 
     if (this.props.contentPage) {

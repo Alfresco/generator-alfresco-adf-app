@@ -3,7 +3,6 @@ import { Component, AfterViewChecked, ViewChild, Input } from '@angular/core';
 import {
     AppDefinitionRepresentationModel,
     FilterRepresentationModel,
-    UserTaskFilterRepresentationModel,
     ActivitiApps,
     ActivitiTaskList
 } from 'ng2-activiti-tasklist';
@@ -134,7 +133,7 @@ export class ActivitiDemoComponent implements AfterViewChecked {
         this.activititasklist.reload();
     }
 
-    onSuccessTaskList(event: UserTaskFilterRepresentationModel) {
+    onSuccessTaskList(event: FilterRepresentationModel) {
         this.currentTaskId = this.activititasklist.getCurrentTaskId();
     }
 
