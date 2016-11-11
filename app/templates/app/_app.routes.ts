@@ -1,24 +1,32 @@
 <%- licenseHeader %>
-import { provideRouter, RouterConfig } from '@angular/router';
+import { ModuleWithProviders }  from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
 import {
 <% if (searchBar == true) { %> SearchComponent,<% } %>
 <% if (contentPage == true) { %> FilesComponent,<% } %>
 <% if (bpmTaskPage == true) { %> ActivitiDemoComponent,<% } %>
-<% if (chartPage == true) { %> ChartComponent,<% } %>
-    LoginDemoComponent
+    LoginDemoComponent,
+      SettingComponent
 } from './components/index';
 
-export const routes: RouterConfig = [
+export const appRoutes: Routes = [
+  <% if (contentPage == true) { %>
     { path: 'home', component: FilesComponent },
-  <% if (searchBar == true) { %>  { path: 'search', component: SearchComponent }, <% } %>
-  <% if (contentPage == true) { %>  { path: 'files', component: FilesComponent }, <% } %>
-  <% if (bpmTaskPage == true) { %>  { path: 'activiti', component: ActivitiDemoComponent }, <% } %>
-  <% if (chartPage == true) { %>  { path: 'chart', component: ChartComponent }, <% } %>
+    { path: 'files', component: FilesComponent },
+  <% } %>
+  <% if (searchBar == true) { %>
+    { path: 'search', component: SearchComponent },
+  <% } %>
+  <% if (contentPage == true) { %>
+    { path: 'files', component: FilesComponent },
+  <% } %>
+  <% if (bpmTaskPage == true) { %>
+    { path: 'activiti', component: ActivitiDemoComponent },
+  <% } %>
     { path: '', component: LoginDemoComponent },
-    { path: 'login', component: LoginDemoComponent }
+    { path: 'login', component: LoginDemoComponent },
+    { path: 'settings', component: SettingComponent }
 ];
 
-export const appRouterProviders = [
-    provideRouter(routes)
-];
+export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
