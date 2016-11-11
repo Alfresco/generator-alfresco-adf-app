@@ -195,6 +195,7 @@ For detailed changelog, see [Releases](https://github.com/Alfresco/generator-ng2
 | --- | --- | ---
 | Eugenio Romano | [Eugenio Romano](https://github.com/eromano) | [@RomanoEugenio](https://twitter.com/RomanoEugenio)
 | Denys Vuika | [Denys Vuika](https://github.com/denisvuyka) | [@denisvuyka](https://twitter.com/denisvuyka) |
+| Mario Romano | [Mario Romano](https://github.com/magemello) | [@MagemelloMario](https://twitter.com/MagemelloMario) |
 
 [See all contributors](https://github.com/alfresco/generator-ng2-alfresco-app/graphs/contributors)
 
