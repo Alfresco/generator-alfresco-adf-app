@@ -169,7 +169,7 @@ npm test
 DEBUG=yeoman:generator yo ng2-alfresco-app
 
 # Windows
-set DEBUG=yeoman:generator yo ng2-alfresco-app
+set DEBUG=yeoman:generator & yo ng2-alfresco-app
 ```
 
 More on [debugging generators](http://yeoman.io/authoring/debugging.html).
