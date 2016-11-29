@@ -17,6 +17,7 @@
     "link": "npm link alfresco-js-api ng2-activiti-analytics ng2-activiti-diagrams ng2-alfresco-core ng2-alfresco-datatable ng2-alfresco-documentlist ng2-alfresco-login ng2-alfresco-search ng2-alfresco-upload ng2-alfresco-viewer ng2-activiti-form ng2-activiti-tasklist ng2-alfresco-userinfo ng2-activiti-processlist ng2-alfresco-webscript ng2-alfresco-tag",
     "license-check": "echo 'license check is disabled'"
   },
+  <% if (authorEmail) { %>
   "repository": {
     "type": "git",
     "url": "https://github.com/<%= githubAccount %>/<%= projectName %>.git"
@@ -24,6 +25,7 @@
   "bugs": {
     "url": "https://github.com/<%= githubAccount %>/<%= projectName %>/issues"
   },
+  <% } %>
   "keywords": [
     "ng2",
     "angular",
