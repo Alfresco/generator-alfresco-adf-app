@@ -39,10 +39,12 @@ To support a new language you need to create your language file (.json) and add 
 Directory structure:
 ```
 .
-├── i18n/
-│   ├── en.json
-│   ├── it.json
-│   └── fr.json
+├── custom-translation/
+│   ├──i18n/
+│      ├──
+│      ├── en.json
+│      ├── it.json
+│      └── fr.json
 ```
  <% if (authorEmail) { %>
 ## History

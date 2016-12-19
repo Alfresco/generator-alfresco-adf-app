@@ -1,19 +1,36 @@
-<%- licenseHeader %>
+/*!
+ * @license
+ * Copyright 2016 Alfresco Software, Ltd.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 import {
   AlfrescoTranslationService,
   AlfrescoAuthenticationService,
-  AlfrescoSettingsService
+  AlfrescoSettingsService,
+  StorageService
 } from 'ng2-alfresco-core';
 
 declare var document: any;
 
 @Component({
   selector: 'alfresco-app',
-  templateUrl: 'app/app.component.html',
-  styleUrls: ['app/app.component.css']
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   <% if (searchBar == true) { %> searchTerm: string = '';<% } %>
@@ -23,63 +40,73 @@ export class AppComponent {
 
   constructor(public auth: AlfrescoAuthenticationService,
               public router: Router,
+              public alfrescoSettingsService: AlfrescoSettingsService,
               private translate: AlfrescoTranslationService,
-              public alfrescoSettingsService: AlfrescoSettingsService) {
+              private storage: StorageService) {
     this.setEcmHost();
     this.setBpmHost();
     this.setProvider();
 
     if (translate) {
-        translate.addTranslationFolder();
+      if (process.env.ENV === 'production') {
+        translate.addTranslationFolder('custom', 'i18n/custom-translation');
+        translate.addTranslationFolder('ng2-alfresco-login', 'i18n/custom-translation/alfresco-login');
+      } else {
+        translate.addTranslationFolder('custom', 'custom-translation');
+        translate.addTranslationFolder('ng2-alfresco-login', 'custom-translation/alfresco-login');
+      }
     }
   }
 
   isLoggedIn(): boolean {
-      this.redirectToLoginPageIfNotLoggedIn();
-      return this.auth.isLoggedIn();
+    this.redirectToLoginPageIfNotLoggedIn();
+    return this.auth.isLoggedIn();
   }
 
   redirectToLoginPageIfNotLoggedIn(): void {
-      if (!this.isLoginPage() && !this.auth.isLoggedIn()) {
-          this.router.navigate(['/login']);
-      }
+    if (!this.isLoginPage() && !this.auth.isLoggedIn()) {
+      this.router.navigate(['/login']);
+    }
   }
 
   isLoginPage(): boolean {
-      return location.pathname === '/login' || location.pathname === '/' || location.pathname === '/settings';
+    return location.pathname === '/login' || location.pathname === '/settings';
   }
 
   onLogout(event) {
-      event.preventDefault();
-      this.auth.logout()
-          .subscribe(
-              () => {
-                  this.router.navigate(['/login']);
-              },
-              ($event: any) => {
-                  if ($event && $event.response && $event.response.status === 401) {
-                      this.router.navigate(['/login']);
-                  } else {
-                      console.error('An unknown error occurred while logging out', $event);
-                  }
-              }
-          );
+    event.preventDefault();
+    this.auth.logout()
+      .subscribe(
+        () => {
+          this.router.navigate(['/login']);
+          this.hideDrawer();
+        },
+        ($event: any) => {
+          if ($event && $event.response && $event.response.status === 401) {
+            this.router.navigate(['/login']);
+            this.hideDrawer();
+          } else {
+            console.error('An unknown error occurred while logging out', $event);
+          }
+        }
+      );
   }
 
-<% if (searchBar == true) { %>
-  onToggleSearch(event) {
-    let expandedHeaderClass = 'header-search-expanded',
-      header = document.querySelector('header');
-    if (event.expanded) {
-      header.classList.add(expandedHeaderClass);
-    } else {
-      header.classList.remove(expandedHeaderClass);
+  <% if (searchBar == true) { %>
+    onToggleSearch(event) {
+      let expandedHeaderClass = 'header-search-expanded',
+        header = document.querySelector('header');
+      if (event.expanded) {
+        header.classList.add(expandedHeaderClass);
+      } else {
+        header.classList.remove(expandedHeaderClass);
+      }
     }
-  }
-<% } %>
+  <% } %>
 
   changeLanguage(lang: string) {
     this.translate.use(lang);
+    this.hideDrawer();
   }
 
   hideDrawer() {
@@ -88,26 +115,26 @@ export class AppComponent {
   }
 
   private setEcmHost() {
-    if (localStorage.getItem(`ecmHost`)) {
-      this.alfrescoSettingsService.ecmHost = localStorage.getItem(`ecmHost`);
-      this.ecmHost = localStorage.getItem(`ecmHost`);
+    if (this.storage.hasItem(`ecmHost`)) {
+      this.alfrescoSettingsService.ecmHost = this.storage.getItem(`ecmHost`);
+      this.ecmHost = this.storage.getItem(`ecmHost`);
     } else {
       this.alfrescoSettingsService.ecmHost = this.ecmHost;
     }
   }
 
   private setBpmHost() {
-    if (localStorage.getItem(`bpmHost`)) {
-      this.alfrescoSettingsService.bpmHost = localStorage.getItem(`bpmHost`);
-      this.bpmHost = localStorage.getItem(`bpmHost`);
+    if (this.storage.hasItem(`bpmHost`)) {
+      this.alfrescoSettingsService.bpmHost = this.storage.getItem(`bpmHost`);
+      this.bpmHost = this.storage.getItem(`bpmHost`);
     } else {
       this.alfrescoSettingsService.bpmHost = this.bpmHost;
     }
   }
 
   private setProvider() {
-      if (localStorage.getItem(`providers`)) {
-        this.alfrescoSettingsService.setProviders(localStorage.getItem(`providers`));
-      }
+    if (this.storage.hasItem(`providers`)) {
+      this.alfrescoSettingsService.setProviders(this.storage.getItem(`providers`));
+    }
   }
 }

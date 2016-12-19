@@ -6,14 +6,18 @@ var path = require('path');
 var mkdirp = require('mkdirp');
 var _ = require('lodash');
 
-function validateEmail(email) {
+function validateEmail (email) {
   var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(email);
 }
 
+function makeGeneratorName (name) {
+  return _.kebabCase(name);
+}
+
 module.exports = yeoman.Base.extend({
 
-  initializing: function() {
+  initializing: function () {
     this.props = {
       licenseHeader: '',
       licenseChecker: false
@@ -25,7 +29,7 @@ module.exports = yeoman.Base.extend({
     }
   },
 
-  prompting: function() {
+  prompting: function () {
     var done = this.async();
 
     this.log(alflogo(
@@ -35,18 +39,20 @@ module.exports = yeoman.Base.extend({
     var prompts = [{
       name: 'projectName',
       message: 'What\'s the name of your App?',
-      validate: function(str) {
+      default: makeGeneratorName(path.basename(process.cwd())),
+      filter: makeGeneratorName,
+      validate: function (str) {
         return str.length > 0;
       }
     }];
 
-    this.prompt(prompts, function(props) {
+    this.prompt(prompts, function (props) {
       this.props = _.extend(this.props, props);
       done();
     }.bind(this));
   },
 
-  default: function() {
+  default: function () {
     if (path.basename(this.destinationPath()) !== this.props.projectName) {
       this.log(
         'Your generator must be inside a folder named ' + this.props.projectName + '\n' +
@@ -57,7 +63,7 @@ module.exports = yeoman.Base.extend({
     }
   },
 
-  askFor: function() {
+  askFor: function () {
     var done = this.async();
 
     var prompts = [{
@@ -81,7 +87,7 @@ module.exports = yeoman.Base.extend({
     }, {
       name: 'keywords',
       message: 'Package keywords (comma to split)',
-      filter: function(words) {
+      filter: function (words) {
         return words.split(/\s*,\s*/g);
       }
     }, {
@@ -96,7 +102,7 @@ module.exports = yeoman.Base.extend({
       store: true
     }];
 
-    this.prompt(prompts, function(props) {
+    this.prompt(prompts, function (props) {
       this.props = _.extend(this.props, props);
 
       var projectAuthor = this.props.authorName;
@@ -109,11 +115,11 @@ module.exports = yeoman.Base.extend({
     }.bind(this));
   },
 
-  askForGithubAccount: function() {
+  askForGithubAccount: function () {
     var done = this.async();
 
     if (validateEmail(this.props.authorEmail)) {
-      githubUsername(this.props.authorEmail, function(err, username) {
+      githubUsername(this.props.authorEmail, function (err, username) {
         if (err) {
           username = username || '';
         }
@@ -124,7 +130,7 @@ module.exports = yeoman.Base.extend({
           default: username
         }];
 
-        this.prompt(prompts, function(props) {
+        this.prompt(prompts, function (props) {
           this.props = _.extend(this.props, props);
           done();
         }.bind(this));
@@ -134,7 +140,7 @@ module.exports = yeoman.Base.extend({
     }
   },
 
-  askForAlfrescoComponent: function() {
+  askForAlfrescoComponent: function () {
     var done = this.async();
 
     var prompts = [{
@@ -159,19 +165,24 @@ module.exports = yeoman.Base.extend({
       default: true
     }, {
       name: 'bpmTaskPage',
-      message: 'Do you want include a Tasks List?',
+      message: 'Do you want include Activiti BPM components?',
       type: 'confirm',
       default: true
     }];
 
-    this.prompt(prompts, function(props) {
+    this.prompt(prompts, function (props) {
       this.props = _.extend(this.props, props);
       done();
     }.bind(this));
   },
 
-  writing: function() {
+  writing: function () {
     this.props.projectNameCamelCase = _.chain(this.props.projectName).camelCase().upperFirst();
+
+    this.fs.copy(
+      this.templatePath('_favicon-96x96.png'),
+      this.destinationPath('favicon-96x96.png')
+    );
 
     this.fs.copy(
       this.templatePath('_typings.json'),
@@ -188,14 +199,69 @@ module.exports = yeoman.Base.extend({
       this.destinationPath('tsconfig.json')
     );
 
-    this.fs.copy(
-      this.templatePath('_systemjs.config.js'),
-      this.destinationPath('systemjs.config.js')
+    this.fs.copyTpl(
+      this.templatePath('config/_helpers.js'),
+      this.destinationPath('config/helpers.js'),
+      this.props
     );
 
     this.fs.copyTpl(
-      this.templatePath('_angular-cli.json'),
-      this.destinationPath('angular-cli.json'),
+      this.templatePath('config/_karma-test-shim.js'),
+      this.destinationPath('config/karma-test-shim.js'),
+      this.props
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('config/_karma.conf.js'),
+      this.destinationPath('config/karma.conf.js'),
+      this.props
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('config/_webpack.common.js'),
+      this.destinationPath('config/webpack.common.js'),
+      this.props
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('config/_webpack.dev.js'),
+      this.destinationPath('config/webpack.dev.js'),
+      this.props
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('config/_webpack.prod.js'),
+      this.destinationPath('config/webpack.prod.js'),
+      this.props
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('config/_webpack.test.js'),
+      this.destinationPath('config/webpack.test.js'),
+      this.props
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('config/loaders/_debug.js'),
+      this.destinationPath('config/loaders/debug.js'),
+      this.props
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('config/loaders/_system.js'),
+      this.destinationPath('config/loaders/system.js'),
+      this.props
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('_karma.conf.js'),
+      this.destinationPath('karma.conf.js'),
+      this.props
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('_webpack.config.js'),
+      this.destinationPath('webpack.config.js'),
       this.props
     );
 
@@ -232,13 +298,13 @@ module.exports = yeoman.Base.extend({
 
     var pkg = _.merge(
       currentPkg,
-      { keywords: this.props.keywords }
+      {keywords: this.props.keywords}
     );
 
     if (this.props.licenseChecker) {
       pkg = _.merge(
-          currentPkg,
-          this.fs.readJSON(path.join(__dirname, './alfresco-license-check.json'), {})
+        currentPkg,
+        this.fs.readJSON(path.join(__dirname, './alfresco-license-check.json'), {})
       );
     }
 
@@ -256,10 +322,29 @@ module.exports = yeoman.Base.extend({
 
   },
 
-  writeApp: function() {
+  writeApp: function () {
     this.fs.copyTpl(
       this.templatePath('app/_main.ts'),
       this.destinationPath('app/main.ts'),
+      this.props
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('app/_polyfills.ts'),
+      this.destinationPath('app/polyfills.ts'),
+      this.props
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('app/_vendor.ts'),
+      this.destinationPath('app/vendor.ts'),
+      this.props
+    );
+
+
+    this.fs.copyTpl(
+      this.templatePath('app/components/_index.ts'),
+      this.destinationPath('app/components/index.ts'),
       this.props
     );
 
@@ -299,6 +384,17 @@ module.exports = yeoman.Base.extend({
       this.props
     );
 
+    this.fs.copy(
+      this.templatePath('app/components/about/_about.component.html'),
+      this.destinationPath('app/components/about/about.component.html')
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('app/components/about/_about.component.ts'),
+      this.destinationPath('app/components/about/about.component.ts'),
+      this.props
+    );
+
     this.fs.copyTpl(
       this.templatePath('app/components/login/_login-demo.component.ts'),
       this.destinationPath('app/components/login/login-demo.component.ts'),
@@ -317,9 +413,61 @@ module.exports = yeoman.Base.extend({
       this.props
     );
 
+    this.fs.copyTpl(
+      this.templatePath('public/css/_app.css'),
+      this.destinationPath('public/css/app.css'),
+      this.props
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('public/css/_material.orange-blue.min.css'),
+      this.destinationPath('public/css/material.orange-blue.min.css'),
+      this.props
+    );
+
     this.fs.copy(
-      this.templatePath('assets/_material.orange-blue.min.css'),
-      this.destinationPath('assets/material.orange-blue.min.css')
+      this.templatePath('public/css/_muli-font.css'),
+      this.destinationPath('public/css/muli-font.css')
+    );
+
+    this.fs.copy(
+      this.templatePath('public/fonts/_Muli-Italic.ttf'),
+      this.destinationPath('public/fonts/Muli-Italic.ttf')
+    );
+
+    this.fs.copy(
+      this.templatePath('public/fonts/_Muli-Light.ttf'),
+      this.destinationPath('public/fonts/Muli-Light.ttf')
+    );
+
+    this.fs.copy(
+      this.templatePath('public/fonts/_Muli-LightItalic.ttf'),
+      this.destinationPath('public/fonts/Muli-LightItalic.ttf')
+    );
+
+    this.fs.copy(
+      this.templatePath('public/fonts/_Muli-Regular.ttf'),
+      this.destinationPath('public/fonts/Muli-Regular.ttf')
+    );
+
+    this.fs.copy(
+      this.templatePath('public/js/_Blob.js'),
+      this.destinationPath('public/js/Blob.js')
+    );
+
+    this.fs.copy(
+      this.templatePath('public/js/_formdata.js'),
+      this.destinationPath('public/js/formdata.js')
+    );
+
+    this.fs.copy(
+      this.templatePath('public/js/_promisePolyfill.js'),
+      this.destinationPath('public/js/promisePolyfill.js')
+    );
+
+    this.fs.copy(
+      this.templatePath('public/js/_typedarray.js'),
+      this.destinationPath('public/js/typedarray.js')
     );
 
     if (this.props.licenseChecker) {
@@ -330,28 +478,45 @@ module.exports = yeoman.Base.extend({
     }
 
     this.fs.copy(
-      this.templatePath('app/css/_muli-font.css'),
-      this.destinationPath('app/css/muli-font.css')
+      this.templatePath('custom-translation/i18n/_en.json'),
+      this.destinationPath('custom-translation/i18n/en.json')
     );
 
     this.fs.copy(
-      this.templatePath('app/css/_app.css'),
-      this.destinationPath('app/css/app.css')
+      this.templatePath('custom-translation/i18n/_it.json'),
+      this.destinationPath('custom-translation/i18n/it.json')
     );
 
     this.fs.copy(
-      this.templatePath('app/fonts/_Muli-Regular.ttf'),
-      this.destinationPath('app/fonts/Muli-Regular.ttf')
+      this.templatePath('custom-translation/alfresco-login/i18n/_en.json'),
+      this.destinationPath('custom-translation/alfresco-login/i18n/en.json')
     );
 
     this.fs.copy(
-      this.templatePath('i18n/_en.json'),
-      this.destinationPath('i18n/en.json')
+      this.templatePath('custom-translation/alfresco-login/i18n/_it.json'),
+      this.destinationPath('custom-translation/alfresco-login/i18n/it.json')
     );
 
     this.fs.copy(
-      this.templatePath('i18n/_it.json'),
-      this.destinationPath('i18n/it.json')
+      this.templatePath('app/components/home/_home.component.css'),
+      this.destinationPath('app/components/home/home.component.css')
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('app/components/home/_home.component.html'),
+      this.destinationPath('app/components/home/home.component.html'),
+      this.props
+    );
+
+    this.fs.copy(
+      this.templatePath('app/components/home/_home.component.spec.ts'),
+      this.destinationPath('app/components/home/home.component.spec.ts')
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('app/components/home/_home.component.ts'),
+      this.destinationPath('app/components/home/home.component.ts'),
+      this.props
     );
 
     if (this.props.searchBar) {
@@ -376,26 +541,23 @@ module.exports = yeoman.Base.extend({
         this.templatePath('app/components/search/_search-bar.component.html'),
         this.destinationPath('app/components/search/search-bar.component.html')
       );
-
     }
 
-    if (this.props.userInfo) {
-      this.fs.copy(
-        this.templatePath('app/components/setting/_setting.component.css'),
-        this.destinationPath('app/components/setting/setting.component.css')
-      );
+    this.fs.copy(
+      this.templatePath('app/components/setting/_setting.component.css'),
+      this.destinationPath('app/components/setting/setting.component.css')
+    );
 
-      this.fs.copy(
-        this.templatePath('app/components/setting/_setting.component.html'),
-        this.destinationPath('app/components/setting/setting.component.html')
-      );
+    this.fs.copy(
+      this.templatePath('app/components/setting/_setting.component.html'),
+      this.destinationPath('app/components/setting/setting.component.html')
+    );
 
-      this.fs.copyTpl(
-        this.templatePath('app/components/setting/_setting.component.ts'),
-        this.destinationPath('app/components/setting/setting.component.ts'),
-        this.props
-      );
-    }
+    this.fs.copyTpl(
+      this.templatePath('app/components/setting/_setting.component.ts'),
+      this.destinationPath('app/components/setting/setting.component.ts'),
+      this.props
+    );
 
     if (this.props.contentPage) {
       this.fs.copy(
@@ -416,31 +578,71 @@ module.exports = yeoman.Base.extend({
     }
 
     if (this.props.bpmTaskPage) {
+
       this.fs.copyTpl(
-        this.templatePath('app/components/tasks/_activiti-demo.component.ts'),
-        this.destinationPath('app/components/tasks/activiti-demo.component.ts'),
+        this.templatePath('app/components/activiti/_activiti-demo.component.ts'),
+        this.destinationPath('app/components/activiti/activiti-demo.component.ts'),
         this.props
       );
 
       this.fs.copy(
-        this.templatePath('app/components/tasks/_activiti-demo.component.css'),
-        this.destinationPath('app/components/tasks/activiti-demo.component.css')
+        this.templatePath('app/components/activiti/_activiti-demo.component.css'),
+        this.destinationPath('app/components/activiti/activiti-demo.component.css')
       );
 
       this.fs.copy(
-        this.templatePath('app/components/tasks/_activiti-demo.component.html'),
-        this.destinationPath('app/components/tasks/activiti-demo.component.html')
+        this.templatePath('app/components/activiti/_activiti-demo.component.html'),
+        this.destinationPath('app/components/activiti/activiti-demo.component.html')
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('app/components/activiti/_form-node-viewer.component.ts'),
+        this.destinationPath('app/components/activiti/form-node-viewer.component.ts'),
+        this.props
       );
 
       this.fs.copy(
-        this.templatePath('app/js/Polyline.js'),
-        this.destinationPath('app/js/Polyline.js')
+        this.templatePath('app/components/activiti/_form-node-viewer.component.css'),
+        this.destinationPath('app/components/activiti/form-node-viewer.component.css')
+      );
+
+      this.fs.copy(
+        this.templatePath('app/components/activiti/_form-node-viewer.component.html'),
+        this.destinationPath('app/components/activiti/form-node-viewer.component.html')
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('app/components/activiti/_apps.view.ts'),
+        this.destinationPath('app/components/activiti/apps.view.ts'),
+        this.props
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('app/components/activiti/_form-viewer.component.ts'),
+        this.destinationPath('app/components/activiti/form-viewer.component.ts'),
+        this.props
+      );
+
+      this.fs.copy(
+        this.templatePath('app/components/activiti/_form-viewer.component.css'),
+        this.destinationPath('app/components/activiti/form-viewer.component.css')
+      );
+
+      this.fs.copy(
+        this.templatePath('app/components/activiti/_form-viewer.component.html'),
+        this.destinationPath('app/components/activiti/form-viewer.component.html')
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('app/components/activiti/custom-editor/_custom-editor.component.ts'),
+        this.destinationPath('app/components/activiti/custom-editor/custom-editor.component.ts'),
+        this.props
       );
 
     }
   },
 
-  install: function() {
+  install: function () {
     if (this.options.install) {
       this.npmInstall();
     }
