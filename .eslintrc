@@ -52,8 +52,8 @@
     "space-before-function-paren": [
       2,
       {
-        "anonymous": "never",
-        "named": "never"
+        "anonymous": "always",
+        "named": "always"
       }
     ],
     "space-in-parens": [
