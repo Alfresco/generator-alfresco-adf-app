@@ -50,27 +50,6 @@ First, move in the folder where you want create your project.
 yo ng2-alfresco-app
 ```
 
-Which will generate the following project structure similar to the following:
-
-    ├──  browser-sync-config.js
-    ├──  package.json
-    ├──  typings.json
-    ├──  tslint.json
-    ├──  systemjs.config.js
-    ├──  README.md
-    ├──  index.html
-    ├──  .gitignore
-    ├──  .editorconfig
-    ├──  assets/material.orange-blue.min.css
-    ├──  app/css/muli-font.css
-    ├──  app/fonts/Muli-Regular.ttf
-    ├──  app/main.ts
-    ├──  app/app.component.ts
-    ├──  app/app.component.html
-    ├──  app/components/router/_AuthRouterOutlet.ts
-    ├──  app/components/*[Any Component selected in the generator]*
-    └──  app/components/login/login-demo.component.ts
-
 You will need to run the following scripts in the generated folder:
 
 ```sh
@@ -108,40 +87,6 @@ and provide live reload for all the component libraries as well.
 
 ```sh
 npm install
-```
-
-## Support Angular Cli
-
-If you are familiar with angular-cli, you can use the following command also inside the generated project.
-
-```sh
-ng generate component my-new-component
-ng g component my-new-component # using the alias
-
-# components support relative path generation
-# if in the directory src/app/feature/ and you run
-ng g component new-cmp
-# your component will be generated in src/app/feature/new-cmp
-# but if you were to run
-ng g component ../newer-cmp
-# your component will be generated in src/app/newer-cmp
-```
-You can find all possible blueprints in the table below:
-
-Scaffold  | Usage
----       | ---
-Component | `ng g component my-new-component`
-Directive | `ng g directive my-new-directive`
-Pipe      | `ng g pipe my-new-pipe`
-Service   | `ng g service my-new-service`
-Class     | `ng g class my-new-class`
-Interface | `ng g interface my-new-interface`
-Enum      | `ng g enum my-new-enum`
-
-If you don't have the angular-cli installed and you want to install it run the following command:
-
-```sh
-npm install -g angular-cli
 ```
 
 ## Contributing to the generator
