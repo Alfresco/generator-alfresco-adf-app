@@ -4,6 +4,11 @@
 
 Yeoman Generator Angular 2 Alfresco Application
 
+<a name="1.0.1"></a>
+# [1.0.1](https://github.com/Alfresco/generator-ng2-alfresco-app/releases) (19-12-2016)
+## fix
+- [npm run start fails on window machine #47](https://github.com/Alfresco/alfresco-js-api/pull/47)
+
 <a name="1.0.0"></a>
 # [1.0.0](https://github.com/Alfresco/generator-ng2-alfresco-app/releases) (19-12-2016)
 ## fix
