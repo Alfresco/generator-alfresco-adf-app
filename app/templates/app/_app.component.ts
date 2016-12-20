@@ -78,18 +78,22 @@ export class AppComponent {
     this.auth.logout()
       .subscribe(
         () => {
-          this.router.navigate(['/login']);
-          this.hideDrawer();
+          this.navigateToLogin();
         },
         ($event: any) => {
           if ($event && $event.response && $event.response.status === 401) {
-            this.router.navigate(['/login']);
-            this.hideDrawer();
+            this.navigateToLogin();
           } else {
             console.error('An unknown error occurred while logging out', $event);
+            this.navigateToLogin();
           }
         }
       );
+  }
+
+  navigateToLogin(){
+     this.router.navigate(['/login']);
+     this.hideDrawer();
   }
 
   <% if (searchBar == true) { %>
