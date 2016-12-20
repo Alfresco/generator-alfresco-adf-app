@@ -40,8 +40,8 @@ import {
         <% if (searchBar == true) { %>SearchModule.forRoot(), <% } %>
         <% if (contentPage == true) { %>
         DocumentListModule.forRoot(),
-        UploadModule.forRoot(),
-        ViewerModule.forRoot(),<% } %>
+        UploadModule.forRoot(),<% } %>
+        <% if (searchBar == true || contentPage == true) { %>ViewerModule.forRoot(),<% } %>
         <% if (bpmTaskPage == true) { %>ActivitiFormModule.forRoot(),
         ActivitiTaskListModule.forRoot(),
         ActivitiProcessListModule.forRoot(),

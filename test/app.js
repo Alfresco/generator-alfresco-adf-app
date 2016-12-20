@@ -359,6 +359,40 @@ describe('Alfresco component generator', function () {
       assert.noFile(notExpected);
     });
   });
+
+  describe('Include only search component', function () {
+    before(function (done) {
+      helpers.run(path.join(__dirname, '../app'))
+        .inDir(path.join(os.tmpdir(), './temp'))
+        .withPrompts({
+          projectName: 'app-fake',
+          description: 'A awesome alfresco APP',
+          githubAccount: 'componentCreatorAccount',
+          authorName: 'Alfresco Team',
+          authorEmail: 'Sonikku.Hejjihoggu@alfresco.com',
+          authorUrl: 'http://Hejjihoggu.io',
+          keywords: ['app-keyword', 'angular2-keyword'],
+          alfrescoServerHost: 'http://servertTest:8080/share',
+          activitiServerHost: 'http://servertTest:9999/share',
+          userInfo: false,
+          drawerBar: false,
+
+          searchBar: true,
+          contentPage: false,
+          bpmTaskPage: false,
+          license: 'MIT'
+        })
+        .on('error', function (error) {
+          console.log(error);
+        })
+        .on('end', done);
+    });
+
+    it('the viewer should be present in app.module.ts search is selected ', function () {
+      assert.fileContent('app/app.module.ts', 'ViewerModule');
+    });
+
+  });
 });
 
 
