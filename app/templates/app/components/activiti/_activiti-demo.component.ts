@@ -2,25 +2,25 @@
 
 import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular/core';
 import {
-    ActivitiApps,
-    ActivitiFilters,
-    ActivitiTaskDetails,
-    ActivitiTaskList,
-    FilterRepresentationModel
+  ActivitiApps,
+  ActivitiFilters,
+  ActivitiTaskDetails,
+  ActivitiTaskList,
+  FilterRepresentationModel
 } from 'ng2-activiti-tasklist';
 import {
-    ActivitiProcessFilters,
-    ActivitiProcessInstanceDetails,
-    ActivitiProcessInstanceListComponent,
-    ActivitiStartProcessInstance,
-    ProcessInstance
+  ActivitiProcessFilters,
+  ActivitiProcessInstanceDetails,
+  ActivitiProcessInstanceListComponent,
+  ActivitiStartProcessInstance,
+  ProcessInstance
 } from 'ng2-activiti-processlist';
 import { AnalyticsReportListComponent } from 'ng2-activiti-analytics';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Rx';
 import {
-    ObjectDataTableAdapter,
-    DataSorting
+  ObjectDataTableAdapter,
+  DataSorting
 } from 'ng2-alfresco-datatable';
 import { AlfrescoApiService } from 'ng2-alfresco-core';
 import { FormRenderingService } from 'ng2-activiti-form';
@@ -31,201 +31,213 @@ declare var componentHandler;
 const currentProcessIdNew = '__NEW__';
 
 @Component({
-    selector: 'activiti-demo',
-    templateUrl: './activiti-demo.component.html',
-    styleUrls: ['./activiti-demo.component.css']
+  selector: 'activiti-demo',
+  templateUrl: './activiti-demo.component.html',
+  styleUrls: ['./activiti-demo.component.css']
 })
 export class ActivitiDemoComponent implements AfterViewInit {
 
-    @ViewChild(ActivitiApps)
-    activitiapps: ActivitiApps;
+  @ViewChild(ActivitiApps)
+  activitiapps: ActivitiApps;
 
-    @ViewChild(ActivitiFilters)
-    activitifilter: ActivitiFilters;
+  @ViewChild(ActivitiFilters)
+  activitifilter: ActivitiFilters;
 
-    @ViewChild(ActivitiTaskList)
-    activititasklist: ActivitiTaskList;
+  @ViewChild(ActivitiTaskList)
+  activititasklist: ActivitiTaskList;
 
-    @ViewChild(ActivitiTaskDetails)
-    activitidetails: ActivitiTaskDetails;
+  @ViewChild(ActivitiTaskDetails)
+  activitidetails: ActivitiTaskDetails;
 
-    @ViewChild(ActivitiProcessFilters)
-    activitiprocessfilter: ActivitiProcessFilters;
+  @ViewChild(ActivitiProcessFilters)
+  activitiprocessfilter: ActivitiProcessFilters;
 
-    @ViewChild(ActivitiProcessInstanceListComponent)
-    activitiprocesslist: ActivitiProcessInstanceListComponent;
+  @ViewChild(ActivitiProcessInstanceListComponent)
+  activitiprocesslist: ActivitiProcessInstanceListComponent;
 
-    @ViewChild(ActivitiProcessInstanceDetails)
-    activitiprocessdetails: ActivitiProcessInstanceDetails;
+  @ViewChild(ActivitiProcessInstanceDetails)
+  activitiprocessdetails: ActivitiProcessInstanceDetails;
 
-    @ViewChild(ActivitiStartProcessInstance)
-    activitiStartProcess: ActivitiStartProcessInstance;
+  @ViewChild(ActivitiStartProcessInstance)
+  activitiStartProcess: ActivitiStartProcessInstance;
 
-    @ViewChild(AnalyticsReportListComponent)
-    analyticsreportlist: AnalyticsReportListComponent;
+  @ViewChild(AnalyticsReportListComponent)
+  analyticsreportlist: AnalyticsReportListComponent;
 
-    @Input()
-    appId: number;
+  @Input()
+  appId: number;
 
-    layoutType: string;
-    currentTaskId: string;
-    currentProcessInstanceId: string;
+  layoutType: string;
+  currentTaskId: string;
+  currentProcessInstanceId: string;
 
-    taskSchemaColumns: any [] = [];
-    processSchemaColumns: any [] = [];
+  taskSchemaColumns: any [] = [];
+  processSchemaColumns: any [] = [];
 
-    taskFilter: FilterRepresentationModel;
-    report: any;
-    processFilter: FilterRepresentationModel;
+  processTabActivie: boolean = false;
 
-    sub: Subscription;
+  reportsTabActivie: boolean = false;
 
-    dataTasks: ObjectDataTableAdapter;
-    dataProcesses: ObjectDataTableAdapter;
+  taskFilter: FilterRepresentationModel;
+  report: any;
+  processFilter: FilterRepresentationModel;
 
-    constructor(private elementRef: ElementRef,
-                private route: ActivatedRoute,
-                private apiService: AlfrescoApiService,
-                private formRenderingService: FormRenderingService) {
-        this.dataTasks = new ObjectDataTableAdapter(
-            [],
-            [
-                {type: 'text', key: 'name', title: 'Name', cssClass: 'full-width name-column', sortable: true},
-                {type: 'text', key: 'created', title: 'Created', cssClass: 'hidden', sortable: true}
-            ]
-        );
-        this.dataTasks.setSorting(new DataSorting('created', 'desc'));
+  sub: Subscription;
 
-        this.dataProcesses = new ObjectDataTableAdapter(
-            [],
-            [
-                {type: 'text', key: 'name', title: 'Name', cssClass: 'full-width name-column', sortable: true},
-                {type: 'text', key: 'started', title: 'Started', cssClass: 'hidden', sortable: true}
-            ]
-        );
+  dataTasks: ObjectDataTableAdapter;
+  dataProcesses: ObjectDataTableAdapter;
 
-        // Uncomment this line to replace all 'text' field editors with custom component
-        // formRenderingService.setComponentTypeResolver('text', () => CustomEditorComponent, true);
+  constructor(private elementRef: ElementRef,
+              private route: ActivatedRoute,
+              private apiService: AlfrescoApiService,
+              private formRenderingService: FormRenderingService) {
+    this.dataTasks = new ObjectDataTableAdapter(
+      [],
+      [
+        {type: 'text', key: 'name', title: 'Name', cssClass: 'full-width name-column', sortable: true},
+        {type: 'text', key: 'created', title: 'Created', cssClass: 'hidden', sortable: true}
+      ]
+    );
+    this.dataTasks.setSorting(new DataSorting('created', 'desc'));
 
-        // Uncomment this line to map 'custom_stencil_01' to local editor component
-        formRenderingService.setComponentTypeResolver('custom_stencil_01', () => CustomStencil01, true);
+    this.dataProcesses = new ObjectDataTableAdapter(
+      [],
+      [
+        {type: 'text', key: 'name', title: 'Name', cssClass: 'full-width name-column', sortable: true},
+        {type: 'text', key: 'started', title: 'Started', cssClass: 'hidden', sortable: true}
+      ]
+    );
+
+    // Uncomment this line to replace all 'text' field editors with custom component
+    // formRenderingService.setComponentTypeResolver('text', () => CustomEditorComponent, true);
+
+    // Uncomment this line to map 'custom_stencil_01' to local editor component
+    formRenderingService.setComponentTypeResolver('custom_stencil_01', () => CustomStencil01, true);
+  }
+
+  ngOnInit() {
+    this.sub = this.route.params.subscribe(params => {
+      let applicationId = params['appId'];
+      if (applicationId && applicationId !== '0') {
+        this.appId = params['appId'];
+      }
+
+      this.taskFilter = null;
+      this.currentTaskId = null;
+      this.processFilter = null;
+      this.currentProcessInstanceId = null;
+    });
+    this.layoutType = ActivitiApps.LAYOUT_GRID;
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
+  }
+
+  onTaskFilterClick(event: FilterRepresentationModel) {
+    this.taskFilter = event;
+  }
+
+  onReportClick(event: any) {
+    this.report = event;
+  }
+
+  onSuccessTaskFilterList(event: any) {
+    this.taskFilter = this.activitifilter.getCurrentFilter();
+  }
+
+  onStartTaskSuccess(event: any) {
+    this.activitifilter.selectFirstFilter();
+    this.taskFilter = this.activitifilter.getCurrentFilter();
+    this.activititasklist.reload();
+  }
+
+  onSuccessTaskList(event: FilterRepresentationModel) {
+    this.currentTaskId = this.activititasklist.getCurrentId();
+  }
+
+  onProcessFilterClick(event: FilterRepresentationModel) {
+    this.processFilter = event;
+  }
+
+  onSuccessProcessFilterList(event: any) {
+    this.processFilter = this.activitiprocessfilter.getCurrentFilter();
+  }
+
+  onSuccessProcessList(event: any) {
+    this.currentProcessInstanceId = this.activitiprocesslist.getCurrentId();
+  }
+
+  onTaskRowClick(taskId) {
+    this.currentTaskId = taskId;
+  }
+
+  onProcessRowClick(processInstanceId) {
+    this.currentProcessInstanceId = processInstanceId;
+  }
+
+  onEditReport(name: string) {
+    this.analyticsreportlist.reload();
+  }
+
+  navigateStartProcess() {
+    this.currentProcessInstanceId = currentProcessIdNew;
+  }
+
+  onStartProcessInstance(instance: ProcessInstance) {
+    this.currentProcessInstanceId = instance.id;
+    this.activitiStartProcess.reset();
+    this.activitiprocesslist.reload();
+  }
+
+  isStartProcessMode() {
+    return this.currentProcessInstanceId === currentProcessIdNew;
+  }
+
+  processCancelled(data: any) {
+    this.currentProcessInstanceId = null;
+    this.activitiprocesslist.reload();
+  }
+
+  onSuccessNewProcess(data: any) {
+    this.activitiprocesslist.reload();
+  }
+
+  taskFormCompleted(data: any) {
+    this.activitiprocesslist.reload();
+  }
+
+  onFormCompleted(form) {
+    this.activititasklist.reload();
+    this.currentTaskId = null;
+  }
+
+  ngAfterViewInit() {
+    // workaround for MDL issues with dynamic components
+    if (componentHandler) {
+      componentHandler.upgradeAllRegistered();
     }
 
-    ngOnInit() {
-        this.sub = this.route.params.subscribe(params => {
-            let applicationId = params['appId'];
-            if (applicationId && applicationId !== '0') {
-                this.appId = params['appId'];
-            }
+    this.loadStencilScriptsInPageFromActiviti();
+  }
 
-            this.taskFilter = null;
-            this.currentTaskId = null;
-            this.processFilter = null;
-            this.currentProcessInstanceId = null;
-        });
-        this.layoutType = ActivitiApps.LAYOUT_GRID;
-    }
+  activeProcess() {
+    this.processTabActivie = true;
+  }
 
-    ngOnDestroy() {
-        this.sub.unsubscribe();
-    }
+  activeReports() {
+    this.reportsTabActivie = true;
+  }
 
-    onTaskFilterClick(event: FilterRepresentationModel) {
-        this.taskFilter = event;
-    }
-
-    onReportClick(event: any) {
-        this.report = event;
-    }
-
-    onSuccessTaskFilterList(event: any) {
-        this.taskFilter = this.activitifilter.getCurrentFilter();
-    }
-
-    onStartTaskSuccess(event: any) {
-        this.activitifilter.selectFirstFilter();
-        this.taskFilter = this.activitifilter.getCurrentFilter();
-        this.activititasklist.reload();
-    }
-
-    onSuccessTaskList(event: FilterRepresentationModel) {
-        this.currentTaskId = this.activititasklist.getCurrentId();
-    }
-
-    onProcessFilterClick(event: FilterRepresentationModel) {
-        this.processFilter = event;
-    }
-
-    onSuccessProcessFilterList(event: any) {
-        this.processFilter = this.activitiprocessfilter.getCurrentFilter();
-    }
-
-    onSuccessProcessList(event: any) {
-        this.currentProcessInstanceId = this.activitiprocesslist.getCurrentId();
-    }
-
-    onTaskRowClick(taskId) {
-        this.currentTaskId = taskId;
-    }
-
-    onProcessRowClick(processInstanceId) {
-        this.currentProcessInstanceId = processInstanceId;
-    }
-
-    onEditReport(name: string) {
-        this.analyticsreportlist.reload();
-    }
-
-    navigateStartProcess() {
-        this.currentProcessInstanceId = currentProcessIdNew;
-    }
-
-    onStartProcessInstance(instance: ProcessInstance) {
-        this.currentProcessInstanceId = instance.id;
-        this.activitiStartProcess.reset();
-        this.activitiprocesslist.reload();
-    }
-
-    isStartProcessMode() {
-        return this.currentProcessInstanceId === currentProcessIdNew;
-    }
-
-    processCancelled(data: any) {
-        this.currentProcessInstanceId = null;
-        this.activitiprocesslist.reload();
-    }
-
-    onSuccessNewProcess(data: any) {
-        this.activitiprocesslist.reload();
-    }
-
-    taskFormCompleted(data: any) {
-        this.activitiprocesslist.reload();
-    }
-
-    onFormCompleted(form) {
-        this.activititasklist.reload();
-        this.currentTaskId = null;
-    }
-
-    ngAfterViewInit() {
-        // workaround for MDL issues with dynamic components
-        if (componentHandler) {
-            componentHandler.upgradeAllRegistered();
-        }
-
-        this.loadStencilScriptsInPageFromActiviti();
-    }
-
-    loadStencilScriptsInPageFromActiviti() {
-        this.apiService.getInstance().activiti.scriptFileApi.getControllers().then(response => {
-            if (response) {
-                let s = document.createElement('script');
-                s.type = 'text/javascript';
-                s.text = response;
-                this.elementRef.nativeElement.appendChild(s);
-            }
-        });
-    }
+  loadStencilScriptsInPageFromActiviti() {
+    this.apiService.getInstance().activiti.scriptFileApi.getControllers().then(response => {
+      if (response) {
+        let s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.text = response;
+        this.elementRef.nativeElement.appendChild(s);
+      }
+    });
+  }
 
 }

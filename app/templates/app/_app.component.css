@@ -25,3 +25,11 @@
 .hide {
   display: none !important;
 }
+
+.mdl-navigation__link {
+  cursor: pointer;
+}
+
+.mdl-navigation__link label {
+  cursor: pointer;
+}
