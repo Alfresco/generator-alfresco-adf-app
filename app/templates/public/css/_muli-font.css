@@ -28,11 +28,13 @@ blockquote {
     font-family: 'Muli', "Helvetica", "Arial", sans-serif !important;
 }
 
+input {
+    font-family: 'Muli', "Helvetica", "Arial", sans-serif !important;
+}
 
 .mdl-typography--display-4, .mdl-typography--display-4-color-contrast {
     font-family: 'Muli', "Helvetica", "Arial", sans-serif !important;
 }
-
 
 .mdl-typography--display-3, .mdl-typography--display-3-color-contrast {
     font-family: 'Muli', "Helvetica", "Arial", sans-serif !important;

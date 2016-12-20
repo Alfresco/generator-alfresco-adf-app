@@ -1,6 +1,12 @@
-@media only screen and (max-width: 640px) {
-  .mdl-layout__header.header-search-expanded .mdl-layout-title {
-    display: none;
+@media screen and (max-width: 1024px) {
+  .mdl-layout__header {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .mdl-layout__header {
+    display: block;
   }
 }
 
@@ -9,9 +15,21 @@
 }
 
 .user-profile {
-  margin-right: 50px;
+  margin-right: 10px;
 }
 
-.mdl-layout__header-row{
-  padding: 0px 15px 0px 15px;
+.mdl-button-padding {
+  padding-left: 20px;
+}
+
+.hide {
+  display: none !important;
+}
+
+.mdl-navigation__link {
+  cursor: pointer;
+}
+
+.mdl-navigation__link label {
+  cursor: pointer;
 }

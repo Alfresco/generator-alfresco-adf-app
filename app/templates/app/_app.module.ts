@@ -3,41 +3,32 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { CoreModule } from 'ng2-alfresco-core';
-<% if (searchBar == true) { %>
-import { SearchModule } from 'ng2-alfresco-search';
-<% } %>
-<% if (contentPage == true) { %>
 import { DataTableModule } from 'ng2-alfresco-datatable';
-import { DocumentListModule } from 'ng2-alfresco-documentlist';
-import { UploadModule } from 'ng2-alfresco-upload';
-<% } %>
-<% if (bpmTaskPage == true) { %>
-import { ActivitiFormModule } from 'ng2-activiti-form';
+<% if (searchBar == true) { %>import { SearchModule } from 'ng2-alfresco-search';<% } %>
+<% if (contentPage == true) { %>import { DocumentListModule } from 'ng2-alfresco-documentlist';
+import { UploadModule } from 'ng2-alfresco-upload';<% } %>
+<% if (bpmTaskPage == true) { %>import { ActivitiFormModule } from 'ng2-activiti-form';
 import { ActivitiTaskListModule } from 'ng2-activiti-tasklist';
 import { ActivitiProcessListModule } from 'ng2-activiti-processlist';
 import { AnalyticsModule } from 'ng2-activiti-analytics';
-<% } %>
-import { LoginModule } from 'ng2-alfresco-login';
+<% } %>import { LoginModule } from 'ng2-alfresco-login';
 import { UserInfoComponentModule } from 'ng2-alfresco-userinfo';
-<% if (searchBar == true || contentPage == true) { %>
-import { ViewerModule } from 'ng2-alfresco-viewer';
-<% } %>
+<% if (searchBar == true || contentPage == true) { %>import { ViewerModule } from 'ng2-alfresco-viewer';<% } %>
 import { AppComponent } from './app.component';
 import { routing } from './app.routes';
 
 import {
-  <% if (searchBar == true) { %>
-    SearchComponent,
-    SearchBarComponent,
-  <% } %>
-  <% if (bpmTaskPage == true) { %>
-    ActivitiDemoComponent,
-  <% } %>
-  <% if (contentPage == true) { %>
-    FilesComponent,
-  <% } %>
-    LoginDemoComponent,
-      SettingComponent
+  HomeComponent,
+  <% if (searchBar == true) { %>SearchComponent,
+  SearchBarComponent,<% } %>
+  <% if (bpmTaskPage == true) { %>ActivitiDemoComponent,
+  ActivitiAppsView,
+  FormViewer,
+  FormNodeViewer,<% } %>
+  <% if (contentPage == true) { %>FilesComponent,<% } %>
+  AboutComponent,
+  LoginDemoComponent,
+  SettingComponent
 } from './components/index';
 
 @NgModule({
@@ -45,38 +36,32 @@ import {
         BrowserModule,
         routing,
         CoreModule.forRoot(),
-        <% if (searchBar == true) { %>
-        SearchModule.forRoot(),
-        <% } %>
-        <% if (contentPage == true) { %>
         DataTableModule,
+        <% if (searchBar == true) { %>SearchModule.forRoot(), <% } %>
+        <% if (contentPage == true) { %>
         DocumentListModule.forRoot(),
-        UploadModule.forRoot(),
-        ViewerModule.forRoot(),
-        <% } %>
-        <% if (bpmTaskPage == true) { %>
-        ActivitiFormModule.forRoot(),
+        UploadModule.forRoot(),<% } %>
+        <% if (searchBar == true || contentPage == true) { %>ViewerModule.forRoot(),<% } %>
+        <% if (bpmTaskPage == true) { %>ActivitiFormModule.forRoot(),
         ActivitiTaskListModule.forRoot(),
         ActivitiProcessListModule.forRoot(),
-        AnalyticsModule.forRoot(),
-        <% } %>
+        AnalyticsModule.forRoot(),<% } %>
         LoginModule,
         UserInfoComponentModule.forRoot()
     ],
     declarations: [
         AppComponent,
-        <% if (searchBar == true) { %>
-        SearchBarComponent,
-        SearchComponent,
-        <% } %>
-        <% if (bpmTaskPage == true) { %>
-        ActivitiDemoComponent,
-        <% } %>
-        <% if (contentPage == true) { %>
-        FilesComponent,
-        <% } %>
+        HomeComponent,
+        <% if (searchBar == true) { %>SearchBarComponent,
+        SearchComponent,<% } %>
+        <% if (bpmTaskPage == true) { %>ActivitiDemoComponent,
+        ActivitiAppsView,
+        FormViewer,
+        FormNodeViewer,<% } %>
+        <% if (contentPage == true) { %>FilesComponent,<% } %>
+        AboutComponent,
         LoginDemoComponent,
-          SettingComponent
+        SettingComponent
     ],
     providers: [],
     bootstrap: [ AppComponent ]
