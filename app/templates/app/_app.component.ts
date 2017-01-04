@@ -64,12 +64,12 @@ export class AppComponent {
   }
 
   redirectToLoginPageIfNotLoggedIn(): void {
-    if (!this.isLoginPage() && !this.auth.isLoggedIn()) {
+    if (!this.auth.isLoggedIn()) {
       this.router.navigate(['/login']);
     }
   }
 
-  isLoginPage(): boolean {
+  isAPageWithHeaderBar(): boolean {
     return location.pathname === '/login' || location.pathname === '/settings';
   }
 
