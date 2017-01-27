@@ -1,6 +1,5 @@
 <!--BPM, ECN AND CSRF TOGGLE-->
 
-<% if (bpmTaskPage == true) { %>
 <div class="settings">
   <p class="toggle">
     <label for="switch1" class="mdl-switch mdl-js-switch mdl-js-ripple-effect">
@@ -27,7 +26,6 @@
     <input id="blacklistusername" type="text" placeholder="banned username" [(ngModel)]="blackListUsername"/>
   </p>
 </div>
-<% } %>
 
 <!--SETTING BUTTON-->
 
@@ -46,8 +44,6 @@
                 (executeSubmit)="validateForm($event)"
                 (onSuccess)="onLogin($event)"
                 (onError)="onError($event)">
-
-  <% if (bpmTaskPage == true) { %>
   <div class="mobile-settings">
     <p>
       <label for="switch1-mobile" class="mdl-switch mdl-js-switch mdl-js-ripple-effect">
@@ -74,6 +70,4 @@
       <label class="mdl-textfield__label" for="blacklistusername">Banned username</label>
     </div>
   </div>
-  <% } %>
-
 </alfresco-login>
