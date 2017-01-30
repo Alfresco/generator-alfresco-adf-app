@@ -22,7 +22,8 @@ import {
   AlfrescoTranslationService,
   AlfrescoAuthenticationService,
   AlfrescoSettingsService,
-  StorageService
+  StorageService,
+  LogService
 } from 'ng2-alfresco-core';
 
 declare var document: any;
@@ -38,11 +39,12 @@ export class AppComponent {
   ecmHost: string = '<%= alfrescoServerHost %>';
   bpmHost: string = '<%= activitiServerHost %>';
 
-  constructor(public auth: AlfrescoAuthenticationService,
+  constructor(public authService: AlfrescoAuthenticationService,
               public router: Router,
               public alfrescoSettingsService: AlfrescoSettingsService,
               private translate: AlfrescoTranslationService,
-              private storage: StorageService) {
+              private storage: StorageService,
+              private logService: LogService) {
     this.setEcmHost();
     this.setBpmHost();
     this.setProvider();
@@ -58,33 +60,22 @@ export class AppComponent {
     }
   }
 
-  isLoggedIn(): boolean {
-    this.redirectToLoginPageIfNotLoggedIn();
-    return this.auth.isLoggedIn();
-  }
-
-  redirectToLoginPageIfNotLoggedIn(): void {
-    if (!this.isLoginPage() && !this.auth.isLoggedIn()) {
-      this.router.navigate(['/login']);
-    }
-  }
-
-  isLoginPage(): boolean {
+  isAPageWithHeaderBar(): boolean {
     return location.pathname === '/login' || location.pathname === '/settings';
   }
 
   onLogout(event) {
     event.preventDefault();
-    this.auth.logout()
+    this.authService.logout()
       .subscribe(
         () => {
           this.navigateToLogin();
         },
-        ($event: any) => {
-          if ($event && $event.response && $event.response.status === 401) {
+        (error: any) => {
+          if (error && error.response && error.response.status === 401) {
             this.navigateToLogin();
           } else {
-            console.error('An unknown error occurred while logging out', $event);
+            this.logService.error('An unknown error occurred while logging out', error);
             this.navigateToLogin();
           }
         }
