@@ -36,7 +36,7 @@ import {
         BrowserModule,
         routing,
         CoreModule.forRoot(),
-        DataTableModule,
+        DataTableModule.forRoot(),
         <% if (searchBar == true) { %>SearchModule.forRoot(), <% } %>
         <% if (contentPage == true) { %>
         DocumentListModule.forRoot(),
@@ -46,7 +46,7 @@ import {
         ActivitiTaskListModule.forRoot(),
         ActivitiProcessListModule.forRoot(),
         AnalyticsModule.forRoot(),<% } %>
-        LoginModule,
+        LoginModule.forRoot(),
         UserInfoComponentModule.forRoot()
     ],
     declarations: [

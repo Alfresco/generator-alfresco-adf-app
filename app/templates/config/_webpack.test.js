@@ -1,6 +1,5 @@
 var helpers = require('./helpers');
 var fs = require('fs');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var glob = require('glob');
 
 const rootPath = helpers.root('node_modules');
@@ -34,11 +33,20 @@ module.exports = {
   },
 
   module: {
+    preLoaders: [
+      {
+        test: /\.js$/,
+        include: [
+          ...alfrescoLibs
+    ],
+        loader: 'source-map-loader'
+      }
+    ],
     loaders: [
       {
         test: /\.ts$/,
-        exclude: /node_modules/,
-        loaders: ['awesome-typescript-loader', 'angular2-template-loader']
+        loaders: ['awesome-typescript-loader', 'angular2-template-loader', 'systemjs-loader'],
+        exclude: ['node_modules','public']
       },
       {
         test: /\.js$/,

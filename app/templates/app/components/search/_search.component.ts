@@ -1,4 +1,5 @@
 <%- licenseHeader %>
+
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { MinimalNodeEntity } from 'alfresco-js-api';
@@ -31,18 +32,18 @@ import { MinimalNodeEntity } from 'alfresco-js-api';
 })
 export class SearchComponent {
 
-  fileShowed: boolean = false;
   fileNodeId: string;
+  fileShowed: boolean = false;
 
   constructor(public router: Router) {
   }
 
-  onNavigateItem(event: MinimalNodeEntity) {
-    if (event.entry.isFile) {
-      this.fileNodeId = event.entry.id;
+  showFile(event) {
+    if (event.value.entry.isFile) {
+      this.fileNodeId = event.value.entry.id;
       this.fileShowed = true;
-    } else if (event.entry.isFolder) {
-      this.router.navigate(['/files', event.entry.id]);
+    } else {
+      this.fileShowed = false;
     }
   }
 }
