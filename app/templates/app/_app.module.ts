@@ -65,8 +65,7 @@ import {
         <% if (contentPage == true) { %>FilesComponent,<% } %>
         AboutComponent,
         LoginDemoComponent,
-        SettingComponent,
-        TagComponent
+        SettingComponent
     ],
     providers: [],
     bootstrap: [ AppComponent ]

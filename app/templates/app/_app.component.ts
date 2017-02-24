@@ -49,8 +49,8 @@ export class AppComponent {
     this.setBpmHost();
     this.setProvider();
 
-    if (translateService) {
-      translateService.addTranslationFolder('app', 'resources');
+    if (translate) {
+      translate.addTranslationFolder('app', 'resources');
     }
   }
 
