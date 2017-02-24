@@ -49,14 +49,8 @@ export class AppComponent {
     this.setBpmHost();
     this.setProvider();
 
-    if (translate) {
-      if (process.env.ENV === 'production') {
-        translate.addTranslationFolder('custom', 'i18n/custom-translation');
-        translate.addTranslationFolder('ng2-alfresco-login', 'i18n/custom-translation/alfresco-login');
-      } else {
-        translate.addTranslationFolder('custom', 'custom-translation');
-        translate.addTranslationFolder('ng2-alfresco-login', 'custom-translation/alfresco-login');
-      }
+    if (translateService) {
+      translateService.addTranslationFolder('app', 'resources');
     }
   }
 
