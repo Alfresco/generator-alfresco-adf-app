@@ -171,18 +171,9 @@ module.exports = {
                 flatten: true
             }, {
                 context: 'public',
-                from: 'js/',
-                to: 'js/'
-            }, {
-                context: 'public',
-                from: 'css/',
-                to: 'css/'
-            }, {
-                context: 'public',
-                from: 'images/',
-                to: 'images/'
+                from: '',
+                to: ''
             }
-
         ]),
 
         new webpack.optimize.CommonsChunkPlugin({

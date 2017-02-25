@@ -68,6 +68,25 @@ Directory structure:
 │      ├── it.json
 │      └── fr.json
 ```
+
+## Custom-files
+
+If you need to add custom files on your project you can add this files in the folders public
+
+```
+.
+├── public/
+│   ├── images/
+│   ├── css/
+│   └── js/
+```
+
+the public folder above wil be copied in the root of your project and you can refer to them for example as
+
+ * './images/custom_image.png'
+ * './js/custom_script.js'
+ * './css/custom_style.css'
+
  <% if (authorEmail) { %>
 ## History
 
