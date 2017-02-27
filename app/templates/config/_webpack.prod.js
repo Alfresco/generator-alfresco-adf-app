@@ -40,7 +40,7 @@ module.exports = webpackMerge(commonConfig, {
 
     // Reference: http://webpack.github.io/docs/list-of-plugins.html#uglifyjsplugin
     // Minify all javascript, switch loaders to minimizing mode
-    // new webpack.optimize.UglifyJsPlugin({ 
+    // new webpack.optimize.UglifyJsPlugin({
     //   mangle: {
     //     keep_fnames: true
     //   },
@@ -66,9 +66,9 @@ module.exports = webpackMerge(commonConfig, {
             to: 'pdf.worker.js'
         },
         {
-            context: 'custom-translation',
+            context: 'resources/i18n',
             from: '**/*.json',
-            to: 'i18n/custom-translation'
+            to: 'resources/i18n'
         },
         // Copy i18n folders for all modules with ng2-alfresco- prefix
         {
