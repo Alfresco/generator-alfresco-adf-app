@@ -1,12 +1,14 @@
 <%- licenseHeader %>
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { Editor3DModule } from 'ng2-3d-editor';
 
 import { CoreModule } from 'ng2-alfresco-core';
 import { DataTableModule } from 'ng2-alfresco-datatable';
 <% if (searchBar == true) { %>import { SearchModule } from 'ng2-alfresco-search';<% } %>
 <% if (contentPage == true) { %>import { DocumentListModule } from 'ng2-alfresco-documentlist';
-import { UploadModule } from 'ng2-alfresco-upload';<% } %>
+import { UploadModule } from 'ng2-alfresco-upload';
+import { TagModule } from 'ng2-alfresco-tag';<% } %>
 <% if (bpmTaskPage == true) { %>import { ActivitiFormModule } from 'ng2-activiti-form';
 import { ActivitiTaskListModule } from 'ng2-activiti-tasklist';
 import { ActivitiProcessListModule } from 'ng2-activiti-processlist';
@@ -47,7 +49,9 @@ import {
         ActivitiProcessListModule.forRoot(),
         AnalyticsModule.forRoot(),<% } %>
         LoginModule.forRoot(),
-        UserInfoComponentModule.forRoot()
+        UserInfoComponentModule.forRoot(),
+        Editor3DModule.forRoot(),
+        TagModule.forRoot()
     ],
     declarations: [
         AppComponent,

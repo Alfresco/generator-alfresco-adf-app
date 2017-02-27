@@ -478,23 +478,13 @@ module.exports = yeoman.Base.extend({
     }
 
     this.fs.copy(
-      this.templatePath('custom-translation/i18n/_en.json'),
-      this.destinationPath('custom-translation/i18n/en.json')
+      this.templatePath('resources/i18n/_en.json'),
+      this.destinationPath('resources/i18n/en.json')
     );
 
     this.fs.copy(
-      this.templatePath('custom-translation/i18n/_it.json'),
-      this.destinationPath('custom-translation/i18n/it.json')
-    );
-
-    this.fs.copy(
-      this.templatePath('custom-translation/alfresco-login/i18n/_en.json'),
-      this.destinationPath('custom-translation/alfresco-login/i18n/en.json')
-    );
-
-    this.fs.copy(
-      this.templatePath('custom-translation/alfresco-login/i18n/_it.json'),
-      this.destinationPath('custom-translation/alfresco-login/i18n/it.json')
+      this.templatePath('resources/i18n/_it.json'),
+      this.destinationPath('resources/i18n/it.json')
     );
 
     this.fs.copy(

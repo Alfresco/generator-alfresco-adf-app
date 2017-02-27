@@ -188,6 +188,21 @@ export class ActivitiDemoComponent implements AfterViewInit {
     this.analyticsreportlist.reload();
   }
 
+  onReportSaved() {
+    this.analyticsreportlist.reload();
+  }
+
+  onReportDeleted() {
+    this.analyticsreportlist.reload();
+    this.selectFirstElementInReportList();
+  }
+
+  selectFirstElementInReportList(){
+    if (! this.analyticsreportlist.isReportsEmpty()) {
+      this.analyticsreportlist.selectReport(this.analyticsreportlist.reports[0]);
+    }
+  }
+
   navigateStartProcess() {
     this.resetProcessFilters();
     this.reloadProcessFilters();
