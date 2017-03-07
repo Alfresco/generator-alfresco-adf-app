@@ -20,7 +20,13 @@ module.exports = yeoman.Base.extend({
   initializing: function () {
     this.props = {
       licenseHeader: '',
-      licenseChecker: false
+      licenseChecker: false,
+      // features
+      drawerBar: false,
+      userInfo: false,
+      contentPage: false,
+      searchBar: false,
+      bpmTaskPage: false
     };
 
     if (this.options.alfresco) {
@@ -140,38 +146,50 @@ module.exports = yeoman.Base.extend({
     }
   },
 
-  askForAlfrescoComponent: function () {
+  selectFeatures: function () {
     var done = this.async();
 
     var prompts = [{
-      name: 'userInfo',
-      message: 'Do you want include the User info component?',
-      type: 'confirm',
-      default: true
-    }, {
-      name: 'drawerBar',
-      message: 'Do you want include a drawer bar?',
-      type: 'confirm',
-      default: true
-    }, {
-      name: 'searchBar',
-      message: 'Do you want include a search bar?',
-      type: 'confirm',
-      default: true
-    }, {
-      name: 'contentPage',
-      message: 'Do you want include a Document List?',
-      type: 'confirm',
-      default: true
-    }, {
-      name: 'bpmTaskPage',
-      message: 'Do you want include Activiti BPM components?',
-      type: 'confirm',
-      default: true
+      type: 'checkbox',
+      name: 'features',
+      message: 'Features',
+      choices: [
+        {
+          name: 'UI: Drawer Bar',
+          value: 'drawerBar',
+          checked: true
+        },
+        {
+          name: 'ADF: UserInfo Component',
+          value: 'userInfo'
+        },
+        {
+          name: 'ADF: DocumentList Component',
+          value: 'contentPage',
+          checked: true
+        },
+        {
+          name: 'ADF: Search Component',
+          value: 'searchBar'
+        },
+        {
+          name: 'ADF: Process Services Components',
+          value: 'bpmTaskPage'
+        }
+      ],
+      validate: function (answers) {
+        if (answers.length < 1) {
+          return 'You must choose at least one feature.';
+        }
+        return true;
+      }
     }];
 
-    this.prompt(prompts, function (props) {
-      this.props = _.extend(this.props, props);
+    this.prompt(prompts, function (answer) {
+      var props = this.props;
+      answer.features.map(function (feature) {
+        props[feature] = true;
+      });
       done();
     }.bind(this));
   },
