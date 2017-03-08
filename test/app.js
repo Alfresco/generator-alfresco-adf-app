@@ -35,11 +35,7 @@ describe('Alfresco component generator', function () {
           authorUrl: 'http://Hejjihoggu.io',
           keywords: ['app-keyword', 'angular2-keyword'],
           alfrescoServerHost: 'http://servertTest:8080/share',
-          userInfo: false,
-          drawerBar: false,
-          searchBar: false,
-          contentPage: false,
-          bpmTaskPage: false,
+          features: [],
           license: 'MIT'
         })
         .on('error', function (error) {
@@ -114,11 +110,13 @@ describe('Alfresco component generator', function () {
           keywords: ['app-keyword', 'angular2-keyword'],
           alfrescoServerHost: 'http://servertTest:8080/share',
           activitiServerHost: 'http://servertTest:9999/share',
-          userInfo: true,
-          drawerBar: true,
-          searchBar: true,
-          contentPage: true,
-          bpmTaskPage: true,
+          features: [
+            'userInfo',
+            'drawerBar',
+            'searchBar',
+            'contentPage',
+            'bpmTaskPage'
+          ],
           license: 'MIT'
         })
         .on('error', function (error) {
@@ -268,11 +266,9 @@ describe('Alfresco component generator', function () {
           keywords: ['app-keyword', 'angular2-keyword'],
           alfrescoServerHost: 'http://servertTest:8080/share',
           activitiServerHost: 'http://servertTest:9999/share',
-          userInfo: false,
-          drawerBar: false,
-          searchBar: false,
-          contentPage: false,
-          bpmTaskPage: true,
+          features: [
+            'bpmTaskPage'
+          ],
           license: 'MIT'
         })
         .on('error', function (error) {
@@ -374,12 +370,9 @@ describe('Alfresco component generator', function () {
           keywords: ['app-keyword', 'angular2-keyword'],
           alfrescoServerHost: 'http://servertTest:8080/share',
           activitiServerHost: 'http://servertTest:9999/share',
-          userInfo: false,
-          drawerBar: false,
-
-          searchBar: true,
-          contentPage: false,
-          bpmTaskPage: false,
+          features: [
+            'searchBar'
+          ],
           license: 'MIT'
         })
         .on('error', function (error) {
