@@ -107,6 +107,14 @@ To test the generator:
 npm test
 ```
 
+To run the integration test of the generator:
+
+```sh
+npm run integrations-test
+```
+
+those test run the generator and install the app with different options in the tempo folder, because of the download of the npm packages are quite slow
+
 ### Debugging generator
 
 ```sh

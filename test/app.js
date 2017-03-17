@@ -96,7 +96,7 @@ describe('Alfresco component generator', function () {
     });
   });
 
-  describe('Include Optional component', function () {
+  describe('Include all optional component', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../app'))
         .inDir(path.join(os.tmpdir(), './temp'))
@@ -252,7 +252,7 @@ describe('Alfresco component generator', function () {
     });
   });
 
-  describe('Include only activiti component', function () {
+  describe('Include only process service component', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../app'))
         .inDir(path.join(os.tmpdir(), './temp'))

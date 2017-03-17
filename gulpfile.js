@@ -9,7 +9,7 @@ var plumber = require('gulp-plumber');
 var coveralls = require('gulp-coveralls');
 
 gulp.task('static', function () {
-  return gulp.src(['**/*.js', '!**/templates/**'])
+  return gulp.src(['**/*.js', '!**/templates/**', '!**/temp/**'])
     .pipe(excludeGitignore())
     .pipe(eslint())
     .pipe(eslint.format())
@@ -27,9 +27,24 @@ gulp.task('pre-test', function () {
 gulp.task('test', ['pre-test'], function (cb) {
   var mochaErr;
 
-  gulp.src('test/**/*.js')
+  gulp.src('test/app.js')
     .pipe(plumber())
     .pipe(mocha({reporter: 'spec', timeout: 10000}))
+    .on('error', function (err) {
+      mochaErr = err;
+    })
+    .pipe(istanbul.writeReports())
+    .on('end', function () {
+      cb(mochaErr);
+    });
+});
+
+gulp.task('integration-test', ['pre-test'], function (cb) {
+  var mochaErr;
+
+  gulp.src('test/app-integrations.js')
+    .pipe(plumber())
+    .pipe(mocha({reporter: 'spec', timeout: 1000000}))
     .on('error', function (err) {
       mochaErr = err;
     })
@@ -49,3 +64,5 @@ gulp.task('coveralls', ['test'], function () {
 });
 
 gulp.task('default', ['static', 'test']);
+
+gulp.task('integrations-test', ['integration-test']);
