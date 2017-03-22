@@ -59,8 +59,9 @@
   "scripts": {
     "clean": "rimraf node_modules typings",
     "test": "gulp",
-    "cross-browsers-test": "npm run generation-app-test && npm run build-all-options && concurrently \"cd temp/all-options-test && npm run start:dist\" \"gulp cross-browsers-test\"",
-    "build-all-options": "cd temp/all-options-test && npm run build && cd -",
+    "cross-browsers-test": "npm run generation-app-test && npm run build-all-options && browsers-stack-server-test",
+    "browsers-stack-server-test": "cd temp/all-options-test && npm run start:dist & gulp cross-browsers-test",
+    "build-all-options": "cd temp/all-options-test && npm install && npm run build && cd -",
     "generation-app-test": "rimraf temp && gulp generation-app-test",
     "coveralls": "gulp coveralls"
   },

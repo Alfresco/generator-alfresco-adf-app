@@ -34,7 +34,7 @@ describe('Alfresco Integration test generator', function () {
       });
     };
 
-    it('All', function (done) {
+    it.only('All', function (done) {
 
       var nameApp = 'all-options-test';
 
@@ -63,7 +63,8 @@ describe('Alfresco Integration test generator', function () {
           console.log(error);
         })
         .on('end', ()=> {
-          installApp(nameApp, done);
+          done();
+         // installApp(nameApp, done);
         });
     });
 
