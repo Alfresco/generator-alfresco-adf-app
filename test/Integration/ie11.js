@@ -23,8 +23,7 @@ describe('IE11 test', function () {
       driver.manage().timeouts().implicitlyWait(60000);
 
       driver.get('http://localhost:3000/login');
-      var findLoginTag = driver.findElement(By.tagName('alfresco-login'));
-      findLoginTag.then(()=> {
+      driver.findElement(By.tagName('alfresco-login')).then(()=> {
         done();
       });
 
