@@ -36,7 +36,7 @@ describe('Alfresco Integration test generator', function () {
 
     it('All', function (done) {
 
-      var nameApp = 'app-integration-test';
+      var nameApp = 'all-options-test';
 
       helpers.run(path.join(__dirname, '../app'))
         .inDir(tempDir + '/' + nameApp)

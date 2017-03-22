@@ -24,10 +24,10 @@ gulp.task('pre-test', function () {
     .pipe(istanbul.hookRequire());
 });
 
-gulp.task('test', ['pre-test'], function (cb) {
+gulp.task('test-template', ['pre-test'], function (cb) {
   var mochaErr;
 
-  gulp.src('test/app.js')
+  gulp.src('test/app-template.js')
     .pipe(plumber())
     .pipe(mocha({reporter: 'spec', timeout: 10000}))
     .on('error', function (err) {
@@ -39,16 +39,29 @@ gulp.task('test', ['pre-test'], function (cb) {
     });
 });
 
-gulp.task('integration-test', ['pre-test'], function (cb) {
+gulp.task('generation-multiple-app-test', ['pre-test'], function (cb) {
   var mochaErr;
 
-  gulp.src('test/app-integrations.js')
+  gulp.src('test/app-different-options-creation.js')
     .pipe(plumber())
     .pipe(mocha({reporter: 'spec', timeout: 1000000}))
     .on('error', function (err) {
       mochaErr = err;
     })
-    .pipe(istanbul.writeReports())
+    .on('end', function () {
+      cb(mochaErr);
+    });
+});
+
+gulp.task('cross-browsers-test', ['pre-test'], function (cb) {
+  var mochaErr;
+
+  gulp.src('test/integration/**/*.js')
+    .pipe(plumber())
+    .pipe(mocha({reporter: 'spec', timeout: 1000000}))
+    .on('error', function (err) {
+      mochaErr = err;
+    })
     .on('end', function () {
       cb(mochaErr);
     });
@@ -63,6 +76,10 @@ gulp.task('coveralls', ['test'], function () {
     .pipe(coveralls());
 });
 
-gulp.task('default', ['static', 'test']);
+gulp.task('default', ['static', 'test-template']);
 
-gulp.task('integrations-test', ['integration-test']);
+gulp.task('all-test', ['static', 'test-template', 'cross-browsers-test', 'generation-app-test']);
+
+gulp.task('generation-app-test', ['generation-multiple-app-test']);
+
+gulp.task('browsers-test', ['cross-browsers-test']);
