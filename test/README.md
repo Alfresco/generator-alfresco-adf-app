@@ -22,8 +22,8 @@ step 1:
 Note the test are at moment running against chrome, firefox, ie11, opera and safari.
 set the environment variable with your username and password :
 
-export BROWSERSTACK_USER=YOUR_BROWSERSTACK_TEST_USER
-export BROWSERSTACK_KEY=YOUR_BROWSERSTACK_TEST_KEY
+export BROWSERSTACK_USERNAME=YOUR_BROWSERSTACK_TEST_USER
+export BROWSERSTACK_ACCESS_KEY=YOUR_BROWSERSTACK_TEST_KEY
 
 step 2:
 
