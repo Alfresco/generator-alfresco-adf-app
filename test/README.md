@@ -5,8 +5,7 @@
 The test on the app generato are subdivided in three part:
 
 1 Template and file well formed check 
-2 Generation app test
-3 Cross Browser test
+2 Cross Browser test
 
 ## 1 Template and file well formed check 
 
@@ -14,17 +13,9 @@ In order to run the template generator the command is:
 
 npm run test 
 
+## 2 Cross Browser test
 
-## 2 Generation app test
-
-Note because this command also install the dependencies across the different options the run of this test could be quite long.
-In order to run the template generator the command is:
-
-npm run generation-app-test
-
-## 3 Cross Browser test
-
-In order to run the cross browser test:
+In order to run the cross browser test locally:
 
 step 1:
 

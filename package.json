@@ -59,10 +59,14 @@
   "scripts": {
     "clean": "rimraf node_modules typings",
     "test": "gulp",
-    "cross-browsers-test": "npm run generation-app-test && npm run build-all-options && browsers-stack-server-test",
-    "browsers-stack-server-test": "cd temp/all-options-test && npm run start:dist & gulp cross-browsers-test",
-    "build-all-options": "cd temp/all-options-test && npm install && npm run build && cd -",
-    "generation-app-test": "rimraf temp && gulp generation-app-test",
+
+    "test-generation-app": "rimraf temp && gulp generation-app-test && npm run test-install-app-dependencies",
+    "test-install-app-dependencies" : "cd temp/all-options-test && npm install && cd - && npm run test-copy-node-modules",
+    "test-copy-node-modules" : "cp -R temp/all-options-test/node_modules temp/app-document-list-test && cp -R temp/all-options-test/node_modules  temp/app-process-service-test && cp  -R temp/all-options-test/node_modules temp/app-search-test",
+
+    "test-cross-browsers": "npm run test-generation-app && npm run test-build-apps && test-browsers-stack-server",
+    "test-browsers-stack-server": "cd temp/all-options-test && npm run start:dist & gulp cross-browsers-test",
+    "test-build-apps": "cd temp/all-options-test && npm run build && cd - && cd temp/app-document-list-test && npm run build && cd - && cd temp/app-process-service-test && npm run build && cd - && cd temp/app-search-test && npm run build && cd -",
     "coveralls": "gulp coveralls"
   },
   "license": "MIT"
