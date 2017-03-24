@@ -53,20 +53,6 @@ gulp.task('generation-multiple-app-test', ['pre-test'], function (cb) {
     });
 });
 
-gulp.task('cross-browsers-test', ['pre-test'], function (cb) {
-  var mochaErr;
-
-  gulp.src('test/integration/**/*.js')
-    .pipe(plumber())
-    .pipe(mocha({reporter: 'spec', timeout: 1000000}))
-    .on('error', function (err) {
-      mochaErr = err;
-    })
-    .on('end', function () {
-      cb(mochaErr);
-    });
-});
-
 gulp.task('coveralls', ['test'], function () {
   if (!process.env.CI) {
     return;
@@ -78,8 +64,4 @@ gulp.task('coveralls', ['test'], function () {
 
 gulp.task('default', ['static', 'test-template']);
 
-gulp.task('all-test', ['static', 'test-template', 'cross-browsers-test', 'generation-app-test']);
-
 gulp.task('generation-app-test', ['generation-multiple-app-test']);
-
-gulp.task('browsers-test', ['cross-browsers-test']);
