@@ -21,6 +21,8 @@ exports.config = {
     'browserName': 'Safari'
   }, {
     'browserName': 'Opera'
+  }, {
+    'browserName': 'internet explorer'
   }],
 
   // Code to start browserstack local before start of test
