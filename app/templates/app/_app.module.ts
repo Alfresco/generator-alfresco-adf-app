@@ -8,7 +8,8 @@ import { DataTableModule } from 'ng2-alfresco-datatable';
 <% if (searchBar == true) { %>import { SearchModule } from 'ng2-alfresco-search';<% } %>
 <% if (contentPage == true) { %>import { DocumentListModule } from 'ng2-alfresco-documentlist';
 import { UploadModule } from 'ng2-alfresco-upload';
-import { TagModule } from 'ng2-alfresco-tag';<% } %>
+<% } %>
+import { TagModule } from 'ng2-alfresco-tag';
 <% if (bpmTaskPage == true) { %>import { ActivitiFormModule } from 'ng2-activiti-form';
 import { ActivitiTaskListModule } from 'ng2-activiti-tasklist';
 import { ActivitiProcessListModule } from 'ng2-activiti-processlist';
