@@ -18,11 +18,14 @@ exports.config = {
   }, {
     'browserName': 'Firefox'
   }, {
-    'browserName': 'Safari'
+    'browserName': 'Safari',
+    'platform': 'MAC',
+    'version': '9'
   }, {
     'browserName': 'Opera'
   }, {
-    'browserName': 'internet explorer'
+    'browserName': 'internet explorer',
+    'version': '11'
   }],
 
   // Code to start browserstack local before start of test
