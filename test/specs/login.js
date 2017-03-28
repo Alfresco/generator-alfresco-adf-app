@@ -1,14 +1,19 @@
+'use strict';
+
 describe('Login component', function () {
 
-  it('login page should be loaded', function (done) {
-
+  beforeEach(function () {
     browser.driver.manage().timeouts().implicitlyWait(60000);
-
     browser.driver.get('http://localhost:3000/login');
+  });
+
+  afterEach(function () {
+    browser.driver.quit();
+  });
+
+  it('login page should be loaded', function (done) {
     browser.driver.findElement(By.tagName('alfresco-login')).then(()=> {
       done();
     });
-
-    browser.driver.quit();
   });
 });

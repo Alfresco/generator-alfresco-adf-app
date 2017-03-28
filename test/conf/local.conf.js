@@ -8,7 +8,7 @@ exports.config = {
     'browserstack.user': process.env.BROWSERSTACK_USERNAME || 'BROWSERSTACK_USERNAME',
     'browserstack.key': process.env.BROWSERSTACK_ACCESS_KEY || 'BROWSERSTACK_ACCESS_KEY',
     'build': 'protractor-browserstack',
-    'name': 'parallel_local_test',
+    'name': 'generetor_app_test',
     'browserstack.local': true,
     'browserstack.debug': 'true'
   },
@@ -22,7 +22,9 @@ exports.config = {
     'platform': 'MAC',
     'version': '9'
   }, {
-    'browserName': 'Opera'
+    'browserName': 'iPhone'
+  }, {
+    'browserName': 'android'
   }, {
     'browserName': 'internet explorer',
     'version': '11'
