@@ -203,11 +203,6 @@ module.exports = yeoman.Base.extend({
     );
 
     this.fs.copy(
-      this.templatePath('_typings.json'),
-      this.destinationPath('typings.json')
-    );
-
-    this.fs.copy(
       this.templatePath('_tslint.json'),
       this.destinationPath('tslint.json')
     );
@@ -403,6 +398,11 @@ module.exports = yeoman.Base.extend({
     );
 
     this.fs.copy(
+      this.templatePath('app/components/about/_about.component.css'),
+      this.destinationPath('app/components/about/about.component.css')
+    );
+
+    this.fs.copy(
       this.templatePath('app/components/about/_about.component.html'),
       this.destinationPath('app/components/about/about.component.html')
     );
@@ -428,6 +428,12 @@ module.exports = yeoman.Base.extend({
     this.fs.copyTpl(
       this.templatePath('app/components/login/_login-demo.component.css'),
       this.destinationPath('app/components/login/login-demo.component.css'),
+      this.props
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('public/css/_angular-material.css'),
+      this.destinationPath('public/css/angular-material.css'),
       this.props
     );
 

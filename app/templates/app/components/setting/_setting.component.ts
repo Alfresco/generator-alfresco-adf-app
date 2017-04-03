@@ -1,6 +1,5 @@
 <%- licenseHeader %>
 
-
 import { Component } from '@angular/core';
 import { AlfrescoSettingsService, StorageService, LogService } from 'ng2-alfresco-core';
 

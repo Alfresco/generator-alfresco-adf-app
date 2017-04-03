@@ -1,4 +1,5 @@
 <%- licenseHeader %>
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Editor3DModule } from 'ng2-3d-editor';
@@ -40,7 +41,7 @@ import {
         routing,
         CoreModule.forRoot(),
         DataTableModule.forRoot(),
-        <% if (searchBar == true) { %>SearchModule.forRoot(), <% } %>
+        <% if (searchBar == true) { %>SearchModule.forRoot(),<% } %>
         <% if (contentPage == true) { %>
         DocumentListModule.forRoot(),
         UploadModule.forRoot(),<% } %>

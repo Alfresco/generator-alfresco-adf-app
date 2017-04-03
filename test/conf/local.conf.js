@@ -24,8 +24,6 @@ exports.config = {
   }, {
     'browserName': 'iPhone'
   }, {
-    'browserName': 'android'
-  }, {
     'browserName': 'internet explorer',
     'version': '11'
   }],

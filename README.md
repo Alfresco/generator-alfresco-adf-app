@@ -73,7 +73,7 @@ yo ng2-alfresco-app --install
 npm run link
 ```
 
-* Clean the project from node_modules and typings folder
+* Clean the project
 
 ```sh
 npm run clean

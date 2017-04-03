@@ -1,7 +1,8 @@
 <%- licenseHeader %>
+
 import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AuthGuard, AuthGuardEcm, AuthGuardBpm } from 'ng2-alfresco-core';
+import { AuthGuard, AuthGuardEcm<% if (bpmTaskPage == true) { %>, AuthGuardBpm <% } %>} from 'ng2-alfresco-core';
 
 import {
   AboutComponent,

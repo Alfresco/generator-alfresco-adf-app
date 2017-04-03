@@ -9,7 +9,10 @@ import '@angular/router';
 // RxJS
 import 'rxjs';
 
-//Alfresco
+// hammerjs
+import 'hammerjs';
+
+// Alfresco
 import 'alfresco-js-api';
 import 'ng2-alfresco-core';
 import 'ng2-alfresco-datatable';
@@ -38,11 +41,12 @@ import '../public/css/app.css';
 import '../public/css/muli-font.css';
 
 // Load the Angular Material 2 stylesheet
-import '@angular/material/core/theming/prebuilt/deeppurple-amber.css';
+import '../public/css/angular-material.css';
 
 import 'ng2-activiti-form/stencils/runtime.ng1';
 import 'ng2-activiti-form/stencils/runtime.adf';
 
+import 'ng2-charts';
 import 'chart.js';
 require('script!raphael/raphael.min.js');
 
@@ -63,6 +67,7 @@ if (process.env.ENV === 'production') {
 }
 
 require('pdfjs-dist/web/pdf_viewer.js');
+require('three/build/three.min.js');
 
 // 3D viewer
 import 'three';
