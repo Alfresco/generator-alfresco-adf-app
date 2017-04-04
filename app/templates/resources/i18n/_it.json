@@ -1,5 +1,6 @@
 {
-  "title": "Benvenuto",
+  "title" : "Benvenuto",
+
   "DOCUMENT_LIST": {
     "COLUMNS": {
       "DISPLAY_NAME": "Mostra name",
@@ -10,15 +11,16 @@
     "ACTIONS": {
       "FOLDER": {
         "SYSTEM_1": "Azione 1 di sistema sulla cartella",
-        "CUSTOM": "Azione personalizzata su cartella",
-        "DELETE": "Cancella"
+        "CUSTOM": "Azione personalizzata su cartella"
       },
       "DOCUMENT": {
         "DOWNLOAD": "Download",
-        "DELETE": "Cancella",
         "SYSTEM_2": "System document action 2",
         "CUSTOM": "Custom action"
       }
     }
   }
+
+
+
 }

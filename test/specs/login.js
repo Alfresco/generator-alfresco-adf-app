@@ -3,7 +3,7 @@
 describe('Login component', function () {
 
   beforeEach(function () {
-    browser.driver.manage().timeouts().implicitlyWait(60000);
+    browser.driver.manage().timeouts().implicitlyWait(120000);
     browser.driver.get('http://localhost:3000/login');
   });
 

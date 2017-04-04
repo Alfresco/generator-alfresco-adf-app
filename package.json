@@ -1,6 +1,6 @@
 {
   "name": "generator-ng2-alfresco-app",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "Yeoman generator generating angular 2 Alfresco App",
   "homepage": "https://github.com/Alfresco/generator-ng2-alfresco-app",
   "author": {
@@ -62,7 +62,7 @@
     "test": "gulp",
     "test-generation-app": "rimraf temp && gulp generation-app-test",
     "test-install-app-dependencies": "cd temp/all-options-test && npm install && cd -",
-    "test-copy-node-modules": "ln -s temp/all-options-test/node_modules temp/app-document-list-test && ln -s temp/all-options-test/node_modules  temp/app-process-service-test && cp  -R temp/all-options-test/node_modules temp/app-search-test",
+    "test-copy-node-modules": "cp -R temp/all-options-test/node_modules temp/app-document-list-test && cp -R temp/all-options-test/node_modules  temp/app-process-service-test && cp -R temp/all-options-test/node_modules temp/app-search-test",
     "test-cross-browsers": "cd temp/all-options-test && npm run start:dist & npm run protractor-test",
     "test-build-apps": "cd temp/all-options-test && npm run build && cd - && cd temp/app-document-list-test && npm run build && cd - && cd temp/app-process-service-test && npm run build && cd - && cd temp/app-search-test && npm run build && cd -",
     "coveralls": "gulp coveralls",

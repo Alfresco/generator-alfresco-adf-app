@@ -9,7 +9,7 @@ var plumber = require('gulp-plumber');
 var coveralls = require('gulp-coveralls');
 
 gulp.task('static', function () {
-  return gulp.src(['**/*.js', '!**/templates/**', '!**/temp/**'])
+  return gulp.src(['**/*.js', '!**/templates/**', '!**/temp/**', '!**/test/**'])
     .pipe(excludeGitignore())
     .pipe(eslint())
     .pipe(eslint.format())

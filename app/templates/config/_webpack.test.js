@@ -33,21 +33,21 @@ module.exports = {
   },
 
   module: {
-    preLoaders: [
-      {
-        test: /\.js$/,
-        include: [
-          ...alfrescoLibs
-    ],
-        loader: 'source-map-loader'
+      preLoaders: [
+          {
+              test: /\.js$/,
+              include: [
+                  ...alfrescoLibs
+      ],
+      loader: 'source-map-loader'
       }
     ],
     loaders: [
-      {
-        test: /\.ts$/,
-        loaders: ['awesome-typescript-loader', 'angular2-template-loader', 'systemjs-loader'],
-        exclude: ['node_modules','public']
-      },
+        {
+            test: /\.ts$/,
+            loaders: ['awesome-typescript-loader', 'angular2-template-loader', 'systemjs-loader'],
+            exclude: ['node_modules','public']
+        },
       {
         test: /\.js$/,
         include: [
