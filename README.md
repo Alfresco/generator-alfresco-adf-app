@@ -73,7 +73,7 @@ yo ng2-alfresco-app --install
 npm run link
 ```
 
-* Clean the project from node_modules and typings folder
+* Clean the project
 
 ```sh
 npm run clean
@@ -106,6 +106,14 @@ To test the generator:
 ```sh
 npm test
 ```
+
+To run the integration test of the generator:
+
+```sh
+npm run integrations-test
+```
+
+those test run the generator and install the app with different options in the tempo folder, because of the download of the npm packages are quite slow
 
 ### Debugging generator
 

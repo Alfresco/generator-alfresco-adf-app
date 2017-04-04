@@ -35,11 +35,7 @@ describe('Alfresco component generator', function () {
           authorUrl: 'http://Hejjihoggu.io',
           keywords: ['app-keyword', 'angular2-keyword'],
           alfrescoServerHost: 'http://servertTest:8080/share',
-          userInfo: false,
-          drawerBar: false,
-          searchBar: false,
-          contentPage: false,
-          bpmTaskPage: false,
+          features: [],
           license: 'MIT'
         })
         .on('error', function (error) {
@@ -100,7 +96,7 @@ describe('Alfresco component generator', function () {
     });
   });
 
-  describe('Include Optional component', function () {
+  describe('Include all optional component', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../app'))
         .inDir(path.join(os.tmpdir(), './temp'))
@@ -114,11 +110,13 @@ describe('Alfresco component generator', function () {
           keywords: ['app-keyword', 'angular2-keyword'],
           alfrescoServerHost: 'http://servertTest:8080/share',
           activitiServerHost: 'http://servertTest:9999/share',
-          userInfo: true,
-          drawerBar: true,
-          searchBar: true,
-          contentPage: true,
-          bpmTaskPage: true,
+          features: [
+            'userInfo',
+            'drawerBar',
+            'searchBar',
+            'contentPage',
+            'bpmTaskPage'
+          ],
           license: 'MIT'
         })
         .on('error', function (error) {
@@ -134,7 +132,6 @@ describe('Alfresco component generator', function () {
     it('creates files', function () {
       var expected = [
         'favicon-96x96.png',
-        'typings.json',
         'tslint.json',
         'README.md',
         'index.html',
@@ -254,7 +251,7 @@ describe('Alfresco component generator', function () {
     });
   });
 
-  describe('Include only activiti component', function () {
+  describe('Include only process service component', function () {
     before(function (done) {
       helpers.run(path.join(__dirname, '../app'))
         .inDir(path.join(os.tmpdir(), './temp'))
@@ -268,11 +265,9 @@ describe('Alfresco component generator', function () {
           keywords: ['app-keyword', 'angular2-keyword'],
           alfrescoServerHost: 'http://servertTest:8080/share',
           activitiServerHost: 'http://servertTest:9999/share',
-          userInfo: false,
-          drawerBar: false,
-          searchBar: false,
-          contentPage: false,
-          bpmTaskPage: true,
+          features: [
+            'bpmTaskPage'
+          ],
           license: 'MIT'
         })
         .on('error', function (error) {
@@ -288,7 +283,6 @@ describe('Alfresco component generator', function () {
     it('creates files', function () {
       var expected = [
         'favicon-96x96.png',
-        'typings.json',
         'tslint.json',
         'README.md',
         'index.html',
@@ -319,6 +313,8 @@ describe('Alfresco component generator', function () {
         'app/components/home/home.component.spec.ts',
         'app/components/about',
         'app/components/about/about.component.ts',
+        'app/components/about/about.component.html',
+        'app/components/about/about.component.css',
         'app/components/login/login-demo.component.ts',
         'app/components/login/login-demo.component.html',
         'app/vendor.ts',
@@ -334,6 +330,7 @@ describe('Alfresco component generator', function () {
         'config/loaders/system.js',
         'karma.conf.js',
         'webpack.config.js',
+        'public/css/angular-material.css',
         'public/css/app.css',
         'public/css/material.orange-blue.min.css',
         'public/css/muli-font.css',
@@ -374,12 +371,9 @@ describe('Alfresco component generator', function () {
           keywords: ['app-keyword', 'angular2-keyword'],
           alfrescoServerHost: 'http://servertTest:8080/share',
           activitiServerHost: 'http://servertTest:9999/share',
-          userInfo: false,
-          drawerBar: false,
-
-          searchBar: true,
-          contentPage: false,
-          bpmTaskPage: false,
+          features: [
+            'searchBar'
+          ],
           license: 'MIT'
         })
         .on('error', function (error) {
