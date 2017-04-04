@@ -132,7 +132,6 @@ describe('Alfresco component generator', function () {
     it('creates files', function () {
       var expected = [
         'favicon-96x96.png',
-        'typings.json',
         'tslint.json',
         'README.md',
         'index.html',
@@ -284,7 +283,6 @@ describe('Alfresco component generator', function () {
     it('creates files', function () {
       var expected = [
         'favicon-96x96.png',
-        'typings.json',
         'tslint.json',
         'README.md',
         'index.html',
@@ -315,6 +313,8 @@ describe('Alfresco component generator', function () {
         'app/components/home/home.component.spec.ts',
         'app/components/about',
         'app/components/about/about.component.ts',
+        'app/components/about/about.component.html',
+        'app/components/about/about.component.css',
         'app/components/login/login-demo.component.ts',
         'app/components/login/login-demo.component.html',
         'app/vendor.ts',
@@ -330,6 +330,7 @@ describe('Alfresco component generator', function () {
         'config/loaders/system.js',
         'karma.conf.js',
         'webpack.config.js',
+        'public/css/angular-material.css',
         'public/css/app.css',
         'public/css/material.orange-blue.min.css',
         'public/css/muli-font.css',

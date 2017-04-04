@@ -18,9 +18,6 @@ var options = {
 var alfrescoLibs = glob.sync(pattern, options);
 // console.dir(alfrescoLibs);
 
-var alfrescoLibsModules = alfrescoLibs.map(p => path.join(p, 'node_modules'));
-var alfrescoLibsSources = alfrescoLibs.map(p => path.join(p, 'src'));
-
 module.exports = {
     entry: {
         'polyfills': './app/polyfills.ts',
@@ -59,7 +56,7 @@ module.exports = {
             {
                 test: /\.ts$/,
                 loaders: ['awesome-typescript-loader', 'angular2-template-loader', 'systemjs-loader'],
-                exclude: ['node_modules', 'public']
+                exclude: ['node_modules','public']
             },
             {
                 test: /\.js$/,
@@ -106,20 +103,17 @@ module.exports = {
 
     plugins: [
 
-        new webpack.WatchIgnorePlugin([
-            ...alfrescoLibsModules,
-            ...alfrescoLibsSources
-        ]),
+        new webpack.WatchIgnorePlugin([ new RegExp('^((?!(ng2-activiti|ng2-alfresco|demo-shell-ng2)).)((?!(src|app)).)*$')]),
 
         new CopyWebpackPlugin([
             {
                 from: 'versions.json'
-            }, {
+            },{
                 context: 'node_modules',
                 from: 'element.scrollintoviewifneeded-polyfill/index.js',
                 to: 'js/element.scrollintoviewifneeded-polyfill.js',
                 flatten: true
-            }, {
+            },{
                 context: 'node_modules',
                 from: 'classlist-polyfill/src/index.js',
                 to: 'js/classlist-polyfill.js',
@@ -141,27 +135,27 @@ module.exports = {
                 flatten: true
             }, {
                 context: 'node_modules',
-                from: 'es6-shim/es6-shim.min.js',
+                from:  'es6-shim/es6-shim.min.js',
                 to: 'js/es6-shim.min.js',
                 flatten: true
             }, {
                 context: 'node_modules',
-                from: 'es5-shim/es5-shim.min.js',
+                from:  'es5-shim/es5-shim.min.js',
                 to: 'js/es5-shim.min.js',
                 flatten: true
             }, {
                 context: 'node_modules',
-                from: 'systemjs/dist/system-polyfills.js',
+                from:  'systemjs/dist/system-polyfills.js',
                 to: 'js/system-polyfills.js',
                 flatten: true
             }, {
                 context: 'node_modules',
-                from: 'material-design-lite/material.min.js',
+                from:  'material-design-lite/material.min.js',
                 to: 'js/material.min.js',
                 flatten: true
             }, {
                 context: 'node_modules',
-                from: 'material-design-lite/material.min.js',
+                from:  'material-design-lite/material.min.js',
                 to: 'js/material.min.js',
                 flatten: true
             }, {

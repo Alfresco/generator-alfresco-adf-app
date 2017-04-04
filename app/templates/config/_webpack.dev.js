@@ -25,9 +25,9 @@ module.exports = webpackMerge(commonConfig, {
                 to: 'pdf.worker.js'
             },
             {
-              context: 'resources/i18n',
-              from: '**/*.json',
-              to: 'resources/i18n'
+                context: 'resources/i18n',
+                from: '**/*.json',
+                to: 'resources/i18n'
             },
             // Copy i18n folders for all modules with ng2-alfresco- prefix
             {
@@ -59,10 +59,10 @@ module.exports = webpackMerge(commonConfig, {
     ],
 
     devServer: {
-      host: '0.0.0.0',
-      port: 3000,
-      inline: true,
-      historyApiFallback: true,
-      stats: 'minimal'
+        host: '0.0.0.0',
+        port: 3000,
+        inline: true,
+        historyApiFallback: true,
+        stats: 'minimal'
     }
 });
