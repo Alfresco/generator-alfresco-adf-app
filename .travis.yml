@@ -14,11 +14,11 @@ install: npm install
 sudo: false
 script:
   - npm run test
-  - travis_wait 30 npm run test-generation-app
-  - travis_wait 30 npm run test-install-app-dependencies
-  - travis_wait 30 npm run test-copy-node-modules
-  - travis_wait 30 npm run test-build-apps
-  - travis_wait 30 npm run test-cross-browsers
+  - travis_wait 60 npm run test-generation-app
+  - travis_wait 60 npm run test-install-app-dependencies
+  - travis_wait 60 npm run test-copy-node-modules
+  - travis_wait 60 npm run test-build-apps
+  - travis_wait 60 npm run test-cross-browsers
 after_success:
   - npm run coveralls
   - bash <(curl -s https://codecov.io/bash)
