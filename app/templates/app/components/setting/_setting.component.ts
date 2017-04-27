@@ -1,4 +1,4 @@
-<%- licenseHeader %>
+
 
 import { Component, AfterViewChecked } from '@angular/core';
 import { AlfrescoSettingsService, StorageService, LogService } from 'ng2-alfresco-core';
