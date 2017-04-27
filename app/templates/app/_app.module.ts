@@ -6,6 +6,7 @@ import { Editor3DModule } from 'ng2-3d-editor';
 
 import { CoreModule } from 'ng2-alfresco-core';
 import { DataTableModule } from 'ng2-alfresco-datatable';
+
 <% if (searchBar == true) { %>import { SearchModule } from 'ng2-alfresco-search';<% } %>
 <% if (contentPage == true) { %>import { DocumentListModule } from 'ng2-alfresco-documentlist';
 import { UploadModule } from 'ng2-alfresco-upload';

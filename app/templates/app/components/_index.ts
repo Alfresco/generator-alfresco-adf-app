@@ -12,5 +12,3 @@ export { ActivitiDemoComponent } from './activiti/activiti-demo.component';
 export { FormViewer } from './activiti/form-viewer.component';
 export { ActivitiAppsView } from './activiti/apps.view';<% } %>
 
-
-
