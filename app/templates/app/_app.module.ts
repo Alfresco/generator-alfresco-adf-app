@@ -18,7 +18,7 @@ import { ActivitiProcessListModule } from 'ng2-activiti-processlist';
 import { AnalyticsModule } from 'ng2-activiti-analytics';
 <% } %>import { LoginModule } from 'ng2-alfresco-login';
 import { UserInfoComponentModule } from 'ng2-alfresco-userinfo';
-<% if (searchBar == true || contentPage == true) { %>import { ViewerModule } from 'ng2-alfresco-viewer';<% } %>
+import { ViewerModule } from 'ng2-alfresco-viewer';
 import { AppComponent } from './app.component';
 import { routing } from './app.routes';
 
@@ -46,7 +46,7 @@ import {
         <% if (contentPage == true) { %>
         DocumentListModule.forRoot(),
         UploadModule.forRoot(),<% } %>
-        <% if (searchBar == true || contentPage == true) { %>ViewerModule.forRoot(),<% } %>
+        ViewerModule.forRoot(),
         <% if (bpmTaskPage == true) { %>ActivitiFormModule.forRoot(),
         ActivitiTaskListModule.forRoot(),
         ActivitiProcessListModule.forRoot(),
