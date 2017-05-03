@@ -1,5 +1,5 @@
 os:
-  - osx
+  - linux
 language: node_js
 node_js:
   - "7"
@@ -16,8 +16,13 @@ script:
   - npm run test
   - travis_wait 60 npm run test-generation-app
   - travis_wait 60 npm run test-install-app-dependencies
-  - travis_wait 60 npm run test-copy-node-modules
-  - travis_wait 60 npm run test-build-apps
+  - travis_wait 60 npm run test-install-app-document-list
+  - travis_wait 60 npm run test-install-app-process-service-test
+  - travis_wait 60 npm run test-install-app-search-test
+  - travis_wait 60 npm run test-build-all-options
+  - travis_wait 60 npm run test-build-app-document-list
+  - travis_wait 60 npm run test-build-app-process-service-test
+  - travis_wait 60 npm run test-build-app-search-test"
   - travis_wait 60 npm run test-cross-browsers
 after_success:
   - npm run coveralls
