@@ -266,6 +266,11 @@ module.exports = yeoman.Base.extend({
       this.props
     );
 
+    this.fs.copy(
+      this.templatePath('config/loaders/_license-check.js'),
+      this.destinationPath('config/loaders/license-check.js')
+    );
+
     this.fs.copyTpl(
       this.templatePath('_karma.conf.js'),
       this.destinationPath('karma.conf.js'),
