@@ -69,11 +69,7 @@ describe('Alfresco Integration test generator', function () {
           keywords: ['app-keyword', 'angular2-keyword'],
           alfrescoServerHost: 'http://servertTest:8080/share',
           activitiServerHost: 'http://servertTest:9999/share',
-          features: [
-            'userInfo',
-            'drawerBar',
-            'searchBar',
-            'contentPage',
+          features: [,
             'bpmTaskPage'
           ],
           license: 'MIT'
