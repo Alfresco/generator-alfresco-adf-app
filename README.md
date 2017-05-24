@@ -68,8 +68,7 @@ yo ng2-alfresco-app --install
 ## Update ADF generator-ng2-alfresco-app
 
 ```sh
-npm uninstall -g generator-ng2-alfresco-app
-npm install -g generator-ng2-alfresco-app
+npm update -g generator-ng2-alfresco-app
 ```
 
 ## Optional utility commands
