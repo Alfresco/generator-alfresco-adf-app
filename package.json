@@ -1,23 +1,12 @@
 {
   "name": "generator-ng2-alfresco-app",
-  "version": "1.6.2",
-  "description": "Yeoman generator generating ADF angular Alfresco App",
+  "version": "1.4.1",
+  "description": "Yeoman generator generating angular 2 Alfresco App",
   "homepage": "https://github.com/Alfresco/generator-ng2-alfresco-app",
-  "author": "Alfresco Software, Ltd.",
-  "contributors": [
-    {
-      "name": "Eugenio Romano",
-      "email": "eugenio.romano@alfresco.com"
-    },
-    {
-      "name": "Denys Vuika",
-      "email": "denys.vuika@gmail.com"
-    },
-    {
-      "name": "Mario Romano",
-      "email": "mario.romano83@gmail.com"
-    }
-  ],
+  "author": {
+    "name": "Eugenio Romano",
+    "email": "eugenio.romano@alfresco.com"
+  },
   "files": [
     "app"
   ],
@@ -71,12 +60,12 @@
   "repository": "Alfresco/generator-ng2-alfresco-app",
   "scripts": {
     "clean": "rimraf node_modules typings",
-    "test": "gulp --max_old_space_size=2000",
+    "test": "gulp",
     "test-generation-app": "rimraf temp && gulp generation-app-test",
     "test-install-app-all-options": "cd temp/all-options-test && npm install && cd -",
-    "test-cp-app-document-list": "cd temp/app-document-list-test && npm install && cd -",
-    "test-cp-app-process-service-test": "cd temp/app-process-service-test && npm install && cd -",
-    "test-cp-app-search-test": "cd temp/app-search-test/ && npm install && cd -",
+    "test-cp-app-document-list": "cp -r temp/all-options-test/node_modules/ temp/app-document-list-test/node_modules/",
+    "test-cp-app-process-service-test": "cp -r temp/all-options-test/node_modules/ temp/app-process-service-test/",
+    "test-cp-app-search-test": "cp -r temp/all-options-test/node_modules/ temp/app-search-test/",
     "test-cross-browsers": "cd temp/all-options-test && npm run start:dist & npm run protractor-test",
     "test-build-all-options": "cd temp/all-options-test && npm run build",
     "test-build-app-document-list": "cd temp/app-document-list-test && npm run build",
