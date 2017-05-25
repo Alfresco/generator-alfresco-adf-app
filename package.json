@@ -60,7 +60,7 @@
   "repository": "Alfresco/generator-ng2-alfresco-app",
   "scripts": {
     "clean": "rimraf node_modules typings",
-    "test": "gulp",
+    "test": "gulp --max_old_space_size=2000",
     "test-generation-app": "rimraf temp && gulp generation-app-test",
     "test-install-app-all-options": "cd temp/all-options-test && npm install && cd -",
     "test-cp-app-document-list": "cp -r temp/all-options-test/node_modules/ temp/app-document-list-test/node_modules/",
