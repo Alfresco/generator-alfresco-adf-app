@@ -64,6 +64,7 @@ export class ActivitiDemoComponent implements AfterViewInit {
   appId: number = null;
 
   fileShowed: boolean = false;
+  selectFirstReport: boolean = false;
 
   content: Blob;
   contentName: string;
@@ -198,14 +199,8 @@ export class ActivitiDemoComponent implements AfterViewInit {
   }
 
   onReportDeleted() {
+        this.selectFirstReport = true;
     this.analyticsreportlist.reload();
-    this.selectFirstElementInReportList();
-  }
-
-  selectFirstElementInReportList() {
-    if (!this.analyticsreportlist.isReportsEmpty()) {
-      this.analyticsreportlist.selectReport(this.analyticsreportlist.reports[0]);
-    }
   }
 
   navigateStartProcess() {
@@ -243,6 +238,12 @@ export class ActivitiDemoComponent implements AfterViewInit {
     this.content = content.contentBlob;
     this.contentName = content.name;
   }
+
+    onAttachmentClick(content: any) {
+        this.fileShowed = true;
+        this.content = content.contentBlob;
+        this.contentName = content.name;
+    }
 
   onTaskCreated(data: any) {
     this.currentTaskId = data.parentTaskId;
