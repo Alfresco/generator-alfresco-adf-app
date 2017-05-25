@@ -1,8 +1,9 @@
 {
   "rules": {
     "align": [
-      true,
-      "parameters"
+      false,
+      "parameters",
+      "statements"
     ],
     "ban": false,
     "class-name": true,
@@ -20,7 +21,6 @@
     "interface-name": false,
     "jsdoc-format": true,
     "label-position": true,
-    "label-undefined": true,
     "max-line-length": [
       true,
       180
@@ -46,7 +46,6 @@
     "no-construct": true,
     "no-constructor-vars": false,
     "no-debugger": true,
-    "no-duplicate-key": true,
     "no-duplicate-variable": true,
     "no-empty": false,
     "no-eval": true,
@@ -56,12 +55,11 @@
     "no-shadowed-variable": true,
     "no-switch-case-fall-through": true,
     "no-trailing-whitespace": false,
-    "no-unreachable": true,
     "no-unused-expression": true,
     "no-unused-variable": false,
     "no-use-before-declare": true,
     "no-var-keyword": true,
-    "no-var-requires": true,
+    "no-var-requires": false,
     "object-literal-sort-keys": false,
     "one-line": [
       true,

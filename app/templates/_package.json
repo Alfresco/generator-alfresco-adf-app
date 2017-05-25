@@ -80,6 +80,7 @@
     "ng2-alfresco-webscript": "1.5.0"
   },
   "devDependencies": {
+
     "@types/hammerjs": "^2.0.34",
     "@types/jasmine": "2.5.35",
     "@types/node": "6.0.45",
