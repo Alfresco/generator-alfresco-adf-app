@@ -65,7 +65,19 @@ Alternatively you can use generator with install switch to trigger automatic ins
 yo ng2-alfresco-app --install
 ```
 
+## Update ADF generator-ng2-alfresco-app
+
+```sh
+npm update -g generator-ng2-alfresco-app
+```
+
 ## Optional utility commands
+
+* Show current version generator-ng2-alfresco-app installed
+
+```sh
+npm list --depth 1 --global generator-ng2-alfresco-app
+```
 
 * Link all ADF components locally
 

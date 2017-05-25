@@ -29,8 +29,8 @@ module.exports = yeoman.Base.extend({
       bpmTaskPage: false
     };
 
+    this.props.licenseHeader = this.fs.read(path.join(__dirname, './alfresco-license-header.ts'));
     if (this.options.alfresco) {
-      this.props.licenseHeader = this.fs.read(path.join(__dirname, './alfresco-license-header.ts'));
       this.props.licenseChecker = true;
     }
   },
@@ -266,6 +266,11 @@ module.exports = yeoman.Base.extend({
       this.props
     );
 
+    this.fs.copy(
+      this.templatePath('config/loaders/_license-check.js'),
+      this.destinationPath('config/loaders/license-check.js')
+    );
+
     this.fs.copyTpl(
       this.templatePath('_karma.conf.js'),
       this.destinationPath('karma.conf.js'),
@@ -313,13 +318,6 @@ module.exports = yeoman.Base.extend({
       currentPkg,
       {keywords: this.props.keywords}
     );
-
-    if (this.props.licenseChecker) {
-      pkg = _.merge(
-        currentPkg,
-        this.fs.readJSON(path.join(__dirname, './alfresco-license-check.json'), {})
-      );
-    }
 
     this.fs.writeJSON(this.destinationPath('package.json'), pkg);
 
@@ -522,9 +520,10 @@ module.exports = yeoman.Base.extend({
       this.props
     );
 
-    this.fs.copy(
+    this.fs.copyTpl(
       this.templatePath('app/components/home/_home.component.spec.ts'),
-      this.destinationPath('app/components/home/home.component.spec.ts')
+      this.destinationPath('app/components/home/home.component.spec.ts'),
+      this.props
     );
 
     this.fs.copyTpl(
