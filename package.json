@@ -3,10 +3,21 @@
   "version": "1.5.0",
   "description": "Yeoman generator generating angular 2 Alfresco App",
   "homepage": "https://github.com/Alfresco/generator-ng2-alfresco-app",
-  "author": {
-    "name": "Eugenio Romano",
-    "email": "eugenio.romano@alfresco.com"
-  },
+  "author": "Alfresco Software, Ltd.",
+  "contributors": [
+    {
+      "name": "Eugenio Romano",
+      "email": "eugenio.romano@alfresco.com"
+    },
+    {
+      "name": "Denys Vuika",
+      "email": "denys.vuika@gmail.com"
+    },
+    {
+      "name": "Mario Romano",
+      "email": "mario.romano83@gmail.com"
+    }
+  ],
   "files": [
     "app"
   ],
