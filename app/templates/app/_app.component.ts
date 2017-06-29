@@ -14,17 +14,12 @@ declare var document: any;
 export class AppComponent {
   <% if (searchBar == true) { %> searchTerm: string = '';<% } %>
 
-  ecmHost: string = '<%= alfrescoServerHost %>';
-  bpmHost: string = '<%= activitiServerHost %>';
-
     constructor(private authService: AlfrescoAuthenticationService,
                 private router: Router,
                 private settingsService: AlfrescoSettingsService,
                 private translateService: AlfrescoTranslationService,
                 private storage: StorageService,
                 private logService: LogService) {
-        this.setEcmHost();
-        this.setBpmHost();
         this.setProvider();
 
         if (translateService) {
@@ -79,27 +74,14 @@ export class AppComponent {
         document.querySelector('.mdl-layout').MaterialLayout.toggleDrawer();
     }
 
-    private setEcmHost() {
-        if (this.storage.hasItem(`ecmHost`)) {
-            this.settingsService.ecmHost = this.storage.getItem(`ecmHost`);
-            this.ecmHost = this.storage.getItem(`ecmHost`);
-        } else {
-            this.settingsService.ecmHost = this.ecmHost;
-        }
-    }
-
-    private setBpmHost() {
-        if (this.storage.hasItem(`bpmHost`)) {
-            this.settingsService.bpmHost = this.storage.getItem(`bpmHost`);
-            this.bpmHost = this.storage.getItem(`bpmHost`);
-        } else {
-            this.settingsService.bpmHost = this.bpmHost;
-        }
-    }
-
     private setProvider() {
         if (this.storage.hasItem(`providers`)) {
             this.settingsService.setProviders(this.storage.getItem(`providers`));
         }
+    }
+
+    onDragOverMainPage(event: any): boolean {
+        event.preventDefault();
+        return false;
     }
 }

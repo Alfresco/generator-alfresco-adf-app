@@ -2,7 +2,7 @@
   <img title="alfresco" alt='alfresco' src='assets/alfresco.png'  width="280px" height="150px"></img>
 </p>
 
-Yeoman Generator Angular 2 Alfresco Application
+Yeoman Generator ADF Angular Alfresco Application
 
 <a name="1.0.1"></a>
 # [1.0.1](https://github.com/Alfresco/generator-ng2-alfresco-app/releases) (19-12-2016)

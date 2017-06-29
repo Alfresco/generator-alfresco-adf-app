@@ -10,13 +10,17 @@ import { DataTableModule } from 'ng2-alfresco-datatable';
 <% if (searchBar == true) { %>import { SearchModule } from 'ng2-alfresco-search';<% } %>
 <% if (contentPage == true) { %>import { DocumentListModule } from 'ng2-alfresco-documentlist';
 import { UploadModule } from 'ng2-alfresco-upload';
-<% } %>
+import { CreateFolderDialog } from './dialogs/create-folder.dialog';
+import { MaterialModule } from './material.module';
+  <% } %>
 import { TagModule } from 'ng2-alfresco-tag';
-<% if (bpmTaskPage == true) { %>import { ActivitiFormModule } from 'ng2-activiti-form';
+import { ActivitiFormModule } from 'ng2-activiti-form';
+<% if (bpmTaskPage == true) { %>
 import { ActivitiTaskListModule } from 'ng2-activiti-tasklist';
 import { ActivitiProcessListModule } from 'ng2-activiti-processlist';
 import { AnalyticsModule } from 'ng2-activiti-analytics';
-<% } %>import { LoginModule } from 'ng2-alfresco-login';
+import { DiagramsModule } from 'ng2-activiti-diagrams';
+  <% } %>import { LoginModule } from 'ng2-alfresco-login';
 import { UserInfoComponentModule } from 'ng2-alfresco-userinfo';
 import { ViewerModule } from 'ng2-alfresco-viewer';
 import { AppComponent } from './app.component';
@@ -24,33 +28,45 @@ import { routing } from './app.routes';
 
 import {
   HomeComponent,
+  SettingComponent,
+  FormDemoComponent,
   <% if (searchBar == true) { %>SearchComponent,
   SearchBarComponent,<% } %>
   <% if (bpmTaskPage == true) { %>ActivitiDemoComponent,
+  ActivitiShowDiagramComponent,
   ActivitiAppsView,
   FormViewer,
   FormNodeViewer,<% } %>
   <% if (contentPage == true) { %>FilesComponent,<% } %>
   AboutComponent,
-  LoginDemoComponent,
-  SettingComponent
+  LoginDemoComponent
 } from './components/index';
+
+let appConfigFile = 'app.config-dev.json';
+if (process.env.ENV === 'production') {
+  appConfigFile = 'app.config-prod.json';
+}
 
 @NgModule({
     imports: [
         BrowserModule,
         routing,
-        CoreModule.forRoot(),
+        CoreModule.forRoot({
+          appConfigFile: appConfigFile
+        }),
         DataTableModule.forRoot(),
         <% if (searchBar == true) { %>SearchModule.forRoot(),<% } %>
         <% if (contentPage == true) { %>
         DocumentListModule.forRoot(),
+        MaterialModule,
         UploadModule.forRoot(),<% } %>
         ViewerModule.forRoot(),
-        <% if (bpmTaskPage == true) { %>ActivitiFormModule.forRoot(),
+        ActivitiFormModule.forRoot(),
+        <% if (bpmTaskPage == true) { %>
         ActivitiTaskListModule.forRoot(),
         ActivitiProcessListModule.forRoot(),
-        AnalyticsModule.forRoot(),<% } %>
+        AnalyticsModule.forRoot(),
+        DiagramsModule.forRoot(), <% } %>
         LoginModule.forRoot(),
         UserInfoComponentModule.forRoot(),
         Editor3DModule.forRoot(),
@@ -63,14 +79,22 @@ import {
         SearchComponent,<% } %>
         <% if (bpmTaskPage == true) { %>ActivitiDemoComponent,
         ActivitiAppsView,
+        ActivitiShowDiagramComponent
         FormViewer,
         FormNodeViewer,<% } %>
-        <% if (contentPage == true) { %>FilesComponent,<% } %>
+        <% if (contentPage == true) { %>FilesComponent,
+        CreateFolderDialog,<% } %>
         AboutComponent,
         LoginDemoComponent,
-        SettingComponent
+        SettingComponent,
+        FormDemoComponent
     ],
     providers: [],
     bootstrap: [ AppComponent ]
+<% if (contentPage == true) { %>
+    , entryComponents: [
+      CreateFolderDialog
+    ]
+  <% } %>
 })
 export class AppModule { }

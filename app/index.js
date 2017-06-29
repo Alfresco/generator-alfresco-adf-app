@@ -39,7 +39,7 @@ module.exports = yeoman.Base.extend({
     var done = this.async();
 
     this.log(alflogo(
-      'Welcome to the awesome\nAngular 2 app generator\nfor Alfresco!\n',
+      'Welcome to the awesome\nADF Angular app generator\nfor Alfresco!\n',
       {'left-pad': '     '}));
 
     var prompts = [{
@@ -213,65 +213,6 @@ module.exports = yeoman.Base.extend({
     );
 
     this.fs.copyTpl(
-      this.templatePath('config/_helpers.js'),
-      this.destinationPath('config/helpers.js'),
-      this.props
-    );
-
-    this.fs.copyTpl(
-      this.templatePath('config/_karma-test-shim.js'),
-      this.destinationPath('config/karma-test-shim.js'),
-      this.props
-    );
-
-    this.fs.copyTpl(
-      this.templatePath('config/_karma.conf.js'),
-      this.destinationPath('config/karma.conf.js'),
-      this.props
-    );
-
-    this.fs.copyTpl(
-      this.templatePath('config/_webpack.common.js'),
-      this.destinationPath('config/webpack.common.js'),
-      this.props
-    );
-
-    this.fs.copyTpl(
-      this.templatePath('config/_webpack.dev.js'),
-      this.destinationPath('config/webpack.dev.js'),
-      this.props
-    );
-
-    this.fs.copyTpl(
-      this.templatePath('config/_webpack.prod.js'),
-      this.destinationPath('config/webpack.prod.js'),
-      this.props
-    );
-
-    this.fs.copyTpl(
-      this.templatePath('config/_webpack.test.js'),
-      this.destinationPath('config/webpack.test.js'),
-      this.props
-    );
-
-    this.fs.copyTpl(
-      this.templatePath('config/loaders/_debug.js'),
-      this.destinationPath('config/loaders/debug.js'),
-      this.props
-    );
-
-    this.fs.copyTpl(
-      this.templatePath('config/loaders/_system.js'),
-      this.destinationPath('config/loaders/system.js'),
-      this.props
-    );
-
-    this.fs.copy(
-      this.templatePath('config/loaders/_license-check.js'),
-      this.destinationPath('config/loaders/license-check.js')
-    );
-
-    this.fs.copyTpl(
       this.templatePath('_karma.conf.js'),
       this.destinationPath('karma.conf.js'),
       this.props
@@ -311,6 +252,18 @@ module.exports = yeoman.Base.extend({
       this.props
     );
 
+    this.fs.copyTpl(
+      this.templatePath('_app.config-dev.json'),
+      this.destinationPath('app.config-dev.json'),
+      this.props
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('_app.config-prod.json'),
+      this.destinationPath('app.config-prod.json'),
+      this.props
+    );
+
     var currentPkg = this.fs.readJSON(this.destinationPath('package.json'), {});
     this.props.keywords.push('alfresco-component');
 
@@ -341,6 +294,12 @@ module.exports = yeoman.Base.extend({
     );
 
     this.fs.copyTpl(
+      this.templatePath('app/_material.module.ts'),
+      this.destinationPath('app/_material.module.ts'),
+      this.props
+    );
+
+    this.fs.copyTpl(
       this.templatePath('app/_polyfills.ts'),
       this.destinationPath('app/polyfills.ts'),
       this.props
@@ -366,8 +325,8 @@ module.exports = yeoman.Base.extend({
     );
 
     this.fs.copyTpl(
-      this.templatePath('app/_app.routes.ts'),
-      this.destinationPath('app/app.routes.ts'),
+      this.templatePath('app/dialogs/_create-folder.dialog.ts'),
+      this.destinationPath('app/dialogs/create-folder.dialog.ts'),
       this.props
     );
 
@@ -429,68 +388,9 @@ module.exports = yeoman.Base.extend({
       this.props
     );
 
-    this.fs.copyTpl(
-      this.templatePath('public/css/_angular-material.css'),
-      this.destinationPath('public/css/angular-material.css'),
-      this.props
-    );
-
-    this.fs.copyTpl(
-      this.templatePath('public/css/_app.css'),
-      this.destinationPath('public/css/app.css'),
-      this.props
-    );
-
-    this.fs.copyTpl(
-      this.templatePath('public/css/_material.orange-blue.min.css'),
-      this.destinationPath('public/css/material.orange-blue.min.css'),
-      this.props
-    );
-
-    this.fs.copy(
-      this.templatePath('public/css/_muli-font.css'),
-      this.destinationPath('public/css/muli-font.css')
-    );
-
-    this.fs.copy(
-      this.templatePath('public/fonts/_Muli-Italic.ttf'),
-      this.destinationPath('public/fonts/Muli-Italic.ttf')
-    );
-
-    this.fs.copy(
-      this.templatePath('public/fonts/_Muli-Light.ttf'),
-      this.destinationPath('public/fonts/Muli-Light.ttf')
-    );
-
-    this.fs.copy(
-      this.templatePath('public/fonts/_Muli-LightItalic.ttf'),
-      this.destinationPath('public/fonts/Muli-LightItalic.ttf')
-    );
-
-    this.fs.copy(
-      this.templatePath('public/fonts/_Muli-Regular.ttf'),
-      this.destinationPath('public/fonts/Muli-Regular.ttf')
-    );
-
-    this.fs.copy(
-      this.templatePath('public/js/_Blob.js'),
-      this.destinationPath('public/js/Blob.js')
-    );
-
-    this.fs.copy(
-      this.templatePath('public/js/_formdata.js'),
-      this.destinationPath('public/js/formdata.js')
-    );
-
-    this.fs.copy(
-      this.templatePath('public/js/_promisePolyfill.js'),
-      this.destinationPath('public/js/promisePolyfill.js')
-    );
-
-    this.fs.copy(
-      this.templatePath('public/js/_typedarray.js'),
-      this.destinationPath('public/js/typedarray.js')
-    );
+    this.directory('public', 'public');
+    this.directory('config', 'config');
+    this.directory('app/components/form', 'app/components/form');
 
     if (this.props.licenseChecker) {
       this.fs.copy(
@@ -529,6 +429,18 @@ module.exports = yeoman.Base.extend({
     this.fs.copyTpl(
       this.templatePath('app/components/home/_home.component.ts'),
       this.destinationPath('app/components/home/home.component.ts'),
+      this.props
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('app/_material.module.ts'),
+      this.destinationPath('app/material.module.ts'),
+      this.props
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('app/_app.routes.ts'),
+      this.destinationPath('app/app.routes.ts'),
       this.props
     );
 
@@ -588,9 +500,34 @@ module.exports = yeoman.Base.extend({
         this.destinationPath('app/components/files/files.component.ts'),
         this.props
       );
+
+      this.fs.copyTpl(
+        this.templatePath('app/dialogs/_create-folder.dialog.ts'),
+        this.destinationPath('app/dialogs/create-folder.dialog.ts'),
+        this.props
+      );
     }
 
     if (this.props.bpmTaskPage) {
+
+      this.fs.copyTpl(
+        this.templatePath('app/components/activiti/_activiti-show-diagram.component.css'),
+        this.destinationPath('app/components/activiti/activiti-show-diagram.component.css'),
+        this.props
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('app/components/activiti/_activiti-show-diagram.component.html'),
+        this.destinationPath('app/components/activiti/activiti-show-diagram.component.html'),
+        this.props
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('app/components/activiti/_activiti-show-diagram.component.ts'),
+        this.destinationPath('app/components/activiti/activiti-show-diagram.component.ts'),
+        this.props
+      );
+
 
       this.fs.copyTpl(
         this.templatePath('app/components/activiti/_activiti-demo.component.ts'),
