@@ -1,4 +1,4 @@
-<h1 align="center">Yeoman Generator Angular 2 Alfresco Application</h1>
+<h1 align="center">Yeoman Generator ADF Angular Alfresco Application</h1>
 <p align="center">
   <img title="yeoman generator" src='assets/yeoman.png' alt='yeoman logo'  />
 </p>
@@ -17,7 +17,7 @@
   </a>
 </p>
 
->Yeoman generator generating a Angular2 Alfresco App scaffold
+>Yeoman generator generating a ADF Angular Alfresco App scaffold
 
 ## Introduction
 
@@ -68,8 +68,7 @@ yo ng2-alfresco-app --install
 ## Update ADF generator-ng2-alfresco-app
 
 ```sh
-npm uninstall -g generator-ng2-alfresco-app
-npm install -g generator-ng2-alfresco-app
+npm update -g generator-ng2-alfresco-app
 ```
 
 ## Optional utility commands

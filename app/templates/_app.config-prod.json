@@ -1,0 +1,7 @@
+{
+    "ecmHost": "<%= alfrescoServerHost %>",
+    "bpmHost": "<%= activitiServerHost %>",
+    "application": {
+        "name": "Alfresco"
+    }
+}

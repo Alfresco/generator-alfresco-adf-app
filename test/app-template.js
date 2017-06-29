@@ -137,7 +137,10 @@ describe('Alfresco component generator', function () {
         'index.html',
         '.gitignore',
         '.editorconfig',
+        'app.config-dev.json',
+        'app.config-prod.json',
         'app/main.ts',
+        'app/material.module.ts',
         'app/components/index.ts',
         'app/app.routes.ts',
         'app/app.component.ts',
@@ -156,6 +159,9 @@ describe('Alfresco component generator', function () {
         'app/components/activiti/form-viewer.component.ts',
         'app/components/activiti/apps.view.ts',
         'app/components/activiti/custom-editor/custom-editor.component.ts',
+        'app/components/activiti/activiti-show-diagram.component.css',
+        'app/components/activiti/activiti-show-diagram.component.html',
+        'app/components/activiti/activiti-show-diagram.component.ts',
         'app/components/files/files.component.html',
         'app/components/files/files.component.ts',
         'app/components/search/search.component.html',
@@ -170,6 +176,11 @@ describe('Alfresco component generator', function () {
         'app/components/home/home.component.spec.ts',
         'app/components/about',
         'app/components/about/about.component.ts',
+        'app/components/form/demo-form.ts',
+        'app/components/form/form-demo.component.css',
+        'app/components/form/form-demo.component.html',
+        'app/components/form/form-demo.component.ts',
+        'app/dialogs/create-folder.dialog.ts',
         'app/vendor.ts',
         'app/polyfills.ts',
         'config/karma-test-shim.js',
@@ -205,9 +216,14 @@ describe('Alfresco component generator', function () {
       assert.fileContent('README.md', 'https://github.com/componentCreatorAccount/app-fake/releases');
     });
 
-    it('fill the app.component.ts with the server selected', function () {
-      assert.fileContent('app/app.component.ts', 'http://servertTest:8080/share');
-      assert.fileContent('app/app.component.ts', 'http://servertTest:9999/share');
+    it('fill the app.config-dev with the server selected', function () {
+      assert.fileContent('app.config-dev.json', 'http://servertTest:8080/share');
+      assert.fileContent('app.config-dev.json', 'http://servertTest:9999/share');
+    });
+
+    it('fill the app.config-prod with the server selected', function () {
+      assert.fileContent('app.config-prod.json', 'http://servertTest:8080/share');
+      assert.fileContent('app.config-prod.json', 'http://servertTest:9999/share');
     });
 
     it('fill the app.component.html with project data', function () {

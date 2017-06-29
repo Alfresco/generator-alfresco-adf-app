@@ -98,13 +98,4 @@ export class LoginDemoComponent implements OnInit {
         this.providers = '';
         return this.providers;
     };
-
-    validateForm(event: any) {
-        let values = event.values;
-        if (values.controls['username'].value === this.blackListUsername) {
-            this.alfrescologin.addCustomFormError('username', 'This particular username has been blocked');
-            event.preventDefault();
-        }
-    }
-
 }
