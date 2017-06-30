@@ -193,6 +193,8 @@ describe('Alfresco component generator', function () {
         'config/loaders/debug.js',
         'config/loaders/license-check.js',
         'config/loaders/system.js',
+        'tsconfig.json',
+        'tsconfig.dev.json',
         'karma.conf.js',
         'webpack.config.js',
         'public/css/app.css',
