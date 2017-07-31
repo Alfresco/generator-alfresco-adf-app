@@ -9,10 +9,10 @@ import { DataTableModule } from 'ng2-alfresco-datatable';
 
 <% if (searchBar == true) { %>import { SearchModule } from 'ng2-alfresco-search';<% } %>
 <% if (contentPage == true) { %>import { DocumentListModule } from 'ng2-alfresco-documentlist';
-import { UploadModule } from 'ng2-alfresco-upload';
-import { CreateFolderDialog } from './dialogs/create-folder.dialog';
+import { CreateFolderDialogComponent } from './dialogs/create-folder.dialog';
 import { MaterialModule } from './material.module';
   <% } %>
+import { UploadModule } from 'ng2-alfresco-upload';
 import { TagModule } from 'ng2-alfresco-tag';
 import { ActivitiFormModule } from 'ng2-activiti-form';
 <% if (bpmTaskPage == true) { %>
@@ -28,15 +28,17 @@ import { routing } from './app.routes';
 
 import {
   HomeComponent,
-  SettingComponent,
+  SettingsComponent,
   FormDemoComponent,
   <% if (searchBar == true) { %>SearchComponent,
   SearchBarComponent,<% } %>
   <% if (bpmTaskPage == true) { %>ActivitiDemoComponent,
+  ActivitiTaskAttachmentsComponent,
+  ActivitiProcessAttachmentsComponent,
   ActivitiShowDiagramComponent,
-  ActivitiAppsView,
-  FormViewer,
-  FormNodeViewer,<% } %>
+  ActivitiAppsViewComponent,
+  FormViewerComponent,
+  FormNodeViewerComponent,<% } %>
   <% if (contentPage == true) { %>FilesComponent,<% } %>
   AboutComponent,
   LoginDemoComponent
@@ -58,8 +60,8 @@ if (process.env.ENV === 'production') {
         <% if (searchBar == true) { %>SearchModule.forRoot(),<% } %>
         <% if (contentPage == true) { %>
         DocumentListModule.forRoot(),
-        MaterialModule,
-        UploadModule.forRoot(),<% } %>
+        MaterialModule,<% } %>
+        UploadModule.forRoot(),
         ViewerModule.forRoot(),
         ActivitiFormModule.forRoot(),
         <% if (bpmTaskPage == true) { %>
@@ -78,22 +80,24 @@ if (process.env.ENV === 'production') {
         <% if (searchBar == true) { %>SearchBarComponent,
         SearchComponent,<% } %>
         <% if (bpmTaskPage == true) { %>ActivitiDemoComponent,
-        ActivitiAppsView,
+        ActivitiTaskAttachmentsComponent,
+        ActivitiProcessAttachmentsComponent,
+        ActivitiAppsViewComponent,
         ActivitiShowDiagramComponent
-        FormViewer,
-        FormNodeViewer,<% } %>
+        FormViewerComponent,
+        FormNodeViewerComponent,<% } %>
         <% if (contentPage == true) { %>FilesComponent,
-        CreateFolderDialog,<% } %>
+        CreateFolderDialogComponent,<% } %>
         AboutComponent,
         LoginDemoComponent,
-        SettingComponent,
+          SettingsComponent,
         FormDemoComponent
     ],
     providers: [],
     bootstrap: [ AppComponent ]
 <% if (contentPage == true) { %>
     , entryComponents: [
-      CreateFolderDialog
+    CreateFolderDialogComponent
     ]
   <% } %>
 })

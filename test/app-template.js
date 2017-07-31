@@ -73,10 +73,6 @@ describe('Alfresco component generator', function () {
       assert.noFileContent('app/app.component.html', 'id="navigation-bar"');
     });
 
-    it('not fill the app.component.html with the navigation bar', function () {
-      assert.noFileContent('app/app.component.html', 'id="drawer-bar"');
-    });
-
     it('not fill the app.routes.ts with the search bar', function () {
       assert.noFileContent('app/app.routes.ts', 'SearchComponent');
     });
@@ -112,7 +108,6 @@ describe('Alfresco component generator', function () {
           activitiServerHost: 'http://servertTest:9999/share',
           features: [
             'userInfo',
-            'drawerBar',
             'searchBar',
             'contentPage',
             'bpmTaskPage'
@@ -145,9 +140,9 @@ describe('Alfresco component generator', function () {
         'app/app.routes.ts',
         'app/app.component.ts',
         'app/app.component.html',
-        'app/components/setting/setting.component.ts',
-        'app/components/setting/setting.component.html',
-        'app/components/setting/setting.component.css',
+        'app/components/setting/settings.component.ts',
+        'app/components/setting/settings.component.html',
+        'app/components/setting/settings.component.css',
         'app/components/activiti/activiti-demo.component.html',
         'app/components/activiti/activiti-demo.component.css',
         'app/components/activiti/activiti-demo.component.ts',
@@ -162,6 +157,14 @@ describe('Alfresco component generator', function () {
         'app/components/activiti/activiti-show-diagram.component.css',
         'app/components/activiti/activiti-show-diagram.component.html',
         'app/components/activiti/activiti-show-diagram.component.ts',
+        'app/components/activiti/activiti-task-attachments.component.html',
+        'app/components/activiti/activiti-task-attachments.component.css',
+        'app/components/activiti/activiti-task-attachments.component.ts',
+        'app/components/activiti/activiti-process-attachments.component.html',
+        'app/components/activiti/activiti-process-attachments.component.css',
+        'app/components/activiti/activiti-process-attachments.component.ts',
+        'app/components/services/debug-app-config.service.ts',
+        'app/components/services/in-memory-form.service.ts',
         'app/components/files/files.component.html',
         'app/components/files/files.component.ts',
         'app/components/search/search.component.html',
@@ -312,9 +315,9 @@ describe('Alfresco component generator', function () {
         'app/app.routes.ts',
         'app/app.component.ts',
         'app/app.component.html',
-        'app/components/setting/setting.component.ts',
-        'app/components/setting/setting.component.html',
-        'app/components/setting/setting.component.css',
+        'app/components/setting/settings.component.ts',
+        'app/components/setting/settings.component.html',
+        'app/components/setting/settings.component.css',
         'app/components/activiti/activiti-demo.component.html',
         'app/components/activiti/activiti-demo.component.css',
         'app/components/activiti/activiti-demo.component.ts',
