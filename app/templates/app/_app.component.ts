@@ -79,9 +79,4 @@ export class AppComponent {
             this.settingsService.setProviders(this.storage.getItem(`providers`));
         }
     }
-
-    onDragOverMainPage(event: any): boolean {
-        event.preventDefault();
-        return false;
-    }
 }

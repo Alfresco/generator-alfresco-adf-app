@@ -11,7 +11,7 @@ declare var componentHandler;
     templateUrl: './form-viewer.component.html',
     styleUrls: ['./form-viewer.component.css']
 })
-export class FormViewer implements OnInit, OnDestroy, AfterViewChecked {
+export class FormViewerComponent implements OnInit, OnDestroy, AfterViewChecked {
 
     taskId: string;
 

@@ -106,13 +106,7 @@
       "ban-keywords"
     ],
     "whitespace": [
-      true,
-      "check-branch",
-      "check-operator",
-      "check-separator",
-      "check-type",
-      "check-module",
-      "check-decl"
+      false
     ]
   }
 }

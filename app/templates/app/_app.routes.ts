@@ -1,6 +1,5 @@
 <%- licenseHeader %>
 
-
 import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard, AuthGuardEcm<% if (bpmTaskPage == true) { %>, AuthGuardBpm <% } %>} from 'ng2-alfresco-core';
@@ -12,11 +11,11 @@ import {
 <% if (contentPage == true) { %> FilesComponent,<% } %>
 <% if (bpmTaskPage == true) { %> ActivitiDemoComponent,
   ActivitiShowDiagramComponent,
-  ActivitiAppsView,
-  FormViewer,
-  FormNodeViewer,<% } %>
+  ActivitiAppsViewComponent,
+  FormViewerComponent,
+  FormNodeViewerComponent,<% } %>
   LoginDemoComponent,
-    SettingComponent,
+  SettingsComponent,
   FormDemoComponent
 } from './components/index';
 
@@ -33,18 +32,16 @@ export const appRoutes: Routes = [
 <% if (searchBar == true) { %>
   {path: 'search', component: SearchComponent, canActivate: [AuthGuardEcm]},
 <% } %>
-
 <% if (bpmTaskPage == true) { %>
-  {path: 'activiti', component: ActivitiAppsView, canActivate: [AuthGuardBpm]},
-  {path: 'activiti/apps', component: ActivitiAppsView, canActivate: [AuthGuardBpm]},
+  {path: 'activiti', component: ActivitiAppsViewComponent, canActivate: [AuthGuardBpm]},
+  {path: 'activiti/apps', component: ActivitiAppsViewComponent, canActivate: [AuthGuardBpm]},
   {path: 'activiti/apps/:appId/tasks', component: ActivitiDemoComponent, canActivate: [AuthGuardBpm]},
   {path: 'activiti/diagram/:processDefinitionId',  component: ActivitiShowDiagramComponent, canActivate: [AuthGuardBpm]},
   {path: 'activiti/appId/:appId', component: ActivitiDemoComponent, canActivate: [AuthGuardBpm]},
-  {path: 'activiti/tasksnode/:id', component: FormNodeViewer, canActivate: [AuthGuardBpm]},
+  {path: 'activiti/tasksnode/:id', component: FormNodeViewerComponent, canActivate: [AuthGuardBpm]},
   <% } %>
-
   {path: 'about', component: AboutComponent},
-  {path: 'settings', component: SettingComponent},
+  {path: 'settings', component: SettingsComponent},
   {path: 'form', component: FormDemoComponent}
 
 ];
