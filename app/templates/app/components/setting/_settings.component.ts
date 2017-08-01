@@ -1,16 +1,16 @@
 <%- licenseHeader %>
 
-import { Component, AfterViewChecked } from '@angular/core';
-import { AlfrescoSettingsService, StorageService, LogService } from 'ng2-alfresco-core';
+import { AfterViewChecked, Component } from '@angular/core';
+import { AlfrescoSettingsService, LogService, StorageService } from 'ng2-alfresco-core';
 
 declare var componentHandler: any;
 
 @Component({
     selector: 'app-settings',
-    templateUrl: 'setting.component.html',
-    styleUrls: ['setting.component.css']
+    templateUrl: 'settings.component.html',
+    styleUrls: ['settings.component.css']
 })
-export class SettingComponent implements AfterViewChecked {
+export class SettingsComponent implements AfterViewChecked {
 
     ecmHost: string;
     bpmHost: string;
