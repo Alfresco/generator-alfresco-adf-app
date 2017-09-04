@@ -11,7 +11,9 @@ import { DataTableModule } from 'ng2-alfresco-datatable';
 <% if (contentPage == true) { %>import { DocumentListModule } from 'ng2-alfresco-documentlist';
 import { CreateFolderDialogComponent } from './dialogs/create-folder.dialog';
 import { MaterialModule } from './material.module';
+import { CustomSourcesComponent } from './components/files/custom-sources.component';
   <% } %>
+
 import { UploadModule } from 'ng2-alfresco-upload';
 import { TagModule } from 'ng2-alfresco-tag';
 import { ActivitiFormModule } from 'ng2-activiti-form';
@@ -20,11 +22,13 @@ import { ActivitiTaskListModule } from 'ng2-activiti-tasklist';
 import { ActivitiProcessListModule } from 'ng2-activiti-processlist';
 import { AnalyticsModule } from 'ng2-activiti-analytics';
 import { DiagramsModule } from 'ng2-activiti-diagrams';
+import { FormListDemoComponent } from './components/form/form-list-demo.component';
   <% } %>import { LoginModule } from 'ng2-alfresco-login';
 import { UserInfoComponentModule } from 'ng2-alfresco-userinfo';
 import { ViewerModule } from 'ng2-alfresco-viewer';
 import { AppComponent } from './app.component';
 import { routing } from './app.routes';
+import { ThemePickerModule } from './components/theme-picker/theme-picker';
 
 import {
   HomeComponent,
@@ -72,7 +76,8 @@ if (process.env.ENV === 'production') {
         LoginModule.forRoot(),
         UserInfoComponentModule.forRoot(),
         Editor3DModule.forRoot(),
-        TagModule.forRoot()
+        TagModule.forRoot(),
+        ThemePickerModule
     ],
     declarations: [
         AppComponent,
@@ -85,9 +90,11 @@ if (process.env.ENV === 'production') {
         ActivitiAppsViewComponent,
         ActivitiShowDiagramComponent
         FormViewerComponent,
+        FormListDemoComponent,
         FormNodeViewerComponent,<% } %>
         <% if (contentPage == true) { %>FilesComponent,
-        CreateFolderDialogComponent,<% } %>
+        CreateFolderDialogComponent,
+        CustomSourcesComponent,<% } %>
         AboutComponent,
         LoginDemoComponent,
           SettingsComponent,

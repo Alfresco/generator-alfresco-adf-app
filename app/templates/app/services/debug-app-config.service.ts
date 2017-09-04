@@ -15,23 +15,23 @@
  * limitations under the License.
  */
 
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { AppDefinitionRepresentationModel } from 'ng2-activiti-tasklist';
+import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+import { AppConfigService, StorageService } from 'ng2-alfresco-core';
 
-@Component({
-  selector: 'activiti-apps-view',
-  template: `
-        <activiti-apps (appClick)="onAppClicked($event)"></activiti-apps>
-    `
-})
-export class ActivitiAppsViewComponent {
+@Injectable()
+export class DebugAppConfigService extends AppConfigService {
 
-  constructor(private router: Router) {
-  }
+    constructor(private storage: StorageService, http: Http) {
+        super(http);
+    }
 
-  onAppClicked(app: AppDefinitionRepresentationModel) {
-    this.router.navigate(['/activiti/apps', app.id || 0, 'tasks']);
-  }
+    /** @override */
+    get<T>(key: string): T {
+        if (key === 'ecmHost' || key === 'bpmHost') {
+            return <T>(<any>this.storage.getItem(key) || super.get<T>(key));
+        }
+        return super.get<T>(key);
+    }
 
 }

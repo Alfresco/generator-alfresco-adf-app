@@ -3,6 +3,8 @@
   right: 10px;
   top: 10px;
   z-index: 1;
+    background-color: rgb(68,138,255);
+    color: rgb(255,255,255);
 }
 
 .settings {
@@ -16,8 +18,8 @@
 }
 
 .toggle {
-  width: 120px;
-  margin: 20px;
+    width: 190px;
+    margin: 5px;
   padding: 5px;
 }
 
@@ -33,3 +35,6 @@
   }
 }
 
+.settings >>> .mat-slide-toggle-thumb-container {
+    cursor: pointer;
+}

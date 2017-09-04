@@ -9,7 +9,7 @@ declare var document: any;
 @Component({
     selector: 'alfresco-app',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css']
+    styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   <% if (searchBar == true) { %> searchTerm: string = '';<% } %>
