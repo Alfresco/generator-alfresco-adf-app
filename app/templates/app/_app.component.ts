@@ -1,15 +1,22 @@
 <%- licenseHeader %>
 
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlfrescoTranslationService, AlfrescoAuthenticationService, AlfrescoSettingsService, StorageService, LogService } from 'ng2-alfresco-core';
+import {
+    AlfrescoAuthenticationService,
+    AlfrescoSettingsService,
+    AlfrescoTranslationService,
+    LogService,
+    StorageService
+} from 'ng2-alfresco-core';
 
 declare var document: any;
 
 @Component({
-    selector: 'alfresco-app',
+    selector: 'adf-app',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss']
+    styleUrls: ['./app.component.scss', './theme.scss'],
+    encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
   <% if (searchBar == true) { %> searchTerm: string = '';<% } %>
@@ -21,10 +28,6 @@ export class AppComponent {
                 private storage: StorageService,
                 private logService: LogService) {
         this.setProvider();
-
-        if (translateService) {
-            translateService.addTranslationFolder('app', 'resources');
-        }
     }
 
     isAPageWithHeaderBar(): boolean {
@@ -51,7 +54,6 @@ export class AppComponent {
 
     navigateToLogin() {
         this.router.navigate(['/login']);
-        this.hideDrawer();
     }
   <% if (searchBar == true) { %>
   onToggleSearch(event) {
@@ -66,12 +68,6 @@ export class AppComponent {
   <% } %>
     changeLanguage(lang: string) {
         this.translateService.use(lang);
-        this.hideDrawer();
-    }
-
-    hideDrawer() {
-        // todo: workaround for drawer closing
-        document.querySelector('.mdl-layout').MaterialLayout.toggleDrawer();
     }
 
     private setProvider() {

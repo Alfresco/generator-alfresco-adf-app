@@ -4,8 +4,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Editor3DModule } from 'ng2-3d-editor';
 
-import { CoreModule } from 'ng2-alfresco-core';
+import { AppConfigService, CoreModule, TRANSLATION_PROVIDER } from 'ng2-alfresco-core';
 import { DataTableModule } from 'ng2-alfresco-datatable';
+import { DebugAppConfigService } from './services/debug-app-config.service';
 
 <% if (searchBar == true) { %>import { SearchModule } from 'ng2-alfresco-search';<% } %>
 <% if (contentPage == true) { %>import { DocumentListModule } from 'ng2-alfresco-documentlist';
@@ -100,7 +101,17 @@ if (process.env.ENV === 'production') {
           SettingsComponent,
         FormDemoComponent
     ],
-    providers: [],
+    providers: [
+      { provide: AppConfigService, useClass: DebugAppConfigService },
+      {
+        provide: TRANSLATION_PROVIDER,
+        multi: true,
+        useValue: {
+          name: 'app',
+          source: 'resources'
+        }
+      }
+    ],
     bootstrap: [ AppComponent ]
 <% if (contentPage == true) { %>
     , entryComponents: [
