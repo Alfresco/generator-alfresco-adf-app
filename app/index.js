@@ -22,7 +22,6 @@ module.exports = yeoman.Base.extend({
       licenseHeader: '',
       licenseChecker: false,
       // features
-      userInfo: false,
       contentPage: false,
       searchBar: false,
       bpmTaskPage: false
@@ -154,10 +153,6 @@ module.exports = yeoman.Base.extend({
       message: 'Features',
       choices: [
         {
-          name: 'ADF: UserInfo Component',
-          value: 'userInfo'
-        },
-        {
           name: 'ADF: DocumentList Component',
           value: 'contentPage',
           checked: true
@@ -286,6 +281,13 @@ module.exports = yeoman.Base.extend({
   },
 
   writeApp: function () {
+
+    this.fs.copyTpl(
+      this.templatePath('app/_theme.scss'),
+      this.destinationPath('app/theme.scss'),
+      this.props
+    );
+
     this.fs.copyTpl(
       this.templatePath('app/_main.ts'),
       this.destinationPath('app/main.ts'),
@@ -348,8 +350,8 @@ module.exports = yeoman.Base.extend({
     );
 
     this.fs.copyTpl(
-      this.templatePath('app/_app.component.css'),
-      this.destinationPath('app/app.component.css'),
+      this.templatePath('app/_app.component.scss'),
+      this.destinationPath('app/app.component.scss'),
       this.props
     );
 
@@ -389,8 +391,10 @@ module.exports = yeoman.Base.extend({
 
     this.directory('public', 'public');
     this.directory('config', 'config');
+    this.directory('resources', 'resources');
+    this.directory('app/services', 'app/services');
+
     this.directory('app/components/form', 'app/components/form');
-    this.directory('app/components/services', 'app/components/services');
 
     if (this.props.licenseChecker) {
       this.fs.copy(
@@ -398,16 +402,6 @@ module.exports = yeoman.Base.extend({
         this.destinationPath('assets/license_header.txt')
       );
     }
-
-    this.fs.copy(
-      this.templatePath('resources/i18n/_en.json'),
-      this.destinationPath('resources/i18n/en.json')
-    );
-
-    this.fs.copy(
-      this.templatePath('resources/i18n/_it.json'),
-      this.destinationPath('resources/i18n/it.json')
-    );
 
     this.fs.copy(
       this.templatePath('app/components/home/_home.component.css'),
@@ -485,147 +479,15 @@ module.exports = yeoman.Base.extend({
     );
 
     if (this.props.contentPage) {
-      this.fs.copy(
-        this.templatePath('app/components/files/_files.component.html'),
-        this.destinationPath('app/components/files/files.component.html')
-      );
-
-      this.fs.copy(
-        this.templatePath('app/components/files/_files.component.css'),
-        this.destinationPath('app/components/files/files.component.css')
-      );
-
-      this.fs.copyTpl(
-        this.templatePath('app/components/files/_files.component.ts'),
-        this.destinationPath('app/components/files/files.component.ts'),
-        this.props
-      );
-
-      this.fs.copyTpl(
-        this.templatePath('app/dialogs/_create-folder.dialog.ts'),
-        this.destinationPath('app/dialogs/create-folder.dialog.ts'),
-        this.props
-      );
+      this.directory('app/components/files', 'app/components/files');
     }
 
     if (this.props.bpmTaskPage) {
-
-      this.fs.copyTpl(
-        this.templatePath('app/components/activiti/activiti-show-diagram.component.css'),
-        this.destinationPath('app/components/activiti/activiti-show-diagram.component.css'),
-        this.props
-      );
-
-      this.fs.copyTpl(
-        this.templatePath('app/components/activiti/activiti-show-diagram.component.html'),
-        this.destinationPath('app/components/activiti/activiti-show-diagram.component.html'),
-        this.props
-      );
-
-      this.fs.copyTpl(
-        this.templatePath('app/components/activiti/activiti-show-diagram.component.ts'),
-        this.destinationPath('app/components/activiti/activiti-show-diagram.component.ts'),
-        this.props
-      );
-
-
-      this.fs.copyTpl(
-        this.templatePath('app/components/activiti/activiti-demo.component.ts'),
-        this.destinationPath('app/components/activiti/activiti-demo.component.ts'),
-        this.props
-      );
-
-      this.fs.copy(
-        this.templatePath('app/components/activiti/activiti-demo.component.css'),
-        this.destinationPath('app/components/activiti/activiti-demo.component.css')
-      );
-
-      this.fs.copy(
-        this.templatePath('app/components/activiti/activiti-demo.component.html'),
-        this.destinationPath('app/components/activiti/activiti-demo.component.html')
-      );
-
-      this.fs.copyTpl(
-        this.templatePath('app/components/activiti/form-node-viewer.component.ts'),
-        this.destinationPath('app/components/activiti/form-node-viewer.component.ts'),
-        this.props
-      );
-
-      this.fs.copy(
-        this.templatePath('app/components/activiti/form-node-viewer.component.css'),
-        this.destinationPath('app/components/activiti/form-node-viewer.component.css')
-      );
-
-      this.fs.copy(
-        this.templatePath('app/components/activiti/form-node-viewer.component.html'),
-        this.destinationPath('app/components/activiti/form-node-viewer.component.html')
-      );
-
-      this.fs.copyTpl(
-        this.templatePath('app/components/activiti/apps.view.ts'),
-        this.destinationPath('app/components/activiti/apps.view.ts'),
-        this.props
-      );
-
-      this.fs.copyTpl(
-        this.templatePath('app/components/activiti/form-viewer.component.ts'),
-        this.destinationPath('app/components/activiti/form-viewer.component.ts'),
-        this.props
-      );
-
-      this.fs.copy(
-        this.templatePath('app/components/activiti/form-viewer.component.css'),
-        this.destinationPath('app/components/activiti/form-viewer.component.css')
-      );
-
-      this.fs.copy(
-        this.templatePath('app/components/activiti/form-viewer.component.html'),
-        this.destinationPath('app/components/activiti/form-viewer.component.html')
-      );
-
-      this.fs.copyTpl(
-        this.templatePath('app/components/activiti/custom-editor/custom-editor.component.ts'),
-        this.destinationPath('app/components/activiti/custom-editor/custom-editor.component.ts'),
-        this.props
-      );
-
-      this.fs.copyTpl(
-        this.templatePath('app/components/activiti/activiti-process-attachments.component.css'),
-        this.destinationPath('app/components/activiti/activiti-process-attachments.component.css'),
-        this.props
-      );
-
-      this.fs.copyTpl(
-        this.templatePath('app/components/activiti/activiti-process-attachments.component.ts'),
-        this.destinationPath('app/components/activiti/activiti-process-attachments.component.ts'),
-        this.props
-      );
-
-      this.fs.copyTpl(
-        this.templatePath('app/components/activiti/activiti-process-attachments.component.html'),
-        this.destinationPath('app/components/activiti/activiti-process-attachments.component.html'),
-        this.props
-      );
-
-
-      this.fs.copyTpl(
-        this.templatePath('app/components/activiti/activiti-task-attachments.component.css'),
-        this.destinationPath('app/components/activiti/activiti-task-attachments.component.css'),
-        this.props
-      );
-
-      this.fs.copyTpl(
-        this.templatePath('app/components/activiti/activiti-task-attachments.component.ts'),
-        this.destinationPath('app/components/activiti/activiti-task-attachments.component.ts'),
-        this.props
-      );
-
-      this.fs.copyTpl(
-        this.templatePath('app/components/activiti/activiti-task-attachments.component.html'),
-        this.destinationPath('app/components/activiti/activiti-task-attachments.component.html'),
-        this.props
-      );
+      this.directory('app/components/activiti', 'app/components/activiti');
     }
+
+    this.directory('app/components/theme-picker', 'app/components/theme-picker');
+
   },
 
   install: function () {

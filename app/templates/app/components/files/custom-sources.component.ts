@@ -15,23 +15,25 @@
  * limitations under the License.
  */
 
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { AppDefinitionRepresentationModel } from 'ng2-activiti-tasklist';
+import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'activiti-apps-view',
-  template: `
-        <activiti-apps (appClick)="onAppClicked($event)"></activiti-apps>
-    `
+    selector: 'adf-custom-sources-demo',
+    templateUrl: 'custom-sources.component.html'
 })
-export class ActivitiAppsViewComponent {
+export class CustomSourcesComponent {
 
-  constructor(private router: Router) {
-  }
+    @Input()
+    selectedSource = '-recent-';
 
-  onAppClicked(app: AppDefinitionRepresentationModel) {
-    this.router.navigate(['/activiti/apps', app.id || 0, 'tasks']);
-  }
-
+    sources = [
+        { title: 'Favorites', value: '-favorites-' },
+        { title: 'Recent', value: '-recent-' },
+        { title: 'Shared Links', value: '-sharedlinks-' },
+        { title: 'Sites', value: '-sites-' },
+        { title: 'Trashcan', value: '-trashcan-' },
+        { title: 'Root', value: '-root-' },
+        { title: 'My', value: '-my-' },
+        { title: 'Shared', value: '-shared-' }
+    ];
 }

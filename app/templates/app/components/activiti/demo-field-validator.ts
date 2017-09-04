@@ -15,23 +15,22 @@
  * limitations under the License.
  */
 
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { AppDefinitionRepresentationModel } from 'ng2-activiti-tasklist';
+import { FormFieldModel, FormFieldTypes, FormFieldValidator } from 'ng2-activiti-form';
 
-@Component({
-  selector: 'activiti-apps-view',
-  template: `
-        <activiti-apps (appClick)="onAppClicked($event)"></activiti-apps>
-    `
-})
-export class ActivitiAppsViewComponent {
+export class DemoFieldValidator implements FormFieldValidator {
 
-  constructor(private router: Router) {
-  }
+    isSupported(field: FormFieldModel): boolean {
+        return field && field.type === FormFieldTypes.TEXT;
+    }
 
-  onAppClicked(app: AppDefinitionRepresentationModel) {
-    this.router.navigate(['/activiti/apps', app.id || 0, 'tasks']);
-  }
+    validate(field: FormFieldModel): boolean {
+        if (this.isSupported(field)) {
+            if (field.value && field.value.toLowerCase() === 'admin') {
+                field.validationSummary = 'Sorry, the value cannot be "admin".';
+                return false;
+            }
+        }
+        return true;
+    }
 
 }
