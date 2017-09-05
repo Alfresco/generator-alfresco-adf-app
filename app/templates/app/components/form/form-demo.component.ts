@@ -1,7 +1,7 @@
 
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormModel, FormService } from 'ng2-activiti-form';
-import { InMemoryFormService } from '../services/in-memory-form.service';
+import { InMemoryFormService } from '../../services/in-memory-form.service';
 import { DemoForm } from './demo-form';
 
 @Component({
