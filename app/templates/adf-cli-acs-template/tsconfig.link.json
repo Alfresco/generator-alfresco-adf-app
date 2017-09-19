@@ -1,0 +1,46 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2016",
+      "dom"
+    ],
+    "skipLibCheck": true,
+    "paths": {
+      "rxjs/*": [
+        "../node_modules/rxjs/*"
+      ],
+      "@angular/*": [
+        "../node_modules/@angular/*"
+      ],
+      "ng2-alfresco-core": [
+        "../../alfresco-ng2-components/ng2-components/ng2-alfresco-core/index.ts"
+      ],
+      "ng2-alfresco-core/*": [
+        "../../alfresco-ng2-components/ng2-components/ng2-alfresco-core/*"
+      ],
+      "ng2-alfresco-datatable": [
+        "../../alfresco-ng2-components/ng2-components/ng2-alfresco-datatable/index.ts"
+      ],
+      "ng2-alfresco-datatable/*": [
+        "../../alfresco-ng2-components/ng2-components/ng2-alfresco-datatable/*"
+      ],
+      "ng2-alfresco-viewer": [
+        "../../alfresco-ng2-components/ng2-components/ng2-alfresco-viewer/index.ts"
+      ],
+      "ng2-alfresco-viewer/*": [
+        "../../alfresco-ng2-components/ng2-components/ng2-alfresco-viewer/*"
+      ]
+    }
+  }
+}

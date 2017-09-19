@@ -41,7 +41,7 @@ class Utils {
             result.push({
               name: packageInfo.name,
               version: packageInfo.version,
-              displayName: `${packageInfo.name} (${packageInfo.version}) ${packageInfo.description || ''}`,
+              displayName: `${packageInfo.name} (${packageInfo.version}): ${packageInfo.description || ''}`,
               path: path.join(dir, entryName)
             });
           }
