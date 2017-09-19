@@ -24,7 +24,7 @@ module.exports = class extends Generator {
         message: 'Application blueprint',
         choices: this.blueprints.map(bp => {
           return {
-            name: `${bp.name} (${bp.version})`,
+            name: bp.displayName,
             value: bp
           };
         })
