@@ -1,9 +1,6 @@
 # ADF application generator for Yeoman
 
-[![npm](https://img.shields.io/npm/v/generator-ng2-alfresco-app)](https://www.npmjs.com/package/generator-ng2-alfresco-app)
-[![Build Status](https://travis-ci.org/Alfresco/generator-ng2-alfresco-app.svg?branch=master)](https://travis-ci.org/Alfresco/generator-ng2-alfresco-app)
-
-> Yeoman generator generating a ADF Angular Alfresco App scaffold
+Yeoman generator for Alfresco ADF applications.
 
 ## Introduction
 
@@ -11,8 +8,10 @@ See the following [page](https://github.com/Alfresco/alfresco-ng2-components/blo
 
 ## Prerequisites
 
+<p class="warning">
 Before you start using this development framework and the generator, make sure you have installed all required software and done all the
 necessary configuration, see this [page](https://github.com/Alfresco/app-dev-framework/blob/master/PREREQUISITES.md).
+</p>
 
 ## Installing Yeoman and the App Generator
 
@@ -75,7 +74,9 @@ yo ng2-alfresco-app --version
 6. Push to the branch: `git push origin my-new-feature`
 7. Submit a pull request
 
-> to Contribute to the existing code base Add test cases to cover the new behaviour, and make sure all the existing tests are still green.
+<p class="tip">
+To contribute to the existing code base Add test cases to cover the new behaviour, and make sure all the existing tests are still green.
+</p>
 
 To test the generator:
 
@@ -102,7 +103,9 @@ DEBUG=yeoman:generator yo ng2-alfresco-app
 set DEBUG=yeoman:generator & yo ng2-alfresco-app
 ```
 
+<p class="tip">
 More on [debugging generators](http://yeoman.io/authoring/debugging.html).
+</p>
 
 ## History
 
