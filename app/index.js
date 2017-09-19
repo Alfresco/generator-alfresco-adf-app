@@ -38,7 +38,11 @@ module.exports = class extends Generator {
   }
 
   writing() {
-    this.fs.copy(this.targetBlueprint.path + '/**/*', this.destinationPath());
+    this.fs.copy(
+      this.targetBlueprint.path + '/**/*',
+      this.destinationPath(),
+      { globOptions: { dot: true } }
+    );
   }
 
   install() {
