@@ -93,6 +93,11 @@ Requirements for new projects:
 * must contain `package.json` file
 * the `package.json` file must contain at least `name` and `version` attributes
 
+If you want to create a new blueprint based on the existing git repository follow the following steps:
+
+* run `git clone <project-url>` in the `app/templates` folder
+* remove `.git` folder from the cloned project
+
 ### Debugging generator
 
 ```sh

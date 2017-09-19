@@ -1,9 +1,0 @@
-{
-  "name": "project1",
-  "description": "project 1 blueprint",
-  "version": "0.1.0",
-
-  "dependencies": {
-    "alfresco-js-api": "1.8.0"
-  }
-}
