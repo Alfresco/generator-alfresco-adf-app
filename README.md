@@ -1,23 +1,9 @@
-<h1 align="center">Yeoman Generator ADF Angular Alfresco Application</h1>
-<p align="center">
-  <img title="yeoman generator" src='assets/yeoman.png' alt='yeoman logo'  />
-</p>
-<p align="center">
-  <a href="https://nodei.co/npm/generator-ng2-alfresco-app/">
-    <img src="http://img.shields.io/npm/v/generator-ng2-alfresco-app.svg" alt='npm version' >
-  </a>
-  <a title='Build Status' href="https://travis-ci.org/Alfresco/generator-ng2-alfresco-app">
-    <img src='https://travis-ci.org/Alfresco/generator-ng2-alfresco-app.svg?branch=master' alt='Build Status'  />
-  </a>
-  <a href='https://codecov.io/gh/Alfresco/generator-ng2-alfresco-app'>
-    <img src='https://img.shields.io/codecov/c/github/Alfresco/generator-ng2-alfresco-app/master.svg?maxAge=2592000' alt='Coverage Status' />
-  </a>
-  <a alt='downloads stats' href='https://npmjs.org/package/generator-ng2-alfresco-app'>
-    <img src='https://img.shields.io/npm/dt/generator-ng2-alfresco-app.svg' alt='downloads stats' />
-  </a>
-</p>
+# ADF application generator for Yeoman
 
->Yeoman generator generating a ADF Angular Alfresco App scaffold
+[![npm](https://img.shields.io/npm/v/generator-ng2-alfresco-app)](https://www.npmjs.com/package/generator-ng2-alfresco-app)
+[![Build Status](https://travis-ci.org/Alfresco/generator-ng2-alfresco-app.svg?branch=master)](https://travis-ci.org/Alfresco/generator-ng2-alfresco-app)
+
+> Yeoman generator generating a ADF Angular Alfresco App scaffold
 
 ## Introduction
 
@@ -42,7 +28,7 @@ Then the Alfresco Application Generator:
 npm install -g generator-ng2-alfresco-app
 ```
 
-##  Generating a new application project:
+## Generating a new application project
 
 First, move in the folder where you want create your project.
 
@@ -65,40 +51,18 @@ Alternatively you can use generator with install switch to trigger automatic ins
 yo ng2-alfresco-app --install
 ```
 
-## Update ADF generator-ng2-alfresco-app
+## Updating generator
 
 ```sh
 npm update -g generator-ng2-alfresco-app
 ```
 
-## Optional utility commands
+## Getting current version
 
 * Show current version generator-ng2-alfresco-app installed
 
 ```sh
-npm list --depth 1 --global generator-ng2-alfresco-app
-```
-
-* Link all ADF components locally
-
-```sh
-npm run link
-```
-
-* Clean the project
-
-```sh
-npm run clean
-```
-
->`start` script also includes live reload and watchers for all the `.ts` files.
-TypeScript watchers are also configured for `node_modules` folder within demo shell
-and provide live reload for all the component libraries as well.
-
-*  Install dependencies or reinstall after the clean
-
-```sh
-npm install
+yo ng2-alfresco-app --version
 ```
 
 ## Contributing to the generator
@@ -111,7 +75,7 @@ npm install
 6. Push to the branch: `git push origin my-new-feature`
 7. Submit a pull request
 
->to Contribute to the existing code base Add test cases to cover the new behaviour, and make sure all the existing tests are still green.
+> to Contribute to the existing code base Add test cases to cover the new behaviour, and make sure all the existing tests are still green.
 
 To test the generator:
 
@@ -119,13 +83,14 @@ To test the generator:
 npm test
 ```
 
-To run the integration test of the generator:
+### Extending the blueprints
 
-```sh
-npm run integrations-test
-```
+In order to add a new blueprint just put the project template to the `app/templates` folder.
 
-those test run the generator and install the app with different options in the tempo folder, because of the download of the npm packages are quite slow
+Requirements for new projects:
+
+* must contain `package.json` file
+* the `package.json` file must contain at least `name` and `version` attributes
 
 ### Debugging generator
 
@@ -139,30 +104,9 @@ set DEBUG=yeoman:generator & yo ng2-alfresco-app
 
 More on [debugging generators](http://yeoman.io/authoring/debugging.html).
 
-## Advanced options
-
-```sh
-yo ng2-alfresco-app --alfresco
-```
-
-Typically used for internal purposes and adds the following extras to the generated project structure:
-
-- adds Alfresco license headers to all code files
-- configures component `package.json` with additional license checker configurations (devDependencies, scripts, etc.)
-
 ## History
 
 For detailed changelog, see [Releases](https://github.com/Alfresco/generator-ng2-alfresco-app/releases).
-
-## Contributors
-
-| Contributor | GitHub profile | Twitter profile |
-| --- | --- | ---
-| Eugenio Romano | [Eugenio Romano](https://github.com/eromano) | [@RomanoEugenio](https://twitter.com/RomanoEugenio)
-| Denys Vuika | [Denys Vuika](https://github.com/denisvuyka) | [@denisvuyka](https://twitter.com/denisvuyka) |
-| Mario Romano | [Mario Romano](https://github.com/magemello) | [@MagemelloMario](https://twitter.com/MagemelloMario) |
-
-[See all contributors](https://github.com/alfresco/generator-ng2-alfresco-app/graphs/contributors)
 
 ## License
 
