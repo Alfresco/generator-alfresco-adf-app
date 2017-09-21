@@ -1,0 +1,13 @@
+<adf-toolbar color="primary">
+  <adf-toolbar-title>
+    <a md-button routerLink="/">ADF (ACS)</a>
+  </adf-toolbar-title>
+
+  <a md-button href="" routerLink="/login">Login</a>
+  <a md-button href="" routerLink="/apps">Apps</a>
+  <a md-button href="" routerLink="/documentlist">Documents</a>
+
+  <button md-button (click)="logout()">Logout</button>
+</adf-toolbar>
+
+<router-outlet></router-outlet>

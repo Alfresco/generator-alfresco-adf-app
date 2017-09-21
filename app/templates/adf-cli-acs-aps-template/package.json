@@ -1,8 +1,8 @@
 {
-  "name": "adf-cli-acs-template",
+  "name": "adf-cli-acs-aps-template",
   "version": "1.9.0-beta3",
-  "blueprint": "Content Service",
-  "description": "ACS ADF Application with Angular CLI",
+  "blueprint": "Process Service and Content Service",
+  "description": "ACS APS ADF Application with Angular CLI",
   "license": "MIT",
   "scripts": {
     "ng": "ng",

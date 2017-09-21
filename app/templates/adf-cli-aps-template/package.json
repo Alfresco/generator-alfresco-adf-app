@@ -1,7 +1,8 @@
 {
   "name": "adf-cli-aps-template",
-  "version": "0.1.0",
-  "description": "APS ADF (1.9.0-beta3) Application with Angular CLI",
+  "version": "1.9.0-beta3",
+  "blueprint": "Process Service",
+  "description": "APS ADF Application with Angular CLI",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -29,8 +30,6 @@
     "alfresco-js-api": "1.9.0-beta3",
     "core-js": "2.5.1",
     "hammerjs": "2.0.8",
-    "material-design-icons": "3.0.1",
-    "material-design-lite": "1.3.0",
     "moment": "2.15.1",
     "ng2-activiti-analytics": "1.9.0-beta3",
     "ng2-activiti-diagrams": "1.9.0-beta3",

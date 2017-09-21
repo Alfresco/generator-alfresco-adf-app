@@ -1,5 +1,6 @@
 const Generator = require('yeoman-generator');
 const utils = require('./utils');
+const alflogo = require('alfresco-logo');
 
 module.exports = class extends Generator {
   constructor(args, opts) {
@@ -11,6 +12,10 @@ module.exports = class extends Generator {
   }
 
   prompting() {
+    this.log(alflogo(
+      'ADF Angular app generator for Alfresco\n Version ' + this.rootGeneratorVersion() + '\n',
+      {'left-pad': '     '}));
+
     return this.prompt([
       {
         type: 'input',
@@ -23,23 +28,26 @@ module.exports = class extends Generator {
         name: 'blueprint',
         message: 'Application blueprint',
         choices: this.blueprints.map(bp => {
-          return {
-            name: bp.displayName,
-            value: bp
-          };
+          return bp.displayName
         })
       }])
       .then((answers) => {
         if (answers.name !== this.appname) {
           this.destinationRoot(this.destinationPath(answers.name));
         }
-        this.targetBlueprint = answers.blueprint;
+
+        this.targetBlueprint = this.blueprints.find((currentBlueprint)=>{
+          if(currentBlueprint.displayName == answers.blueprint ){
+            return true;
+          }
+        });
+
       });
   }
 
   writing() {
     this.fs.copy(
-      this.targetBlueprint.path + '/**/*',
+    this.targetBlueprint.path + '/**/*',
       this.destinationPath(),
       { globOptions: { dot: true } }
     );
