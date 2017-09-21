@@ -1,36 +1,12 @@
-os:
-  - linux
 language: node_js
 node_js:
   - "8"
 
-addons:
-  browserstack:
-    username: "hussainashraf1"
-    access_key:
-      secure: "dSaxgoN0/WGPIbnPgi127aSXM1tzbEYY6h9px63Oq8DW34GWsIHdIFBqbecpcgOIefcBEUYB1gr2W8bIosRosAcXRmCsF3f/LF6bW2EqmWhQcDwKt5W2vbEONgn90xBKEcDzOsknvokHBsTp+2VHycLK7/43fKtJ8EAwvEaRHpwp08NLo/3vFlbGSAh1GwyqHpcRWI7ZH4xgftrbJkvw0Wik3dBioTFKDkqWM3KUDZFn7ZYq6VD/Zcr0gCpc1yNq1GA3pb6A+eu0DTw4m2u7AGEWozvMpbMPyqPlLLQ5P2aMXzzIQhosdbgdp9sPk63OpVUOxD8IzTpfEUQvBRQkkN3yon1mCUIW0cppC/Ofg5UpyF2vuZaQs+gnN8XsmCiv7KQqSAGT/ulDW2mlSSoNzo++BavONoeEkZefgmNvSJW5TbXv2wD+1ggHjvg2UioRGRtNZMqb6x17BWXc09YdiSoh//mZ1t9pL9/C/PUvSdFIMbqmE9pSRDoTfHF/0qJijWbjMIuNnLGiHd6DLaMuhzKETYYlB74zHtnKxZulLN4bnPFZNHifteFTa/5gU2+l53LWVurQNvKGQFbhpjWSUU4gxw5kS6XDe6p/2ptngqdhozQpp9v+dD5lZE6gVkxfdLiXkBAz0SDD2PUIY+WNXM1MFCuYSaEkB89dhBw6piw="
-    forcelocal: true
 install: npm install
-sudo: false
+
 script:
   - npm run test
-  - npm run test-generation-app
-  - npm run test-install-app-all-options
-  - npm run test-build-all-options
-  - npm run test-cp-app-document-list
-  - npm run test-build-app-document-list
-  - npm run test-cp-app-process-service-test
-  - npm run test-build-app-process-service-test
-  - npm run test-cp-app-search-test
-  - npm run test-build-app-search-test
-  - npm run test-cross-browsers
-after_success:
-  - npm run coveralls
-  - bash <(curl -s https://codecov.io/bash)
+
 cache:
   directories:
   - node_modules
-  - temp/all-options-test/node_modules
-  - temp/app-process-service-test/node_modules
-  - temp/app-search-test/node_modules
-  - temp/app-document-list-test/node_modules

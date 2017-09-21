@@ -1,0 +1,16 @@
+<adf-toolbar>
+  <adf-toolbar-title>
+    <adf-breadcrumb
+      class="files-breadcrumb"
+      root="Personal Files"
+      [target]="documentList"
+      [folderNode]="documentList.folderNode">
+    </adf-breadcrumb>
+  </adf-toolbar-title>
+</adf-toolbar>
+
+<adf-document-list
+  #documentList
+  currentFolderId="-root-"
+  (preview)="showPreview($event)">
+</adf-document-list>
