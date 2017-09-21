@@ -9,7 +9,7 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        "favicon.ico",
+        "favicon-96x96.png",
 
         { "glob": "**/*", "input": "../node_modules/ng2-alfresco-core/bundles/assets", "output": "./assets/" },
 

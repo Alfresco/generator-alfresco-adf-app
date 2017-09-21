@@ -8,19 +8,20 @@
     "test": "rimraf temp && jest"
   },
   "dependencies": {
-    "alfresco-logo": "^1.0.1",
+    "alfresco-logo": "1.0.1",
     "yeoman-generator": "2.0.0"
   },
   "devDependencies": {
     "eslint": "4.7.1",
     "eslint-config-xo-space": "0.16.0",
-    "coveralls": "^2.13.1",
-    "jest": "^20.0.4",
-    "jest-cli": "^20.0.4",
-    "nsp": "^2.6.3",
-    "yeoman-assert": "^3.0.0",
-    "yeoman-test": "^1.6.0",
-    "mockery": "^1.4.0"
+    "coveralls": "2.13.1",
+    "jest": "21.1.0",
+    "jest-cli": "21.1.0",
+    "nsp": "2.8.0",
+    "yeoman-assert": "3.0.0",
+    "yeoman-test": "1.7.0",
+    "mockery": "2.1.0",
+    "rimraf": "2.6.2"
   },
   "jest": {
     "testEnvironment": "node",

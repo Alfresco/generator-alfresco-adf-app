@@ -28,33 +28,34 @@ module.exports = class extends Generator {
         name: 'blueprint',
         message: 'Application blueprint',
         choices: this.blueprints.map(bp => {
-          return bp.displayName
+          return bp.displayName;
         })
+      },
+      {
+        type: 'confirm',
+        name: 'performInstall',
+        message: 'Would you like to install dependencies now?'
       }])
       .then((answers) => {
         if (answers.name !== this.appname) {
           this.destinationRoot(this.destinationPath(answers.name));
         }
 
-        this.targetBlueprint = this.blueprints.find((currentBlueprint)=>{
-          if(currentBlueprint.displayName == answers.blueprint ){
-            return true;
-          }
-        });
-
+        this.targetBlueprint = this.blueprints.find(bp => bp.displayName === answers.blueprint);
+        this.performInstall = answers.performInstall;
       });
   }
 
   writing() {
     this.fs.copy(
-    this.targetBlueprint.path + '/**/*',
+      this.targetBlueprint.path + '/**/*',
       this.destinationPath(),
       { globOptions: { dot: true } }
     );
   }
 
   install() {
-    if (this.options.install) {
+    if (this.options.install || this.performInstall) {
       this.npmInstall();
     }
   }
