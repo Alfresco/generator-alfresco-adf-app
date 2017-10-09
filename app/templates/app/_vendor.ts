@@ -38,11 +38,8 @@ require('script-loader!dialog-polyfill/dialog-polyfill');
 import 'dialog-polyfill/dialog-polyfill.css';
 
 // Google Material Design Lite
-import 'material-design-icons/iconfont/material-icons.css';
 import 'material-design-lite/dist/material.orange-blue.min.css';
 import 'material-design-lite/material.js';
-
-import '../public/css/muli-font.css';
 
 import 'ng2-activiti-form/stencils/runtime.adf';
 import 'ng2-activiti-form/stencils/runtime.ng1';

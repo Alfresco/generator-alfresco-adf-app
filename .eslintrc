@@ -7,6 +7,9 @@
     "jasmine": true,
     "es6": true
   },
+  "parserOptions": {
+    "ecmaVersion": 8
+  },
   "globals": {
       "System": true,
       "__karma__": true
@@ -41,13 +44,7 @@
       "single"
     ],
     "keyword-spacing": 2,
-    "space-before-function-paren": [
-      2,
-      {
-        "anonymous": "always",
-        "named": "always"
-      }
-    ],
+    "space-before-function-paren": ["error", "never"],
     "space-in-parens": [
       2,
       "never"

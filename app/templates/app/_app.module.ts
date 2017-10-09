@@ -1,4 +1,4 @@
-<%- licenseHeader %>
+
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -8,13 +8,11 @@ import { AppConfigService, CoreModule, TRANSLATION_PROVIDER } from 'ng2-alfresco
 import { DataTableModule } from 'ng2-alfresco-datatable';
 import { DebugAppConfigService } from './services/debug-app-config.service';
 
-<% if (searchBar == true) { %>import { SearchModule } from 'ng2-alfresco-search';<% } %>
+import { SearchModule } from 'ng2-alfresco-search';
 <% if (contentPage == true) { %>import { DocumentListModule } from 'ng2-alfresco-documentlist';
-import { CreateFolderDialogComponent } from './dialogs/create-folder.dialog';
-import { MaterialModule } from './material.module';
 import { CustomSourcesComponent } from './components/files/custom-sources.component';
-  <% } %>
-
+<% } %>
+import { MaterialModule } from './material.module';
 import { UploadModule } from 'ng2-alfresco-upload';
 import { TagModule } from 'ng2-alfresco-tag';
 import { ActivitiFormModule } from 'ng2-activiti-form';
@@ -25,18 +23,20 @@ import { AnalyticsModule } from 'ng2-activiti-analytics';
 import { DiagramsModule } from 'ng2-activiti-diagrams';
 import { FormListDemoComponent } from './components/form/form-list-demo.component';
   <% } %>import { LoginModule } from 'ng2-alfresco-login';
-import { UserInfoComponentModule } from 'ng2-alfresco-userinfo';
+import { UserInfoModule } from 'ng2-alfresco-userinfo';
 import { ViewerModule } from 'ng2-alfresco-viewer';
 import { AppComponent } from './app.component';
 import { routing } from './app.routes';
 import { ThemePickerModule } from './components/theme-picker/theme-picker';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { AppLayoutComponent } from './components/app-layout/app-layout.component';
 
 import {
   HomeComponent,
   SettingsComponent,
   FormDemoComponent,
-  <% if (searchBar == true) { %>SearchComponent,
-  SearchBarComponent,<% } %>
+  SearchComponent,
+  SearchBarComponent,
   <% if (bpmTaskPage == true) { %>ActivitiDemoComponent,
   ActivitiTaskAttachmentsComponent,
   ActivitiProcessAttachmentsComponent,
@@ -58,33 +58,33 @@ if (process.env.ENV === 'production') {
     imports: [
         BrowserModule,
         routing,
-        CoreModule.forRoot({
-          appConfigFile: appConfigFile
-        }),
-        DataTableModule.forRoot(),
-        <% if (searchBar == true) { %>SearchModule.forRoot(),<% } %>
+        CoreModule,
+        DataTableModule,
+        SearchModule,
         <% if (contentPage == true) { %>
-        DocumentListModule.forRoot(),
-        MaterialModule,<% } %>
-        UploadModule.forRoot(),
-        ViewerModule.forRoot(),
-        ActivitiFormModule.forRoot(),
+        DocumentListModule,<% } %>
+        MaterialModule,
+        UploadModule,
+        ViewerModule,
+        ActivitiFormModule,
         <% if (bpmTaskPage == true) { %>
-        ActivitiTaskListModule.forRoot(),
-        ActivitiProcessListModule.forRoot(),
-        AnalyticsModule.forRoot(),
-        DiagramsModule.forRoot(), <% } %>
-        LoginModule.forRoot(),
-        UserInfoComponentModule.forRoot(),
-        Editor3DModule.forRoot(),
-        TagModule.forRoot(),
+        ActivitiTaskListModule,
+        ActivitiProcessListModule,
+        AnalyticsModule,
+        DiagramsModule, <% } %>
+        LoginModule,
+        FlexLayoutModule,
+        UserInfoModule,
+        Editor3DModule,
+        TagModule,
         ThemePickerModule
     ],
     declarations: [
+        AppLayoutComponent,
         AppComponent,
         HomeComponent,
-        <% if (searchBar == true) { %>SearchBarComponent,
-        SearchComponent,<% } %>
+        SearchBarComponent,
+        SearchComponent,
         <% if (bpmTaskPage == true) { %>ActivitiDemoComponent,
         ActivitiTaskAttachmentsComponent,
         ActivitiProcessAttachmentsComponent,
@@ -94,7 +94,6 @@ if (process.env.ENV === 'production') {
         FormListDemoComponent,
         FormNodeViewerComponent,<% } %>
         <% if (contentPage == true) { %>FilesComponent,
-        CreateFolderDialogComponent,
         CustomSourcesComponent,<% } %>
         AboutComponent,
         LoginDemoComponent,
@@ -113,10 +112,5 @@ if (process.env.ENV === 'production') {
       }
     ],
     bootstrap: [ AppComponent ]
-<% if (contentPage == true) { %>
-    , entryComponents: [
-    CreateFolderDialogComponent
-    ]
-  <% } %>
 })
 export class AppModule { }

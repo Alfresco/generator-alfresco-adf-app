@@ -82,35 +82,6 @@ describe('Alfresco Integration test generator', function () {
         });
     });
 
-    it('only search service', function (done) {
-
-      var nameApp = 'app-search-test';
-
-      helpers.run(path.join(__dirname, '../app'))
-        .inDir(tempDir + '/' + nameApp)
-        .withPrompts({
-          projectName: nameApp,
-          description: 'A awesome alfresco APP',
-          githubAccount: 'componentCreatorAccount',
-          authorName: 'Alfresco Team',
-          authorEmail: 'Sonikku.Hejjihoggu@alfresco.com',
-          authorUrl: 'http://Hejjihoggu.io',
-          keywords: ['app-keyword', 'angular2-keyword'],
-          alfrescoServerHost: 'http://servertTest:8080/share',
-          activitiServerHost: 'http://servertTest:9999/share',
-          features: [
-            'searchBar'
-          ],
-          license: 'MIT'
-        })
-        .on('error', function (error) {
-          console.log(error);
-        })
-        .on('end', ()=> {
-          done();
-        });
-    });
-
     it('only document list service', function (done) {
 
       var nameApp = 'app-document-list-test';

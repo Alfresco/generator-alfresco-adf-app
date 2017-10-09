@@ -1,6 +1,6 @@
 {
   "name": "generator-ng2-alfresco-app",
-  "version": "1.8.1",
+  "version": "1.9.0",
   "description": "Yeoman generator generating ADF angular Alfresco App",
   "homepage": "https://github.com/Alfresco/generator-ng2-alfresco-app",
   "author": "Alfresco Software, Ltd.",
@@ -76,12 +76,10 @@
     "test-install-app-all-options": "cd temp/all-options-test && npm install && cd -",
     "test-cp-app-document-list": "cd temp/app-document-list-test && npm install && cd -",
     "test-cp-app-process-service-test": "cd temp/app-process-service-test && npm install && cd -",
-    "test-cp-app-search-test": "cd temp/app-search-test/ && npm install && cd -",
     "test-cross-browsers": "cd temp/all-options-test && npm run start:dist & npm run protractor-test",
     "test-build-all-options": "cd temp/all-options-test && npm run build",
     "test-build-app-document-list": "cd temp/app-document-list-test && npm run build",
     "test-build-app-process-service-test": "cd temp/app-process-service-test && npm run build",
-    "test-build-app-search-test": "cd temp/app-search-test && npm run build",
     "coveralls": "gulp coveralls",
     "protractor-test": "./node_modules/.bin/protractor test/conf/local.conf.js"
   },

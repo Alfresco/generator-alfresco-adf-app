@@ -1,19 +1,4 @@
-/*!
- * @license
- * Copyright 2016 Alfresco Software, Ltd.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+
 
 import { Component, ViewChild } from '@angular/core';
 import { FormModel, FormService } from 'ng2-activiti-form';
@@ -25,8 +10,8 @@ import { ActivitiForm } from 'ng2-activiti-form';
         <adf-form-list [forms]="formList" (row-dblclick)="onRowDblClick($event)">
         </adf-form-list>
         <div class="form-container" *ngIf="!isEmptyForm()">
-            <activiti-form [form]="form" [data]="restoredData">
-            </activiti-form>
+            <adf-form [form]="form" [data]="restoredData">
+            </adf-form>
         </div>
         <button md-button (click)="store()" color="primary">{{'FORM-LIST.STORE' | translate }}</button>
         <button md-button (click)="restore()" color="primary">{{'FORM-LIST.RESTORE' | translate }}</button>
@@ -66,8 +51,8 @@ export class FormListDemoComponent {
     onRowDblClick(event: CustomEvent) {
         let rowForm = event.detail.value.obj;
 
-        this.formService.getFormDefinitionById(rowForm.id).subscribe((definition) => {
-            let form = this.formService.parseForm(definition);
+        this.formService.getFormDefinitionById(rowForm.id).subscribe((formModel) => {
+            let form = this.formService.parseForm(formModel.formDefinition);
             this.form = form;
         });
 

@@ -121,6 +121,19 @@ module.exports = webpackMerge(commonConfig, {
                 'ENV': JSON.stringify(ENV)
             }
         }),
+        new CopyWebpackPlugin([
+            ... alfrescoLibs.map(lib => {
+                return {
+                    context: `../ng2-components/${lib}/src/i18n/`,
+                    from: '**/*',
+                    to: `assets/${lib}/i18n/`
+                }
+            }),
+            {
+                from: 'app.config-prod.json',
+                to: 'app.config.json'
+            }
+        ]),
         new webpack.LoaderOptionsPlugin({
             htmlLoader: {
                 minimize: false // workaround for ng2

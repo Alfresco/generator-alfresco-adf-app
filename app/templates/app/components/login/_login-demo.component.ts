@@ -1,4 +1,4 @@
-<%- licenseHeader %>
+
 
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Validators } from '@angular/forms';

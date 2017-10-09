@@ -1,4 +1,4 @@
-<%- licenseHeader %>
+
 
 import { NgModule } from '@angular/core';
 import {
@@ -6,6 +6,7 @@ import {
   MdInputModule,
   MdProgressBarModule,
   MdSelectModule,
+    MdSidenavModule,
   MdSlideToggleModule
 } from '@angular/material';
 
@@ -14,6 +15,7 @@ const MATERIAL_MODULES = [
   MdInputModule,
   MdSelectModule,
   MdDialogModule,
+    MdSidenavModule,
   MdProgressBarModule
 ];
 

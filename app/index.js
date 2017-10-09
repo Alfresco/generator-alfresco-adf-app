@@ -23,7 +23,6 @@ module.exports = yeoman.Base.extend({
       licenseChecker: false,
       // features
       contentPage: false,
-      searchBar: false,
       bpmTaskPage: false
     };
 
@@ -326,12 +325,6 @@ module.exports = yeoman.Base.extend({
     );
 
     this.fs.copyTpl(
-      this.templatePath('app/dialogs/_create-folder.dialog.ts'),
-      this.destinationPath('app/dialogs/create-folder.dialog.ts'),
-      this.props
-    );
-
-    this.fs.copyTpl(
       this.templatePath('app/_app.module.ts'),
       this.destinationPath('app/app.module.ts'),
       this.props
@@ -346,12 +339,6 @@ module.exports = yeoman.Base.extend({
     this.fs.copyTpl(
       this.templatePath('app/_app.component.html'),
       this.destinationPath('app/app.component.html'),
-      this.props
-    );
-
-    this.fs.copyTpl(
-      this.templatePath('app/_app.component.scss'),
-      this.destinationPath('app/app.component.scss'),
       this.props
     );
 
@@ -404,8 +391,8 @@ module.exports = yeoman.Base.extend({
     }
 
     this.fs.copy(
-      this.templatePath('app/components/home/_home.component.css'),
-      this.destinationPath('app/components/home/home.component.css')
+      this.templatePath('app/components/home/_home.component.scss'),
+      this.destinationPath('app/components/home/home.component.scss')
     );
 
     this.fs.copyTpl(
@@ -438,33 +425,36 @@ module.exports = yeoman.Base.extend({
       this.props
     );
 
-    if (this.props.searchBar) {
-      this.fs.copy(
-        this.templatePath('app/components/search/_search.component.html'),
-        this.destinationPath('app/components/search/search.component.html')
-      );
-
-      this.fs.copyTpl(
-        this.templatePath('app/components/search/_search.component.ts'),
-        this.destinationPath('app/components/search/search.component.ts'),
-        this.props
-      );
-
-      this.fs.copyTpl(
-        this.templatePath('app/components/search/_search-bar.component.ts'),
-        this.destinationPath('app/components/search/search-bar.component.ts'),
-        this.props
-      );
-
-      this.fs.copy(
-        this.templatePath('app/components/search/_search-bar.component.html'),
-        this.destinationPath('app/components/search/search-bar.component.html')
-      );
-    }
+    this.fs.copy(
+      this.templatePath('app/components/search/_search.component.html'),
+      this.destinationPath('app/components/search/search.component.html')
+    );
 
     this.fs.copy(
-      this.templatePath('app/components/setting/_settings.component.css'),
-      this.destinationPath('app/components/setting/settings.component.css')
+      this.templatePath('app/components/search/_search.component.scss'),
+      this.destinationPath('app/components/search/search.component.scss')
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('app/components/search/_search.component.ts'),
+      this.destinationPath('app/components/search/search.component.ts'),
+      this.props
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('app/components/search/_search-bar.component.ts'),
+      this.destinationPath('app/components/search/search-bar.component.ts'),
+      this.props
+    );
+
+    this.fs.copy(
+      this.templatePath('app/components/search/_search-bar.component.html'),
+      this.destinationPath('app/components/search/search-bar.component.html')
+    );
+
+    this.fs.copy(
+      this.templatePath('app/components/setting/_settings.component.scss'),
+      this.destinationPath('app/components/setting/settings.component.scss')
     );
 
     this.fs.copy(
@@ -485,6 +475,26 @@ module.exports = yeoman.Base.extend({
     if (this.props.bpmTaskPage) {
       this.directory('app/components/activiti', 'app/components/activiti');
     }
+
+    this.fs.copyTpl(
+      this.templatePath('app/components/app-layout/app-layout.component.ts'),
+      this.destinationPath('app/components/app-layout/app-layout.component.ts'),
+      this.props
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('app/components/app-layout/app-layout.component.scss'),
+      this.destinationPath('app/components/app-layout/app-layout.component.scss'),
+      this.props
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('app/components/app-layout/app-layout.component.html'),
+      this.destinationPath('app/components/app-layout/app-layout.component.html'),
+      this.props
+    );
+
+    this.directory('app/components/file-view', 'app/components/file-view');
 
     this.directory('app/components/theme-picker', 'app/components/theme-picker');
 
