@@ -1,43 +1,87 @@
 {
   "name": "generator-ng2-alfresco-app",
-  "version": "2.0.0",
-  "description": "ADF application generator for Yeoman",
+  "version": "1.9.0",
+  "description": "Yeoman generator generating ADF angular Alfresco App",
+  "homepage": "https://github.com/Alfresco/generator-ng2-alfresco-app",
   "author": "Alfresco Software, Ltd.",
-  "main": "app/index.js",
-  "scripts": {
-    "test": "rimraf temp && jest"
-  },
-  "dependencies": {
-    "alfresco-logo": "1.0.1",
-    "yeoman-generator": "2.0.0"
-  },
-  "devDependencies": {
-    "eslint": "4.7.1",
-    "eslint-config-xo-space": "0.16.0",
-    "coveralls": "2.13.1",
-    "jest": "21.1.0",
-    "jest-cli": "21.1.0",
-    "nsp": "2.8.0",
-    "yeoman-assert": "3.0.0",
-    "yeoman-test": "1.7.0",
-    "mockery": "2.1.0",
-    "rimraf": "2.6.2"
-  },
-  "jest": {
-    "testEnvironment": "node",
-    "testPathIgnorePatterns": [
-      "templates",
-      "temp"
-    ]
-  },
+  "contributors": [
+    {
+      "name": "Eugenio Romano",
+      "email": "eugenio.romano@alfresco.com"
+    },
+    {
+      "name": "Denys Vuika",
+      "email": "denys.vuika@gmail.com"
+    },
+    {
+      "name": "Mario Romano",
+      "email": "mario.romano83@gmail.com"
+    }
+  ],
   "files": [
     "app"
   ],
+  "main": "app/index.js",
+  "keywords": [
+    "ng2",
+    "angular2",
+    "component",
+    "generator",
+    "boilerplate",
+    "scaffolding",
+    "yeoman-generator",
+    "custom-component"
+  ],
+  "dependencies": {
+    "alfresco-logo": "^1.0.1",
+    "concurrently": "^3.4.0",
+    "generator-license": "^3.0.0",
+    "github-username": "^2.0.0",
+    "lodash": "^4.6.1",
+    "mkdirp": "^0.5.1",
+    "plunk": "^0.5.1",
+    "yeoman-generator": "^0.22.0"
+  },
+  "devDependencies": {
+    "browserstack-local": "^1.3.0",
+    "eslint": "3.18.0",
+    "eslint-config-xo-space": "^0.10.0",
+    "gulp": "^3.9.0",
+    "gulp-coveralls": "^0.1.0",
+    "gulp-eslint": "^2.0.0",
+    "gulp-exclude-gitignore": "^1.0.0",
+    "gulp-istanbul": "^0.10.3",
+    "gulp-line-ending-corrector": "^1.0.1",
+    "gulp-mocha": "^2.0.0",
+    "gulp-plumber": "^1.0.0",
+    "mocha": "^2.2.3",
+    "mockery": "^1.4.0",
+    "protractor": "^5.1.1",
+    "rimraf": "2.5.2",
+    "symlink-dir": "^1.0.2",
+    "yeoman-assert": "^2.0.0",
+    "yeoman-test": "^1.0.0"
+  },
   "eslintConfig": {
     "extends": "xo-space",
     "env": {
       "mocha": true
     }
+  },
+  "repository": "Alfresco/generator-ng2-alfresco-app",
+  "scripts": {
+    "clean": "rimraf node_modules typings",
+    "test": "gulp --max_old_space_size=2000",
+    "test-generation-app": "rimraf temp && gulp generation-app-test",
+    "test-install-app-all-options": "cd temp/all-options-test && npm install && cd -",
+    "test-cp-app-document-list": "cd temp/app-document-list-test && npm install && cd -",
+    "test-cp-app-process-service-test": "cd temp/app-process-service-test && npm install && cd -",
+    "test-cross-browsers": "cd temp/all-options-test && npm run start:dist & npm run protractor-test",
+    "test-build-all-options": "cd temp/all-options-test && npm run build",
+    "test-build-app-document-list": "cd temp/app-document-list-test && npm run build",
+    "test-build-app-process-service-test": "cd temp/app-process-service-test && npm run build",
+    "coveralls": "gulp coveralls",
+    "protractor-test": "./node_modules/.bin/protractor test/conf/local.conf.js"
   },
   "license": "MIT"
 }
