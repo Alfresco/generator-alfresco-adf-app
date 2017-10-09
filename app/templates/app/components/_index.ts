@@ -1,11 +1,11 @@
-<%- licenseHeader %>
+
 
 export { LoginDemoComponent } from './login/login-demo.component';
 export { HomeComponent } from './home/home.component';
 export { AboutComponent } from './about/about.component';
 <% if (contentPage == true) { %>export { FilesComponent } from './files/files.component';<% } %>
-<% if (searchBar == true) { %>export { SearchComponent } from './search/search.component';
-export { SearchBarComponent } from './search/search-bar.component';<% } %>
+export { SearchComponent } from './search/search.component';
+export { SearchBarComponent } from './search/search-bar.component';
 <% if (bpmTaskPage == true) { %>export { FormNodeViewerComponent } from './activiti/form-node-viewer.component';
   export { ActivitiTaskAttachmentsComponent } from './activiti/activiti-task-attachments.component';
   export { ActivitiProcessAttachmentsComponent } from './activiti/activiti-process-attachments.component';

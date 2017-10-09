@@ -1,4 +1,4 @@
-<%- licenseHeader %>
+
 
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
@@ -6,28 +6,7 @@ import { Router } from '@angular/router';
 @Component({
     selector: 'search-component',
     templateUrl: './search.component.html',
-    styles: [`
-        :host div.search-results-container {
-            padding: 0 20px 20px 20px;
-        }
-        :host h1 {
-            font-size: 22px;
-        }
-        :host tbody tr {
-            cursor: pointer;
-        }
-        @media screen and (max-width: 600px) {
-            :host .col-display-name {
-                min-width: 100px;
-            }
-            :host .col-modified-at, :host .col-modified-by {
-                display: none;
-            }
-            :host div.search-results-container table {
-                width: 100%;
-            }
-        }
-    `]
+    styleUrls: ['./search.component.scss']
 })
 export class SearchComponent {
 
@@ -37,9 +16,17 @@ export class SearchComponent {
     constructor(public router: Router) {
     }
 
-    showFile(event) {
-        if (event.value.entry.isFile) {
-            this.fileNodeId = event.value.entry.id;
+    nodeDbClick($event: any) {
+        if ($event.value.entry.isFolder) {
+            this.router.navigate(['/files', $event.value.entry.id]);
+        } else {
+            this.showFile($event);
+        }
+    }
+
+    showFile($event) {
+        if ($event.value.entry.isFile) {
+            this.fileNodeId = $event.value.entry.id;
             this.fileShowed = true;
         } else {
             this.fileShowed = false;

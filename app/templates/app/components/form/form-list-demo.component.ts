@@ -25,8 +25,8 @@ import { ActivitiForm } from 'ng2-activiti-form';
         <adf-form-list [forms]="formList" (row-dblclick)="onRowDblClick($event)">
         </adf-form-list>
         <div class="form-container" *ngIf="!isEmptyForm()">
-            <activiti-form [form]="form" [data]="restoredData">
-            </activiti-form>
+            <adf-form [form]="form" [data]="restoredData">
+            </adf-form>
         </div>
         <button md-button (click)="store()" color="primary">{{'FORM-LIST.STORE' | translate }}</button>
         <button md-button (click)="restore()" color="primary">{{'FORM-LIST.RESTORE' | translate }}</button>
@@ -66,8 +66,8 @@ export class FormListDemoComponent {
     onRowDblClick(event: CustomEvent) {
         let rowForm = event.detail.value.obj;
 
-        this.formService.getFormDefinitionById(rowForm.id).subscribe((definition) => {
-            let form = this.formService.parseForm(definition);
+        this.formService.getFormDefinitionById(rowForm.id).subscribe((formModel) => {
+            let form = this.formService.parseForm(formModel.formDefinition);
             this.form = form;
         });
 

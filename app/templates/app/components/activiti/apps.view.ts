@@ -20,18 +20,18 @@ import { Router } from '@angular/router';
 import { AppDefinitionRepresentationModel } from 'ng2-activiti-tasklist';
 
 @Component({
-  selector: 'activiti-apps-view',
-  template: `
+    selector: 'activiti-apps-view',
+    template: `
         <activiti-apps (appClick)="onAppClicked($event)"></activiti-apps>
     `
 })
 export class ActivitiAppsViewComponent {
 
-  constructor(private router: Router) {
-  }
+    constructor(private router: Router) {
+    }
 
-  onAppClicked(app: AppDefinitionRepresentationModel) {
-    this.router.navigate(['/activiti/apps', app.id || 0, 'tasks']);
-  }
+     onAppClicked(app: AppDefinitionRepresentationModel) {
+         this.router.navigate(['/activiti/apps', app.id || 0, 'tasks']);
+     }
 
 }

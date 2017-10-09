@@ -112,6 +112,22 @@ module.exports = {
                 to: 'pdf.worker.js'
             },
             {
+                from: 'node_modules/web-animations-js/web-animations.min.js',
+                to: 'js/web-animations.min.js'
+            },
+            {
+                from: 'node_modules/core-js/client/core.min.js',
+                to: 'js/core.min.js'
+            },
+            {
+                from: 'node_modules/custom-event-polyfill/custom-event-polyfill.js',
+                to: 'js/custom-event-polyfill.js'
+            },
+            {
+                from: 'node_modules/intl/dist/Intl.min.js',
+                to: 'js/Intl.min.js'
+            },
+            {
                 context: 'public',
                 from: '',
                 to: ''
@@ -126,38 +142,56 @@ module.exports = {
         })
     ],
 
-    devServer: {
-        contentBase: helpers.root('dist'),
-        compress: true,
-        port: 3000,
-        historyApiFallback: true,
-        host: '0.0.0.0',
-        inline: true,
-        proxy: {
-            '/ecm': {
-                target: {
-                    host: "0.0.0.0",
-                    protocol: 'http:',
-                    port: 8080
+     devServer: {
+            contentBase: helpers.root('dist'),
+            compress: true,
+            port: 3000,
+            historyApiFallback: true,
+            host: '0.0.0.0',
+            inline: true,
+            proxy: {
+                '/ecm': {
+                    target: {
+                        host: "0.0.0.0",
+                        protocol: 'http:',
+                        port: 8080
+                    },
+                    pathRewrite: {
+                        '^/ecm': ''
+                    },
+                    secure: false,
+                    changeOrigin: true,
+                    // workaround for REPO-2260
+                    onProxyRes: function (proxyRes, req, res) {
+                        const header = proxyRes.headers['www-authenticate'];
+                        if (header && header.startsWith('Basic')) {
+                            proxyRes.headers['www-authenticate'] = 'x' + header;
+                        }
+                    }
                 },
-                pathRewrite: {
-                    '^/ecm': ''
-                }
-            },
-            '/bpm': {
-                target: {
-                    host: "0.0.0.0",
-                    protocol: 'http:',
-                    port: 9999
-                },
-                pathRewrite: {
-                    '^/bpm': ''
+                '/bpm': {
+                    target: {
+                        host: "0.0.0.0",
+                        protocol: 'http:',
+                        port: 9999
+                    },
+                    pathRewrite: {
+                        '^/bpm': ''
+                    },
+                    secure: false,
+                    changeOrigin: true,
+                    // workaround
+                    onProxyRes: function (proxyRes, req, res) {
+                        const header = proxyRes.headers['www-authenticate'];
+                        if (header && header.startsWith('Basic')) {
+                            proxyRes.headers['www-authenticate'] = 'x' + header;
+                        }
+                    }
                 }
             }
-        }
-    },
+        },
 
-    node: {
-        fs: 'empty'
-    }
+      node: {
+          fs: 'empty'
+      }
 };

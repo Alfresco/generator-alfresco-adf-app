@@ -20,27 +20,27 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Rx';
 
 @Component({
-  selector: 'form-viewer',
-  templateUrl: './form-viewer.component.html',
-  styleUrls: ['./form-viewer.component.css']
+    selector: 'form-viewer',
+    templateUrl: './form-viewer.component.html',
+    styleUrls: ['./form-viewer.component.css']
 })
 export class FormViewerComponent implements OnInit, OnDestroy {
 
-  taskId: string;
+    taskId: string;
 
-  private sub: Subscription;
+    private sub: Subscription;
 
-  constructor(private route: ActivatedRoute) {
-  }
+    constructor(private route: ActivatedRoute) {
+    }
 
-  ngOnInit() {
-    this.sub = this.route.params.subscribe(params => {
-      this.taskId = params['id'];
-    });
-  }
+    ngOnInit() {
+        this.sub = this.route.params.subscribe(params => {
+            this.taskId = params['id'];
+        });
+    }
 
-  ngOnDestroy() {
-    this.sub.unsubscribe();
-  }
+    ngOnDestroy() {
+        this.sub.unsubscribe();
+    }
 
 }

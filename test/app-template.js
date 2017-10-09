@@ -47,7 +47,7 @@ describe('Alfresco component generator', function () {
     it('creates files', function () {
       var expected = [
         'app/components/activiti/activiti-demo.component.html',
-        'app/components/activiti/activiti-demo.component.css',
+        'app/components/activiti/activiti-demo.component.scss',
         'app/components/activiti/activiti-demo.component.ts',
         'app/components/activiti/form-node-viewer.component.html',
         'app/components/activiti/form-node-viewer.component.css',
@@ -56,25 +56,13 @@ describe('Alfresco component generator', function () {
         'app/components/activiti/form-viewer.component.css',
         'app/components/activiti/form-viewer.component.ts',
         'app/components/files/files.component.html',
-        'app/components/files/files.component.ts',
-        'app/components/search/search.component.html',
-        'app/components/search/search.component.ts',
-        'app/components/search/search-bar.component.html',
-        'app/components/search/search-bar.component.ts'
+        'app/components/files/files.component.ts'
       ];
       assert.noFile(expected);
     });
 
-    it('not fill the app.component.html with the search bar', function () {
-      assert.noFileContent('app/app.component.html', 'search-bar');
-    });
-
     it('notfill the app.component.html with the navigation bar', function () {
       assert.noFileContent('app/app.component.html', 'id="navigation-bar"');
-    });
-
-    it('not fill the app.routes.ts with the search bar', function () {
-      assert.noFileContent('app/app.routes.ts', 'SearchComponent');
     });
 
     it('not fill the app.routes.ts with the UploadButtonComponent', function () {
@@ -141,12 +129,11 @@ describe('Alfresco component generator', function () {
         'app/app.routes.ts',
         'app/app.component.ts',
         'app/app.component.html',
-        'app/app.component.scss',
         'app/components/setting/settings.component.ts',
         'app/components/setting/settings.component.html',
-        'app/components/setting/settings.component.css',
+        'app/components/setting/settings.component.scss',
         'app/components/activiti/activiti-demo.component.html',
-        'app/components/activiti/activiti-demo.component.css',
+        'app/components/activiti/activiti-demo.component.scss',
         'app/components/activiti/activiti-demo.component.ts',
         'app/components/activiti/form-node-viewer.component.html',
         'app/components/activiti/form-node-viewer.component.css',
@@ -172,12 +159,13 @@ describe('Alfresco component generator', function () {
         'app/components/files/files.component.ts',
         'app/components/search/search.component.html',
         'app/components/search/search.component.ts',
+        'app/components/search/search.component.scss',
         'app/components/search/search-bar.component.html',
         'app/components/search/search-bar.component.ts',
         'app/components/login/login-demo.component.ts',
         'app/components/login/login-demo.component.html',
         'app/components/home/home.component.html',
-        'app/components/home/home.component.css',
+        'app/components/home/home.component.scss',
         'app/components/home/home.component.ts',
         'app/components/home/home.component.spec.ts',
         'app/components/about',
@@ -189,7 +177,6 @@ describe('Alfresco component generator', function () {
         'app/components/theme-picker/theme-picker.ts',
         'app/components/theme-picker/theme-picker.css',
         'app/components/theme-picker/theme-picker.html',
-        'app/dialogs/create-folder.dialog.ts',
         'app/vendor.ts',
         'app/polyfills.ts',
         'config/karma-test-shim.js',
@@ -207,16 +194,7 @@ describe('Alfresco component generator', function () {
         'tsconfig.json',
         'tsconfig.dev.json',
         'karma.conf.js',
-        'webpack.config.js',
-        'public/css/muli-font.css',
-        'public/fonts/Muli-Italic.ttf',
-        'public/fonts/Muli-Light.ttf',
-        'public/fonts/Muli-LightItalic.ttf',
-        'public/fonts/Muli-Regular.ttf',
-        'public/js/Blob.js',
-        'public/js/formdata.js',
-        'public/js/promisePolyfill.js',
-        'public/js/typedarray.js'
+        'webpack.config.js'
       ];
       assert.file(expected);
     });
@@ -225,16 +203,6 @@ describe('Alfresco component generator', function () {
       assert.fileContent('README.md', 'app-fake');
       assert.fileContent('README.md', 'A awesome alfresco APP');
       assert.fileContent('README.md', 'https://github.com/componentCreatorAccount/app-fake/releases');
-    });
-
-    it('fill the app.config-dev with the server selected', function () {
-      assert.fileContent('app.config-dev.json', 'http://servertTest:8080/share');
-      assert.fileContent('app.config-dev.json', 'http://servertTest:9999/share');
-    });
-
-    it('fill the app.config-prod with the server selected', function () {
-      assert.fileContent('app.config-prod.json', 'http://servertTest:8080/share');
-      assert.fileContent('app.config-prod.json', 'http://servertTest:9999/share');
     });
 
     it('fill the app.component.html with project data', function () {
@@ -246,22 +214,6 @@ describe('Alfresco component generator', function () {
       assert.fileContent('package.json', '"author": "Alfresco Team <Sonikku.Hejjihoggu@alfresco.com>"');
       assert.fileContent('package.json', '"description": "A awesome alfresco APP"');
       assert.fileContent('package.json', '"url": "https://github.com/componentCreatorAccount/app-fake/issues"');
-    });
-
-    it('fill the app.component.html with the search bar', function () {
-      assert.fileContent('app/app.component.html', 'search-bar');
-    });
-
-    it('fill the app.component.html with the user info component', function () {
-      assert.fileContent('app/app.component.html', 'class="user-profile"');
-    });
-
-    it('fill the app.component.html with the user info component', function () {
-      assert.fileContent('app/app.component.html', 'class="user-profile"');
-    });
-
-    it('fill the app.routes.ts with the search bar', function () {
-      assert.fileContent('app/app.routes.ts', 'SearchComponent');
     });
 
     it('fill the app.routes.ts with the files component', function () {
@@ -323,9 +275,9 @@ describe('Alfresco component generator', function () {
         'app/app.component.html',
         'app/components/setting/settings.component.ts',
         'app/components/setting/settings.component.html',
-        'app/components/setting/settings.component.css',
+        'app/components/setting/settings.component.scss',
         'app/components/activiti/activiti-demo.component.html',
-        'app/components/activiti/activiti-demo.component.css',
+        'app/components/activiti/activiti-demo.component.scss',
         'app/components/activiti/activiti-demo.component.ts',
         'app/components/activiti/form-node-viewer.component.html',
         'app/components/activiti/form-node-viewer.component.css',
@@ -337,7 +289,7 @@ describe('Alfresco component generator', function () {
         'app/components/activiti/demo-field-validator.ts',
         'app/components/activiti/custom-editor/custom-editor.component.ts',
         'app/components/home/home.component.html',
-        'app/components/home/home.component.css',
+        'app/components/home/home.component.scss',
         'app/components/home/home.component.ts',
         'app/components/home/home.component.spec.ts',
         'app/components/about',
@@ -362,61 +314,18 @@ describe('Alfresco component generator', function () {
         'config/loaders/license-check.js',
         'config/loaders/system.js',
         'karma.conf.js',
-        'webpack.config.js',
-        'public/css/muli-font.css',
-        'public/fonts/Muli-Italic.ttf',
-        'public/fonts/Muli-Light.ttf',
-        'public/fonts/Muli-LightItalic.ttf',
-        'public/fonts/Muli-Regular.ttf',
-        'public/js/Blob.js',
-        'public/js/formdata.js',
-        'public/js/promisePolyfill.js',
-        'public/js/typedarray.js'
+        'webpack.config.js'
       ];
       assert.file(expected);
 
       var notExpected = [
         'app/components/files/files.component.html',
-        'app/components/files/files.component.ts',
-        'app/components/search/search.component.html',
-        'app/components/search/search.component.ts',
-        'app/components/search/search-bar.component.html',
-        'app/components/search/search-bar.component.ts'
+        'app/components/files/files.component.ts'
       ];
       assert.noFile(notExpected);
     });
   });
 
-  describe('Include only search component', function () {
-    before(function (done) {
-      helpers.run(path.join(__dirname, '../app'))
-        .inDir(path.join(os.tmpdir(), './temp'))
-        .withPrompts({
-          projectName: 'app-fake',
-          description: 'A awesome alfresco APP',
-          githubAccount: 'componentCreatorAccount',
-          authorName: 'Alfresco Team',
-          authorEmail: 'Sonikku.Hejjihoggu@alfresco.com',
-          authorUrl: 'http://Hejjihoggu.io',
-          keywords: ['app-keyword', 'angular2-keyword'],
-          alfrescoServerHost: 'http://servertTest:8080/share',
-          activitiServerHost: 'http://servertTest:9999/share',
-          features: [
-            'searchBar'
-          ],
-          license: 'MIT'
-        })
-        .on('error', function (error) {
-          console.log(error);
-        })
-        .on('end', done);
-    });
-
-    it('the viewer should be present in app.module.ts search is selected ', function () {
-      assert.fileContent('app/app.module.ts', 'ViewerModule');
-    });
-
-  });
 });
 
 
