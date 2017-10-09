@@ -157,12 +157,9 @@ module.exports = yeoman.Base.extend({
           checked: true
         },
         {
-          name: 'ADF: Search Component',
-          value: 'searchBar'
-        },
-        {
           name: 'ADF: Process Services Components',
-          value: 'bpmTaskPage'
+          value: 'bpmTaskPage',
+          checked: true
         }
       ],
       validate: function (answers) {
