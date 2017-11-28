@@ -10,3 +10,8 @@ script:
 cache:
   directories:
   - node_modules
+
+jobs:
+  include:
+    - stage acs
+      script cd app/templates/adf-cli-acs-template && npm install && npm test
