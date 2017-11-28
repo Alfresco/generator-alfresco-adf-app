@@ -24,14 +24,14 @@ jobs:
       before_install:
         - "export DISPLAY=:99.0"
         - "sh -e /etc/init.d/xvfb start"
-      script: cd app/templates/adf-cli-acs-template && npm install && npm test
+      script: cd app/templates/adf-cli-acs-template && npm install && npm test -- --single-run
     - stage: aps
       before_install:
         - "export DISPLAY=:99.0"
         - "sh -e /etc/init.d/xvfb start"
-      script: cd app/templates/adf-cli-aps-template && npm install && npm test
+      script: cd app/templates/adf-cli-aps-template && npm install && npm test -- --single-run
     - stage: acs-aps
       before_install:
         - "export DISPLAY=:99.0"
         - "sh -e /etc/init.d/xvfb start"
-      script: cd app/adf-cli-acs-aps-template && npm install && npm test
+      script: cd app/adf-cli-acs-aps-template && npm install && npm test -- --single-run
