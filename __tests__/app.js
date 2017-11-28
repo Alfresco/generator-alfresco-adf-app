@@ -10,7 +10,7 @@ describe('Alfresco component generator', () => {
       return helpers.run(path.join(__dirname, '../app'))
         .withPrompts({
           name: 'adf-cli-acs-template',
-          blueprint: 'Content Service'
+          blueprint: 'Content Services'
         });
     });
 
@@ -22,7 +22,7 @@ describe('Alfresco component generator', () => {
       const expected = [
         '.editorconfig',
         '.angular-cli.json',
-        '.gitignore',
+        '.npmignore',
         '.travis.yml',
         'LICENSE',
         'README.md',
@@ -62,10 +62,11 @@ describe('Alfresco component generator', () => {
 
   describe('Process Service', () => {
     beforeEach(() => {
+      console.log(__dirname);
       return helpers.run(path.join(__dirname, '../app'))
         .withPrompts({
           name: 'adf-cli-aps-template',
-          blueprint: 'Process Service'
+          blueprint: 'Process Services'
         });
     });
 
@@ -75,9 +76,9 @@ describe('Alfresco component generator', () => {
 
     it('creates files', () => {
       const expected = [
-        '.editorconfig',
         '.angular-cli.json',
-        '.gitignore',
+        '.editorconfig',
+        '.npmignore',
         '.travis.yml',
         'LICENSE',
         'README.md',
@@ -124,7 +125,7 @@ describe('Alfresco component generator', () => {
       return helpers.run(path.join(__dirname, '../app'))
         .withPrompts({
           name: 'adf-cli-acs-aps-template',
-          blueprint: 'Process Service and Content Service'
+          blueprint: 'Process and Content Services'
         });
     });
 
@@ -136,7 +137,7 @@ describe('Alfresco component generator', () => {
       const expected = [
         '.editorconfig',
         '.angular-cli.json',
-        '.gitignore',
+        '.npmignore',
         '.travis.yml',
         'LICENSE',
         'README.md',

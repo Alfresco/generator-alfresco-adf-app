@@ -14,13 +14,10 @@
   "devDependencies": {
     "eslint": "4.7.1",
     "eslint-config-xo-space": "0.16.0",
-    "coveralls": "2.13.1",
-    "jest": "21.1.0",
-    "jest-cli": "21.1.0",
-    "nsp": "2.8.0",
+    "jest": "21.2.1",
+    "jest-cli": "21.2.1",
     "yeoman-assert": "3.0.0",
     "yeoman-test": "1.7.0",
-    "mockery": "2.1.0",
     "rimraf": "2.6.2"
   },
   "jest": {

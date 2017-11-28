@@ -1,4 +1,4 @@
-# ADF/APS/ACS Application with Angular CLI
+# ADF/ACS Application with Angular CLI
 
 Minimal ready-to-use Angular CLI project template pre-configured with ADF 2.0.0 components.
 
