@@ -1,35 +1,38 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "adf-app"
+    "name": "myapp"
   },
   "apps": [
     {
+      "name" : "dist",
       "root": "src",
       "outDir": "dist",
       "assets": [
         "assets",
-        "favicon-96x96.png",
-
-        { "glob": "**/*", "input": "../node_modules/ng2-alfresco-core/bundles/assets", "output": "./assets/" },
-
-        { "glob": "**/*", "input": "../node_modules/ng2-alfresco-datatable/bundles/assets", "output": "./assets/" },
-        { "glob": "**/*", "input": "../node_modules/ng2-alfresco-viewer/bundles/assets", "output": "./assets/" },
-        { "glob": "**/*", "input": "../node_modules/ng2-alfresco-documentlist/bundles/assets", "output": "./assets/" },
-        { "glob": "**/*", "input": "../node_modules/ng2-alfresco-login/bundles/assets", "output": "./assets/" },
-        { "glob": "**/*", "input": "../node_modules/ng2-alfresco-upload/bundles/assets", "output": "./assets/" },
-        { "glob": "**/*", "input": "../node_modules/ng2-alfresco-search/bundles/assets", "output": "./assets/" },
-        { "glob": "**/*", "input": "../node_modules/ng2-alfresco-userinfo/bundles/assets", "output": "./assets/" },
-        { "glob": "**/*", "input": "../node_modules/ng2-alfresco-social/bundles/assets", "output": "./assets/" },
-        { "glob": "**/*", "input": "../node_modules/ng2-alfresco-tag/bundles/assets", "output": "./assets/" },
-        { "glob": "**/*", "input": "../node_modules/ng2-alfresco-webscript/bundles/assets", "output": "./assets/" },
-
-        { "glob": "**/*", "input": "../node_modules/ng2-activiti-form/bundles/assets", "output": "./assets/" },
-        { "glob": "**/*", "input": "../node_modules/ng2-activiti-tasklist/bundles/assets", "output": "./assets/" },
-        { "glob": "**/*", "input": "../node_modules/ng2-activiti-processlist/bundles/assets", "output": "./assets/" },
-        { "glob": "**/*", "input": "../node_modules/ng2-activiti-diagrams/bundles/assets", "output": "./assets/" },
-        { "glob": "**/*", "input": "../node_modules/ng2-activiti-analytics/bundles/assets", "output": "./assets/" },
-
+        "favicon.ico",
+        "app.config.json",
+        "versions.json",
+        {
+          "glob": "**/*",
+          "input": "../resources",
+          "output": "./resources"
+        },
+        {
+          "glob": "**/*",
+          "input": "../node_modules/@alfresco/adf-core/prebuilt-themes",
+          "output": "./assets/prebuilt-themes"
+        },
+        {
+          "glob": "**/*",
+          "input": "../node_modules/@alfresco/adf-core/bundles/assets",
+          "output": "./assets/"
+        },
+        {
+          "glob": "**/*",
+          "input": "../node_modules/@alfresco/adf-content-services/bundles/assets",
+          "output": "./assets/"
+        },
         { "glob": "pdf.worker.js", "input": "../node_modules/pdfjs-dist/build", "output": "./" }
       ],
       "index": "index.html",
@@ -40,24 +43,23 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css",
-        "../node_modules/ng2-alfresco-core/prebuilt-themes/adf-blue-orange.css"
+        "custom-style.scss"
       ],
+      "stylePreprocessorOptions": {
+        "includePaths": [
+          "../node_modules/"
+        ]
+      },
       "scripts": [
-        "../node_modules/material-design-lite/material.min.js",
         "../node_modules/pdfjs-dist/build/pdf.js",
-        "../node_modules/pdfjs-dist/web/compatibility.js",
-        "../node_modules/pdfjs-dist/web/pdf_viewer.js"
+        "../node_modules/pdfjs-dist/web/pdf_viewer.js",
+        "../node_modules/raphael/raphael.min.js",
+        "../node_modules/moment/min/moment.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts"
-      },
-      "stylePreprocessorOptions": {
-        "includePaths": [
-          "../node_modules/ng2-alfresco-core/styles"
-        ]
       }
     }
   ],
@@ -68,16 +70,13 @@
   },
   "lint": [
     {
-      "project": "src/tsconfig.app.json",
-      "exclude": "**/node_modules/**"
+      "project": "src/tsconfig.app.json"
     },
     {
-      "project": "src/tsconfig.spec.json",
-      "exclude": "**/node_modules/**"
+      "project": "src/tsconfig.spec.json"
     },
     {
-      "project": "e2e/tsconfig.e2e.json",
-      "exclude": "**/node_modules/**"
+      "project": "e2e/tsconfig.e2e.json"
     }
   ],
   "test": {
@@ -86,7 +85,12 @@
     }
   },
   "defaults": {
-    "styleExt": "css",
-    "component": {}
+    "styleExt": "scss",
+    "component": {
+    },
+    "serve": {
+      "proxyConfig": "proxy.conf.json",
+      "port": 4200
+    }
   }
 }

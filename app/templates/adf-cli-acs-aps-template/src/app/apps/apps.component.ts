@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AppDefinitionRepresentationModel } from 'ng2-activiti-tasklist';
+import { AppDefinitionRepresentationModel } from '@alfresco/adf-process-services';
 
 @Component({
   selector: 'app-apps',

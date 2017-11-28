@@ -4,13 +4,15 @@ import { RouterModule, Routes } from '@angular/router';
 
 // ADF modules
 import { AdfModule } from './adf.module';
+import { AuthGuardBpm } from '@alfresco/adf-core';
+import { AuthGuardEcm } from '@alfresco/adf-core';
+
 
 // App components
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { DocumentlistComponent } from './documentlist/documentlist.component';
 import { LoginComponent } from './login/login.component';
-import { AuthGuardEcm } from 'ng2-alfresco-core';
+import { DocumentlistComponent } from './documentlist/documentlist.component';
 
 const appRoutes: Routes = [
   {
@@ -19,7 +21,7 @@ const appRoutes: Routes = [
   },
   {
     path: 'login',
-    component: LoginComponent,
+    component: LoginComponent
   },
   {
     path: 'documentlist',
@@ -37,13 +39,13 @@ const appRoutes: Routes = [
     ),
 
     // ADF modules
-    AdfModule
+    AdfModule,
   ],
   declarations: [
     AppComponent,
     HomeComponent,
+    LoginComponent,
     DocumentlistComponent,
-    LoginComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

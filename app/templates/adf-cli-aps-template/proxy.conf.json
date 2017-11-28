@@ -1,18 +1,7 @@
 {
-  "/ecm": {
-    "target": "http://0.0.0.0:8080",
+  "/activiti-app": {
+    "target": "http://localhost:9999",
     "secure": false,
-    "pathRewrite": {
-      "^/ecm": ""
-    },
-    "changeOrigin": true
-  },
-  "/bpm": {
-    "target": "http://0.0.0.0:9999",
-    "secure": false,
-    "pathRewrite": {
-      "^/bpm": ""
-    },
     "changeOrigin": true
   }
 }

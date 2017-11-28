@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ViewerService } from 'ng2-alfresco-viewer';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NotificationService } from '@alfresco/adf-core';
+import { DocumentListComponent } from '@alfresco/adf-content-services';
 
 @Component({
   selector: 'app-documentlist',
@@ -8,19 +9,33 @@ import { ViewerService } from 'ng2-alfresco-viewer';
 })
 export class DocumentlistComponent implements OnInit {
 
-  constructor(private viewerService: ViewerService) { }
+  showViewer: Boolean = false;
+  nodeId: String = null;
+
+  @ViewChild(DocumentListComponent)
+  documentList: DocumentListComponent;
+
+  constructor(private notificationService: NotificationService) { }
 
   ngOnInit() {
   }
 
+  uploadSuccess(event: any) {
+    this.notificationService.openSnackMessage('File uploaded');
+    this.documentList.reload();
+  }
+
   showPreview(event) {
+    this.showViewer = false;
     if (event.value.entry.isFile) {
-        this.viewerService
-            .showViewerForNode(event.value.entry)
-            .then(result => {
-                console.log(result);
-            });
+      this.nodeId = event.value.entry.id;
+      this.showViewer = true;
     }
+  }
+
+  onGoBack(event: any) {
+    this.showViewer = false;
+    this.nodeId = null;
   }
 
 }

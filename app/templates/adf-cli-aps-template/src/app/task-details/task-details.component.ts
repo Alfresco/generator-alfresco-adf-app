@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormRenderingService } from 'ng2-activiti-form';
+import { FormRenderingService } from '@alfresco/adf-core';
 import { CustomEditorComponent } from '../stencils.module';
 
 @Component({
@@ -12,11 +12,14 @@ export class TaskDetailsComponent implements OnInit {
 
   appId: string = null;
   taskId: string = null;
+  fileShowed: any = null;
+  content: any = null;
+  contentName: any= null;
 
   constructor(private router: Router,
               private route: ActivatedRoute,
               formRenderingService: FormRenderingService) {
-    formRenderingService.setComponentTypeResolver('demo_component_01', () => CustomEditorComponent);
+    formRenderingService.setComponentTypeResolver('testole_01', () => CustomEditorComponent, true);
   }
 
   ngOnInit() {
@@ -28,6 +31,12 @@ export class TaskDetailsComponent implements OnInit {
         this.taskId = params.taskId;
       }
     });
+  }
+
+  onFormContentClick(content: any): void {
+    this.fileShowed = true;
+    this.content = content.contentBlob;
+    this.contentName = content.name;
   }
 
 }

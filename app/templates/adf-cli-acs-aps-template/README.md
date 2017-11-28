@@ -1,8 +1,8 @@
 # ADF/APS/ACS Application with Angular CLI
 
-Minimal ready-to-use Angular CLI project template pre-configured with ADF 1.8.0 components.
+Minimal ready-to-use Angular CLI project template pre-configured with ADF 2.0.0 components.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.2
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.0
 
 ## Quick start
 
@@ -31,12 +31,12 @@ You can find details in the `proxy.conf.json` file.
 
 List of URLs being proxied:
 
-- `/ecm` -> `http://0.0.0.0:8080`
-- `/bpm` -> `http://0.0.0.0:9999`
+- `/alfresco` -> `http://0.0.0.0:8080`
+- `/activiti-app` -> `http://0.0.0.0:9999`
 
 ## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
+Run `ng generate component component-name -m app.module` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
 
 ## Build
 

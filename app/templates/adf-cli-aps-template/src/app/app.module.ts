@@ -4,7 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 // ADF modules
 import { AdfModule } from './adf.module';
-import { AuthGuardBpm } from 'ng2-alfresco-core';
+import { AuthGuardBpm } from '@alfresco/adf-core';
+import { AuthGuardEcm } from '@alfresco/adf-core';
 
 // Custom stencils
 import { StencilsModule } from './stencils.module';
@@ -16,7 +17,7 @@ import { LoginComponent } from './login/login.component';
 import { AppsComponent } from './apps/apps.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { TaskDetailsComponent } from './task-details/task-details.component';
-import { StartTaskComponent } from './start-task/start-task.component';
+import { StartProcessComponent } from './start-process/start-process.component';
 
 const appRoutes: Routes = [
   {
@@ -43,8 +44,8 @@ const appRoutes: Routes = [
     canActivate: [ AuthGuardBpm ]
   },
   {
-    path: 'apps/:appId/start-task',
-    component: StartTaskComponent,
+    path: 'apps/:appId/start-process',
+    component: StartProcessComponent,
     canActivate: [ AuthGuardBpm ]
   }
 ];
@@ -69,7 +70,7 @@ const appRoutes: Routes = [
     LoginComponent,
     TasksComponent,
     TaskDetailsComponent,
-    StartTaskComponent
+    StartProcessComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
