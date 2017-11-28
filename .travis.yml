@@ -15,3 +15,7 @@ jobs:
   include:
     - stage: acs
       script: cd app/templates/adf-cli-acs-template && npm install && npm test
+    - stage: aps
+      script: cd app/templates/adf-cli-aps-template && npm install && npm test
+    - stage: acs-aps
+      script: cd app/adf-cli-acs-aps-template && npm install && npm test
