@@ -62,7 +62,6 @@ describe('Alfresco component generator', () => {
 
   describe('Process Service', () => {
     beforeEach(() => {
-      console.log(__dirname);
       return helpers.run(path.join(__dirname, '../app'))
         .withPrompts({
           name: 'adf-cli-aps-template',

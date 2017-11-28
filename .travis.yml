@@ -21,8 +21,17 @@ jobs:
         directories:
         - node_modules
     - stage: acs
+      before_install:
+        - "export DISPLAY=:99.0"
+        - "sh -e /etc/init.d/xvfb start"
       script: cd app/templates/adf-cli-acs-template && npm install && npm test
     - stage: aps
+      before_install:
+        - "export DISPLAY=:99.0"
+        - "sh -e /etc/init.d/xvfb start"
       script: cd app/templates/adf-cli-aps-template && npm install && npm test
     - stage: acs-aps
+      before_install:
+        - "export DISPLAY=:99.0"
+        - "sh -e /etc/init.d/xvfb start"
       script: cd app/adf-cli-acs-aps-template && npm install && npm test
