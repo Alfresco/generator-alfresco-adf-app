@@ -31,7 +31,7 @@
     "@alfresco/adf-content-services": "2.0.0",
     "@alfresco/adf-process-services": "2.0.0",
     "@alfresco/adf-core": "2.0.0",
-    "@alfresco/adf-insights": "2.0.0",
+    "@alfresco/adf-insights": "2.0.1",
     "chart.js": "2.5.0",
     "classlist.js": "1.1.20150312",
     "core-js": "2.4.1",
