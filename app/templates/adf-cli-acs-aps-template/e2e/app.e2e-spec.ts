@@ -7,8 +7,8 @@ describe('adf-app App', () => {
     page = new AdfAppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display toolbar', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!');
+    expect(page.getToolbar()).toBeDefined();
   });
 });
