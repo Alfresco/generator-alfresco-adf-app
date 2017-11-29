@@ -25,20 +25,28 @@ jobs:
         - "export DISPLAY=:99.0"
         - "sh -e /etc/init.d/xvfb start"
       script: cd app/templates/adf-cli-acs-template && npm install && npm test -- --single-run
+    - stage: acs-e2e
+      before_install:
+        - "export DISPLAY=:99.0"
+        - "sh -e /etc/init.d/xvfb start"
+      script: cd app/templates/adf-cli-acs-template && npm install && npm run e2e
     - stage: aps
       before_install:
         - "export DISPLAY=:99.0"
         - "sh -e /etc/init.d/xvfb start"
       script: cd app/templates/adf-cli-aps-template && npm install && npm test -- --single-run
+    - stage: aps-e2e
+      before_install:
+        - "export DISPLAY=:99.0"
+        - "sh -e /etc/init.d/xvfb start"
+      script: cd app/templates/adf-cli-aps-template && npm install && npm run e2e
     - stage: acs-aps
       before_install:
         - "export DISPLAY=:99.0"
         - "sh -e /etc/init.d/xvfb start"
       script: cd app/templates/adf-cli-acs-aps-template && npm install && npm test -- --single-run
-    - stage: e2e
+    - stage: acs-aps-e2e
       before_install:
         - "export DISPLAY=:99.0"
         - "sh -e /etc/init.d/xvfb start"
-      script: cd app/templates/adf-cli-acs-template && npm install && npm run e2e
-      script: cd app/templates/adf-cli-aps-template && npm install && npm run e2e
       script: cd app/templates/adf-cli-acs-aps-template && npm install && npm run e2e
