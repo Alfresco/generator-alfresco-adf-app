@@ -1,5 +1,5 @@
 {
-  "name": "generator-ng2-alfresco-app",
+  "name": "generator-alfresco-adf-app",
   "version": "2.0.0",
   "description": "ADF application generator for Yeoman",
   "author": "Alfresco Software, Ltd.",
