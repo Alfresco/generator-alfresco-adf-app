@@ -70,3 +70,9 @@ import 'zone.js/dist/zone';  // Included with Angular CLI.
  * Need to import at least one locale-data with intl.
  */
 // import 'intl/locale-data/jsonp/en';
+/**
+ * Support custom event in IE11
+ *
+ * */
+//import 'custom-event-polyfill/custom-event-polyfill'  // Run `npm install --save custom-event-polyfill`.
+
