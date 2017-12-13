@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild, Input } from '@angular/core';
 import { NotificationService } from '@alfresco/adf-core';
 import { DocumentListComponent } from '@alfresco/adf-content-services';
 
@@ -7,18 +7,17 @@ import { DocumentListComponent } from '@alfresco/adf-content-services';
   templateUrl: './documentlist.component.html',
   styleUrls: ['./documentlist.component.css']
 })
-export class DocumentlistComponent implements OnInit {
+export class DocumentlistComponent {
 
-  showViewer: Boolean = false;
-  nodeId: String = null;
+  @Input()
+  showViewer: boolean = false;
+
+  nodeId: string = null;
 
   @ViewChild(DocumentListComponent)
   documentList: DocumentListComponent;
 
   constructor(private notificationService: NotificationService) { }
-
-  ngOnInit() {
-  }
 
   uploadSuccess(event: any) {
     this.notificationService.openSnackMessage('File uploaded');
