@@ -75,7 +75,7 @@ yo alfresco-app --version
 6. Push to the branch: `git push origin my-new-feature`
 7. Submit a pull request
 
-> to Contribute to the existing code base Add test cases to cover the new behaviour, and make sure all the existing tests are still green.
+To Contribute to the existing code base, add test cases to cover the new behaviour, and make sure all the existing tests are still green.
 
 To test the generator:
 

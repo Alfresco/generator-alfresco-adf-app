@@ -8,10 +8,8 @@ See the following [page](https://github.com/Alfresco/alfresco-ng2-components/blo
 
 ## Prerequisites
 
-<p class="warning">
 Before you start using this development framework and the generator, make sure you have installed all required software and done all the
 necessary configuration, see this [page](https://github.com/Alfresco/app-dev-framework/blob/master/PREREQUISITES.md).
-</p>
 
 ## Installing Yeoman and the App Generator
 
@@ -74,9 +72,7 @@ yo alfresco-app --version
 6. Push to the branch: `git push origin my-new-feature`
 7. Submit a pull request
 
-<p class="tip">
-To contribute to the existing code base Add test cases to cover the new behaviour, and make sure all the existing tests are still green.
-</p>
+To contribute to the existing code base, add test cases to cover the new behaviour, and make sure all the existing tests are still green.
 
 To test the generator:
 
