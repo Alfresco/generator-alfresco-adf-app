@@ -108,9 +108,7 @@ DEBUG=yeoman:generator yo alfresco-app
 set DEBUG=yeoman:generator & yo alfresco-app
 ```
 
-<p class="tip">
 More on [debugging generators](http://yeoman.io/authoring/debugging.html).
-</p>
 
 ## History
 
