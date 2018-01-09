@@ -22,7 +22,7 @@ npm install -g yo
 Then the Alfresco Application Generator:
 
 ```sh
-npm install -g generator-alfresco-app
+npm install -g generator-alfresco-adf-app
 ```
 
 ## Generating a new application project
@@ -30,7 +30,7 @@ npm install -g generator-alfresco-app
 First, move in the folder where you want create your project.
 
 ```sh
-yo alfresco-app
+yo alfresco-adf-app
 ```
 
 You will need to run the following scripts in the generated folder:
@@ -45,21 +45,21 @@ Commands above install all project dependencies, start the project and watch for
 Alternatively you can use generator with install switch to trigger automatic installation of dependencies via npm install script:
 
 ```sh
-yo alfresco-app --install
+yo alfresco-adf-app --install
 ```
 
 ## Updating generator
 
 ```sh
-npm update -g generator-alfresco-app
+npm update -g generator-alfresco-adf-app
 ```
 
 ## Getting current version
 
-* Show current version generator-alfresco-app installed
+* Show current version generator-alfresco-adf-app installed
 
 ```sh
-yo alfresco-app --version
+yo alfresco-adf-app --version
 ```
 
 ## Contributing to the generator
@@ -98,10 +98,10 @@ If you want to create a new blueprint based on the existing git repository follo
 
 ```sh
 # OS X / Linux
-DEBUG=yeoman:generator yo alfresco-app
+DEBUG=yeoman:generator yo alfresco-adf-app
 
 # Windows
-set DEBUG=yeoman:generator & yo alfresco-app
+set DEBUG=yeoman:generator & yo alfresco-adf-app
 ```
 
 More on [debugging generators](http://yeoman.io/authoring/debugging.html).
