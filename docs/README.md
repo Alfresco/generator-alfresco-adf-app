@@ -24,7 +24,7 @@ npm install -g yo
 Then the Alfresco Application Generator:
 
 ```sh
-npm install -g generator-ng2-alfresco-app
+npm install -g generator-alfresco-app
 ```
 
 ## Generating a new application project
@@ -32,7 +32,7 @@ npm install -g generator-ng2-alfresco-app
 First, move in the folder where you want create your project.
 
 ```sh
-yo ng2-alfresco-app
+yo alfresco-app
 ```
 
 You will need to run the following scripts in the generated folder:
@@ -47,21 +47,21 @@ Commands above install all project dependencies, start the project and watch for
 Alternatively you can use generator with install switch to trigger automatic installation of dependencies via npm install script:
 
 ```sh
-yo ng2-alfresco-app --install
+yo alfresco-app --install
 ```
 
 ## Updating generator
 
 ```sh
-npm update -g generator-ng2-alfresco-app
+npm update -g generator-alfresco-app
 ```
 
 ## Getting current version
 
-* Show current version generator-ng2-alfresco-app installed
+* Show current version generator-alfresco-app installed
 
 ```sh
-yo ng2-alfresco-app --version
+yo alfresco-app --version
 ```
 
 ## Contributing to the generator
@@ -102,10 +102,10 @@ If you want to create a new blueprint based on the existing git repository follo
 
 ```sh
 # OS X / Linux
-DEBUG=yeoman:generator yo ng2-alfresco-app
+DEBUG=yeoman:generator yo alfresco-app
 
 # Windows
-set DEBUG=yeoman:generator & yo ng2-alfresco-app
+set DEBUG=yeoman:generator & yo alfresco-app
 ```
 
 <p class="tip">
