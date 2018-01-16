@@ -10,7 +10,7 @@ describe('Alfresco component generator', () => {
       return helpers.run(path.join(__dirname, '../app'))
         .withPrompts({
           name: 'adf-cli-acs-template',
-          blueprint: 'Content Services'
+          blueprint: 'adf-cli-acs-template'
         });
     });
 
@@ -65,7 +65,7 @@ describe('Alfresco component generator', () => {
       return helpers.run(path.join(__dirname, '../app'))
         .withPrompts({
           name: 'adf-cli-aps-template',
-          blueprint: 'Process Services'
+          blueprint: 'adf-cli-aps-template'
         });
     });
 
@@ -124,7 +124,7 @@ describe('Alfresco component generator', () => {
       return helpers.run(path.join(__dirname, '../app'))
         .withPrompts({
           name: 'adf-cli-acs-aps-template',
-          blueprint: 'Process and Content Services'
+          blueprint: 'adf-cli-acs-aps-template'
         });
     });
 

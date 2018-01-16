@@ -1,14 +1,74 @@
-const Generator = require('yeoman-generator');
+// const Generator = require('yeoman-generator');
 const utils = require('./utils');
 const alflogo = require('alfresco-logo');
+const CLIGenerator = require('generator-alfresco-common').cli_generator;
+const filters = require('generator-alfresco-common').prompt_filters;
 
-module.exports = class extends Generator {
+module.exports = class extends CLIGenerator {
   constructor(args, opts) {
     super(args, opts);
   }
 
   async initializing() {
-    this.blueprints = await utils.getBluprints();
+    this.state = {};
+    this.blueprints = await utils.getBlueprints();
+
+    this.prompts = [
+      {
+        type: 'input',
+        name: 'name',
+        message: 'Your project name',
+        default: this.appname, // Default to current folder name
+        option: {
+          name: 'name',
+          config: {
+            name: 'name',
+            alias: 'n',
+            required: true,
+            type: String
+          }
+        },
+        commonFilter: filters.requiredTextFilter
+      },
+      {
+        type: 'list',
+        name: 'blueprint',
+        message: 'Application blueprint',
+        choices: this.blueprints.map(bp => {
+          // return bp.displayName;
+          return {
+            name: bp.displayName,
+            value: bp.name
+          };
+        }),
+        option: {
+          name: 'blueprint',
+          config: {
+            alias: 'b',
+            required: true,
+            type: String
+          }
+        },
+        commonFilter: filters.chooseOneFilterFactory(this.blueprints.map(bp => bp.name))
+      },
+      {
+        type: 'confirm',
+        name: 'install',
+        message: 'Would you like to install dependencies now?',
+        option: {
+          name: 'install',
+          config: {
+            alias: 'i',
+            required: false,
+            type: Boolean,
+            default: false
+          }
+        },
+        commonFilter: filters.booleanFilter
+      }
+    ];
+
+    this.setupArgumentsAndOptions(this.prompts);
   }
 
   prompting() {
@@ -16,46 +76,28 @@ module.exports = class extends Generator {
       'ADF Angular app generator for Alfresco\n Version ' + this.rootGeneratorVersion() + '\n',
       {'left-pad': '     '}));
 
-    return this.prompt([
-      {
-        type: 'input',
-        name: 'name',
-        message: 'Your project name',
-        default: this.appname // Default to current folder name
-      },
-      {
-        type: 'list',
-        name: 'blueprint',
-        message: 'Application blueprint',
-        choices: this.blueprints.map(bp => {
-          return bp.displayName;
-        })
-      },
-      {
-        type: 'confirm',
-        name: 'performInstall',
-        message: 'Would you like to install dependencies now?'
-      }])
-      .then((answers) => {
-        if (answers.name !== this.appname) {
-          this.destinationRoot(this.destinationPath(answers.name));
-        }
+    return this.subgeneratorPrompt(this.prompts, '', props => {
+      this.state.name = props.name;
+      console.log(props.blueprint);
+      this.state.blueprint = this.blueprints.find(bp => bp.name === props.blueprint);
+      this.state.install = props.install;
 
-        this.targetBlueprint = this.blueprints.find(bp => bp.displayName === answers.blueprint);
-        this.performInstall = answers.performInstall;
-      });
+      if (props.name !== this.appname) {
+        this.destinationRoot(this.destinationPath(props.name));
+      }
+    });
   }
 
   writing() {
     this.fs.copy(
-      this.targetBlueprint.path + '/**/*',
+      this.state.blueprint.path + '/**/*',
       this.destinationPath(),
       { globOptions: { dot: true } }
     );
   }
 
   install() {
-    if (this.options.install || this.performInstall) {
+    if (this.options.install || this.state.install) {
       this.npmInstall();
     }
   }
