@@ -1,4 +1,3 @@
-// const Generator = require('yeoman-generator');
 const utils = require('./utils');
 const alflogo = require('alfresco-logo');
 const CLIGenerator = require('generator-alfresco-common').cli_generator;
@@ -35,7 +34,6 @@ module.exports = class extends CLIGenerator {
         name: 'blueprint',
         message: 'Application blueprint',
         choices: this.blueprints.map(bp => {
-          // return bp.displayName;
           return {
             name: bp.displayName,
             value: bp.name
