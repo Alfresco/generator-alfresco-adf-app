@@ -1,11 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { appRoutes } from './app.routes';
 
 // ADF modules
 import { AdfModule } from './adf.module';
-import { AuthGuardBpm } from '@alfresco/adf-core';
-import { AuthGuardEcm } from '@alfresco/adf-core';
 
 
 // App components

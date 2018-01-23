@@ -19,36 +19,7 @@ import { TasksComponent } from './tasks/tasks.component';
 import { TaskDetailsComponent } from './task-details/task-details.component';
 import { StartProcessComponent } from './start-process/start-process.component';
 
-const appRoutes: Routes = [
-  {
-    path: '',
-    component: HomeComponent
-  },
-  {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
-    path: 'apps',
-    component: AppsComponent,
-    canActivate: [ AuthGuardBpm ]
-  },
-  {
-    path: 'apps/:appId/tasks',
-    component: TasksComponent,
-    canActivate: [ AuthGuardBpm ]
-  },
-  {
-    path: 'apps/:appId/tasks/:taskId',
-    component: TaskDetailsComponent,
-    canActivate: [ AuthGuardBpm ]
-  },
-  {
-    path: 'apps/:appId/start-process',
-    component: StartProcessComponent,
-    canActivate: [ AuthGuardBpm ]
-  }
-];
+import { appRoutes } from './app.routes';
 
 @NgModule({
   imports: [
