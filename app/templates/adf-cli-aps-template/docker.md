@@ -46,3 +46,17 @@ The `--rm` switch means the Docker will cleanup the container and image data onc
 You may also want to remove your local image before trying out the Docker Hub:<br>
 `docker image rm myaccount/my_app_name:1.0`
 </p>
+
+## Travis
+
+In order to let Travis publish the image to a registry for you uncomment the relative part in the `.travis.yml`.
+The email, username, and password used for login should be stored in the repository settings environment variables, which may be set up through the web or locally via the Travis CLI, e.g.:
+
+```
+travis env set DOCKER_USERNAME myusername
+travis env set DOCKER_PASSWORD secretsecr
+```
+
+For more information [see also Pushing a Docker Image to a Registry ](https://docs.travis-ci.com/user/docker/)
+
+
