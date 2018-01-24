@@ -4,8 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 // ADF modules
 import { AdfModule } from './adf.module';
-import { AuthGuardBpm } from '@alfresco/adf-core';
-import { AuthGuardEcm } from '@alfresco/adf-core';
 
 // Custom stencils
 import { StencilsModule } from './stencils.module';
@@ -19,42 +17,7 @@ import { TasksComponent } from './tasks/tasks.component';
 import { TaskDetailsComponent } from './task-details/task-details.component';
 import { DocumentlistComponent } from './documentlist/documentlist.component';
 import { StartProcessComponent } from './start-process/start-process.component';
-
-const appRoutes: Routes = [
-  {
-    path: '',
-    component: HomeComponent
-  },
-  {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
-    path: 'apps',
-    component: AppsComponent,
-    canActivate: [ AuthGuardBpm ]
-  },
-  {
-    path: 'apps/:appId/tasks',
-    component: TasksComponent,
-    canActivate: [ AuthGuardBpm ]
-  },
-  {
-    path: 'apps/:appId/tasks/:taskId',
-    component: TaskDetailsComponent,
-    canActivate: [ AuthGuardBpm ]
-  },
-  {
-    path: 'apps/:appId/start-process',
-    component: StartProcessComponent,
-    canActivate: [ AuthGuardBpm ]
-  },
-  {
-    path: 'documentlist',
-    component: DocumentlistComponent,
-    canActivate: [ AuthGuardEcm ]
-  }
-];
+import { appRoutes } from './app.routes';
 
 @NgModule({
   imports: [
