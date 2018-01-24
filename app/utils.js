@@ -23,7 +23,7 @@ class Utils {
     return json && json.name && json.version;
   }
 
-  async getBluprints() {
+  async getBlueprints() {
     const result = [];
     const dir = path.join(__dirname, 'templates');
 

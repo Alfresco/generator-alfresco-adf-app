@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "alfresco-logo": "1.0.1",
+    "generator-alfresco-common": "0.9.25",
     "yeoman-generator": "2.0.0"
   },
   "devDependencies": {

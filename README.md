@@ -51,6 +51,28 @@ Alternatively you can use generator with install switch to trigger automatic ins
 yo alfresco-adf-app --install
 ```
 
+### Using from the command line
+
+You can use the generator in the unattended mode by providing all necessary options from the command line:
+
+```sh
+yo ng2-alfresco-app -n app2 -b adf-cli-aps-template -i
+```
+
+Options:
+
+| Name | Alias | Type | Description |
+| --- | --- | --- | --- |
+| --name=\<value> | -n \<value> | string | Application name |
+| --blueprint=\<value> | -b \<value> | string | Blueprint name |
+| --install | -i | boolean | Install dependencies upon generation |
+
+Default blueprint names:
+
+- adf-cli-acs-aps-template
+- adf-cli-acs-template
+- adf-cli-aps-template
+
 ## Updating generator
 
 ```sh
