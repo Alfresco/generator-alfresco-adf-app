@@ -1,11 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { appRoutes } from './app.routes';
 
 // ADF modules
 import { AdfModule } from './adf.module';
-import { AuthGuardBpm } from '@alfresco/adf-core';
-import { AuthGuardEcm } from '@alfresco/adf-core';
 
 
 // App components
@@ -14,21 +13,6 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { DocumentlistComponent } from './documentlist/documentlist.component';
 
-const appRoutes: Routes = [
-  {
-    path: '',
-    component: HomeComponent
-  },
-  {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
-    path: 'documentlist',
-    component: DocumentlistComponent,
-    canActivate: [ AuthGuardEcm ]
-  }
-];
 
 @NgModule({
   imports: [

@@ -1,6 +1,6 @@
 {
   "name": "generator-alfresco-adf-app",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "ADF application generator for Yeoman",
   "author": "Alfresco Software, Ltd.",
   "main": "app/index.js",
@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "alfresco-logo": "1.0.1",
+    "generator-alfresco-common": "0.9.25",
     "yeoman-generator": "2.0.0"
   },
   "devDependencies": {

@@ -25,7 +25,7 @@ npm install -g yo
 Then the Alfresco Application Generator:
 
 ```sh
-npm install -g generator-ng2-alfresco-app
+npm install -g generator-alfresco-adf-app
 ```
 
 ## Generating a new application project
@@ -33,7 +33,7 @@ npm install -g generator-ng2-alfresco-app
 First, move in the folder where you want create your project.
 
 ```sh
-yo ng2-alfresco-app
+yo alfresco-adf-app
 ```
 
 You will need to run the following scripts in the generated folder:
@@ -48,21 +48,43 @@ Commands above install all project dependencies, start the project and watch for
 Alternatively you can use generator with install switch to trigger automatic installation of dependencies via npm install script:
 
 ```sh
-yo ng2-alfresco-app --install
+yo alfresco-adf-app --install
 ```
+
+### Using from the command line
+
+You can use the generator in the unattended mode by providing all necessary options from the command line:
+
+```sh
+yo ng2-alfresco-app -n app2 -b adf-cli-aps-template -i
+```
+
+Options:
+
+| Name | Alias | Type | Description |
+| --- | --- | --- | --- |
+| --name=\<value> | -n \<value> | string | Application name |
+| --blueprint=\<value> | -b \<value> | string | Blueprint name |
+| --install | -i | boolean | Install dependencies upon generation |
+
+Default blueprint names:
+
+- adf-cli-acs-aps-template
+- adf-cli-acs-template
+- adf-cli-aps-template
 
 ## Updating generator
 
 ```sh
-npm update -g generator-ng2-alfresco-app
+npm update -g generator-alfresco-adf-app
 ```
 
 ## Getting current version
 
-* Show current version generator-ng2-alfresco-app installed
+* Show current version generator-alfresco-adf-app installed
 
 ```sh
-yo ng2-alfresco-app --version
+yo alfresco-adf-app --version
 ```
 
 ## Contributing to the generator
@@ -75,7 +97,7 @@ yo ng2-alfresco-app --version
 6. Push to the branch: `git push origin my-new-feature`
 7. Submit a pull request
 
-> to Contribute to the existing code base Add test cases to cover the new behaviour, and make sure all the existing tests are still green.
+To Contribute to the existing code base, add test cases to cover the new behaviour, and make sure all the existing tests are still green.
 
 To test the generator:
 
@@ -96,10 +118,10 @@ Requirements for new projects:
 
 ```sh
 # OS X / Linux
-DEBUG=yeoman:generator yo ng2-alfresco-app
+DEBUG=yeoman:generator yo alfresco-adf-app
 
 # Windows
-set DEBUG=yeoman:generator & yo ng2-alfresco-app
+set DEBUG=yeoman:generator & yo alfresco-adf-app
 ```
 
 More on [debugging generators](http://yeoman.io/authoring/debugging.html).
