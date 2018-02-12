@@ -3,5 +3,6 @@
 node_modules
 coverage
 /temp/
+.history/
 local.log
 generator-ng2-alfresco-app.iml
