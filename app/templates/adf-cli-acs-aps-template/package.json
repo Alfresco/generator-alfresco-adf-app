@@ -6,10 +6,11 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --open",
+    "start": "npm run validate-config && ng serve --open",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
+    "validate-config": "ajv validate -s node_modules/@alfresco/adf-core/app.config.schema.json -d ./src/app.config.json --errors=text --verbose",
     "e2e": "ng e2e"
   },
   "private": true,
@@ -59,6 +60,7 @@
     "@types/jasmine": "~2.8.3",
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",
+    "ajv-cli": "^3.0.0",
     "codelyzer": "^4.0.1",
     "jasmine-core": "~2.8.0",
     "jasmine-spec-reporter": "~4.2.1",
