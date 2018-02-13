@@ -58,8 +58,7 @@ module.exports = class extends CLIGenerator {
           config: {
             alias: 'i',
             required: false,
-            type: Boolean,
-            default: false
+            type: Boolean
           }
         },
         commonFilter: filters.booleanFilter
