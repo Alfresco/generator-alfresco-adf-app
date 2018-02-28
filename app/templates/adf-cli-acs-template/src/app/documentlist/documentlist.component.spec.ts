@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Location } from '@angular/common';
 import { SpyLocation } from '@angular/common/testing';
 
@@ -12,7 +13,8 @@ describe('DocumentlistComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        AdfModule
+        AdfModule,
+        BrowserAnimationsModule
       ],
       declarations: [ DocumentlistComponent ],
       providers: [

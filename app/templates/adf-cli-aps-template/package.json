@@ -15,7 +15,7 @@
   },
   "private": true,
   "dependencies": {
-    "@alfresco/adf-content-services": "2.2.0-beta50",
+    "@alfresco/adf-content-services": "2.2.0-beta5",
     "@alfresco/adf-core": "2.2.0-beta5",
     "@alfresco/adf-insights": "2.2.0-beta5",
     "@alfresco/adf-process-services": "2.2.0-beta5",
