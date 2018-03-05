@@ -76,6 +76,10 @@ version_js_change() {
     DIFFERENT_JS_API=true
 }
 
+update_main_version() {
+   echo "====== UPDATE MAIN PKG VERSION  to ${VERSION} in the package.json ======"
+   sed "${sedi[@]}" "s/\"version\": \".*\"/\"version\": \"${VERSION}\"/g"  $DIR/../package.json
+}
 
 update_component_version() {
    echo "====== UPDATE PACKAGE VERSION  to ${VERSION} in the package.json ======"
@@ -139,7 +143,7 @@ libslength=${#libs[@]}
 
 if $EXEC_COMPONENT == true; then
     echo "====== UPDATE TEMPLATES ======"
-
+    update_main_version
     # use for loop to read all values and indexes
     for (( i=0; i<${projectslength}; i++ ));
     do    # use for loop to read all values and indexes
@@ -147,6 +151,7 @@ if $EXEC_COMPONENT == true; then
      echo "====== UPDATE TEMPLATE ${projects[$i]} ======"
      clean_lock
      update_component_version
+
      update_component_dependency_version
 
      if $JS_API == true; then
