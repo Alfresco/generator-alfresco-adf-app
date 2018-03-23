@@ -13,7 +13,7 @@ export class DocumentlistComponent {
   showViewer: boolean = false;
   nodeId: string = null;
 
-  @ViewChild(DocumentListComponent)
+  @ViewChild('documentList')
   documentList: DocumentListComponent;
 
   constructor(private notificationService: NotificationService) { }
