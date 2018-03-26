@@ -14,7 +14,7 @@ export class DocumentlistComponent {
 
   nodeId: string = null;
 
-  @ViewChild(DocumentListComponent)
+  @ViewChild('documentList')
   documentList: DocumentListComponent;
 
   constructor(private notificationService: NotificationService) { }
