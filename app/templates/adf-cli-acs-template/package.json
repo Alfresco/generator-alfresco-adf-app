@@ -8,6 +8,7 @@
     "ng": "ng",
     "start": "npm run validate-config && ng serve --open",
     "build": "ng build",
+    "build:dist": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "validate-config": "ajv validate -s node_modules/@alfresco/adf-core/app.config.schema.json -d ./src/app.config.json --errors=text --verbose",
@@ -52,7 +53,7 @@
   },
   "devDependencies": {
     "@angular-devkit/core": "0.0.28",
-    "@angular/cli": "1.6.5",
+    "@angular/cli": "1.7.3",
     "@angular/compiler-cli": "^5.2.0",
     "@angular/language-service": "^5.2.0",
     "@types/jasmine": "~2.8.3",
