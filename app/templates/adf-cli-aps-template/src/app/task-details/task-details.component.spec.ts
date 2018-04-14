@@ -3,6 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdfModule } from '../adf.module';
 import { TaskDetailsComponent } from './task-details.component';
+import { AlfrescoApiServiceMock, AlfrescoApiService } from '@alfresco/adf-core';
 
 describe('TaskDetailsComponent', () => {
   let component: TaskDetailsComponent;
@@ -15,9 +16,12 @@ describe('TaskDetailsComponent', () => {
         RouterTestingModule,
         AdfModule
       ],
-      declarations: [ TaskDetailsComponent ]
+      declarations: [TaskDetailsComponent],
+      providers: [
+        { provide: AlfrescoApiService, useClass: AlfrescoApiServiceMock }
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

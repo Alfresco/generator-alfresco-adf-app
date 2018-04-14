@@ -6,6 +6,8 @@ import { SpyLocation } from '@angular/common/testing';
 import { AdfModule } from '../adf.module';
 import { DocumentlistComponent } from './documentlist.component';
 
+import {  AlfrescoApiServiceMock, AlfrescoApiService} from '@alfresco/adf-core';
+
 describe('DocumentlistComponent', () => {
   let component: DocumentlistComponent;
   let fixture: ComponentFixture<DocumentlistComponent>;
@@ -18,6 +20,7 @@ describe('DocumentlistComponent', () => {
       ],
       declarations: [ DocumentlistComponent ],
       providers: [
+        {provide: AlfrescoApiService, useClass: AlfrescoApiServiceMock},
         { provide: Location, useClass: SpyLocation }
       ]
     })
