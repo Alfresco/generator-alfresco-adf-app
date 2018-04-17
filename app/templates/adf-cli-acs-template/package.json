@@ -1,6 +1,6 @@
 {
   "name": "adf-cli-acs-template",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "blueprint": "Content Services",
   "description": "ACS ADF Application with Angular CLI",
   "license": "MIT",
@@ -8,6 +8,7 @@
     "ng": "ng",
     "start": "npm run validate-config && ng serve --open",
     "build": "ng build",
+    "build:dist": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "validate-config": "ajv validate -s node_modules/@alfresco/adf-core/app.config.schema.json -d ./src/app.config.json --errors=text --verbose",
@@ -15,8 +16,8 @@
   },
   "private": true,
   "dependencies": {
-    "@alfresco/adf-content-services": "2.2.0",
-    "@alfresco/adf-core": "2.2.0",
+    "@alfresco/adf-content-services": "2.3.0",
+    "@alfresco/adf-core": "2.3.0",
     "@angular/animations": "5.1.1",
     "@angular/cdk": "5.0.1",
     "@angular/common": "5.1.1",
@@ -32,7 +33,7 @@
     "@mat-datetimepicker/core": "^1.0.1",
     "@mat-datetimepicker/moment": "^1.0.1",
     "@ngx-translate/core": "9.1.1",
-    "alfresco-js-api": "2.2.0",
+    "alfresco-js-api": "2.3.0",
     "chart.js": "2.5.0",
     "classlist.js": "1.1.20150312",
     "core-js": "2.4.1",
@@ -51,8 +52,7 @@
     "zone.js": "0.8.14"
   },
   "devDependencies": {
-    "@angular-devkit/core": "0.0.28",
-    "@angular/cli": "1.6.5",
+    "@angular/cli": "1.7.4",
     "@angular/compiler-cli": "^5.2.0",
     "@angular/language-service": "^5.2.0",
     "@types/jasmine": "~2.8.3",
