@@ -22,20 +22,32 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { DocumentlistComponent } from './documentlist/documentlist.component';
+import { AppLayoutComponent } from './app-layout/app-layout.component';
 
 export const appRoutes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: AppLayoutComponent,
+    children: [
+      {
+        path: '',
+        component: HomeComponent
+      },
+      {
+        path: 'home',
+        component: HomeComponent
+      },
+      {
+        path: 'documentlist',
+        component: DocumentlistComponent,
+        canActivate: [AuthGuardEcm]
+      }
+
+    ]
   },
   {
     path: 'login',
     component: LoginComponent
-  },
-  {
-    path: 'documentlist',
-    component: DocumentlistComponent,
-    canActivate: [ AuthGuardEcm ]
   }
 ];
 

@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { DocumentlistComponent } from './documentlist/documentlist.component';
+import { AppLayoutComponent } from './app-layout/app-layout.component';
 
 
 @NgModule({
@@ -32,6 +33,8 @@ import { DocumentlistComponent } from './documentlist/documentlist.component';
     HomeComponent,
     LoginComponent,
     DocumentlistComponent,
+    AppLayoutComponent
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
