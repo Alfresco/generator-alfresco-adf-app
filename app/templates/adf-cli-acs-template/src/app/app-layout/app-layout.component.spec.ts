@@ -13,9 +13,9 @@ describe('AppLayoutComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        BrowserAnimationsModule,
         RouterTestingModule,
-        AdfModule
+        AdfModule,
+        BrowserAnimationsModule
       ],
       declarations: [AppLayoutComponent],
       providers: [
