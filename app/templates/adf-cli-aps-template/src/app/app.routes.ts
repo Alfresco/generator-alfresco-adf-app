@@ -26,8 +26,12 @@ import { TasksComponent } from './tasks/tasks.component';
 import { TaskDetailsComponent } from './task-details/task-details.component';
 import { StartProcessComponent } from './start-process/start-process.component';
 import { AppLayoutComponent } from './app-layout/app-layout.component';
+import { FileViewComponent } from './file-view/file-view.component';
+import { BlobViewComponent } from './file-view/blob-view.component';
 
 export const appRoutes: Routes = [
+  { path: 'files/:nodeId/view', component: FileViewComponent, canActivate: [AuthGuardEcm], outlet: 'overlay' },
+  { path: 'preview/blob', component: BlobViewComponent, outlet: 'overlay', pathMatch: 'full' },
   {
     path: '',
     component: AppLayoutComponent,
@@ -60,7 +64,7 @@ export const appRoutes: Routes = [
                 component: StartProcessComponent,
                 canActivate: [ AuthGuardBpm ]
               }
-              
+
           ]
   },
   {

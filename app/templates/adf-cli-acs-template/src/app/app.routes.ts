@@ -23,8 +23,10 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { DocumentlistComponent } from './documentlist/documentlist.component';
 import { AppLayoutComponent } from './app-layout/app-layout.component';
+import { FileViewComponent } from './file-view/file-view.component';
 
 export const appRoutes: Routes = [
+  { path: 'files/:nodeId/view', component: FileViewComponent, canActivate: [AuthGuardEcm], outlet: 'overlay' },
   {
     path: '',
     component: AppLayoutComponent,

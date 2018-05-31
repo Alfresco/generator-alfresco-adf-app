@@ -3,6 +3,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { appRoutes } from './app.routes';
+import { PreviewService } from './services/preview.service';
+import { FileViewComponent } from './file-view/file-view.component';
 
 // ADF modules
 import { AdfModule } from './adf.module';
@@ -33,10 +35,11 @@ import { AppLayoutComponent } from './app-layout/app-layout.component';
     HomeComponent,
     LoginComponent,
     DocumentlistComponent,
-    AppLayoutComponent
-    
+    AppLayoutComponent,
+    FileViewComponent
   ],
-  providers: [],
+  providers: [PreviewService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

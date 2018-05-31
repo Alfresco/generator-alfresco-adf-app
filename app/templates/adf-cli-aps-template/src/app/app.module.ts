@@ -19,6 +19,9 @@ import { AppsComponent } from './apps/apps.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { TaskDetailsComponent } from './task-details/task-details.component';
 import { StartProcessComponent } from './start-process/start-process.component';
+import { FileViewComponent } from './file-view/file-view.component';
+import { BlobViewComponent } from './file-view/blob-view.component';
+import { PreviewService } from './services/preview.service';
 
 import { appRoutes } from './app.routes';
 import { AppLayoutComponent } from './app-layout/app-layout.component';
@@ -45,9 +48,12 @@ import { AppLayoutComponent } from './app-layout/app-layout.component';
     TasksComponent,
     TaskDetailsComponent,
     StartProcessComponent,
-    AppLayoutComponent
+    AppLayoutComponent,
+    BlobViewComponent,
+    FileViewComponent
   ],
-  providers: [],
+  providers: [PreviewService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
