@@ -1,12 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 // ADF modules
 import { AdfModule } from './adf.module';
-import { AuthGuardBpm } from '@alfresco/adf-core';
-import { AuthGuardEcm } from '@alfresco/adf-core';
 
 // Custom stencils
 import { StencilsModule } from './stencils.module';
