@@ -1,6 +1,7 @@
 import { Component, ViewChild, Input } from '@angular/core';
 import { NotificationService } from '@alfresco/adf-core';
 import { DocumentListComponent } from '@alfresco/adf-content-services';
+import { PreviewService } from '../services/preview.service';
 
 @Component({
   selector: 'app-documentlist',
@@ -16,7 +17,9 @@ export class DocumentlistComponent {
   @ViewChild('documentList')
   documentList: DocumentListComponent;
 
-  constructor(private notificationService: NotificationService) { }
+  constructor(private notificationService: NotificationService, private preview: PreviewService) {
+
+  }
 
   uploadSuccess(event: any) {
     this.notificationService.openSnackMessage('File uploaded');
@@ -24,10 +27,9 @@ export class DocumentlistComponent {
   }
 
   showPreview(event) {
-    this.showViewer = false;
-    if (event.value.entry.isFile) {
-      this.nodeId = event.value.entry.id;
-      this.showViewer = true;
+    const entry = event.value.entry;
+    if (entry && entry.isFile) {
+      this.preview.showResource(entry.id);
     }
   }
 
