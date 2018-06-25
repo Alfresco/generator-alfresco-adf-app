@@ -5,6 +5,9 @@ import { SpyLocation } from '@angular/common/testing';
 
 import { AdfModule } from '../adf.module';
 import { DocumentlistComponent } from './documentlist.component';
+import { PreviewService } from '../services/preview.service';
+import { AlfrescoApiServiceMock, AlfrescoApiService} from '@alfresco/adf-core';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import {  AlfrescoApiServiceMock, AlfrescoApiService} from '@alfresco/adf-core';
 
@@ -15,11 +18,13 @@ describe('DocumentlistComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
+        RouterTestingModule,
         AdfModule,
         BrowserAnimationsModule
       ],
       declarations: [ DocumentlistComponent ],
       providers: [
+        PreviewService,
         {provide: AlfrescoApiService, useClass: AlfrescoApiServiceMock},
         { provide: Location, useClass: SpyLocation }
       ]

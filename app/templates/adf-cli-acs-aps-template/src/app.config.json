@@ -2,6 +2,7 @@
     "$schema": "../node_modules/@alfresco/adf-core/app.config.schema.json",
     "ecmHost": "http://{hostname}{:port}",
     "bpmHost": "http://{hostname}{:port}",
+    "providers" : "ALL",
     "application": {
         "name": "Alfresco ADF Appplication"
     },

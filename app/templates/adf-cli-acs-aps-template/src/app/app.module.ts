@@ -1,7 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { FileViewComponent } from './file-view/file-view.component';
+import { BlobViewComponent } from './file-view/blob-view.component';
+import { PreviewService } from './services/preview.service';
 
 // ADF modules
 import { AdfModule } from './adf.module';
@@ -19,6 +22,7 @@ import { TaskDetailsComponent } from './task-details/task-details.component';
 import { DocumentlistComponent } from './documentlist/documentlist.component';
 import { StartProcessComponent } from './start-process/start-process.component';
 import { appRoutes } from './app.routes';
+import { AppLayoutComponent } from './app-layout/app-layout.component';
 
 @NgModule({
   imports: [
@@ -42,9 +46,12 @@ import { appRoutes } from './app.routes';
     TasksComponent,
     TaskDetailsComponent,
     DocumentlistComponent,
-    StartProcessComponent
+    StartProcessComponent,
+    AppLayoutComponent,
+    FileViewComponent,
+    BlobViewComponent
   ],
-  providers: [],
+  providers: [PreviewService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

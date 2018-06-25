@@ -1,12 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 // ADF modules
 import { AdfModule } from './adf.module';
-import { AuthGuardBpm } from '@alfresco/adf-core';
-import { AuthGuardEcm } from '@alfresco/adf-core';
 
 // Custom stencils
 import { StencilsModule } from './stencils.module';
@@ -19,8 +17,12 @@ import { AppsComponent } from './apps/apps.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { TaskDetailsComponent } from './task-details/task-details.component';
 import { StartProcessComponent } from './start-process/start-process.component';
+import { FileViewComponent } from './file-view/file-view.component';
+import { BlobViewComponent } from './file-view/blob-view.component';
+import { PreviewService } from './services/preview.service';
 
 import { appRoutes } from './app.routes';
+import { AppLayoutComponent } from './app-layout/app-layout.component';
 
 @NgModule({
   imports: [
@@ -43,9 +45,13 @@ import { appRoutes } from './app.routes';
     LoginComponent,
     TasksComponent,
     TaskDetailsComponent,
-    StartProcessComponent
+    StartProcessComponent,
+    AppLayoutComponent,
+    BlobViewComponent,
+    FileViewComponent
   ],
-  providers: [],
+  providers: [PreviewService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

@@ -7,6 +7,9 @@
       [folderNode]="documentList.folderNode">
     </adf-breadcrumb>
   </adf-toolbar-title>
+
+  <div class="adf-toolbar--spacer"></div>
+
   <adf-upload-button
     [rootFolderId]="documentList.currentFolderId || '-root-'"
     [adf-node-permission]="'create'"
@@ -22,10 +25,4 @@
   (preview)="showPreview($event)">
 </adf-document-list>
 
-<adf-viewer
-  [(showViewer)]="showViewer"
-  [overlayMode]="true"
-  [fileNodeId]="nodeId"
-  (goBack)="onGoBack($event)">
-</adf-viewer>
 <adf-file-uploading-dialog></adf-file-uploading-dialog>

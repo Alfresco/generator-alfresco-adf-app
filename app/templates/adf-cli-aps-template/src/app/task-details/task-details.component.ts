@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormRenderingService } from '@alfresco/adf-core';
 import { CustomEditorComponent } from '../stencils.module';
+import { PreviewService } from '../services/preview.service';
 
 @Component({
   selector: 'app-task-details',
@@ -18,7 +19,8 @@ export class TaskDetailsComponent implements OnInit {
 
   constructor(private router: Router,
               private route: ActivatedRoute,
-              formRenderingService: FormRenderingService) {
+              formRenderingService: FormRenderingService,
+              private preview: PreviewService) {
     formRenderingService.setComponentTypeResolver('testole_01', () => CustomEditorComponent, true);
   }
 
@@ -33,10 +35,12 @@ export class TaskDetailsComponent implements OnInit {
     });
   }
 
-  onFormContentClick(content: any): void {
-    this.fileShowed = true;
-    this.content = content.contentBlob;
-    this.contentName = content.name;
+  onContentClick(content: any): void {
+    if (content.contentBlob) {
+      this.preview.showBlob(content.name, content.contentBlob);
+    } else {
+      this.preview.showResource(content.sourceId.split(';')[0]);
+    }
   }
 
 }
