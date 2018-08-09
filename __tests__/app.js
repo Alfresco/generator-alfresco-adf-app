@@ -21,7 +21,7 @@ describe('Alfresco component generator', () => {
     it('creates files', () => {
       const expected = [
         '.editorconfig',
-        '.angular-cli.json',
+        'angular.json',
         '.npmignore',
         '.travis.yml',
         'LICENSE',
