@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { FormRenderingService } from '@alfresco/adf-core';
 import { CustomEditorComponent } from '../stencils.module';
 import { PreviewService } from '../services/preview.service';
@@ -17,8 +17,7 @@ export class TaskDetailsComponent implements OnInit {
   content: any = null;
   contentName: any = null;
 
-  constructor(private router: Router,
-              private route: ActivatedRoute,
+  constructor(private route: ActivatedRoute,
               formRenderingService: FormRenderingService,
               private preview: PreviewService) {
     formRenderingService.setComponentTypeResolver('testole_01', () => CustomEditorComponent, true);
