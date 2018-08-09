@@ -15,7 +15,7 @@ export class TaskDetailsComponent implements OnInit {
   taskId: string = null;
   fileShowed: any = null;
   content: any = null;
-  contentName: any= null;
+  contentName: any = null;
 
   constructor(private router: Router,
               private route: ActivatedRoute,
