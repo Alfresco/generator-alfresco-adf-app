@@ -1,7 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AdfModule } from '../adf.module';
+import { ContentModule } from '@alfresco/adf-content-services';
+import { ProcessModule } from '@alfresco/adf-process-services';
+import { CoreModule } from '@alfresco/adf-core';
 import { TaskDetailsComponent } from './task-details.component';
 import { AlfrescoApiServiceMock, AlfrescoApiService } from '@alfresco/adf-core';
 
@@ -14,7 +16,9 @@ describe('TaskDetailsComponent', () => {
       imports: [
         BrowserAnimationsModule,
         RouterTestingModule,
-        AdfModule
+        CoreModule.forRoot(),
+        ContentModule.forRoot(),
+        ProcessModule.forRoot()
       ],
       declarations: [TaskDetailsComponent],
       providers: [

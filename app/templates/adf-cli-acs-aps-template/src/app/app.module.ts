@@ -2,12 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { ContentModule } from '@alfresco/adf-content-services';
+import { ProcessModule } from '@alfresco/adf-process-services';
+import { CoreModule } from '@alfresco/adf-core';
 import { FileViewComponent } from './file-view/file-view.component';
 import { BlobViewComponent } from './file-view/blob-view.component';
 import { PreviewService } from './services/preview.service';
-
-// ADF modules
-import { AdfModule } from './adf.module';
 
 // Custom stencils
 import { StencilsModule } from './stencils.module';
@@ -34,7 +34,9 @@ import { AppLayoutComponent } from './app-layout/app-layout.component';
     ),
 
     // ADF modules
-    AdfModule,
+    CoreModule.forRoot(),
+    ContentModule.forRoot(),
+    ProcessModule.forRoot(),
 
     StencilsModule
   ],

@@ -2,9 +2,9 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { AdfModule } from '../adf.module';
 import { AppLayoutComponent } from './app-layout.component';
-import { AlfrescoApiServiceMock, AlfrescoApiService } from '@alfresco/adf-core';
+import { AlfrescoApiServiceMock, AlfrescoApiService, CoreModule } from '@alfresco/adf-core';
+import { ContentModule } from '@alfresco/adf-content-services';
 
 describe('AppLayoutComponent', () => {
   let component: AppLayoutComponent;
@@ -14,8 +14,9 @@ describe('AppLayoutComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        AdfModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        CoreModule.forRoot(),
+        ContentModule.forRoot()
       ],
       declarations: [AppLayoutComponent],
       providers: [

@@ -4,7 +4,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 // ADF modules
-import { AdfModule } from './adf.module';
+import { ContentModule } from '@alfresco/adf-content-services';
+import { ProcessModule } from '@alfresco/adf-process-services';
+import { CoreModule } from '@alfresco/adf-core';
 
 // Custom stencils
 import { StencilsModule } from './stencils.module';
@@ -34,7 +36,9 @@ import { AppLayoutComponent } from './app-layout/app-layout.component';
     ),
 
     // ADF modules
-    AdfModule,
+    CoreModule.forRoot(),
+    ContentModule.forRoot(),
+    ProcessModule.forRoot(),
 
     StencilsModule
   ],
