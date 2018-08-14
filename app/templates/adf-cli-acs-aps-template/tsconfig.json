@@ -17,6 +17,10 @@
     "lib": [
       "es2016",
       "dom"
-    ]
+    ],
+    "module": "es2015"
+  },
+  "angularCompilerOptions": {
+    "preserveWhitespaces": false
   }
 }

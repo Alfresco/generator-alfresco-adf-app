@@ -1,12 +1,15 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Location } from '@angular/common';
 import { SpyLocation } from '@angular/common/testing';
-import { AdfModule } from '../adf.module';
+import { ContentModule } from '@alfresco/adf-content-services';
+import { ProcessModule } from '@alfresco/adf-process-services';
+import { CoreModule } from '@alfresco/adf-core';
 import { DocumentlistComponent } from './documentlist.component';
 import { PreviewService } from '../services/preview.service';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { AlfrescoApiServiceMock, AlfrescoApiService } from '@alfresco/adf-core';
+
 
 describe('DocumentlistComponent', () => {
   let component: DocumentlistComponent;
@@ -16,7 +19,9 @@ describe('DocumentlistComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        AdfModule
+        CoreModule.forRoot(),
+        ContentModule.forRoot(),
+        ProcessModule.forRoot()
       ],
       declarations: [DocumentlistComponent],
       providers: [

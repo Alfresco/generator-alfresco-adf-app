@@ -1,15 +1,17 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { AdfModule } from './adf.module';
 import { AppComponent } from './app.component';
+import { CoreModule } from '@alfresco/adf-core';
+import { ContentModule } from '@alfresco/adf-content-services';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        AdfModule
+        CoreModule.forRoot(),
+        ContentModule.forRoot()
       ],
       declarations: [
         AppComponent

@@ -1,7 +1,9 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { ContentModule } from '@alfresco/adf-content-services';
+import { ProcessModule } from '@alfresco/adf-process-services';
+import { CoreModule } from '@alfresco/adf-core';
 
-import { AdfModule } from './adf.module';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
@@ -9,7 +11,9 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        AdfModule
+        CoreModule.forRoot(),
+        ContentModule.forRoot(),
+        ProcessModule.forRoot()
       ],
       declarations: [
         AppComponent

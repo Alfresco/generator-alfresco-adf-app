@@ -1,9 +1,10 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PreviewService } from '../services/preview.service';
+import { ProcessModule } from '@alfresco/adf-process-services';
+import { CoreModule } from '@alfresco/adf-core';
 
-import { AdfModule } from '../adf.module';
+import { PreviewService } from '../services/preview.service';
 import { TaskDetailsComponent } from './task-details.component';
 import { AlfrescoApiServiceMock, AlfrescoApiService } from '@alfresco/adf-core';
 
@@ -11,26 +12,25 @@ describe('TaskDetailsComponent', () => {
   let component: TaskDetailsComponent;
   let fixture: ComponentFixture<TaskDetailsComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
         BrowserAnimationsModule,
         RouterTestingModule,
-        AdfModule
+        CoreModule.forRoot(),
+        ProcessModule.forRoot()
       ],
       declarations: [TaskDetailsComponent],
       providers: [
         PreviewService,
         { provide: AlfrescoApiService, useClass: AlfrescoApiServiceMock }
       ]
-    })
-      .compileComponents();
-  }));
+    });
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TaskDetailsComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should be created', () => {
