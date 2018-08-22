@@ -23,7 +23,7 @@
             },
             "assets": [
               "src/assets",
-              "src/favicon.ico",
+              "src/favicon-96x96.png",
               "src/app.config.json",
               "src/versions.json",
               {
@@ -119,7 +119,7 @@
             ],
             "assets": [
               "src/assets",
-              "src/favicon.ico",
+              "src/favicon-96x96.png",
               "src/app.config.json",
               "src/versions.json",
               {
