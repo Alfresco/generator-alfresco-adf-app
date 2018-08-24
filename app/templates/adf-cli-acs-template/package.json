@@ -1,6 +1,6 @@
 {
   "name": "adf-cli-acs-template",
-  "version": "2.5.0",
+  "version": "2.6.0-beta2",
   "blueprint": "Content Services",
   "description": "ACS ADF Application with Angular CLI",
   "license": "MIT",
@@ -16,8 +16,8 @@
   },
   "private": true,
   "dependencies": {
-    "@alfresco/adf-content-services": "2.5.0",
-    "@alfresco/adf-core": "2.5.0",
+    "@alfresco/adf-content-services": "2.6.0-beta2",
+    "@alfresco/adf-core": "2.6.0-beta2",
     "@angular/animations": "6.1.2",
     "@angular/cdk": "^6.4.3",
     "@angular/common": "6.1.2",
@@ -34,7 +34,7 @@
     "@mat-datetimepicker/core": "^2.0.0",
     "@mat-datetimepicker/moment": "^2.0.1",
     "@ngx-translate/core": "10.0.2",
-    "alfresco-js-api": "2.5.0",
+    "alfresco-js-api": "2.6.0-beta2",
     "chart.js": "2.5.0",
     "classlist.js": "1.1.20150312",
     "core-js": "2.4.1",
