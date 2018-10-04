@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { TranslationService, AuthenticationService } from '@alfresco/adf-core';
+import { AuthenticationService } from '@alfresco/adf-core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,10 +10,8 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
 
-  constructor(translationService: TranslationService,
-              private authService: AuthenticationService,
+  constructor(private authService: AuthenticationService,
               private router: Router) {
-    translationService.use('en');
   }
 
   logout() {
