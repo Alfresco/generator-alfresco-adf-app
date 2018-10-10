@@ -117,6 +117,8 @@ npm install
 
 cd ../../../
 
+webdriver-manager update --gecko=false --versions.chrome=2.38
+
 npm run lite-server-e2e -- --baseDir="app/templates/$FOLDER/dist/">/dev/null & ./node_modules/protractor/bin/protractor protractor.conf.js || exit 1
 
 
