@@ -111,7 +111,7 @@ export TIMEOUT=$TIMEOUT
 export SELENIUM_SERVER=$SELENIUM_SERVER
 export NAME_TEST=$NAME_TEST
 
-cd app/templates/adf-cli-acs-aps-template
+cd app/templates/$FOLDER
 
 npm install
 

@@ -1,12 +1,12 @@
 {
   "name": "generator-alfresco-adf-app",
-  "version": "2.6.0",
+  "version": "2.6.1",
   "description": "ADF application generator for Yeoman",
   "author": "Alfresco Software, Ltd.",
   "main": "app/index.js",
   "scripts": {
     "test": "rimraf temp && jest",
-    "lite-server-e2e": "lite-server -c ./e2e/lite-server-proxy.js"
+    "lite-server-e2e": "lite-server"
   },
   "dependencies": {
     "alfresco-logo": "1.0.1",
