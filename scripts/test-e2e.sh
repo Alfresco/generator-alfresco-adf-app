@@ -111,17 +111,17 @@ export TIMEOUT=$TIMEOUT
 export SELENIUM_SERVER=$SELENIUM_SERVER
 export NAME_TEST=$NAME_TEST
 
+npm install
+
 cd app/templates/$FOLDER
 
 npm install
 
 npm run build:dist
 
-cd ../../
+cd ../../../
 
-npm install
-
-webdriver-manager update --gecko=false --versions.chrome=2.38
+./node_modules/protractor/node_modules/webdriver-manager/bin/webdriver-manager update --standalone false --gecko false
 
 npm run lite-server-e2e -- --baseDir="app/templates/$FOLDER/dist/">/dev/null & ./node_modules/protractor/bin/protractor protractor.conf.js || exit 1
 
