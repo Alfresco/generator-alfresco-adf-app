@@ -117,7 +117,7 @@ npm install
 
 npm run build:dist
 
-cd ../../../
+cd ../../
 
 webdriver-manager update --gecko=false --versions.chrome=2.38
 
