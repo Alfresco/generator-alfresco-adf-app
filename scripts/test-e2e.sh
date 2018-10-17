@@ -123,7 +123,7 @@ cd ../../../
 
 ./node_modules/protractor/node_modules/webdriver-manager/bin/webdriver-manager update --standalone false --gecko false
 
-npm run lite-server-e2e -- --baseDir="app/templates/$FOLDER/dist/">/dev/null & ./node_modules/protractor/bin/protractor protractor.conf.js || exit 1
+npm run lite-server-e2e -- --baseDir="app/templates/$FOLDER/dist/" & ./node_modules/protractor/bin/protractor protractor.conf.js || exit 1
 
 
 
