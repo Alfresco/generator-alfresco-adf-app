@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { CoreModule } from '@alfresco/adf-core';
+import { CoreModule, TRANSLATION_PROVIDER } from '@alfresco/adf-core';
 import { ContentModule } from '@alfresco/adf-content-services';
 
 import { appRoutes } from './app.routes';
@@ -37,7 +37,17 @@ import { AppLayoutComponent } from './app-layout/app-layout.component';
     AppLayoutComponent,
     FileViewComponent
   ],
-  providers: [PreviewService],
+  providers: [
+    PreviewService,
+    {
+      provide: TRANSLATION_PROVIDER,
+      multi: true,
+      useValue: {
+        name: 'app',
+        source: 'assets'
+      }
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
