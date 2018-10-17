@@ -1,14 +1,16 @@
-sudo: required
+os: osx
+language: node_js
 dist: trusty
+sudo: required
+node_js:
+ # Use the explicit NodeJS LTS version 8.9.4 to avoid any automatic upgrade of the version.
+  - '8.9.4'
+
 addons:
     chrome: stable
 before_script:
     - "sudo chown root /opt/google/chrome/chrome-sandbox"
     - "sudo chmod 4755 /opt/google/chrome/chrome-sandbox"
-language: node_js
-sudo: required
-node_js:
-  - "8"
 
 before_install:
     - export CHROME_BIN=chromium-browser
