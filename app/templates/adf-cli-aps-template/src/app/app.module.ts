@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 // ADF modules
 import { ContentModule } from '@alfresco/adf-content-services';
 import { ProcessModule } from '@alfresco/adf-process-services';
-import { CoreModule } from '@alfresco/adf-core';
+import { CoreModule, TRANSLATION_PROVIDER } from '@alfresco/adf-core';
 
 // Custom stencils
 import { StencilsModule } from './stencils.module';
@@ -54,7 +54,17 @@ import { AppLayoutComponent } from './app-layout/app-layout.component';
     BlobViewComponent,
     FileViewComponent
   ],
-  providers: [PreviewService],
+  providers: [
+    PreviewService,
+    {
+      provide: TRANSLATION_PROVIDER,
+      multi: true,
+      useValue: {
+        name: 'app',
+        source: 'assets'
+      }
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
