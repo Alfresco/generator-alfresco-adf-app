@@ -117,7 +117,7 @@ cd app/templates/$FOLDER
 
 npm install
 
-echo "build"
+echo "build $FOLDER"
 
 npm run build:dist
 

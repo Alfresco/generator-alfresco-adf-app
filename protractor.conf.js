@@ -30,7 +30,7 @@ exports.config = {
   allScriptsTimeout: 60000,
 
   specs: [
-    './e2e/**/*.e2e.ts'
+    specsToRun
   ],
 
   chromeOnly: true,
