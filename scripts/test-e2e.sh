@@ -121,6 +121,8 @@ echo "build"
 
 npm run build:dist
 
+rm -rf node_modules
+
 cd ../../../
 
 echo "webdriver update"
