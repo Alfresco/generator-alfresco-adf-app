@@ -117,11 +117,17 @@ cd app/templates/$FOLDER
 
 npm install
 
+echo "build"
+
 npm run build:dist
 
 cd ../../../
 
+echo "webdriver update"
+
 ./node_modules/protractor/node_modules/webdriver-manager/bin/webdriver-manager update --standalone false --gecko false
+
+echo "RUN TEST E2E"
 
 npm run lite-server-e2e -- --baseDir="app/templates/$FOLDER/dist/" & ./node_modules/protractor/bin/protractor protractor.conf.js || exit 1
 
