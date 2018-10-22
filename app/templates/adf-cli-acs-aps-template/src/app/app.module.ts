@@ -60,7 +60,7 @@ import { AppLayoutComponent } from './app-layout/app-layout.component';
       multi: true,
       useValue: {
         name: 'app',
-        source: 'assets'
+        source: 'resources'
       }
     }
   ],
