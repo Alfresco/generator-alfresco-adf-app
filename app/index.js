@@ -65,6 +65,10 @@ module.exports = class extends CLIGenerator {
       }
     ];
 
+    this.composeWith(require.resolve('generator-license'), {
+      defaultLicense: 'MIT'
+    });
+
     this.setupArgumentsAndOptions(this.prompts);
   }
 
