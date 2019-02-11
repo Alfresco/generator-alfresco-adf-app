@@ -3,7 +3,11 @@ dist: trusty
 sudo: required
 node_js:
  # Use the explicit NodeJS LTS version 8.9.4 to avoid any automatic upgrade of the version.
-  - '8.9.4'
+  - '8'
+  - '9'
+  - '10'
+  - '11'
+  - '12'
 
 addons:
     chrome: stable
@@ -53,3 +57,23 @@ jobs:
         - "export DISPLAY=:99.0"
         - "sh -e /etc/init.d/xvfb start"
       script: ./scripts/test-e2e.sh --proxy $E2E_HOST -host "localhost:4200"  -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_USERNAME" -save --skip-lint -b -f adf-cli-acs-aps-template
+    - stage: aps-cloud
+      before_install:
+        - "export DISPLAY=:99.0"
+        - "sh -e /etc/init.d/xvfb start"
+      script: cd app/templates/adf-cli-activiti-aps2-template && npm install && npm test -- --watch=false
+    - stage: aps-cloud-e2e
+      before_install:
+        - "export DISPLAY=:99.0"
+        - "sh -e /etc/init.d/xvfb start"
+      script: ./scripts/test-e2e.sh --proxy $E2E_HOST -host "localhost:4200"  -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_USERNAME" -save --skip-lint -b -f adf-cli-activiti-aps2-template
+    - stage: acs-aps-cloud
+      before_install:
+        - "export DISPLAY=:99.0"
+        - "sh -e /etc/init.d/xvfb start"
+      script: cd app/templates/adf-cli-activiti-acs-aps2-template && npm install && npm test -- --watch=false
+    - stage: acs-aps-cloud-e2e
+      before_install:
+        - "export DISPLAY=:99.0"
+        - "sh -e /etc/init.d/xvfb start"
+      script: ./scripts/test-e2e.sh --proxy $E2E_HOST -host "localhost:4200"  -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_USERNAME" -save --skip-lint -b -f adf-cli-activiti-acs-aps2-template
