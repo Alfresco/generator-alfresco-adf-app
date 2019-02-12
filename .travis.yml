@@ -2,7 +2,6 @@ language: node_js
 dist: trusty
 sudo: required
 node_js:
- # Use the explicit NodeJS LTS version 8.9.4 to avoid any automatic upgrade of the version.
   - '8'
   - '9'
   - '10'
@@ -19,6 +18,14 @@ before_install:
     - export DISPLAY=:99.0
     - sh -e /etc/init.d/xvfb start
     - sleep 3 # give xvfb some time to start
+
+matrix:
+  include:
+    node_js:
+      - '8'
+      - '9'
+      - '10'
+      - '11'
 
 jobs:
   include:
