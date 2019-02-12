@@ -21,7 +21,7 @@ before_install:
 
 matrix:
   include:
-  - stage: generator
+    - stage: generator
       node_js: '8'
       install: npm install
       script:
