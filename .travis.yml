@@ -26,13 +26,13 @@ matrix:
       - '9'
       - '10'
       - '11'
-
-jobs:
-  include:
     - stage: generator
       install: npm install
       script:
-        - npm run test
+    - npm run test
+
+jobs:
+  include:
     - stage: acs
       before_install:
         - "export DISPLAY=:99.0"
