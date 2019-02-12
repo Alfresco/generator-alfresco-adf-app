@@ -39,7 +39,7 @@ matrix:
       install: npm install
       script:
         - npm run test
-     - stage: acs
+    - stage: acs
       node_js: '8'
       before_install:
         - "export DISPLAY=:99.0"
