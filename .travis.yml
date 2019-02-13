@@ -210,30 +210,30 @@ matrix:
         - "export DISPLAY=:99.0"
         - "sh -e /etc/init.d/xvfb start"
       script: cd app/templates/adf-cli-activiti-aps2-template && npm install && npm test -- --watch=false
-    - stage: aps-cloud-e2e
-      node_js: '8'
-      before_install:
-        - "export DISPLAY=:99.0"
-        - "sh -e /etc/init.d/xvfb start"
-      script: ./scripts/test-e2e.sh --proxy $E2E_HOST -host "localhost:4200"  -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_USERNAME" -save --skip-lint -b -f adf-cli-activiti-aps2-template --spec sidebar_component.e2e.ts
-    - stage: aps-cloud-e2e
-      node_js: '9'
-      before_install:
-        - "export DISPLAY=:99.0"
-        - "sh -e /etc/init.d/xvfb start"
-      script: ./scripts/test-e2e.sh --proxy $E2E_HOST -host "localhost:4200"  -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_USERNAME" -save --skip-lint -b -f adf-cli-activiti-aps2-template --spec sidebar_component.e2e.ts
-    - stage: aps-cloud-e2e
-      node_js: '10'
-      before_install:
-        - "export DISPLAY=:99.0"
-        - "sh -e /etc/init.d/xvfb start"
-      script: ./scripts/test-e2e.sh --proxy $E2E_HOST -host "localhost:4200"  -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_USERNAME" -save --skip-lint -b -f adf-cli-activiti-aps2-template --spec sidebar_component.e2e.ts
-    - stage: aps-cloud-e2e
-      node_js: '11'
-      before_install:
-        - "export DISPLAY=:99.0"
-        - "sh -e /etc/init.d/xvfb start"
-      script: ./scripts/test-e2e.sh --proxy $E2E_HOST -host "localhost:4200"  -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_USERNAME" -save --skip-lint -b -f adf-cli-activiti-aps2-template --spec sidebar_component.e2e.ts
+    # - stage: aps-cloud-e2e
+    #   node_js: '8'
+    #   before_install:
+    #     - "export DISPLAY=:99.0"
+    #     - "sh -e /etc/init.d/xvfb start"
+    #   script: ./scripts/test-e2e.sh --proxy $E2E_HOST -host "localhost:4200"  -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_USERNAME" -save --skip-lint -b -f adf-cli-activiti-aps2-template --spec sidebar_component.e2e.ts
+    # - stage: aps-cloud-e2e
+    #   node_js: '9'
+    #   before_install:
+    #     - "export DISPLAY=:99.0"
+    #     - "sh -e /etc/init.d/xvfb start"
+    #   script: ./scripts/test-e2e.sh --proxy $E2E_HOST -host "localhost:4200"  -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_USERNAME" -save --skip-lint -b -f adf-cli-activiti-aps2-template --spec sidebar_component.e2e.ts
+    # - stage: aps-cloud-e2e
+    #   node_js: '10'
+    #   before_install:
+    #     - "export DISPLAY=:99.0"
+    #     - "sh -e /etc/init.d/xvfb start"
+    #   script: ./scripts/test-e2e.sh --proxy $E2E_HOST -host "localhost:4200"  -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_USERNAME" -save --skip-lint -b -f adf-cli-activiti-aps2-template --spec sidebar_component.e2e.ts
+    # - stage: aps-cloud-e2e
+    #   node_js: '11'
+    #   before_install:
+    #     - "export DISPLAY=:99.0"
+    #     - "sh -e /etc/init.d/xvfb start"
+    #   script: ./scripts/test-e2e.sh --proxy $E2E_HOST -host "localhost:4200"  -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_USERNAME" -save --skip-lint -b -f adf-cli-activiti-aps2-template --spec sidebar_component.e2e.ts
     - stage: acs-aps-cloud
       node_js: '8'
       before_install:
@@ -258,27 +258,27 @@ matrix:
         - "export DISPLAY=:99.0"
         - "sh -e /etc/init.d/xvfb start"
       script: cd app/templates/adf-cli-activiti-acs-aps2-template && npm install && npm test -- --watch=false
-    - stage: acs-aps-cloud-e2e
-      node_js: '8'
-      before_install:
-        - "export DISPLAY=:99.0"
-        - "sh -e /etc/init.d/xvfb start"
-      script: ./scripts/test-e2e.sh --proxy $E2E_HOST -host "localhost:4200"  -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_USERNAME" -save --skip-lint -b -f adf-cli-activiti-acs-aps2-template --spec sidebar_component.e2e.ts
-    - stage: acs-aps-cloud-e2e
-      node_js: '9'
-      before_install:
-        - "export DISPLAY=:99.0"
-        - "sh -e /etc/init.d/xvfb start"
-      script: ./scripts/test-e2e.sh --proxy $E2E_HOST -host "localhost:4200"  -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_USERNAME" -save --skip-lint -b -f adf-cli-activiti-acs-aps2-template --spec sidebar_component.e2e.ts
-    - stage: acs-aps-cloud-e2e
-      node_js: '10'
-      before_install:
-        - "export DISPLAY=:99.0"
-        - "sh -e /etc/init.d/xvfb start"
-      script: ./scripts/test-e2e.sh --proxy $E2E_HOST -host "localhost:4200"  -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_USERNAME" -save --skip-lint -b -f adf-cli-activiti-acs-aps2-template --spec sidebar_component.e2e.ts
-    - stage: acs-aps-cloud-e2e
-      node_js: '11'
-      before_install:
-        - "export DISPLAY=:99.0"
-        - "sh -e /etc/init.d/xvfb start"
-      script: ./scripts/test-e2e.sh --proxy $E2E_HOST -host "localhost:4200"  -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_USERNAME" -save --skip-lint -b -f adf-cli-activiti-acs-aps2-template --spec sidebar_component.e2e.ts
+    # - stage: acs-aps-cloud-e2e
+    #   node_js: '8'
+    #   before_install:
+    #     - "export DISPLAY=:99.0"
+    #     - "sh -e /etc/init.d/xvfb start"
+    #   script: ./scripts/test-e2e.sh --proxy $E2E_HOST -host "localhost:4200"  -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_USERNAME" -save --skip-lint -b -f adf-cli-activiti-acs-aps2-template --spec sidebar_component.e2e.ts
+    # - stage: acs-aps-cloud-e2e
+    #   node_js: '9'
+    #   before_install:
+    #     - "export DISPLAY=:99.0"
+    #     - "sh -e /etc/init.d/xvfb start"
+    #   script: ./scripts/test-e2e.sh --proxy $E2E_HOST -host "localhost:4200"  -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_USERNAME" -save --skip-lint -b -f adf-cli-activiti-acs-aps2-template --spec sidebar_component.e2e.ts
+    # - stage: acs-aps-cloud-e2e
+    #   node_js: '10'
+    #   before_install:
+    #     - "export DISPLAY=:99.0"
+    #     - "sh -e /etc/init.d/xvfb start"
+    #   script: ./scripts/test-e2e.sh --proxy $E2E_HOST -host "localhost:4200"  -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_USERNAME" -save --skip-lint -b -f adf-cli-activiti-acs-aps2-template --spec sidebar_component.e2e.ts
+    # - stage: acs-aps-cloud-e2e
+    #   node_js: '11'
+    #   before_install:
+    #     - "export DISPLAY=:99.0"
+    #     - "sh -e /etc/init.d/xvfb start"
+    #   script: ./scripts/test-e2e.sh --proxy $E2E_HOST -host "localhost:4200"  -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_USERNAME" -save --skip-lint -b -f adf-cli-activiti-acs-aps2-template --spec sidebar_component.e2e.ts

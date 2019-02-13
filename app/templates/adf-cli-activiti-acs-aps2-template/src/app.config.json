@@ -1,19 +1,19 @@
 {
     "$schema": "../node_modules/@alfresco/adf-core/app.config.schema.json",
-    "ecmHost": "http://aps2dev.envalfresco.com",
-    "bpmHost": "http://aps2dev.envalfresco.com",
+    "ecmHost": "{protocol}//{hostname}{:port}",
+    "bpmHost": "{protocol}//{hostname}{:port}",
     "providers": "BPM",
     "application": {
         "name": "Alfresco ADF Application"
     },
     "authType": "OAUTH",
     "oauth2": {
-        "host": "http://aps2dev.envalfresco.com/auth/realms/alfresco",
+        "host": "{protocol}//{hostname}{:port}/auth/realms/alfresco",
         "clientId": "activiti",
         "scope": "openid",
         "secret": "",
         "implicitFlow": false,
-        "redirectSilentIframeUri": "http://aps2dev.envalfresco.com",
+        "redirectSilentIframeUri": "{protocol}//{hostname}{:port}/assets/silent-refresh.html",
         "redirectUri": "/",
         "redirectUriLogout": "/logout"
     },
