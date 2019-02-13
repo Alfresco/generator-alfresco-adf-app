@@ -4,7 +4,7 @@
     "bpmHost": "http://{hostname}{:port}",
     "providers" : "BPM",
     "application": {
-        "name": "Alfresco ADF Appplication"
+        "name": "Alfresco ADF Application"
     },
     "languages": [
         {

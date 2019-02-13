@@ -27,7 +27,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 ### Proxy settings
 
 The template provides certain proxy settings to allow running web application locally without CORS setup.
-You can find details in the `proxy.conf.json` file.
+You can find details in the `proxy.conf.js` file.
 
 List of URLs being proxied:
 

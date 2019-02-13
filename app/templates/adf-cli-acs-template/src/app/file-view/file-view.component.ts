@@ -43,7 +43,7 @@ export class FileViewComponent implements OnInit {
             if (id) {
                 this.apiService.getInstance().nodes.getNodeInfo(id).then(
                     (node) => {
-                        if (node && node.isFile) {
+                        if (node) {
                             this.nodeId = id;
                             return;
                         }

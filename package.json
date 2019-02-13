@@ -1,25 +1,36 @@
 {
   "name": "generator-alfresco-adf-app",
-  "version": "2.6.3",
+  "version": "3.0.0",
   "description": "ADF application generator for Yeoman",
   "author": "Alfresco Software, Ltd.",
   "main": "app/index.js",
   "scripts": {
-    "test": "rimraf temp && jest"
+    "test": "rimraf temp && jest",
+    "lite-server-e2e": "lite-server  -c ./e2e/lite-server-proxy.js"
   },
   "dependencies": {
     "alfresco-logo": "1.0.1",
-    "generator-alfresco-common": "0.9.26",
-    "yeoman-generator": "^3.1.1"
+    "generator-alfresco-common": "0.9.27",
+    "generator-license": "^5.4.0",
+    "yeoman-generator": "^3.2.0"
   },
   "devDependencies": {
+    "alfresco-js-api-node": "2.7.0-beta5",
+    "connect-history-api-fallback": "^1.5.0",
     "eslint": "4.7.1",
     "eslint-config-xo-space": "0.16.0",
+    "http-proxy-middleware": "^0.19.0",
+    "jasmine-reporters": "^2.3.2",
+    "jasmine-spec-reporter": "~4.2.1",
     "jest": "21.2.1",
     "jest-cli": "21.2.1",
+    "lite-server": "^2.4.0",
+    "protractor": "^5.4.0",
+    "rimraf": "2.6.2",
+    "ts-node": "~4.1.0",
+    "typescript": "2.9.2",
     "yeoman-assert": "3.0.0",
-    "yeoman-test": "1.7.0",
-    "rimraf": "2.6.2"
+    "yeoman-test": "1.7.0"
   },
   "jest": {
     "testEnvironment": "node",

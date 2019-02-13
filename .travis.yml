@@ -1,60 +1,284 @@
-sudo: required
+language: node_js
 dist: trusty
+sudo: required
+
 addons:
     chrome: stable
 before_script:
     - "sudo chown root /opt/google/chrome/chrome-sandbox"
     - "sudo chmod 4755 /opt/google/chrome/chrome-sandbox"
-language: node_js
-sudo: required
-node_js:
-  - "8"
 
-# install: npm install
+before_install:
+    - export CHROME_BIN=chromium-browser
+    - export DISPLAY=:99.0
+    - sh -e /etc/init.d/xvfb start
+    - sleep 3 # give xvfb some time to start
 
-#script:
-#  - npm run test
-
-#cache:
-#  directories:
-#  - node_modules
-
-jobs:
+matrix:
   include:
     - stage: generator
+      node_js: '8'
       install: npm install
       script:
         - npm run test
-      cache:
-        directories:
-        - node_modules
+    - stage: generator
+      node_js: '9'
+      install: npm install
+      script:
+        - npm run test
+    - stage: generator
+      node_js: '10'
+      install: npm install
+      script:
+        - npm run test
+    - stage: generator
+      node_js: '11'
+      install: npm install
+      script:
+        - npm run test
     - stage: acs
+      node_js: '8'
+      before_install:
+        - "export DISPLAY=:99.0"
+        - "sh -e /etc/init.d/xvfb start"
+      script: cd app/templates/adf-cli-acs-template && npm install && npm test -- --watch=false
+    - stage: acs
+      node_js: '9'
+      before_install:
+        - "export DISPLAY=:99.0"
+        - "sh -e /etc/init.d/xvfb start"
+      script: cd app/templates/adf-cli-acs-template && npm install && npm test -- --watch=false
+    - stage: acs
+      node_js: '10'
+      before_install:
+        - "export DISPLAY=:99.0"
+        - "sh -e /etc/init.d/xvfb start"
+      script: cd app/templates/adf-cli-acs-template && npm install && npm test -- --watch=false
+    - stage: acs
+      node_js: '11'
       before_install:
         - "export DISPLAY=:99.0"
         - "sh -e /etc/init.d/xvfb start"
       script: cd app/templates/adf-cli-acs-template && npm install && npm test -- --watch=false
     - stage: acs-e2e
+      node_js: '8'
       before_install:
         - "export DISPLAY=:99.0"
         - "sh -e /etc/init.d/xvfb start"
-      script: cd app/templates/adf-cli-acs-template && npm install && npm run e2e
+      script: ./scripts/test-e2e.sh --proxy $E2E_HOST -host "localhost:4200"  -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_USERNAME" -save --skip-lint -b -f adf-cli-acs-template
+    - stage: acs-e2e
+      node_js: '9'
+      before_install:
+        - "export DISPLAY=:99.0"
+        - "sh -e /etc/init.d/xvfb start"
+      script: ./scripts/test-e2e.sh --proxy $E2E_HOST -host "localhost:4200"  -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_USERNAME" -save --skip-lint -b -f adf-cli-acs-template
+    - stage: acs-e2e
+      node_js: '10'
+      before_install:
+        - "export DISPLAY=:99.0"
+        - "sh -e /etc/init.d/xvfb start"
+      script: ./scripts/test-e2e.sh --proxy $E2E_HOST -host "localhost:4200"  -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_USERNAME" -save --skip-lint -b -f adf-cli-acs-template
+    - stage: acs-e2e
+      node_js: '11'
+      before_install:
+        - "export DISPLAY=:99.0"
+        - "sh -e /etc/init.d/xvfb start"
+      script: ./scripts/test-e2e.sh --proxy $E2E_HOST -host "localhost:4200"  -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_USERNAME" -save --skip-lint -b -f adf-cli-acs-template
     - stage: aps
+      node_js: '8'
+      before_install:
+        - "export DISPLAY=:99.0"
+        - "sh -e /etc/init.d/xvfb start"
+      script: cd app/templates/adf-cli-aps-template && npm install && npm test -- --watch=false
+    - stage: aps
+      node_js: '9'
+      before_install:
+        - "export DISPLAY=:99.0"
+        - "sh -e /etc/init.d/xvfb start"
+      script: cd app/templates/adf-cli-aps-template && npm install && npm test -- --watch=false
+    - stage: aps
+      node_js: '10'
+      before_install:
+        - "export DISPLAY=:99.0"
+        - "sh -e /etc/init.d/xvfb start"
+      script: cd app/templates/adf-cli-aps-template && npm install && npm test -- --watch=false
+    - stage: aps
+      node_js: '11'
       before_install:
         - "export DISPLAY=:99.0"
         - "sh -e /etc/init.d/xvfb start"
       script: cd app/templates/adf-cli-aps-template && npm install && npm test -- --watch=false
     - stage: aps-e2e
+      node_js: '8'
       before_install:
         - "export DISPLAY=:99.0"
         - "sh -e /etc/init.d/xvfb start"
-      script: cd app/templates/adf-cli-aps-template && npm install && npm run e2e
+      script: ./scripts/test-e2e.sh --proxy $E2E_HOST -host "localhost:4200"  -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_USERNAME" -save --skip-lint -b -f adf-cli-aps-template --spec sidebar_component.e2e.ts
+    - stage: aps-e2e
+      node_js: '9'
+      before_install:
+        - "export DISPLAY=:99.0"
+        - "sh -e /etc/init.d/xvfb start"
+      script: ./scripts/test-e2e.sh --proxy $E2E_HOST -host "localhost:4200"  -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_USERNAME" -save --skip-lint -b -f adf-cli-aps-template --spec sidebar_component.e2e.ts
+    - stage: aps-e2e
+      node_js: '10'
+      before_install:
+        - "export DISPLAY=:99.0"
+        - "sh -e /etc/init.d/xvfb start"
+      script: ./scripts/test-e2e.sh --proxy $E2E_HOST -host "localhost:4200"  -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_USERNAME" -save --skip-lint -b -f adf-cli-aps-template --spec sidebar_component.e2e.ts
+    - stage: aps-e2e
+      node_js: '11'
+      before_install:
+        - "export DISPLAY=:99.0"
+        - "sh -e /etc/init.d/xvfb start"
+      script: ./scripts/test-e2e.sh --proxy $E2E_HOST -host "localhost:4200"  -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_USERNAME" -save --skip-lint -b -f adf-cli-aps-template --spec sidebar_component.e2e.ts
     - stage: acs-aps
+      node_js: '8'
+      before_install:
+        - "export DISPLAY=:99.0"
+        - "sh -e /etc/init.d/xvfb start"
+      script: cd app/templates/adf-cli-acs-aps-template && npm install && npm test -- --watch=false
+    - stage: acs-aps
+      node_js: '9'
+      before_install:
+        - "export DISPLAY=:99.0"
+        - "sh -e /etc/init.d/xvfb start"
+      script: cd app/templates/adf-cli-acs-aps-template && npm install && npm test -- --watch=false
+    - stage: acs-aps
+      node_js: '10'
+      before_install:
+        - "export DISPLAY=:99.0"
+        - "sh -e /etc/init.d/xvfb start"
+      script: cd app/templates/adf-cli-acs-aps-template && npm install && npm test -- --watch=false
+    - stage: acs-aps
+      node_js: '11'
       before_install:
         - "export DISPLAY=:99.0"
         - "sh -e /etc/init.d/xvfb start"
       script: cd app/templates/adf-cli-acs-aps-template && npm install && npm test -- --watch=false
     - stage: acs-aps-e2e
+      node_js: '8'
       before_install:
         - "export DISPLAY=:99.0"
         - "sh -e /etc/init.d/xvfb start"
-      script: cd app/templates/adf-cli-acs-aps-template && npm install && npm run e2e
+      script: ./scripts/test-e2e.sh --proxy $E2E_HOST -host "localhost:4200"  -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_USERNAME" -save --skip-lint -b -f adf-cli-acs-aps-template
+    - stage: acs-aps-e2e
+      node_js: '9'
+      before_install:
+        - "export DISPLAY=:99.0"
+        - "sh -e /etc/init.d/xvfb start"
+      script: ./scripts/test-e2e.sh --proxy $E2E_HOST -host "localhost:4200"  -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_USERNAME" -save --skip-lint -b -f adf-cli-acs-aps-template
+    - stage: acs-aps-e2e
+      node_js: '10'
+      before_install:
+        - "export DISPLAY=:99.0"
+        - "sh -e /etc/init.d/xvfb start"
+      script: ./scripts/test-e2e.sh --proxy $E2E_HOST -host "localhost:4200"  -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_USERNAME" -save --skip-lint -b -f adf-cli-acs-aps-template
+    - stage: acs-aps-e2e
+      node_js: '11'
+      before_install:
+        - "export DISPLAY=:99.0"
+        - "sh -e /etc/init.d/xvfb start"
+      script: ./scripts/test-e2e.sh --proxy $E2E_HOST -host "localhost:4200"  -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_USERNAME" -save --skip-lint -b -f adf-cli-acs-aps-template
+    - stage: aps-cloud
+      node_js: '8'
+      before_install:
+        - "export DISPLAY=:99.0"
+        - "sh -e /etc/init.d/xvfb start"
+      script: cd app/templates/adf-cli-activiti-aps2-template && npm install && npm test -- --watch=false
+    - stage: aps-cloud
+      node_js: '9'
+      before_install:
+        - "export DISPLAY=:99.0"
+        - "sh -e /etc/init.d/xvfb start"
+      script: cd app/templates/adf-cli-activiti-aps2-template && npm install && npm test -- --watch=false
+    - stage: aps-cloud
+      node_js: '10'
+      before_install:
+        - "export DISPLAY=:99.0"
+        - "sh -e /etc/init.d/xvfb start"
+      script: cd app/templates/adf-cli-activiti-aps2-template && npm install && npm test -- --watch=false
+    - stage: aps-cloud
+      node_js: '11'
+      before_install:
+        - "export DISPLAY=:99.0"
+        - "sh -e /etc/init.d/xvfb start"
+      script: cd app/templates/adf-cli-activiti-aps2-template && npm install && npm test -- --watch=false
+    - stage: aps-cloud
+      node_js: '11'
+      before_install:
+        - "export DISPLAY=:99.0"
+        - "sh -e /etc/init.d/xvfb start"
+      script: cd app/templates/adf-cli-activiti-aps2-template && npm install && npm test -- --watch=false
+    # - stage: aps-cloud-e2e
+    #   node_js: '8'
+    #   before_install:
+    #     - "export DISPLAY=:99.0"
+    #     - "sh -e /etc/init.d/xvfb start"
+    #   script: ./scripts/test-e2e.sh --proxy $E2E_HOST -host "localhost:4200"  -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_USERNAME" -save --skip-lint -b -f adf-cli-activiti-aps2-template --spec sidebar_component.e2e.ts
+    # - stage: aps-cloud-e2e
+    #   node_js: '9'
+    #   before_install:
+    #     - "export DISPLAY=:99.0"
+    #     - "sh -e /etc/init.d/xvfb start"
+    #   script: ./scripts/test-e2e.sh --proxy $E2E_HOST -host "localhost:4200"  -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_USERNAME" -save --skip-lint -b -f adf-cli-activiti-aps2-template --spec sidebar_component.e2e.ts
+    # - stage: aps-cloud-e2e
+    #   node_js: '10'
+    #   before_install:
+    #     - "export DISPLAY=:99.0"
+    #     - "sh -e /etc/init.d/xvfb start"
+    #   script: ./scripts/test-e2e.sh --proxy $E2E_HOST -host "localhost:4200"  -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_USERNAME" -save --skip-lint -b -f adf-cli-activiti-aps2-template --spec sidebar_component.e2e.ts
+    # - stage: aps-cloud-e2e
+    #   node_js: '11'
+    #   before_install:
+    #     - "export DISPLAY=:99.0"
+    #     - "sh -e /etc/init.d/xvfb start"
+    #   script: ./scripts/test-e2e.sh --proxy $E2E_HOST -host "localhost:4200"  -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_USERNAME" -save --skip-lint -b -f adf-cli-activiti-aps2-template --spec sidebar_component.e2e.ts
+    - stage: acs-aps-cloud
+      node_js: '8'
+      before_install:
+        - "export DISPLAY=:99.0"
+        - "sh -e /etc/init.d/xvfb start"
+      script: cd app/templates/adf-cli-activiti-acs-aps2-template && npm install && npm test -- --watch=false
+    - stage: acs-aps-cloud
+      node_js: '9'
+      before_install:
+        - "export DISPLAY=:99.0"
+        - "sh -e /etc/init.d/xvfb start"
+      script: cd app/templates/adf-cli-activiti-acs-aps2-template && npm install && npm test -- --watch=false
+    - stage: acs-aps-cloud
+      node_js: '10'
+      before_install:
+        - "export DISPLAY=:99.0"
+        - "sh -e /etc/init.d/xvfb start"
+      script: cd app/templates/adf-cli-activiti-acs-aps2-template && npm install && npm test -- --watch=false
+    - stage: acs-aps-cloud
+      node_js: '11'
+      before_install:
+        - "export DISPLAY=:99.0"
+        - "sh -e /etc/init.d/xvfb start"
+      script: cd app/templates/adf-cli-activiti-acs-aps2-template && npm install && npm test -- --watch=false
+    # - stage: acs-aps-cloud-e2e
+    #   node_js: '8'
+    #   before_install:
+    #     - "export DISPLAY=:99.0"
+    #     - "sh -e /etc/init.d/xvfb start"
+    #   script: ./scripts/test-e2e.sh --proxy $E2E_HOST -host "localhost:4200"  -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_USERNAME" -save --skip-lint -b -f adf-cli-activiti-acs-aps2-template --spec sidebar_component.e2e.ts
+    # - stage: acs-aps-cloud-e2e
+    #   node_js: '9'
+    #   before_install:
+    #     - "export DISPLAY=:99.0"
+    #     - "sh -e /etc/init.d/xvfb start"
+    #   script: ./scripts/test-e2e.sh --proxy $E2E_HOST -host "localhost:4200"  -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_USERNAME" -save --skip-lint -b -f adf-cli-activiti-acs-aps2-template --spec sidebar_component.e2e.ts
+    # - stage: acs-aps-cloud-e2e
+    #   node_js: '10'
+    #   before_install:
+    #     - "export DISPLAY=:99.0"
+    #     - "sh -e /etc/init.d/xvfb start"
+    #   script: ./scripts/test-e2e.sh --proxy $E2E_HOST -host "localhost:4200"  -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_USERNAME" -save --skip-lint -b -f adf-cli-activiti-acs-aps2-template --spec sidebar_component.e2e.ts
+    # - stage: acs-aps-cloud-e2e
+    #   node_js: '11'
+    #   before_install:
+    #     - "export DISPLAY=:99.0"
+    #     - "sh -e /etc/init.d/xvfb start"
+    #   script: ./scripts/test-e2e.sh --proxy $E2E_HOST -host "localhost:4200"  -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_USERNAME" -save --skip-lint -b -f adf-cli-activiti-acs-aps2-template --spec sidebar_component.e2e.ts

@@ -2,11 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+
 
 // ADF modules
 import { ContentModule } from '@alfresco/adf-content-services';
 import { ProcessModule } from '@alfresco/adf-process-services';
-import { CoreModule, TRANSLATION_PROVIDER } from '@alfresco/adf-core';
+import { CoreModule, TRANSLATION_PROVIDER, TranslateLoaderService } from '@alfresco/adf-core';
 
 // Custom stencils
 import { StencilsModule } from './stencils.module';
@@ -27,45 +29,47 @@ import { appRoutes } from './app.routes';
 import { AppLayoutComponent } from './app-layout/app-layout.component';
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    RouterModule.forRoot(
-      appRoutes // ,
-      // { enableTracing: true } // <-- debugging purposes only
-    ),
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        RouterModule.forRoot(
+            appRoutes // ,
+            // { enableTracing: true } // <-- debugging purposes only
+        ),
 
-    // ADF modules
-    CoreModule.forRoot(),
-    ContentModule.forRoot(),
-    ProcessModule.forRoot(),
-
-    StencilsModule
-  ],
-  declarations: [
-    AppComponent,
-    AppsComponent,
-    HomeComponent,
-    LoginComponent,
-    TasksComponent,
-    TaskDetailsComponent,
-    StartProcessComponent,
-    AppLayoutComponent,
-    BlobViewComponent,
-    FileViewComponent
-  ],
-  providers: [
-    PreviewService,
-    {
-      provide: TRANSLATION_PROVIDER,
-      multi: true,
-      useValue: {
-        name: 'app',
-        source: 'assets'
-      }
-    }
-  ],
-  bootstrap: [AppComponent]
+        // ADF modules
+        CoreModule.forRoot(),
+        ContentModule.forRoot(),
+        ProcessModule.forRoot(),
+        TranslateModule.forRoot({
+            loader: { provide: TranslateLoader, useClass: TranslateLoaderService }
+        }),
+        StencilsModule
+    ],
+    declarations: [
+        AppComponent,
+        AppsComponent,
+        HomeComponent,
+        LoginComponent,
+        TasksComponent,
+        TaskDetailsComponent,
+        StartProcessComponent,
+        AppLayoutComponent,
+        BlobViewComponent,
+        FileViewComponent
+    ],
+    providers: [
+        PreviewService,
+        {
+            provide: TRANSLATION_PROVIDER,
+            multi: true,
+            useValue: {
+                name: 'app',
+                source: 'resources'
+            }
+        }
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }
