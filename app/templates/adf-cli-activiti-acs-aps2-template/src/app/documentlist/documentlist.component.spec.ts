@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Location } from '@angular/common';
 import { SpyLocation } from '@angular/common/testing';
 import { ContentModule } from '@alfresco/adf-content-services';
-import { ProcessModule } from '@alfresco/adf-process-services';
+import { ProcessServicesCloudModule } from '@alfresco/adf-process-services-cloud';
 import { CoreModule } from '@alfresco/adf-core';
 import { DocumentlistComponent } from './documentlist.component';
 import { PreviewService } from '../services/preview.service';
@@ -21,7 +21,7 @@ describe('DocumentlistComponent', () => {
         RouterTestingModule,
         CoreModule.forRoot(),
         ContentModule.forRoot(),
-        ProcessModule.forRoot()
+        ProcessServicesCloudModule
       ],
       declarations: [DocumentlistComponent],
       providers: [

@@ -3,7 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ContentModule } from '@alfresco/adf-content-services';
-import { ProcessModule } from '@alfresco/adf-process-services';
+import { ProcessServicesCloudModule } from '@alfresco/adf-process-services-cloud';
 import { CoreModule } from '@alfresco/adf-core';
 
 import { AppLayoutComponent } from './app-layout.component';
@@ -20,7 +20,7 @@ describe('AppLayoutComponent', () => {
         RouterTestingModule,
         CoreModule.forRoot(),
         ContentModule.forRoot(),
-        ProcessModule.forRoot(),
+        ProcessServicesCloudModule
       ],
       declarations: [AppLayoutComponent],
       providers: [
