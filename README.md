@@ -110,7 +110,6 @@ npm test
 In order to add a new blueprint just put the project template to the `app/templates` folder.
 
 Requirements for new projects:
-
 * must contain `package.json` file
 * the `package.json` file must contain at least `name` and `version` attributes
 

@@ -39,6 +39,10 @@ set_host(){
     HOST=$1
 }
 
+set_host_sso(){
+    HOST_SSO=$1
+}
+
 set_browser(){
     echo "====== BROWSER RUN ====="
     BROWSER_RUN=true
@@ -92,6 +96,7 @@ while [[ $1 == -* ]]; do
       -proxy|--proxy)  set_proxy $2; shift 2;;
       -s|--seleniumServer) set_selenium $2; shift 2;;
       -host|--host)  set_host $2; shift 2;;
+      -host_sso|--host_sso) set_host_sso $2; shift 2;;
       -sl|--skip-lint)  skip_lint; shift;;
       -*) echo "invalid option: $1" 1>&2; show_help; exit 1;;
     esac
@@ -101,6 +106,7 @@ rm -rf ./e2e/downloads/
 rm -rf ./e2e-output/screenshots/
 
 export URL_HOST_ADF=$HOST
+export URL_HOST_SSO_ADF=$HOST_SSO
 export USERNAME_ADF=$USERNAME
 export PASSWORD_ADF=$PASSWORD
 export EMAIL_ADF=$EMAIL

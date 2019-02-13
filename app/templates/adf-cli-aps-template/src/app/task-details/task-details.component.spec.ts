@@ -3,9 +3,10 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ContentModule } from '@alfresco/adf-content-services';
 import { ProcessModule } from '@alfresco/adf-process-services';
-import { CoreModule } from '@alfresco/adf-core';
+import { CoreModule, TranslateLoaderService } from '@alfresco/adf-core';
 import { TaskDetailsComponent } from './task-details.component';
 import { AlfrescoApiServiceMock, AlfrescoApiService } from '@alfresco/adf-core';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 
 describe('TaskDetailsComponent', () => {
   let component: TaskDetailsComponent;
@@ -18,7 +19,10 @@ describe('TaskDetailsComponent', () => {
         RouterTestingModule,
         CoreModule.forRoot(),
         ContentModule.forRoot(),
-        ProcessModule.forRoot()
+        ProcessModule.forRoot(),
+        TranslateModule.forRoot({
+            loader: { provide: TranslateLoader, useClass: TranslateLoaderService }
+        })
       ],
       declarations: [TaskDetailsComponent],
       providers: [

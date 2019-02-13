@@ -2,9 +2,10 @@ import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ContentModule } from '@alfresco/adf-content-services';
 import { ProcessModule } from '@alfresco/adf-process-services';
-import { CoreModule } from '@alfresco/adf-core';
+import { CoreModule, TranslateLoaderService } from '@alfresco/adf-core';
 
 import { AppComponent } from './app.component';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -13,7 +14,10 @@ describe('AppComponent', () => {
         RouterTestingModule,
         CoreModule.forRoot(),
         ContentModule.forRoot(),
-        ProcessModule.forRoot()
+        ProcessModule.forRoot(),
+        TranslateModule.forRoot({
+            loader: { provide: TranslateLoader, useClass: TranslateLoaderService }
+        })
       ],
       declarations: [
         AppComponent

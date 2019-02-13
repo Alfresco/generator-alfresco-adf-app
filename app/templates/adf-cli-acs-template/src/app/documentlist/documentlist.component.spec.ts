@@ -5,9 +5,10 @@ import { SpyLocation } from '@angular/common/testing';
 
 import { DocumentlistComponent } from './documentlist.component';
 import { PreviewService } from '../services/preview.service';
-import { AlfrescoApiServiceMock, AlfrescoApiService, CoreModule} from '@alfresco/adf-core';
+import { AlfrescoApiServiceMock, AlfrescoApiService, CoreModule, TranslateLoaderService} from '@alfresco/adf-core';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ContentModule } from '@alfresco/adf-content-services';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 
 describe('DocumentlistComponent', () => {
   let component: DocumentlistComponent;
@@ -19,7 +20,10 @@ describe('DocumentlistComponent', () => {
         RouterTestingModule,
         BrowserAnimationsModule,
         CoreModule.forRoot(),
-        ContentModule.forRoot()
+        ContentModule.forRoot(),
+        TranslateModule.forRoot({
+            loader: { provide: TranslateLoader, useClass: TranslateLoaderService }
+        })
       ],
       declarations: [ DocumentlistComponent ],
       providers: [

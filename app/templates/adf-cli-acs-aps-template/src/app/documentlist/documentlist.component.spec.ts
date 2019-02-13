@@ -3,12 +3,13 @@ import { Location } from '@angular/common';
 import { SpyLocation } from '@angular/common/testing';
 import { ContentModule } from '@alfresco/adf-content-services';
 import { ProcessModule } from '@alfresco/adf-process-services';
-import { CoreModule } from '@alfresco/adf-core';
+import { CoreModule, TranslateLoaderService } from '@alfresco/adf-core';
 import { DocumentlistComponent } from './documentlist.component';
 import { PreviewService } from '../services/preview.service';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { AlfrescoApiServiceMock, AlfrescoApiService } from '@alfresco/adf-core';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 
 
 describe('DocumentlistComponent', () => {
@@ -21,7 +22,10 @@ describe('DocumentlistComponent', () => {
         RouterTestingModule,
         CoreModule.forRoot(),
         ContentModule.forRoot(),
-        ProcessModule.forRoot()
+        ProcessModule.forRoot(),
+        TranslateModule.forRoot({
+            loader: { provide: TranslateLoader, useClass: TranslateLoaderService }
+        })
       ],
       declarations: [DocumentlistComponent],
       providers: [

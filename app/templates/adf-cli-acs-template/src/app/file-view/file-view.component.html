@@ -14,7 +14,7 @@
                 <mat-card>
                     <mat-card-content>
                         <adf-version-manager [node]="node"
-                                             (uploadError)="uploadError($event)">
+                                             (uploadError)="onUploadError($event)">
                         </adf-version-manager>
                     </mat-card-content>
                 </mat-card>
@@ -22,7 +22,7 @@
         </adf-info-drawer>
     </ng-template>
 
-    <adf-viewer [nodeId]="nodeId" [allowSidebar]="true" [sidebarTemplate]="sidebarTemplate">
+    <adf-viewer [nodeId]="nodeId">
 
         <adf-viewer-toolbar-actions>
             <button mat-icon-button>

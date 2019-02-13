@@ -3,9 +3,10 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ContentModule } from '@alfresco/adf-content-services';
 import { ProcessModule } from '@alfresco/adf-process-services';
-import { CoreModule } from '@alfresco/adf-core';
+import { CoreModule, TranslateLoaderService } from '@alfresco/adf-core';
 import { LoginComponent } from './login.component';
 import { AlfrescoApiService, AlfrescoApiServiceMock } from '@alfresco/adf-core';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -18,7 +19,10 @@ describe('LoginComponent', () => {
         BrowserAnimationsModule,
         CoreModule.forRoot(),
         ContentModule.forRoot(),
-        ProcessModule.forRoot()
+        ProcessModule.forRoot(),
+        TranslateModule.forRoot({
+            loader: { provide: TranslateLoader, useClass: TranslateLoaderService }
+        })
       ],
       providers: [
         { provide: AlfrescoApiService, useClass: AlfrescoApiServiceMock }

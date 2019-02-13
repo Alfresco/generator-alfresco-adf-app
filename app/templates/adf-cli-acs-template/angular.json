@@ -25,7 +25,6 @@
               "src/assets",
               "src/favicon-96x96.png",
               "src/app.config.json",
-              "src/versions.json",
               {
                 "glob": "**/*",
                 "input": "resources",
@@ -92,7 +91,7 @@
           "options": {
             "browserTarget": "dist:build",
             "port": 4200,
-            "proxyConfig": "proxy.conf.json"
+            "proxyConfig": "proxy.conf.js"
           },
           "configurations": {
             "production": {

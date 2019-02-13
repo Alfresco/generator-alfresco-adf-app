@@ -3,9 +3,10 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ContentModule } from '@alfresco/adf-content-services';
 import { ProcessModule } from '@alfresco/adf-process-services';
-import { CoreModule } from '@alfresco/adf-core';
+import { CoreModule, TranslateLoaderService } from '@alfresco/adf-core';
 import { StartProcessComponent } from './start-process.component';
 import { AlfrescoApiServiceMock, AlfrescoApiService } from '@alfresco/adf-core';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 
 describe('StartProcessComponent', () => {
   let component: StartProcessComponent;
@@ -19,6 +20,9 @@ describe('StartProcessComponent', () => {
         CoreModule.forRoot(),
         ContentModule.forRoot(),
         ProcessModule.forRoot(),
+        TranslateModule.forRoot({
+            loader: { provide: TranslateLoader, useClass: TranslateLoaderService }
+        })
       ],
       declarations: [StartProcessComponent],
       providers: [
