@@ -8,10 +8,14 @@ eval DIFFERENT_JS_API=false
 eval AUTO=false
 
 eval projects=( "adf-cli-acs-aps-template"
+"adf-cli-activiti-acs-aps2-template"
+"adf-cli-activiti-aps2-template"
     "adf-cli-acs-template"
     "adf-cli-aps-template" )
 
 eval libs=( "core"
+    "extensions"
+    "process-services-cloud"
     "content-services"
     "process-services"
     "insights" )
@@ -43,7 +47,7 @@ last_alpha_mode() {
     echo "====== version lib ${VERSION} ====="
 
     DIFFERENT_JS_API=true
-    VERSION_JS_API=$(npm view alfresco-js-api@alpha version)
+    VERSION_JS_API=$(npm view @alfresco/js-api@alpha version)
 
     echo "====== version js-api ${DIFFERENT_JS_API} ====="
 }
@@ -55,7 +59,7 @@ last_beta_mode() {
     echo "====== version lib ${VERSION} ====="
 
     DIFFERENT_JS_API=true
-    VERSION_JS_API=$(npm view alfresco-js-api@beta version)
+    VERSION_JS_API=$(npm view @alfresco/js-api@beta version)
 
     echo "====== version js-api ${DIFFERENT_JS_API} ====="
 }
@@ -104,8 +108,8 @@ update_component_dependency_version(){
 }
 
 update_component_js_version(){
-   echo "====== UPDATE DEPENDENCY VERSION of alfresco-js-api in ${1} to ${2} ======"
-   PACKAGETOCHANGE="alfresco-js-api"
+   echo "====== UPDATE DEPENDENCY VERSION of @alfresco/js-api in ${1} to ${2} ======"
+   PACKAGETOCHANGE="@alfresco\/js-api"
 
    sed "${sedi[@]}" "s/\"${PACKAGETOCHANGE}\": \".*\"/\"${PACKAGETOCHANGE}\": \"${2}\"/g"  ./package.json
    sed "${sedi[@]}" "s/\"${PACKAGETOCHANGE}\": \"~.*\"/\"${PACKAGETOCHANGE}\": \"${2}\"/g"  ./package.json
