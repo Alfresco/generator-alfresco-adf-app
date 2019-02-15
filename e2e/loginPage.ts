@@ -16,34 +16,35 @@
  */
 
 import Util = require('./util');
+import { element, by } from 'protractor';
 
 export class LoginPage {
 
-  header = element(by.css('[data-automation-id="adf-layout-container"]'));
-  signInButton = element(by.id('login-button'));
-  txtUsername = element(by.css('input[id="username"]'));
-  txtPassword = element(by.css('input[id="password"]'));
+    header = element(by.css('[class="adf-alfresco-logo"]'));
+    signInButton = element(by.id('login-button'));
+    txtUsername = element(by.css('input[id="username"]'));
+    txtPassword = element(by.css('input[id="password"]'));
 
-  enterUsername(username) {
-    Util.waitUntilElementIsVisible(this.txtUsername);
-    this.txtUsername.sendKeys('');
-    return this.txtUsername.clear().sendKeys(username);
-  }
+    enterUsername(username) {
+        Util.waitUntilElementIsVisible(this.txtUsername);
+        this.txtUsername.sendKeys('');
+        return this.txtUsername.clear().sendKeys(username);
+    }
 
-  enterPassword(password) {
-    Util.waitUntilElementIsVisible(this.txtPassword);
-    return this.txtPassword.clear().sendKeys(password);
-  }
+    enterPassword(password) {
+        Util.waitUntilElementIsVisible(this.txtPassword);
+        return this.txtPassword.clear().sendKeys(password);
+    }
 
-  clickSignInButton() {
-    Util.waitUntilElementIsVisible(this.signInButton);
-    this.signInButton.click();
-  }
+    clickSignInButton() {
+        Util.waitUntilElementIsVisible(this.signInButton);
+        this.signInButton.click();
+    }
 
-  login(username, password) {
-    this.enterUsername(username);
-    this.enterPassword(password);
-    this.clickSignInButton();
-    return Util.waitUntilElementIsVisible(this.header);
-  }
+    login(username, password) {
+        this.enterUsername(username);
+        this.enterPassword(password);
+        this.clickSignInButton();
+        return Util.waitUntilElementIsVisible(this.header);
+    }
 }
