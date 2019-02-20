@@ -107,9 +107,9 @@ gnu_mode() {
 set_sso_proxy(){
     echo "====== SET SSO PROXY ======"
 
-    sed "${sedi[@]}" "s/\"bpmHost\": \".*\"/\"bpmHost\": \"${HOST_BPM}\"/g" ${DIR}/../app/templates/$FOLDER/src/app.config.json
-    sed "${sedi[@]}" "s/\"identityHost\": \".*\"/\"identityHost\": \"${HOST_IDENTITY}\"/g" ${DIR}/../app/templates/$FOLDER/src/app.config.json
-    sed "${sedi[@]}" "s/\"host\": \".*\"/\"host\": \"${HOST_SSO}\"/g" ${DIR}/../app/templates/$FOLDER/src/app.config.json
+    sed "${sedi[@]}" "s/\"bpmHost\": \".*\"/\"bpmHost\": \"${HOST_BPM}\"/g" app/templates/$FOLDER/src/app.config.json
+    sed "${sedi[@]}" "s/\"identityHost\": \".*\"/\"identityHost\": \"${HOST_IDENTITY}\"/g" app/templates/$FOLDER/src/app.config.json
+    sed "${sedi[@]}" "s/\"host\": \".*\"/\"host\": \"${HOST_SSO}\"/g" app/templates/$FOLDER/src/app.config.json
 }
 
 while [[ $1 == -* ]]; do
