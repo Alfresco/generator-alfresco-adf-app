@@ -16,7 +16,7 @@
  */
 
 import Util = require('./util');
-import { by, element } from 'protractor';
+import { browser, by, element } from 'protractor';
 
 export class LoginPage {
 
@@ -38,13 +38,17 @@ export class LoginPage {
 
   clickSignInButton() {
     Util.waitUntilElementIsVisible(this.signInButton);
-    this.signInButton.click();
+    return this.signInButton.click();
   }
 
   login(username, password) {
+
+    browser.waitForAngularEnabled(false);
+
     this.enterUsername(username);
     this.enterPassword(password);
     this.clickSignInButton();
-    Util.waitUntilElementIsVisible(element(by.tagName('adf-toolbar')));
+
+    Util.waitUntilElementIsVisible(this.header);
   }
 }
