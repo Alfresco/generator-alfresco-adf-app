@@ -1,7 +1,7 @@
 {
-  "name": "adf-cli-aps-template",
+  "name": "adf-cli-activiti-acs-template",
   "version": "3.0.0",
-  "blueprint": "Process Services with APS 1",
+  "blueprint": "Content and Process Services with Activiti 7 / APS 2",
   "description": "APS ADF Application with Angular CLI",
   "license": "MIT",
   "scripts": {
@@ -18,7 +18,7 @@
   "dependencies": {
     "@alfresco/adf-core": "3.0.0",
     "@alfresco/adf-content-services": "3.0.0",
-    "@alfresco/adf-process-services": "3.0.0",
+    "@alfresco/adf-process-services-cloud": "3.0.0",
     "@alfresco/adf-insights": "3.0.0",
     "@alfresco/js-api": "3.0.0",
     "@angular/animations": "7.0.3",
