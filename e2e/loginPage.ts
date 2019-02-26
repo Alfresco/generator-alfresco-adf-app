@@ -16,6 +16,7 @@
  */
 
 import Util = require('./util');
+import { browser, by, element } from 'protractor';
 
 export class LoginPage {
 
@@ -37,13 +38,17 @@ export class LoginPage {
 
   clickSignInButton() {
     Util.waitUntilElementIsVisible(this.signInButton);
-    this.signInButton.click();
+    return this.signInButton.click();
   }
 
   login(username, password) {
+
+    browser.waitForAngularEnabled(false);
+
     this.enterUsername(username);
     this.enterPassword(password);
     this.clickSignInButton();
-    return Util.waitUntilElementIsVisible(this.header);
+
+    Util.waitUntilElementIsVisible(this.header);
   }
 }
