@@ -8,8 +8,8 @@ eval DIFFERENT_JS_API=false
 eval AUTO=false
 
 eval projects=( "adf-cli-acs-aps-template"
-"adf-cli-activiti-acs-aps2-template"
-"adf-cli-activiti-aps2-template"
+    "adf-cli-activiti-acs-template"
+    "adf-cli-activiti-template"
     "adf-cli-acs-template"
     "adf-cli-aps-template" )
 
