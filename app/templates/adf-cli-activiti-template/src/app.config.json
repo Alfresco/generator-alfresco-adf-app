@@ -100,5 +100,6 @@
         "presets": {
             "properties" : [ "description", "assignee", "status", "priority", "created"]
         }
-    }
+    },
+    "alfresco-deployed-apps": []
 }

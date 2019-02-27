@@ -51,6 +51,18 @@ Alternatively you can use generator with install switch to trigger automatic ins
 yo alfresco-adf-app --install
 ```
 
+## Activiti 7
+
+If you are generating a project for activiti7 you need to add in the **app.config.jso** the list of the apps that you desire to use.
+
+For example : 
+
+```json
+  "alfresco-deployed-apps" : [{"name": "simple-app"}]  
+```
+
+For more information about the app list component refer to the [documentation](https://github.com/Alfresco/alfresco-ng2-components/blob/development/docs/process-services-cloud/app-list-cloud.component.md)
+
 ### Using from the command line
 
 You can use the generator in the unattended mode by providing all necessary options from the command line:
