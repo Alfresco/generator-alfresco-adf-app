@@ -1,7 +1,7 @@
 {
   "name": "adf-cli-activiti-template",
   "version": "3.0.0",
-  "blueprint": "Process Services with Activiti 7 / APS 2",
+  "blueprint": "Process Services with Activiti",
   "description": "APS ADF Application with Angular CLI",
   "license": "MIT",
   "scripts": {
