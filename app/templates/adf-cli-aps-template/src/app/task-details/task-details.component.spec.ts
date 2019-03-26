@@ -7,38 +7,40 @@ import { CoreModule, TranslateLoaderService } from '@alfresco/adf-core';
 import { TaskDetailsComponent } from './task-details.component';
 import { AlfrescoApiServiceMock, AlfrescoApiService } from '@alfresco/adf-core';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { PreviewService } from './../../app/services/preview.service';
 
 describe('TaskDetailsComponent', () => {
-  let component: TaskDetailsComponent;
-  let fixture: ComponentFixture<TaskDetailsComponent>;
+    let component: TaskDetailsComponent;
+    let fixture: ComponentFixture<TaskDetailsComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      imports: [
-        BrowserAnimationsModule,
-        RouterTestingModule,
-        CoreModule.forRoot(),
-        ContentModule.forRoot(),
-        ProcessModule.forRoot(),
-        TranslateModule.forRoot({
-            loader: { provide: TranslateLoader, useClass: TranslateLoaderService }
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            imports: [
+                BrowserAnimationsModule,
+                RouterTestingModule,
+                CoreModule.forRoot(),
+                ContentModule.forRoot(),
+                ProcessModule.forRoot(),
+                TranslateModule.forRoot({
+                    loader: { provide: TranslateLoader, useClass: TranslateLoaderService }
+                })
+            ],
+            declarations: [TaskDetailsComponent],
+            providers: [
+                { provide: AlfrescoApiService, useClass: AlfrescoApiServiceMock },
+                PreviewService
+            ]
         })
-      ],
-      declarations: [TaskDetailsComponent],
-      providers: [
-        { provide: AlfrescoApiService, useClass: AlfrescoApiServiceMock }
-      ]
-    })
-      .compileComponents();
-  }));
+            .compileComponents();
+    }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(TaskDetailsComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(TaskDetailsComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should be created', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should be created', () => {
+        expect(component).toBeTruthy();
+    });
 });
