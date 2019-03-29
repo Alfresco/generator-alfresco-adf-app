@@ -9,35 +9,34 @@ import { AlfrescoApiServiceMock, AlfrescoApiService } from '@alfresco/adf-core';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 
 describe('StartProcessComponent', () => {
-  let component: StartProcessComponent;
-  let fixture: ComponentFixture<StartProcessComponent>;
+    let component: StartProcessComponent;
+    let fixture: ComponentFixture<StartProcessComponent>;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      imports: [
-        BrowserAnimationsModule,
-        RouterTestingModule,
-        CoreModule.forRoot(),
-        ContentModule.forRoot(),
-        ProcessModule.forRoot(),
-        TranslateModule.forRoot({
-            loader: { provide: TranslateLoader, useClass: TranslateLoaderService }
-        })
-      ],
-      declarations: [StartProcessComponent],
-      providers: [
-        { provide: AlfrescoApiService, useClass: AlfrescoApiServiceMock }
-      ]
+    beforeEach(() => {
+        TestBed.configureTestingModule({
+            imports: [
+                BrowserAnimationsModule,
+                RouterTestingModule,
+                CoreModule.forRoot(),
+                ContentModule.forRoot(),
+                ProcessModule.forRoot(),
+                TranslateModule.forRoot({
+                    loader: { provide: TranslateLoader, useClass: TranslateLoaderService }
+                })
+            ],
+            declarations: [StartProcessComponent],
+            providers: [
+                { provide: AlfrescoApiService, useClass: AlfrescoApiServiceMock }
+            ]
+        });
     });
-  });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(StartProcessComponent);
-    component = fixture.componentInstance;
-    // fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(StartProcessComponent);
+        component = fixture.componentInstance;
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });
