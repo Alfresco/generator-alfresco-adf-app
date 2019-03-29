@@ -53,7 +53,7 @@ yo alfresco-adf-app --install
 
 ## Activiti 7
 
-If you are generating a project for activiti7 you need to add in the **app.config.jso** the list of the apps that you desire to use.
+If you are generating a project for activiti7 you need to add in the **app.config.json** the list of the apps that you desire to use.
 
 For example : 
 
