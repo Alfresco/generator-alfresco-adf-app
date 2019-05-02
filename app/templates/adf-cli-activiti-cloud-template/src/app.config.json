@@ -1,0 +1,105 @@
+{
+    "$schema": "../node_modules/@alfresco/adf-core/app.config.schema.json",
+    "ecmHost": "{protocol}//{hostname}{:port}",
+    "bpmHost": "http://activiti-cloud-gateway.jx-staging.35.228.195.195.nip.io",
+    "identityHost": "http://activiti-keycloak.jx-staging.35.228.195.195.nip.io/auth/admin/realms/activiti",
+    "providers": "BPM",
+    "application": {
+        "name": "Alfresco ADF Application"
+    },
+    "authType": "OAUTH",
+    "oauth2": {
+        "host": "http://activiti-keycloak.jx-staging.35.228.195.195.nip.io/auth/realms/activiti",
+        "clientId": "activiti",
+        "scope": "openid",
+        "secret": "",
+        "implicitFlow": false,
+        "redirectSilentIframeUri": "{protocol}//{hostname}{:port}/assets/silent-refresh.html",
+        "redirectUri": "/",
+        "redirectUriLogout": "/logout"
+    },
+    "languages": [
+        {
+            "key": "en",
+            "label": "English"
+        },
+        {
+            "key": "fr",
+            "label": "French"
+        },
+        {
+            "key": "de",
+            "label": "German"
+        },
+        {
+            "key": "it",
+            "label": "Italian"
+        },
+        {
+            "key": "es",
+            "label": "Spanish"
+        },
+        {
+            "key": "ja",
+            "label": "Japanese"
+        },
+        {
+            "key": "nl",
+            "label": "Dutch"
+        },
+        {
+            "key": "pt-BR",
+            "label": "Brazilian Portuguese"
+        },
+        {
+            "key": "nb",
+            "label": "Norwegian"
+        },
+        {
+            "key": "ru",
+            "label": "Russian"
+        },
+        {
+            "key": "zh-CN",
+            "label": "Simplified Chinese"
+        }
+    ],
+    "logLevel": "trace",
+    "adf-cloud-task-list": {
+        "presets": {
+            "default": [
+                {
+                    "key": "entry.id",
+                    "type": "text",
+                    "title": "Id",
+                    "sortable": true
+                },
+                {
+                    "key": "entry.name",
+                    "type": "text",
+                    "title": "Name",
+                    "sortable": true,
+                    "cssClass": "full-width name-column ellipsis-cell"
+                },
+                {
+                    "key": "entry.status",
+                    "type": "text",
+                    "title": "Status",
+                    "sortable": true
+                },
+                {
+                    "key": "entry.priority",
+                    "type": "text",
+                    "title": "Priority",
+                    "sortable": true
+                }
+            ]
+        }
+    },
+    "adf-cloud-task-header": {
+        "presets": {
+            "properties" : [ "description", "assignee", "status", "priority", "created"]
+        }
+    },
+    "alfresco-deployed-apps": []
+}
