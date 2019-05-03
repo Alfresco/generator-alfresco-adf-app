@@ -8,7 +8,7 @@ import { TasksComponent } from './tasks.component';
 import { AlfrescoApiServiceMock, AlfrescoApiService } from '@alfresco/adf-core';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 
-describe('TasksComponent', () => {
+fdescribe('TasksComponent', () => {
   let component: TasksComponent;
   let fixture: ComponentFixture<TasksComponent>;
 
@@ -35,7 +35,6 @@ describe('TasksComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(TasksComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should be created', () => {

@@ -9,35 +9,35 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { RouterTestingModule } from '@angular/router/testing';
 
 describe('StartProcessComponent', () => {
-    let component: StartProcessComponent;
-    let fixture: ComponentFixture<StartProcessComponent>;
+  let component: StartProcessComponent;
+  let fixture: ComponentFixture<StartProcessComponent>;
 
-    beforeEach(async(() => {
-        TestBed.configureTestingModule({
-            imports: [
-                BrowserAnimationsModule,
-                RouterTestingModule,
-                CoreModule.forRoot(),
-                ContentModule.forRoot(),
-                ProcessModule.forRoot(),
-                TranslateModule.forRoot({
-                    loader: { provide: TranslateLoader, useClass: TranslateLoaderService }
-                })
-            ],
-            declarations: [StartProcessComponent],
-            providers: [
-                { provide: AlfrescoApiService, useClass: AlfrescoApiServiceMock }
-            ]
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        BrowserAnimationsModule,
+        RouterTestingModule,
+        CoreModule.forRoot(),
+        ContentModule.forRoot(),
+        ProcessModule.forRoot(),
+        TranslateModule.forRoot({
+          loader: { provide: TranslateLoader, useClass: TranslateLoaderService }
         })
-            .compileComponents();
-    }));
+      ],
+      declarations: [StartProcessComponent],
+      providers: [
+        { provide: AlfrescoApiService, useClass: AlfrescoApiServiceMock }
+      ]
+    })
+      .compileComponents();
+  }));
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(StartProcessComponent);
-        component = fixture.componentInstance;
-    });
+  beforeEach(() => {
+    fixture = TestBed.createComponent(StartProcessComponent);
+    component = fixture.componentInstance;
+  });
 
-    it('should create', () => {
-        expect(component).toBeTruthy();
-    });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 });

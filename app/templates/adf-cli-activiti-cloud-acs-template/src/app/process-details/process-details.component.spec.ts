@@ -31,7 +31,6 @@ describe('ProcessDetailsComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ProcessDetailsComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should be created', () => {
