@@ -1,0 +1,27 @@
+<adf-toolbar>
+  <adf-toolbar-title>
+    <adf-breadcrumb
+      class="files-breadcrumb"
+      root="Personal Files"
+      [target]="documentList"
+      [folderNode]="documentList.folderNode">
+    </adf-breadcrumb>
+  </adf-toolbar-title>
+
+  <div class="adf-toolbar--spacer"></div>
+
+  <adf-upload-button
+    [rootFolderId]="documentList.currentFolderId || '-root-'"
+    [adf-check-allowable-operation]="'create'"
+    (success)="uploadSuccess($event)">
+  </adf-upload-button>
+
+</adf-toolbar>
+
+<adf-document-list
+  #documentList
+  currentFolderId="-root-"
+  (preview)="showPreview($event)">
+</adf-document-list>
+
+<adf-file-uploading-dialog></adf-file-uploading-dialog>

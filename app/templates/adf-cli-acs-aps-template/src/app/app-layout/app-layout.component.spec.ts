@@ -36,7 +36,6 @@ describe('AppLayoutComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(AppLayoutComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
