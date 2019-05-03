@@ -35,36 +35,35 @@ export const appRoutes: Routes = [
     path: '',
     component: AppLayoutComponent,
     children: [
-              {
-                  path: '',
-                  component: HomeComponent
-              },
-              {
-                path: 'home',
-                component: HomeComponent
-            },
-              {
-                path: 'apps',
-                component: AppsComponent,
-                canActivate: [ AuthGuardBpm ]
-              },
-              {
-                path: 'apps/:appName/tasks',
-                component: TasksComponent,
-                canActivate: [ AuthGuardBpm ]
-              },
-              {
-                path: 'apps/:appName/tasks/:taskId',
-                component: TaskDetailsComponent,
-                canActivate: [ AuthGuardBpm ]
-              },
-              {
-                path: 'apps/:appName/start-process',
-                component: StartProcessComponent,
-                canActivate: [ AuthGuardBpm ]
-              }
-
-          ]
+      {
+        path: '',
+        component: HomeComponent
+      },
+      {
+        path: 'home',
+        component: HomeComponent
+      },
+      {
+        path: 'apps',
+        component: AppsComponent,
+        canActivate: [AuthGuardBpm]
+      },
+      {
+        path: 'apps/:appName/tasks',
+        component: TasksComponent,
+        canActivate: [AuthGuardBpm]
+      },
+      {
+        path: 'apps/:appName/tasks/:taskId',
+        component: TaskDetailsComponent,
+        canActivate: [AuthGuardBpm]
+      },
+      {
+        path: 'apps/:appName/start-process',
+        component: StartProcessComponent,
+        canActivate: [AuthGuardBpm]
+      }
+    ]
   },
   {
     path: 'login',

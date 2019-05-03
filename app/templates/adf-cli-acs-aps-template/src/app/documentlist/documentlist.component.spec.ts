@@ -40,7 +40,6 @@ describe('DocumentlistComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(DocumentlistComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should be created', () => {

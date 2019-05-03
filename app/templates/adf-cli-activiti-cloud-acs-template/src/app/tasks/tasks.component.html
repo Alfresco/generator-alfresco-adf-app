@@ -1,0 +1,25 @@
+<h3>Tasks</h3>
+
+<button
+    mat-raised-button
+    routerLink="/community/start-task"
+    color="primary">
+    Start new task
+</button>
+
+<adf-cloud-task-list
+    (rowClick)="onTaskRowClick($event)">
+</adf-cloud-task-list>
+
+<h3>Processes</h3>
+
+<button
+    mat-raised-button
+    routerLink="/community/start-process"
+    color="primary">
+    Start new process
+</button>
+
+<adf-cloud-process-list
+    (rowClick)="onProcessRowClick($event)">
+</adf-cloud-process-list>

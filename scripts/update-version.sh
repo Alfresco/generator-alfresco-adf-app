@@ -10,6 +10,8 @@ eval AUTO=false
 eval projects=( "adf-cli-acs-aps-template"
     "adf-cli-activiti-acs-template"
     "adf-cli-activiti-template"
+    "adf-cli-activiti-cloud-acs-template"
+    "adf-cli-activiti-cloud-template"
     "adf-cli-acs-template"
     "adf-cli-aps-template" )
 
