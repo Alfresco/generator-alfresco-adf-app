@@ -17,8 +17,8 @@ addons:
       packages:
         - xvfb
 before_script:
-    - "sudo chown root /opt/google/chrome/chrome-sandbox"
-    - "sudo chmod 4755 /opt/google/chrome/chrome-sandbox"
+    # - "sudo chown root /opt/google/chrome/chrome-sandbox"
+    # - "sudo chmod 4755 /opt/google/chrome/chrome-sandbox"
 
 before_install:
     - export CHROME_BIN=chromium-browser
