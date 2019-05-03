@@ -19,6 +19,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { TaskDetailsComponent } from './task-details/task-details.component';
+import { ProcessDetailsComponent } from './process-details/process-details.component';
 import { StartProcessComponent } from './start-process/start-process.component';
 import { FileViewComponent } from './file-view/file-view.component';
 import { BlobViewComponent } from './file-view/blob-view.component';
@@ -51,6 +52,7 @@ import { StartTaskComponent } from './start-task/start-task.component';
         HomeComponent,
         LoginComponent,
         TasksComponent,
+        ProcessDetailsComponent,
         TaskDetailsComponent,
         StartProcessComponent,
         StartTaskComponent,
