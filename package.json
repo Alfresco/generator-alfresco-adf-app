@@ -24,7 +24,7 @@
     "jasmine-spec-reporter": "~4.2.1",
     "jest": "^24.8.0",
     "jest-cli": "^24.8.0",
-    "lite-server": "^2.4.0",
+    "lite-server": "^2.5.3",
     "protractor": "^5.4.0",
     "rimraf": "2.6.2",
     "ts-node": "~4.1.0",
