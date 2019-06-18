@@ -1,15 +1,15 @@
 {
     "$schema": "../node_modules/@alfresco/adf-core/app.config.schema.json",
     "ecmHost": "{protocol}//{hostname}{:port}",
-    "bpmHost": "http://activiti-cloud-gateway.jx-staging.35.228.195.195.nip.io",
-    "identityHost": "http://activiti-keycloak.jx-staging.35.228.195.195.nip.io/auth/admin/realms/activiti",
+    "bpmHost": "{protocol}//{hostname}{:port}",
+    "identityHost": "{protocol}//{hostname}{:port}/auth/admin/realms/activiti",
     "providers": "BPM",
     "application": {
         "name": "Alfresco ADF Application"
     },
     "authType": "OAUTH",
     "oauth2": {
-        "host": "http://activiti-keycloak.jx-staging.35.228.195.195.nip.io/auth/realms/activiti",
+        "host": "{protocol}//{hostname}{:port}/auth/realms/activiti",
         "clientId": "activiti",
         "scope": "openid",
         "secret": "",
