@@ -43,7 +43,7 @@ describe('Content Services Viewer', () => {
 
     browser.driver.get(loginURL);
 
-    loginPage.login(TestConfig.adf.adminEmail, TestConfig.adf.adminPassword);
+    await loginPage.login(TestConfig.adf.adminEmail, TestConfig.adf.adminPassword);
 
     done();
   });
