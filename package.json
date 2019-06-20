@@ -11,7 +11,7 @@
   "dependencies": {
     "alfresco-logo": "1.0.1",
     "generator-alfresco-common": "0.9.27",
-    "generator-license": "5.4.0",
+    "generator-license": "^5.4.0",
     "yeoman-generator": "4.0.1"
   },
   "devDependencies": {
