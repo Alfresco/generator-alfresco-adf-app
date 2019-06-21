@@ -16,7 +16,7 @@ import {
 } from '@alfresco/adf-core';
 
 describe('AppComponent', () => {
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
@@ -36,12 +36,12 @@ describe('AppComponent', () => {
         { provide: TranslationService, useClass: TranslationMock }
     ]
     }).compileComponents();
-  }));
+  });
 
-  it('should create the app', async(() => {
+  it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     fixture.detectChanges();
     expect(app).toBeTruthy();
-  }));
+  });
 });
