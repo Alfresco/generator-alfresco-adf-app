@@ -3,7 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ContentModule } from '@alfresco/adf-content-services';
 import { ProcessModule } from '@alfresco/adf-process-services';
-import { CoreModule, TranslateLoaderService } from '@alfresco/adf-core';
+import { CoreModule, TranslateLoaderService, AppConfigService, AppConfigServiceMock } from '@alfresco/adf-core';
 import { StartProcessComponent } from './start-process.component';
 import { AlfrescoApiServiceMock, AlfrescoApiService } from '@alfresco/adf-core';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -26,7 +26,8 @@ describe('StartProcessComponent', () => {
             ],
             declarations: [StartProcessComponent],
             providers: [
-                { provide: AlfrescoApiService, useClass: AlfrescoApiServiceMock }
+                { provide: AlfrescoApiService, useClass: AlfrescoApiServiceMock },
+                { provide: AppConfigService, useClass: AppConfigServiceMock }
             ]
         });
     });
@@ -37,6 +38,6 @@ describe('StartProcessComponent', () => {
     });
 
     it('should create', () => {
-        expect(component).toBeTruthy();
+      expect(component).toBeTruthy();
     });
 });

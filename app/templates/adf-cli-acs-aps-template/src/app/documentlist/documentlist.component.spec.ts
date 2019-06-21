@@ -3,7 +3,7 @@ import { Location } from '@angular/common';
 import { SpyLocation } from '@angular/common/testing';
 import { ContentModule } from '@alfresco/adf-content-services';
 import { ProcessModule } from '@alfresco/adf-process-services';
-import { CoreModule, TranslateLoaderService } from '@alfresco/adf-core';
+import { CoreModule, TranslateLoaderService, AppConfigService, AppConfigServiceMock } from '@alfresco/adf-core';
 import { DocumentlistComponent } from './documentlist.component';
 import { PreviewService } from '../services/preview.service';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -31,6 +31,7 @@ describe('DocumentlistComponent', () => {
       providers: [
         PreviewService,
         { provide: AlfrescoApiService, useClass: AlfrescoApiServiceMock },
+        { provide: AppConfigService, useClass: AppConfigServiceMock },
         { provide: Location, useClass: SpyLocation }
       ]
     })
@@ -43,6 +44,7 @@ describe('DocumentlistComponent', () => {
   });
 
   it('should be created', () => {
+    fixture.detectChanges();
     expect(component).toBeTruthy();
   });
 });

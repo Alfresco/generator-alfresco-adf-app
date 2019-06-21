@@ -3,7 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ContentModule } from '@alfresco/adf-content-services';
 import { ProcessServicesCloudModule } from '@alfresco/adf-process-services-cloud';
-import { CoreModule } from '@alfresco/adf-core';
+import { CoreModule, AppConfigService, AppConfigServiceMock } from '@alfresco/adf-core';
 import { StartProcessComponent } from './start-process.component';
 import { AlfrescoApiServiceMock, AlfrescoApiService } from '@alfresco/adf-core';
 
@@ -22,7 +22,8 @@ describe('StartProcessComponent', () => {
       ],
       declarations: [StartProcessComponent],
       providers: [
-        { provide: AlfrescoApiService, useClass: AlfrescoApiServiceMock }
+        { provide: AlfrescoApiService, useClass: AlfrescoApiServiceMock },
+        { provide: AppConfigService, useClass: AppConfigServiceMock }
       ]
     })
       .compileComponents();
@@ -34,6 +35,7 @@ describe('StartProcessComponent', () => {
   });
 
   it('should create', () => {
+    fixture.detectChanges();
     expect(component).toBeTruthy();
   });
 });

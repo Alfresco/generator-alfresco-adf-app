@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ContentModule } from '@alfresco/adf-content-services';
 import { ProcessModule } from '@alfresco/adf-process-services';
-import { CoreModule, TranslateLoaderService } from '@alfresco/adf-core';
+import { CoreModule, TranslateLoaderService, AppConfigService, AppConfigServiceMock } from '@alfresco/adf-core';
 
 import { AppLayoutComponent } from './app-layout.component';
 import { AlfrescoApiServiceMock, AlfrescoApiService } from '@alfresco/adf-core';
@@ -28,7 +28,8 @@ describe('AppLayoutComponent', () => {
       ],
       declarations: [AppLayoutComponent],
       providers: [
-        { provide: AlfrescoApiService, useClass: AlfrescoApiServiceMock }
+        { provide: AlfrescoApiService, useClass: AlfrescoApiServiceMock },
+        { provide: AppConfigService, useClass: AppConfigServiceMock }
       ]
     })
       .compileComponents();
@@ -40,6 +41,7 @@ describe('AppLayoutComponent', () => {
   });
 
   it('should create', () => {
+    fixture.detectChanges();
     expect(component).toBeTruthy();
   });
 });

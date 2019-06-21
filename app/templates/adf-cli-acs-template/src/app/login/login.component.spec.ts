@@ -2,7 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login.component';
-import { AlfrescoApiService, AlfrescoApiServiceMock, CoreModule, TranslateLoaderService } from '@alfresco/adf-core';
+import { AlfrescoApiService, AlfrescoApiServiceMock, CoreModule, TranslateLoaderService,
+  AppConfigService, AppConfigServiceMock } from '@alfresco/adf-core';
 import { ContentModule } from '@alfresco/adf-content-services';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 
@@ -22,7 +23,8 @@ describe('LoginComponent', () => {
         })
       ],
       providers: [
-        { provide: AlfrescoApiService, useClass: AlfrescoApiServiceMock }
+        { provide: AlfrescoApiService, useClass: AlfrescoApiServiceMock },
+        { provide: AppConfigService, useClass: AppConfigServiceMock }
      ],
       declarations: [ LoginComponent ]
     })
@@ -35,6 +37,7 @@ describe('LoginComponent', () => {
   });
 
   it('should be created', () => {
+    fixture.detectChanges();
     expect(component).toBeTruthy();
   });
 });

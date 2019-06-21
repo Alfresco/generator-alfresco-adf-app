@@ -18,7 +18,6 @@ export class DocumentlistComponent {
   documentList: DocumentListComponent;
 
   constructor(private notificationService: NotificationService, private preview: PreviewService) {
-
   }
 
   uploadSuccess(event: any) {

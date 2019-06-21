@@ -3,7 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ContentModule } from '@alfresco/adf-content-services';
 import { ProcessModule } from '@alfresco/adf-process-services';
-import { CoreModule, TranslateLoaderService } from '@alfresco/adf-core';
+import { CoreModule, TranslateLoaderService, AppConfigService, AppConfigServiceMock } from '@alfresco/adf-core';
 import { TaskDetailsComponent } from './task-details.component';
 import { AlfrescoApiServiceMock, AlfrescoApiService } from '@alfresco/adf-core';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -28,6 +28,7 @@ describe('TaskDetailsComponent', () => {
             declarations: [TaskDetailsComponent],
             providers: [
                 { provide: AlfrescoApiService, useClass: AlfrescoApiServiceMock },
+                { provide: AppConfigService, useClass: AppConfigServiceMock },
                 PreviewService
             ]
         })
@@ -40,6 +41,7 @@ describe('TaskDetailsComponent', () => {
     });
 
     it('should be created', () => {
-        expect(component).toBeTruthy();
+      fixture.detectChanges();
+      expect(component).toBeTruthy();
     });
 });
