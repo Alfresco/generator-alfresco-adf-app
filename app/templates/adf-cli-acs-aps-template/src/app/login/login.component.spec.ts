@@ -33,10 +33,10 @@ describe('LoginComponent', () => {
     .compileComponents();
   }));
 
-  beforeEach(() => {
+  beforeEach(async(() => {
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
-  });
+  }));
 
   it('should be created', () => {
     fixture.detectChanges();

@@ -34,10 +34,10 @@ describe('AppLayoutComponent', () => {
       .compileComponents();
   }));
 
-  beforeEach(() => {
+  beforeEach(async(() => {
     fixture = TestBed.createComponent(AppLayoutComponent);
     component = fixture.componentInstance;
-  });
+  }));
 
   it('should create', () => {
     fixture.detectChanges();

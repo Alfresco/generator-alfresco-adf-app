@@ -38,10 +38,10 @@ describe('DocumentlistComponent', () => {
       .compileComponents();
   }));
 
-  beforeEach(() => {
+  beforeEach(async(() => {
     fixture = TestBed.createComponent(DocumentlistComponent);
     component = fixture.componentInstance;
-  });
+  }));
 
   it('should be created', () => {
     fixture.detectChanges();

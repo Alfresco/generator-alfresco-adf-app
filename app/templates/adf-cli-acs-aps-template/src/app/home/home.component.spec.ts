@@ -16,10 +16,10 @@ describe('HomeComponent', () => {
     .compileComponents();
   }));
 
-  beforeEach(() => {
+  beforeEach(async(() => {
     fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
-  });
+  }));
 
   it('should be created', () => {
     fixture.detectChanges();
