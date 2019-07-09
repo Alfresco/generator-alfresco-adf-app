@@ -1,17 +1,23 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ContentModule } from '@alfresco/adf-content-services';
 import { ProcessModule } from '@alfresco/adf-process-services';
-import { CoreModule, TranslateLoaderService } from '@alfresco/adf-core';
+import { CoreModule, TranslateLoaderService, AlfrescoApiService,
+  AlfrescoApiServiceMock, AppConfigService, AppConfigServiceMock } from '@alfresco/adf-core';
 
 import { AppComponent } from './app.component';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('AppComponent', () => {
-  beforeEach(async(() => {
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
+        BrowserAnimationsModule,
         CoreModule.forRoot(),
         ContentModule.forRoot(),
         ProcessModule.forRoot(),
@@ -19,16 +25,18 @@ describe('AppComponent', () => {
             loader: { provide: TranslateLoader, useClass: TranslateLoaderService }
         })
       ],
-      declarations: [
-        AppComponent
-      ],
-    }).compileComponents();
-  }));
-
-  it('should create the app', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
+      declarations: [AppComponent],
+      providers: [
+        { provide: AlfrescoApiService, useClass: AlfrescoApiServiceMock },
+        { provide: AppConfigService, useClass: AppConfigServiceMock }
+      ]
+    });
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
     fixture.detectChanges();
-    expect(app).toBeTruthy();
-  }));
+  });
+
+  it('should create', () => {
+    expect(component).toBeDefined();
+  });
 });
