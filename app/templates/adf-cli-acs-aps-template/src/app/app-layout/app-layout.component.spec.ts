@@ -13,7 +13,7 @@ describe('AppLayoutComponent', () => {
   let component: AppLayoutComponent;
   let fixture: ComponentFixture<AppLayoutComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
@@ -30,17 +30,13 @@ describe('AppLayoutComponent', () => {
         { provide: AlfrescoApiService, useClass: AlfrescoApiServiceMock },
         { provide: AppConfigService, useClass: AppConfigServiceMock }
       ]
-    })
-      .compileComponents();
-  }));
-
-  beforeEach(async(() => {
+    });
     fixture = TestBed.createComponent(AppLayoutComponent);
     component = fixture.componentInstance;
-  }));
+    fixture.detectChanges();
+  });
 
   it('should create', () => {
-    fixture.detectChanges();
-    expect(component).toBeTruthy();
+    expect(component).toBeDefined();
   });
 });
