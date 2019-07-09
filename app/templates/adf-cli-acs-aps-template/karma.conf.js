@@ -3,7 +3,7 @@
 
 module.exports = function(config) {
   config.set({
-    basePath: '',
+    basePath: './',
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
     plugins: [
       require('karma-jasmine'),
@@ -19,6 +19,7 @@ module.exports = function(config) {
       { pattern: './node_modules/@alfresco/adf-content-services/bundles/assets/adf-content-services/i18n/en.json', watched: false, served: true, included: false },
       { pattern: './node_modules/@alfresco/adf-process-services/bundles/assets/adf-process-services/i18n/en.json', watched: false, served: true, included: false }
     ],
+
     proxies: {
       '/assets/adf-core/i18n/en.json': '/base/node_modules/@alfresco/adf-core/bundles/assets/adf-core/i18n/en.json',
       '/assets/adf-core/i18n/en-US.json': '/base/node_modules/@alfresco/adf-core/bundles/assets/adf-core/i18n/en.json',
@@ -38,7 +39,7 @@ module.exports = function(config) {
     reporters: ['progress', 'kjhtml'],
     port: 9876,
     colors: true,
-    logLevel: config.LOG_INFO,
+    logLevel: config.LOG_DEBUG,
     autoWatch: true,
     browsers: ['Chrome'],
     customLaunchers: {
@@ -49,9 +50,9 @@ module.exports = function(config) {
     },
     singleRun: false,
 
-    captureTimeout: 180000,
-    browserDisconnectTimeout: 180000,
-    browserDisconnectTolerance: 3,
-    browserNoActivityTimeout: 300000
+    browserDisconnectTimeout: 200000,
+    browserNoActivityTimeout: 2400000,
+    captureTimeout: 1200000,
+
   });
 };

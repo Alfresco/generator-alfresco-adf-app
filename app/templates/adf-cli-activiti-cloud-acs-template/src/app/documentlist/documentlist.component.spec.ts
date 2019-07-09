@@ -41,6 +41,6 @@ describe('DocumentlistComponent', () => {
 
   it('should be created', () => {
     fixture.detectChanges();
-    expect(component).toBeTruthy();
+    expect(component).toBeDefined();
   });
 });

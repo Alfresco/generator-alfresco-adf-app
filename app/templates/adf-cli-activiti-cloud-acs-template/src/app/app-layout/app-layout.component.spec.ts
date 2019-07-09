@@ -38,6 +38,6 @@ describe('AppLayoutComponent', () => {
 
   it('should create', () => {
     fixture.detectChanges();
-    expect(component).toBeTruthy();
+    expect(component).toBeDefined();
   });
 });
