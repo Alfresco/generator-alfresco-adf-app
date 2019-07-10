@@ -8,11 +8,11 @@ import { LoginComponent } from './login.component';
 import { AlfrescoApiService, AlfrescoApiServiceMock } from '@alfresco/adf-core';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 
-xdescribe('LoginComponent', () => {
+describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
@@ -21,25 +21,21 @@ xdescribe('LoginComponent', () => {
         ContentModule.forRoot(),
         ProcessModule.forRoot(),
         TranslateModule.forRoot({
-            loader: { provide: TranslateLoader, useClass: TranslateLoaderService }
+          loader: { provide: TranslateLoader, useClass: TranslateLoaderService }
         })
       ],
+      declarations: [LoginComponent],
       providers: [
         { provide: AlfrescoApiService, useClass: AlfrescoApiServiceMock },
         { provide: AppConfigService, useClass: AppConfigServiceMock }
-     ],
-      declarations: [ LoginComponent ]
-    })
-    .compileComponents();
-  }));
-
-  beforeEach(async(() => {
+      ]
+    });
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
-  }));
-
-  it('should be created', () => {
     fixture.detectChanges();
-    expect(component).toBeTruthy();
+  });
+
+  it('should create', () => {
+    expect(component).toBeDefined();
   });
 });

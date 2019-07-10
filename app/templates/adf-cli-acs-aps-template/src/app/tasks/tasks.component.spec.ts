@@ -8,19 +8,19 @@ import { TasksComponent } from './tasks.component';
 import { AlfrescoApiServiceMock, AlfrescoApiService } from '@alfresco/adf-core';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 
-xdescribe('TasksComponent', () => {
+describe('TasksComponent', () => {
   let component: TasksComponent;
   let fixture: ComponentFixture<TasksComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
-        BrowserAnimationsModule,
         RouterTestingModule,
+        BrowserAnimationsModule,
         CoreModule.forRoot(),
         ProcessModule.forRoot(),
         TranslateModule.forRoot({
-            loader: { provide: TranslateLoader, useClass: TranslateLoaderService }
+          loader: { provide: TranslateLoader, useClass: TranslateLoaderService }
         })
       ],
       declarations: [TasksComponent],
@@ -29,14 +29,12 @@ xdescribe('TasksComponent', () => {
         { provide: AppConfigService, useClass: AppConfigServiceMock }
       ]
     });
-  }));
-
-  beforeEach(() => {
     fixture = TestBed.createComponent(TasksComponent);
     component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
-  it('should be created', () => {
-    expect(component).toBeTruthy();
+  it('should create', () => {
+    expect(component).toBeDefined();
   });
 });

@@ -7,16 +7,15 @@ import { CoreModule, TranslateLoaderService, AppConfigService, AppConfigServiceM
 import { DocumentlistComponent } from './documentlist.component';
 import { PreviewService } from '../services/preview.service';
 import { RouterTestingModule } from '@angular/router/testing';
-
 import { AlfrescoApiServiceMock, AlfrescoApiService } from '@alfresco/adf-core';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 
 
-xdescribe('DocumentlistComponent', () => {
+describe('DocumentlistComponent', () => {
   let component: DocumentlistComponent;
   let fixture: ComponentFixture<DocumentlistComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
@@ -34,14 +33,11 @@ xdescribe('DocumentlistComponent', () => {
         { provide: AppConfigService, useClass: AppConfigServiceMock },
         { provide: Location, useClass: SpyLocation }
       ]
-    })
-      .compileComponents();
-  }));
+    });
 
-  beforeEach(async(() => {
     fixture = TestBed.createComponent(DocumentlistComponent);
     component = fixture.componentInstance;
-  }));
+  });
 
   it('should be created', () => {
     fixture.detectChanges();

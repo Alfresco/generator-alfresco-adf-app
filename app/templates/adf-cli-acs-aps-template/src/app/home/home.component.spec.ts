@@ -2,27 +2,23 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home.component';
 
-xdescribe('HomeComponent', () => {
+describe('HomeComponent', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
         BrowserAnimationsModule
       ],
       declarations: [ HomeComponent ]
-    })
-    .compileComponents();
-  }));
-
-  beforeEach(async(() => {
+    });
     fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
-  }));
-
-  it('should be created', () => {
     fixture.detectChanges();
-    expect(component).toBeTruthy();
+  });
+
+  it('should create', () => {
+    expect(component).toBeDefined();
   });
 });
