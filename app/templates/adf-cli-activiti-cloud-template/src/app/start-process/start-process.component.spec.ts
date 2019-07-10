@@ -1,45 +1,40 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ProcessServicesCloudModule, StartProcessCloudService } from '@alfresco/adf-process-services-cloud';
-import { CoreModule } from '@alfresco/adf-core';
+import { ProcessServicesCloudModule } from '@alfresco/adf-process-services-cloud';
+import { CoreModule, TranslateLoaderService } from '@alfresco/adf-core';
 import { StartProcessComponent } from './start-process.component';
 import { AlfrescoApiServiceMock, AlfrescoApiService, AppConfigService, AppConfigServiceMock } from '@alfresco/adf-core';
-import { of } from 'rxjs';
+import { ContentModule } from '@alfresco/adf-content-services';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 
 describe('StartProcessComponent', () => {
   let component: StartProcessComponent;
-  let startProcessCloudService: StartProcessCloudService;
   let fixture: ComponentFixture<StartProcessComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
-        BrowserAnimationsModule,
         RouterTestingModule,
+        BrowserAnimationsModule,
         CoreModule.forRoot(),
-        ProcessServicesCloudModule
+        ContentModule.forRoot(),
+        ProcessServicesCloudModule,
+        TranslateModule.forRoot({
+          loader: { provide: TranslateLoader, useClass: TranslateLoaderService }
+        })
       ],
       declarations: [StartProcessComponent],
       providers: [
-        StartProcessCloudService,
         { provide: AlfrescoApiService, useClass: AlfrescoApiServiceMock },
         { provide: AppConfigService, useClass: AppConfigServiceMock }
       ]
-    })
-      .compileComponents();
-  }));
-
-  beforeEach(() => {
+    });
     fixture = TestBed.createComponent(StartProcessComponent);
     component = fixture.componentInstance;
-    startProcessCloudService = TestBed.get(StartProcessCloudService);
-    spyOn(startProcessCloudService, 'getProcessDefinitions').and.returnValue(of([]));
-    spyOn(startProcessCloudService, 'startProcess').and.returnValue(of([]));
   });
 
   it('should create', () => {
-    fixture.detectChanges();
-    expect(component).toBeTruthy();
+    expect(component).toBeDefined();
   });
 });

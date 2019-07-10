@@ -1,12 +1,14 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { DocumentlistComponent } from './documentlist.component';
 import { PreviewService } from '../services/preview.service';
-import { AlfrescoApiServiceMock, AlfrescoApiService, CoreModule, NotificationService } from '@alfresco/adf-core';
+import { AlfrescoApiServiceMock, AlfrescoApiService, CoreModule, NotificationService,
+  TranslateLoaderService, AppConfigService, AppConfigServiceMock } from '@alfresco/adf-core';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ContentModule, DocumentListService } from '@alfresco/adf-content-services';
 import { of } from 'rxjs/internal/observable/of';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 
 describe('DocumentlistComponent', () => {
   let component: DocumentlistComponent;
@@ -17,34 +19,34 @@ describe('DocumentlistComponent', () => {
     openSnackMessage: jasmine.createSpy('openSnackMessage')
 };
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
-        NoopAnimationsModule,
         RouterTestingModule,
+        BrowserAnimationsModule,
         CoreModule.forRoot(),
-        ContentModule.forRoot()
+        ContentModule.forRoot(),
+        TranslateModule.forRoot({
+          loader: { provide: TranslateLoader, useClass: TranslateLoaderService }
+        })
       ],
       declarations: [DocumentlistComponent],
       providers: [
         PreviewService,
         { provide: NotificationService, useValue: notificationServiceMock },
         { provide: AlfrescoApiService, useClass: AlfrescoApiServiceMock },
+        { provide: AppConfigService, useClass: AppConfigServiceMock }
       ]
-    })
-      .compileComponents();
-  }));
-
-  beforeEach(() => {
+    });
     fixture = TestBed.createComponent(DocumentlistComponent);
     documentListService = TestBed.get(DocumentListService);
     component = fixture.componentInstance;
-
     spyOn(documentListService, 'loadFolderByNodeId').and.returnValue(of([]));
+
+    fixture.detectChanges();
   });
 
-  it('should be created', () => {
-    fixture.detectChanges();
-    expect(component).toBeTruthy();
+  it('should create', () => {
+    expect(component).toBeDefined();
   });
 });

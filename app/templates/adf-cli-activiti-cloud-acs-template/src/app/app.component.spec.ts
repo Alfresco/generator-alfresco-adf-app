@@ -1,4 +1,4 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ContentModule } from '@alfresco/adf-content-services';
 import { AppComponent } from './app.component';
@@ -10,37 +10,38 @@ import {
     AlfrescoApiService,
     AlfrescoApiServiceMock,
     AppConfigService,
-    AppConfigServiceMock,
-    TranslationService,
-    TranslationMock
+    AppConfigServiceMock
 } from '@alfresco/adf-core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('AppComponent', () => {
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
+        BrowserAnimationsModule,
         CoreModule.forRoot(),
         ContentModule.forRoot(),
         ProcessServicesCloudModule,
         TranslateModule.forRoot({
-            loader: { provide: TranslateLoader, useClass: TranslateLoaderService }
+          loader: { provide: TranslateLoader, useClass: TranslateLoaderService }
         })
       ],
-      declarations: [
-        AppComponent
-      ],
+      declarations: [AppComponent],
       providers: [
         { provide: AlfrescoApiService, useClass: AlfrescoApiServiceMock },
-        { provide: AppConfigService, useClass: AppConfigServiceMock },
-        { provide: TranslationService, useClass: TranslationMock }
-    ]
-    }).compileComponents();
+        { provide: AppConfigService, useClass: AppConfigServiceMock }
+      ]
+    });
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeDefined();
+  it('should create', () => {
+    expect(component).toBeDefined();
   });
 });

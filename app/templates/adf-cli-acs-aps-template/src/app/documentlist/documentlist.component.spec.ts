@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Location } from '@angular/common';
 import { SpyLocation } from '@angular/common/testing';
 import { ContentModule } from '@alfresco/adf-content-services';
@@ -9,7 +9,6 @@ import { PreviewService } from '../services/preview.service';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AlfrescoApiServiceMock, AlfrescoApiService } from '@alfresco/adf-core';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-
 
 describe('DocumentlistComponent', () => {
   let component: DocumentlistComponent;

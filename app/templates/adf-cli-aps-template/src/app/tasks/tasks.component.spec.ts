@@ -1,7 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ContentModule } from '@alfresco/adf-content-services';
 import { ProcessModule } from '@alfresco/adf-process-services';
 import { CoreModule, TranslateLoaderService, AppConfigService, AppConfigServiceMock } from '@alfresco/adf-core';
 import { TasksComponent } from './tasks.component';
@@ -12,16 +11,15 @@ describe('TasksComponent', () => {
   let component: TasksComponent;
   let fixture: ComponentFixture<TasksComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
-        BrowserAnimationsModule,
         RouterTestingModule,
+        BrowserAnimationsModule,
         CoreModule.forRoot(),
-        ContentModule.forRoot(),
         ProcessModule.forRoot(),
         TranslateModule.forRoot({
-            loader: { provide: TranslateLoader, useClass: TranslateLoaderService }
+          loader: { provide: TranslateLoader, useClass: TranslateLoaderService }
         })
       ],
       declarations: [TasksComponent],
@@ -29,17 +27,13 @@ describe('TasksComponent', () => {
         { provide: AlfrescoApiService, useClass: AlfrescoApiServiceMock },
         { provide: AppConfigService, useClass: AppConfigServiceMock }
       ]
-    })
-      .compileComponents();
-  }));
-
-  beforeEach(() => {
+    });
     fixture = TestBed.createComponent(TasksComponent);
     component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
-  it('should be created', () => {
-    fixture.detectChanges();
-    expect(component).toBeTruthy();
+  it('should create', () => {
+    expect(component).toBeDefined();
   });
 });
