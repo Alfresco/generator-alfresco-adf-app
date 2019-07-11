@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ContentModule } from '@alfresco/adf-content-services';
 import { ProcessModule } from '@alfresco/adf-process-services';
-import { CoreModule, TranslateLoaderService } from '@alfresco/adf-core';
+import { CoreModule, TranslateLoaderService, AppConfigService, AppConfigServiceMock } from '@alfresco/adf-core';
 import { StartProcessComponent } from './start-process.component';
 import { AlfrescoApiServiceMock, AlfrescoApiService } from '@alfresco/adf-core';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -12,11 +12,11 @@ describe('StartProcessComponent', () => {
   let component: StartProcessComponent;
   let fixture: ComponentFixture<StartProcessComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
-        BrowserAnimationsModule,
         RouterTestingModule,
+        BrowserAnimationsModule,
         CoreModule.forRoot(),
         ContentModule.forRoot(),
         ProcessModule.forRoot(),
@@ -26,18 +26,15 @@ describe('StartProcessComponent', () => {
       ],
       declarations: [StartProcessComponent],
       providers: [
-        { provide: AlfrescoApiService, useClass: AlfrescoApiServiceMock }
+        { provide: AlfrescoApiService, useClass: AlfrescoApiServiceMock },
+        { provide: AppConfigService, useClass: AppConfigServiceMock }
       ]
-    })
-      .compileComponents();
-  }));
-
-  beforeEach(() => {
+    });
     fixture = TestBed.createComponent(StartProcessComponent);
     component = fixture.componentInstance;
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(component).toBeDefined();
   });
 });

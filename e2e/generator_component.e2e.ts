@@ -52,7 +52,7 @@ describe('Content Services Viewer', () => {
 
     browser.driver.get(loginURL);
 
-    loginPage.login(TestConfig.adf.adminEmail, TestConfig.adf.adminPassword);
+    await loginPage.login(TestConfig.adf.adminEmail, TestConfig.adf.adminPassword);
 
     done();
   });
@@ -67,7 +67,6 @@ describe('Content Services Viewer', () => {
 
     viewerPage.checkFileContent('1', pdfFile.firstPageText);
     viewerPage.checkCloseButtonIsDisplayed();
-
 
     viewerPage.clickCloseButton();
   });

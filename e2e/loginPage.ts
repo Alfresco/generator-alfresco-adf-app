@@ -28,12 +28,14 @@ export class LoginPage {
   enterUsername(username) {
     Util.waitUntilElementIsVisible(this.txtUsername);
     this.txtUsername.sendKeys('');
-    return this.txtUsername.clear().sendKeys(username);
+    this.txtUsername.clear();
+    return this.txtUsername.sendKeys(username);
   }
 
   enterPassword(password) {
     Util.waitUntilElementIsVisible(this.txtPassword);
-    return this.txtPassword.clear().sendKeys(password);
+    this.txtPassword.clear();
+    return this.txtPassword.sendKeys(password);
   }
 
   clickSignInButton() {
@@ -41,7 +43,7 @@ export class LoginPage {
     return this.signInButton.click();
   }
 
-  login(username, password) {
+  async login(username, password) {
 
     browser.waitForAngularEnabled(false);
 
@@ -49,6 +51,6 @@ export class LoginPage {
     this.enterPassword(password);
     this.clickSignInButton();
 
-    Util.waitUntilElementIsVisible(this.header);
+    return Util.waitUntilElementIsVisible(this.header);
   }
 }

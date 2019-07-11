@@ -1,39 +1,40 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ContentModule } from '@alfresco/adf-content-services';
 import { ProcessServicesCloudModule } from '@alfresco/adf-process-services-cloud';
-import { CoreModule } from '@alfresco/adf-core';
+import { CoreModule, TranslateLoaderService } from '@alfresco/adf-core';
 import { StartProcessComponent } from './start-process.component';
-import { AlfrescoApiServiceMock, AlfrescoApiService } from '@alfresco/adf-core';
+import { AlfrescoApiServiceMock, AlfrescoApiService, AppConfigService, AppConfigServiceMock } from '@alfresco/adf-core';
+import { ContentModule } from '@alfresco/adf-content-services';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 
 describe('StartProcessComponent', () => {
   let component: StartProcessComponent;
   let fixture: ComponentFixture<StartProcessComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
-        BrowserAnimationsModule,
         RouterTestingModule,
+        BrowserAnimationsModule,
         CoreModule.forRoot(),
         ContentModule.forRoot(),
-        ProcessServicesCloudModule
+        ProcessServicesCloudModule,
+        TranslateModule.forRoot({
+          loader: { provide: TranslateLoader, useClass: TranslateLoaderService }
+        })
       ],
       declarations: [StartProcessComponent],
       providers: [
-        { provide: AlfrescoApiService, useClass: AlfrescoApiServiceMock }
+        { provide: AlfrescoApiService, useClass: AlfrescoApiServiceMock },
+        { provide: AppConfigService, useClass: AppConfigServiceMock }
       ]
-    })
-      .compileComponents();
-  }));
-
-  beforeEach(() => {
+    });
     fixture = TestBed.createComponent(StartProcessComponent);
     component = fixture.componentInstance;
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(component).toBeDefined();
   });
 });

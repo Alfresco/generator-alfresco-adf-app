@@ -1,33 +1,44 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ContentModule } from '@alfresco/adf-content-services';
 import { ProcessModule } from '@alfresco/adf-process-services';
-import { CoreModule, TranslateLoaderService } from '@alfresco/adf-core';
+import {
+  CoreModule, TranslateLoaderService, AlfrescoApiService,
+  AlfrescoApiServiceMock, AppConfigService, AppConfigServiceMock
+} from '@alfresco/adf-core';
 
 import { AppComponent } from './app.component';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('AppComponent', () => {
-  beforeEach(async(() => {
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
+        BrowserAnimationsModule,
         CoreModule.forRoot(),
         ContentModule.forRoot(),
         ProcessModule.forRoot(),
         TranslateModule.forRoot({
-            loader: { provide: TranslateLoader, useClass: TranslateLoaderService }
+          loader: { provide: TranslateLoader, useClass: TranslateLoaderService }
         })
       ],
-      declarations: [
-        AppComponent
-      ],
-    }).compileComponents();
-  }));
+      declarations: [AppComponent],
+      providers: [
+        { provide: AlfrescoApiService, useClass: AlfrescoApiServiceMock },
+        { provide: AppConfigService, useClass: AppConfigServiceMock }
+      ]
+    });
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
-  it('should create the app', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  }));
+  it('should create', () => {
+    expect(component).toBeDefined();
+  });
 });
