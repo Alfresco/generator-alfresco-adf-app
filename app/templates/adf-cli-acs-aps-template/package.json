@@ -20,7 +20,7 @@
     "@alfresco/adf-content-services": "3.4.0-beta10",
     "@alfresco/adf-process-services": "3.4.0-beta10",
     "@alfresco/adf-insights": "3.4.0-beta10",
-    "@alfresco/js-api": "3.4.0-beta10",
+    "@alfresco/js-api": "3.3.0",
     "@alfresco/adf-extensions": "3.4.0-beta10",
     "@angular/animations": "7.0.3",
     "@angular/cdk": "7.0.3",
