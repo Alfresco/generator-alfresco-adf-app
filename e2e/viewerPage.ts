@@ -16,6 +16,7 @@
  */
 
 import Util = require('./util');
+import { element, by } from 'protractor';
 
 export class ViewerPage {
 
@@ -24,8 +25,8 @@ export class ViewerPage {
   checkFileContent(pageNumber, text) {
     let allPages = element.all(by.css('div[class="canvasWrapper"] > canvas')).first();
     let pageLoaded = element.all(by.css('div[data-page-number="' + pageNumber + '"][data-loaded="true"]')).first();
-    let textLayerLoaded = element.all(by.css('div[data-page-number="' + pageNumber + '"] div[class="textLayer"] > div')).first();
-    let specificText = element.all(by.cssContainingText('div[data-page-number="' + pageNumber + '"] div[class="textLayer"] > div', text)).first();
+    let textLayerLoaded = element.all(by.css('div[data-page-number="' + pageNumber + '"] div[class="textLayer"] > span')).first();
+    let specificText = element.all(by.cssContainingText('div[data-page-number="' + pageNumber + '"] div[class="textLayer"] > span', text)).first();
 
     Util.waitUntilElementIsVisible(allPages);
     Util.waitUntilElementIsVisible(pageLoaded);
