@@ -203,7 +203,25 @@
   },
   "SEARCH": {
     "RESULTS": "検索結果",
-    "NO_RESULT": "一致するアイテムはありません"
+    "NO_RESULT": "一致するアイテムはありません",
+    "FACET_FIELDS": {
+      "TYPE": "1:タイプ",
+      "SIZE": "2:サイズ",
+      "CREATOR": "3:作成者",
+      "MODIFIER": "4:行進者",
+      "CREATED": "5:作成済み"
+    },
+    "FACET_QUERIES": {
+      "MY_FACET_QUERIES": "私のファセットクエリ",
+      "CREATED_THIS_YEAR": "1.今年作成されたもの",
+      "MIMETYPE": "2.タイプ",
+      "XTRASMALL": "3.サイズ: xtra small",
+      "SMALL": "4.サイズ: small",
+      "MEDIUM": "5.サイズ: medium",
+      "LARGE": "6.サイズ: large",
+      "XTRALARGE": "7.サイズ: xtra large",
+      "XXTRALARGE": "8.サイズ: XX large"
+    }
   },
   "SOCIAL": {
     "LIKE": "[いいね!] コンポーネント",
@@ -220,17 +238,21 @@
   },
   "TASK_LIST_DEMO": {
     "ERROR_MESSAGE": {
-      "APP_ID_REQUIRED_ERROR": "アプリケーション ID を挿入する",
+      "APP_ID_REQUIRED_ERROR": "アプリケーション ID を入力してください",
       "APP_ID_TYPE_ERROR": "アプリケーション ID は数字でなければなりません",
-      "NUMBER_TYPE_ERROR": "値は数字でなければなりません"
+      "NUMBER_TYPE_ERROR": "値は数字でなければなりません",
+      "NUMBER_GREATER_THAN": "値は {{ value }} 以上でなければなりません"
     },
     "TOOLTIP_MESSAGE": {
       "START_INPUT": "開始ページ"
     }
   },
   "PROCESS_LIST_DEMO": {
-    "APP_ID_REQUIRED_ERROR": "アプリケーション ID を挿入する",
-    "APP_ID_TYPE_ERROR": "アプリケーション ID は番号でなければなりません"
+    "ERROR_MESSAGE": {
+      "APP_ID_REQUIRED_ERROR": "アプリケーション ID を入力してください",
+      "APP_ID_TYPE_ERROR": "アプリケーション ID は番号でなければなりません",
+      "NUMBER_GREATER_THAN": "値は {{ value }} 以上でなければなりません"
+    }
   },
   "GROUP-TITLE1-TRANSLATION-KEY": "カスタムのタイトル翻訳 1",
   "GROUP-TITLE2-TRANSLATION-KEY": "カスタムのタイトル翻訳 2"
