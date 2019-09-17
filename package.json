@@ -9,6 +9,7 @@
     "lite-server-e2e": "lite-server  -c ./e2e/lite-server-proxy.js"
   },
   "dependencies": {
+    "@alfresco/adf-cli": "3.5.0-beta13",
     "alfresco-logo": "1.0.1",
     "generator-alfresco-common": "0.9.27",
     "generator-license": "^5.4.0",
