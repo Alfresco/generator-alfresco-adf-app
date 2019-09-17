@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { TaskListCloudSortingModel, ProcessListCloudSortingModel } from '@alfresco/adf-process-services-cloud';
 
 @Component({
   selector: 'app-tasks',
@@ -7,6 +8,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./tasks.component.css']
 })
 export class TasksComponent {
+
+  taskListSorting =  [new TaskListCloudSortingModel({ orderBy: 'createdDate', direction: 'DESC' })];
+  processListSorting =  [new ProcessListCloudSortingModel({ orderBy: 'lastModified', direction: 'DESC' })];
 
   constructor(private router: Router) { }
 
