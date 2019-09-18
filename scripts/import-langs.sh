@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
 LANG_ROOT="./i18n"
 
 show_help() {
