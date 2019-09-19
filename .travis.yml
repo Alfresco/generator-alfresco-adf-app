@@ -70,7 +70,6 @@ matrix:
       script: travis_retry ./scripts/test-e2e.sh --proxy $E2E_HOST -host "localhost:4200"  -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_USERNAME" -save --skip-lint -b -f adf-cli-acs-template
     - stage: E2e tests
       name: adf-cli-aps-template
-      before_install:
       script: travis_retry ./scripts/test-e2e.sh --proxy $E2E_HOST -host "localhost:4200"  -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_USERNAME" -save --skip-lint -b -f adf-cli-aps-template --spec sidebar_component.e2e.ts
     - stage: E2e tests
       name: adf-cli-acs-aps-template
