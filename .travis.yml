@@ -27,92 +27,58 @@ matrix:
     - stage: generator
       node_js: "8"
       install: npm install
-      script:
-        - npm run test
+      script: npm run test
     - stage: generator
       node_js: "9"
       install: npm install
-      script:
-        - npm run test
+      script: npm run test
     - stage: generator
       node_js: "10"
       install: npm install
-      script:
-        - npm run test
+      script: npm run test
     - stage: generator
       node_js: "11"
       install: npm install
-      script:
-        - npm run test
+      script: npm run test
 
-
-    - stage: Unit test
-      name: acs
+    #Unit tests
+    - stage: Unit tests
+      name: adf-cli-acs-template
       script: travis_retry cd app/templates/adf-cli-acs-template && npm install && npm test -- --watch=false
     - stage: Unit test
-      name: aps
+      name: adf-cli-aps-template
       script: travis_retry cd app/templates/adf-cli-aps-template && npm install && npm test -- --watch=false
     - stage: Unit test
-      name: acs-aps
-      before_install:
-        - "export DISPLAY=:99.0"
-        - "sh -e /etc/init.d/xvfb start"
+      name: adf-cli-acs-aps-template
       script: travis_retry cd app/templates/adf-cli-acs-aps-template && npm install && npm test -- --watch=false
     - stage: Unit test
-      name: activiti
-      before_install:
-        - "export DISPLAY=:99.0"
-        - "sh -e /etc/init.d/xvfb start"
+      name: adf-cli-activiti-template
       script: travis_retry cd app/templates/adf-cli-activiti-template && npm install && npm test -- --watch=false
     - stage: Unit test
-      name: acs-activiti
-      before_install:
-        - "export DISPLAY=:99.0"
-        - "sh -e /etc/init.d/xvfb start"
+      name: adf-cli-activiti-acs-template
       script: travis_retry cd app/templates/adf-cli-activiti-acs-template && npm install && npm test -- --watch=false
     - stage: Unit test
-      name: acs-activiti-community
-      before_install:
-        - "export DISPLAY=:99.0"
-        - "sh -e /etc/init.d/xvfb start"
+      name: adf-cli-activiti-cloud-acs-template
       script: travis_retry cd app/templates/adf-cli-activiti-cloud-acs-template && npm install && npm test -- --watch=false
-    - stage: Unit test
+    - stage: adf-cli-activiti-cloud-template
       name: activiti-community
-      before_install:
-        - "export DISPLAY=:99.0"
-        - "sh -e /etc/init.d/xvfb start"
       script: travis_retry cd app/templates/adf-cli-activiti-cloud-template && npm install && npm test -- --watch=false
 
-
-    - stage: E2e test
-      name: acs-e2e
-      before_install:
-        - "export DISPLAY=:99.0"
-        - "sh -e /etc/init.d/xvfb start"
+    #E2e tests
+    - stage: E2e tests
+      name: adf-cli-acs-template
       script: travis_retry ./scripts/test-e2e.sh --proxy $E2E_HOST -host "localhost:4200"  -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_USERNAME" -save --skip-lint -b -f adf-cli-acs-template
     - stage: E2e test
-      name: aps-e2e
+      name: adf-cli-aps-template
       before_install:
-        - "export DISPLAY=:99.0"
-        - "sh -e /etc/init.d/xvfb start"
       script: travis_retry ./scripts/test-e2e.sh --proxy $E2E_HOST -host "localhost:4200"  -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_USERNAME" -save --skip-lint -b -f adf-cli-aps-template --spec sidebar_component.e2e.ts
     - stage: E2e test
-      name: acs-aps-e2e
-      before_install:
-        - "export DISPLAY=:99.0"
-        - "sh -e /etc/init.d/xvfb start"
+      name: adf-cli-acs-aps-template
       script: travis_retry ./scripts/test-e2e.sh --proxy $E2E_HOST -host "localhost:4200"  -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_USERNAME" -save --skip-lint -b -f adf-cli-acs-aps-template
     - stage: E2e test
-      name: activiti-e2e
-      before_install:
-        - "export DISPLAY=:99.0"
-        - "sh -e /etc/init.d/xvfb start"
+      name: adf-cli-activiti-template
       script: travis_retry ./scripts/test-e2e.sh --proxy "$E2E_HOST" -host "localhost:4200"  -host_sso "$E2E_HOST_SSO" -host_bpm "$E2E_HOST_BPM" -host_identity "$E2E_HOST_IDENTITY" -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_EMAIL" -save --skip-lint -b -sso -gnu -f adf-cli-activiti-template --spec sidebar_component.e2e.ts
-
     - stage: E2e test
-      name: acs-activiti-e2e
-      before_install:
-        - "export DISPLAY=:99.0"
-        - "sh -e /etc/init.d/xvfb start"
+      name: adf-cli-activiti-acs-template
       script: travis_retry ./scripts/test-e2e.sh --proxy "$E2E_HOST" -host "localhost:4200"  -host_sso "$E2E_HOST_SSO" -host_bpm "$E2E_HOST_BPM" -host_identity "$E2E_HOST_IDENTITY" -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_EMAIL" -save --skip-lint -b -sso -gnu -f adf-cli-activiti-acs-template --spec sidebar_component.e2e.ts
 
