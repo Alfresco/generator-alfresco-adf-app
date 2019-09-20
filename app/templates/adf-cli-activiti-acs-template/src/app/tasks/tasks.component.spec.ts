@@ -11,6 +11,26 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 describe('TasksComponent', () => {
   let component: TasksComponent;
   let fixture: ComponentFixture<TasksComponent>;
+  let alfrescoApiService: AlfrescoApiService;
+
+  const fakeTaskCloudList = {
+    list: {
+      entries: [],
+      pagination: {
+        skipCount: 0,
+        maxItems: 10,
+        count: 0,
+        hasMoreItems: false,
+        totalItems: 0
+      }
+    }
+  };
+
+  const mock = {
+    oauth2Auth: {
+      callCustomApi: () => Promise.resolve(fakeTaskCloudList)
+    }
+  };
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -30,8 +50,12 @@ describe('TasksComponent', () => {
         { provide: AppConfigService, useClass: AppConfigServiceMock }
       ]
     });
+
     fixture = TestBed.createComponent(TasksComponent);
+    alfrescoApiService = TestBed.get(AlfrescoApiService);
     component = fixture.componentInstance;
+    spyOn(alfrescoApiService, 'getInstance').and.returnValue(mock);
+
     fixture.detectChanges();
   });
 

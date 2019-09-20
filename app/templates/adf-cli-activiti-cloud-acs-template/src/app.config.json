@@ -3,7 +3,7 @@
   "ecmHost": "{protocol}//{hostname}{:port}",
   "bpmHost": "{protocol}//{hostname}{:port}",
   "identityHost": "{protocol}//{hostname}{:port}/auth/realms/alfresco",
-  "providers": "BPM",
+  "providers": "ALL",
   "application": {
     "name": "Alfresco ADF Application"
   },
@@ -104,6 +104,37 @@
         "status",
         "priority",
         "created"
+      ]
+    }
+  },
+  "adf-cloud-process-list": {
+    "presets": {
+      "default": [
+        {
+          "key": "entry.id",
+          "type": "text",
+          "title": "ADF_CLOUD_PROCESS_LIST.PROPERTIES.ID",
+          "sortable": true
+        },
+        {
+          "key": "entry.name",
+          "type": "text",
+          "title": "ADF_CLOUD_PROCESS_LIST.PROPERTIES.NAME",
+          "sortable": true
+        },
+        {
+          "key": "entry.status",
+          "type": "text",
+          "title": "ADF_CLOUD_PROCESS_LIST.PROPERTIES.STATUS",
+          "sortable": true
+        },
+        {
+          "key": "entry.startDate",
+          "type": "date",
+          "title": "ADF_CLOUD_PROCESS_LIST.PROPERTIES.START_DATE",
+          "sortable": true,
+          "format": "timeAgo"
+        }
       ]
     }
   },

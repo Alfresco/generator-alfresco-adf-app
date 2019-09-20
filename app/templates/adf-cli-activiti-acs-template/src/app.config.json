@@ -3,7 +3,7 @@
   "ecmHost": "{protocol}//{hostname}{:port}",
   "bpmHost": "{protocol}//{hostname}{:port}",
   "identityHost": "{protocol}//{hostname}{:port}/auth/realms/alfresco",
-  "providers": "BPM",
+  "providers": "ALL",
   "application": {
     "name": "Alfresco ADF Application"
   },
