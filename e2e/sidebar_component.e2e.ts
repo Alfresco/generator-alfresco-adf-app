@@ -23,9 +23,9 @@ import { AdfAppPage } from './app.po';
 
 describe('Content Services Viewer', () => {
 
-  let loginPage = new LoginPage();
-  let loginURL = TestConfig.adf.url + TestConfig.adf.port + '/login';
-  let page = new AdfAppPage();
+  const loginPage = new LoginPage();
+  const loginURL = TestConfig.adf.url + TestConfig.adf.port + '/login';
+  const page = new AdfAppPage();
   let alfrescoJsApi: AlfrescoApi;
 
   beforeAll(async (done) => {
