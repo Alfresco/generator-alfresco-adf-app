@@ -16,13 +16,10 @@
  */
 
 import { browser } from 'protractor';
-
 import TestConfig = require('./test.config');
-
 import { ViewerPage } from './viewerPage';
 import { LoginPage } from './loginPage';
-
-import AlfrescoApi = require('alfresco-js-api-node');
+import { AlfrescoApi } from '@alfresco/js-api';
 import { UploadActions } from './upload.actions';
 
 describe('Content Services Viewer', () => {
@@ -30,7 +27,7 @@ describe('Content Services Viewer', () => {
   let viewerPage = new ViewerPage();
   let loginPage = new LoginPage();
 
-  let pdfFile = {
+  let pdfFile: any = {
     'name': 'a_file_supported.pdf',
     'firstPageText': 'A Journey into Test Frameworks'
   };
@@ -62,12 +59,10 @@ describe('Content Services Viewer', () => {
     let viewerUrl = TestConfig.adf.url + TestConfig.adf.port + `/documentlist(overlay:files/${pdfFile.id}/view)`;
 
     browser.driver.get(viewerUrl);
-
     browser.driver.sleep(3000); // wait open file
 
     viewerPage.checkFileContent('1', pdfFile.firstPageText);
     viewerPage.checkCloseButtonIsDisplayed();
-
     viewerPage.clickCloseButton();
   });
 

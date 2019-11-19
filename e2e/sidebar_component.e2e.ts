@@ -16,20 +16,15 @@
  */
 
 import { browser } from 'protractor';
-
 import TestConfig = require('./test.config');
-
 import { LoginPage } from './loginPage';
-
-import AlfrescoApi = require('alfresco-js-api-node');
+import { AlfrescoApi } from '@alfresco/js-api';
 import { AdfAppPage } from './app.po';
 
 describe('Content Services Viewer', () => {
 
   let loginPage = new LoginPage();
-
   let loginURL = TestConfig.adf.url + TestConfig.adf.port + '/login';
-
   let page = new AdfAppPage();
 
   beforeAll(async (done) => {

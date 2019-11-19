@@ -15,12 +15,12 @@
     "yeoman-generator": "4.0.1"
   },
   "devDependencies": {
-    "alfresco-js-api-node": "2.7.0-beta5",
+    "@alfresco/js-api": "^3.5.0",
+    "@types/jasmine": "~2.8.3",
     "connect-history-api-fallback": "1.6.0",
     "eslint": "5.16.0",
     "eslint-config-xo-space": "0.21.0",
     "http-proxy-middleware": "0.19.1",
-    "@types/jasmine": "~2.8.3",
     "jasmine-reporters": "^2.3.2",
     "jasmine-spec-reporter": "~4.2.1",
     "jest": "24.8.0",
