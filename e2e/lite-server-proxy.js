@@ -9,25 +9,25 @@ let fallback = require('connect-history-api-fallback');
 console.log('targetProxy +===========' + targetProxy);
 
 module.exports = {
-    'port': 4200,
-    open: false,
-    server: {
-        middleware: {
-            1: proxy('/alfresco', {
-                target: targetProxy,
-                changeOrigin: true,
-                pathRewrite: {
-                    "^/alfresco/alfresco": ""
-                }
-            }),
-            2: proxy('/activiti-app', {
-                target: targetProxy,
-                changeOrigin: true,
-                "pathRewrite": {
-                    "^/activiti-app/activiti-app": ""
-                }
-            }),
-            3: fallback({index: '/index.html', verbose: true})
+  'port': 4200,
+  open: false,
+  server: {
+    middleware: {
+      1: proxy('/alfresco', {
+        target: targetProxy,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/alfresco/alfresco': ''
         }
+      }),
+      2: proxy('/activiti-app', {
+        target: targetProxy,
+        changeOrigin: true,
+        'pathRewrite': {
+          '^/activiti-app/activiti-app': ''
+        }
+      }),
+      3: fallback({index: '/index.html', verbose: true})
     }
+  }
 };
