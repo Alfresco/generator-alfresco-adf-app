@@ -25,10 +25,6 @@ before_install:
 matrix:
   include:
     - stage: generator
-      node_js: "8"
-      install: npm install
-      script: npm run test
-    - stage: generator
       node_js: "9"
       install: npm install
       script: npm run test
@@ -38,6 +34,10 @@ matrix:
       script: npm run test
     - stage: generator
       node_js: "11"
+      install: npm install
+      script: npm run test
+     - stage: generator
+      node_js: "12"
       install: npm install
       script: npm run test
 
