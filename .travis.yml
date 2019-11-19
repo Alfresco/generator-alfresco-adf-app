@@ -36,7 +36,7 @@ matrix:
       node_js: "11"
       install: npm install
       script: npm run test
-     - stage: generator
+    - stage: generator
       node_js: "12"
       install: npm install
       script: npm run test
