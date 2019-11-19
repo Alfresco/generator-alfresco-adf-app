@@ -26,6 +26,7 @@ describe('Content Services Viewer', () => {
 
   let viewerPage = new ViewerPage();
   let loginPage = new LoginPage();
+  let alfrescoJsApi: AlfrescoApi;
 
   let pdfFile: any = {
     'name': 'a_file_supported.pdf',
@@ -37,14 +38,14 @@ describe('Content Services Viewer', () => {
   beforeAll(async (done) => {
     let uploadActions = new UploadActions();
 
-    this.alfrescoJsApi = new AlfrescoApi({
+    alfrescoJsApi = new AlfrescoApi({
       provider: 'ECM',
       hostEcm: TestConfig.adf.url
     });
 
-    await this.alfrescoJsApi.login(TestConfig.adf.adminEmail, TestConfig.adf.adminPassword);
+    await alfrescoJsApi.login(TestConfig.adf.adminEmail, TestConfig.adf.adminPassword);
 
-    let pdfFileUploaded = await uploadActions.uploadFile(this.alfrescoJsApi, '/pdf_file.pdf', 'pdf_file.pdf', '-my-');
+    let pdfFileUploaded = await uploadActions.uploadFile(alfrescoJsApi, '/pdf_file.pdf', 'pdf_file.pdf', '-my-');
     Object.assign(pdfFile, pdfFileUploaded.entry);
 
     browser.driver.get(loginURL);

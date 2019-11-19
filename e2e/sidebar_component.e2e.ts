@@ -26,15 +26,16 @@ describe('Content Services Viewer', () => {
   let loginPage = new LoginPage();
   let loginURL = TestConfig.adf.url + TestConfig.adf.port + '/login';
   let page = new AdfAppPage();
+  let alfrescoJsApi: AlfrescoApi;
 
   beforeAll(async (done) => {
 
-    this.alfrescoJsApi = new AlfrescoApi({
+    alfrescoJsApi = new AlfrescoApi({
       provider: 'ECM',
       hostEcm: TestConfig.adf.url
     });
 
-    await this.alfrescoJsApi.login(TestConfig.adf.adminEmail, TestConfig.adf.adminPassword);
+    await alfrescoJsApi.login(TestConfig.adf.adminEmail, TestConfig.adf.adminPassword);
 
     browser.driver.get(loginURL);
 
