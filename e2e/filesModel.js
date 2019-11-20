@@ -17,18 +17,18 @@
 
 var FileModel = require('./fileModel');
 
-var FilesModel = function () {
+var FilesModel = function() {
 
-    var files = null;
+  var files = null;
 
-    this.setFiles = function (arr) {
-        files = arr.map(function(item) {
-            return new FileModel(item.entry);
-        });
-    };
+  this.setFiles = function(arr) {
+    files = arr.map(function(item) {
+      return new FileModel(item.entry);
+    });
+  };
 
-    this.getFiles = function () {
-        return files;
-    };
+  this.getFiles = function() {
+    return files;
+  };
 };
 module.exports = FilesModel;

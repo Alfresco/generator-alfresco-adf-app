@@ -16,30 +16,26 @@
  */
 
 import { browser } from 'protractor';
-
 import TestConfig = require('./test.config');
-
 import { LoginPage } from './loginPage';
-
-import AlfrescoApi = require('alfresco-js-api-node');
+import { AlfrescoApiCompatibility as AlfrescoApi } from '@alfresco/js-api';
 import { AdfAppPage } from './app.po';
 
 describe('Content Services Viewer', () => {
 
-  let loginPage = new LoginPage();
-
-  let loginURL = TestConfig.adf.url + TestConfig.adf.port + '/login';
-
-  let page = new AdfAppPage();
+  const loginPage = new LoginPage();
+  const loginURL = TestConfig.adf.url + TestConfig.adf.port + '/login';
+  const page = new AdfAppPage();
+  let alfrescoJsApi: AlfrescoApi;
 
   beforeAll(async (done) => {
 
-    this.alfrescoJsApi = new AlfrescoApi({
+    alfrescoJsApi = new AlfrescoApi({
       provider: 'ECM',
       hostEcm: TestConfig.adf.url
     });
 
-    await this.alfrescoJsApi.login(TestConfig.adf.adminEmail, TestConfig.adf.adminPassword);
+    await alfrescoJsApi.login(TestConfig.adf.adminEmail, TestConfig.adf.adminPassword);
 
     browser.driver.get(loginURL);
 

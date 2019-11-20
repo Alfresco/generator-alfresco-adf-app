@@ -45,14 +45,14 @@ exports.config = {
 
   directConnect: DIRECT_CONNECCT,
 
-  baseUrl: "http://" + HOST,
+  baseUrl: 'http://' + HOST,
 
   framework: 'jasmine2',
 
   jasmineNodeOpts: {
     showColors: true,
     defaultTimeoutInterval: 90000,
-    print: function () {
+    print: function() {
     }
   },
 

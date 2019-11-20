@@ -16,21 +16,19 @@
  */
 
 import { browser } from 'protractor';
-
 import TestConfig = require('./test.config');
-
 import { ViewerPage } from './viewerPage';
 import { LoginPage } from './loginPage';
-
-import AlfrescoApi = require('alfresco-js-api-node');
+import { AlfrescoApiCompatibility as AlfrescoApi } from '@alfresco/js-api';
 import { UploadActions } from './upload.actions';
 
 describe('Content Services Viewer', () => {
 
   let viewerPage = new ViewerPage();
   let loginPage = new LoginPage();
+  let alfrescoJsApi: AlfrescoApi;
 
-  let pdfFile = {
+  let pdfFile: any = {
     'name': 'a_file_supported.pdf',
     'firstPageText': 'A Journey into Test Frameworks'
   };
@@ -40,14 +38,14 @@ describe('Content Services Viewer', () => {
   beforeAll(async (done) => {
     let uploadActions = new UploadActions();
 
-    this.alfrescoJsApi = new AlfrescoApi({
+    alfrescoJsApi = new AlfrescoApi({
       provider: 'ECM',
       hostEcm: TestConfig.adf.url
     });
 
-    await this.alfrescoJsApi.login(TestConfig.adf.adminEmail, TestConfig.adf.adminPassword);
+    await alfrescoJsApi.login(TestConfig.adf.adminEmail, TestConfig.adf.adminPassword);
 
-    let pdfFileUploaded = await uploadActions.uploadFile(this.alfrescoJsApi, '/pdf_file.pdf', 'pdf_file.pdf', '-my-');
+    let pdfFileUploaded = await uploadActions.uploadFile(alfrescoJsApi, '/pdf_file.pdf', 'pdf_file.pdf', '-my-');
     Object.assign(pdfFile, pdfFileUploaded.entry);
 
     browser.driver.get(loginURL);
@@ -62,12 +60,10 @@ describe('Content Services Viewer', () => {
     let viewerUrl = TestConfig.adf.url + TestConfig.adf.port + `/documentlist(overlay:files/${pdfFile.id}/view)`;
 
     browser.driver.get(viewerUrl);
-
     browser.driver.sleep(3000); // wait open file
 
     viewerPage.checkFileContent('1', pdfFile.firstPageText);
     viewerPage.checkCloseButtonIsDisplayed();
-
     viewerPage.clickCloseButton();
   });
 

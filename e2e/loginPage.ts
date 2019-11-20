@@ -25,7 +25,7 @@ export class LoginPage {
   txtUsername = element(by.css('input[id="username"]'));
   txtPassword = element(by.css('input[id="password"]'));
 
-  enterUsername(username) {
+  enterUsername(username: string) {
     Util.waitUntilElementIsVisible(this.txtUsername);
     this.txtUsername.sendKeys('');
     this.txtUsername.clear();
@@ -43,7 +43,7 @@ export class LoginPage {
     return this.signInButton.click();
   }
 
-  async login(username, password) {
+  async login(username: string, password: string) {
 
     browser.waitForAngularEnabled(false);
 
