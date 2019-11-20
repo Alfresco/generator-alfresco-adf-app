@@ -18,7 +18,7 @@
 import { browser } from 'protractor';
 import TestConfig = require('./test.config');
 import { LoginPage } from './loginPage';
-import { AlfrescoApi } from '@alfresco/js-api';
+import { AlfrescoApiCompatibility as AlfrescoApi } from '@alfresco/js-api';
 import { AdfAppPage } from './app.po';
 
 describe('Content Services Viewer', () => {

@@ -19,7 +19,7 @@ import { browser } from 'protractor';
 import TestConfig = require('./test.config');
 import { ViewerPage } from './viewerPage';
 import { LoginPage } from './loginPage';
-import { AlfrescoApi } from '@alfresco/js-api';
+import { AlfrescoApiCompatibility as AlfrescoApi } from '@alfresco/js-api';
 import { UploadActions } from './upload.actions';
 
 describe('Content Services Viewer', () => {
