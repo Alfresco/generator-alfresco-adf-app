@@ -1,7 +1,12 @@
 # ADF application generator for Yeoman
 
+| branch | status |
+| --- | --- |
+| master | [![Build Status](https://travis-ci.org/Alfresco/generator-ng2-alfresco-app.svg?branch=master)](https://travis-ci.org/Alfresco/generator-ng2-alfresco-app) |
+| development | [![Build Status](https://travis-ci.org/Alfresco/generator-ng2-alfresco-app.svg?branch=development)](https://travis-ci.org/Alfresco/generator-ng2-alfresco-app) |
+
+
 [![npm](https://img.shields.io/npm/v/generator-ng2-alfresco-app)](https://www.npmjs.com/package/generator-ng2-alfresco-app)
-[![Build Status](https://travis-ci.org/Alfresco/generator-ng2-alfresco-app.svg?branch=master)](https://travis-ci.org/Alfresco/generator-ng2-alfresco-app)
 
 > Yeoman generator generating a ADF Angular Alfresco App scaffold
 
