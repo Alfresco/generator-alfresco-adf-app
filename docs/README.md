@@ -108,8 +108,8 @@ More on [debugging generators](http://yeoman.io/authoring/debugging.html).
 
 ## History
 
-For detailed changelog, see [Releases](https://github.com/Alfresco/generator-ng2-alfresco-app/releases).
+For detailed changelog, see [Releases](https://github.com/Alfresco/generator-alfresco-adf-app/releases).
 
 ## License
 
-[Apache Version 2.0](https://github.com/alfresco/generator-ng2-alfresco-app/blob/master/LICENSE)
+[Apache Version 2.0](https://github.com/alfresco/generator-alfresco-adf-app/blob/master/LICENSE)

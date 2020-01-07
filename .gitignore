@@ -6,4 +6,4 @@ coverage
 /e2e-output/
 .history/
 local.log
-generator-ng2-alfresco-app.iml
+generator-alfresco-adf-app.iml

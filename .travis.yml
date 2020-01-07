@@ -77,3 +77,12 @@ matrix:
       name: adf-cli-activiti-acs-template
       script: travis_retry ./scripts/test-e2e.sh --proxy "$E2E_HOST" -host "localhost:4200"  -host_sso "$E2E_HOST_SSO" -host_bpm "$E2E_HOST_BPM" -host_identity "$E2E_HOST_IDENTITY" -u "$E2E_USERNAME" -p "$E2E_PASSWORD" -e "$E2E_EMAIL" -save --skip-lint -b -sso -gnu -f adf-cli-activiti-acs-template --spec sidebar_component.e2e.ts
 
+    - stage: Release
+      name: Release
+      if: (type = push OR type = cron) AND tag IS blank
+      script:
+      - ./scripts/publish.sh
+
+    - stage: Release beta tag
+      if: branch = master AND type = push
+      script: ./scripts/git-tag.sh

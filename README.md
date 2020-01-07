@@ -2,11 +2,11 @@
 
 | branch | status |
 | --- | --- |
-| master | [![Build Status](https://travis-ci.org/Alfresco/generator-ng2-alfresco-app.svg?branch=master)](https://travis-ci.org/Alfresco/generator-ng2-alfresco-app) |
-| development | [![Build Status](https://travis-ci.org/Alfresco/generator-ng2-alfresco-app.svg?branch=development)](https://travis-ci.org/Alfresco/generator-ng2-alfresco-app) |
+| master | [![Build Status](https://travis-ci.org/Alfresco/generator-alfresco-adf-app.svg?branch=master)](https://travis-ci.org/Alfresco/generator-alfresco-adf-app) |
+| development | [![Build Status](https://travis-ci.org/Alfresco/generator-alfresco-adf-app.svg?branch=development)](https://travis-ci.org/Alfresco/generator-alfresco-adf-app) |
 
 
-[![npm](https://img.shields.io/npm/v/generator-ng2-alfresco-app)](https://www.npmjs.com/package/generator-ng2-alfresco-app)
+[![npm](https://img.shields.io/npm/v/generator-alfresco-adf-app)](https://www.npmjs.com/package/generator-alfresco-adf-app)
 
 > Yeoman generator generating a ADF Angular Alfresco App scaffold
 
@@ -144,8 +144,8 @@ More on [debugging generators](http://yeoman.io/authoring/debugging.html).
 
 ## History
 
-For detailed changelog, see [Releases](https://github.com/Alfresco/generator-ng2-alfresco-app/releases).
+For detailed changelog, see [Releases](https://github.com/Alfresco/generator-alfresco-adf-app/releases).
 
 ## License
 
-[Apache Version 2.0](https://github.com/alfresco/generator-ng2-alfresco-app/blob/master/LICENSE)
+[Apache Version 2.0](https://github.com/alfresco/generator-alfresco-adf-app/blob/master/LICENSE)
