@@ -2,8 +2,8 @@
 
 | branch | status |
 | --- | --- |
-| master | [![Build Status](https://travis-ci.org/Alfresco/generator-alfresco-adf-app.svg?branch=master)](https://travis-ci.org/Alfresco/generator-alfresco-adf-app) |
-| development | [![Build Status](https://travis-ci.org/Alfresco/generator-alfresco-adf-app.svg?branch=development)](https://travis-ci.org/Alfresco/generator-alfresco-adf-app) |
+| master | [![Build Status](https://travis-ci.com/Alfresco/generator-alfresco-adf-app.svg?branch=master)](https://travis-ci.com/Alfresco/generator-alfresco-adf-app) |
+| development | [![Build Status](https://travis-ci.com/Alfresco/generator-alfresco-adf-app.svg?branch=development)](https://travis-ci.com/Alfresco/generator-alfresco-adf-app) |
 
 
 [![npm](https://img.shields.io/npm/v/generator-alfresco-adf-app)](https://www.npmjs.com/package/generator-alfresco-adf-app)
