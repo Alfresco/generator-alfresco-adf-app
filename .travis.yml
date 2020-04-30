@@ -79,7 +79,7 @@ matrix:
 
     - stage: Release
       name: Release
-      if: (type = push OR type = cron) AND tag IS blank
+      if: type = push AND tag IS blank
       script:
       - ./scripts/publish.sh
 
