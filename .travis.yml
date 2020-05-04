@@ -26,14 +26,17 @@ matrix:
   include:
     - stage: generator
       node_js: "11"
+      name: Genetator test Node 11
       install: npm install
       script: npm run test
     - stage: generator
       node_js: "12"
+      name: Genetator test Node 12
       install: npm install
       script: npm run test
     - stage: generator
       node_js: "13"
+      name: Genetator test Node 13
       install: npm install
       script: npm run test
 
@@ -79,7 +82,7 @@ matrix:
 
     - stage: Release
       name: Release
-      if: type = push AND tag IS blank
+      if: branch = master AND type = push
       script:
       - ./scripts/publish.sh
 
