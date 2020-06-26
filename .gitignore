@@ -7,3 +7,4 @@ coverage
 .history/
 local.log
 generator-alfresco-adf-app.iml
+.env
