@@ -6,7 +6,7 @@
 
 <adf-cloud-task-list #taskList [sorting]="taskListSorting" (rowClick)="onTaskRowClick($event)">
 </adf-cloud-task-list>
-<adf-pagination [target]="taskList" [supportedPageSizes]="[5,10,15,20]" [pagination]="10">
+<adf-pagination [target]="taskList" [supportedPageSizes]="[5,10,15,20]">
 </adf-pagination>
 
 <h3>Processes</h3>
@@ -17,5 +17,5 @@
 
 <adf-cloud-process-list #processList [appName]="''" [sorting]="processListSorting" (rowClick)="onProcessRowClick($event)">
 </adf-cloud-process-list>
-<adf-pagination [target]="processList" [supportedPageSizes]="[5,10,15,20]" [pagination]="10">
+<adf-pagination [target]="processList" [supportedPageSizes]="[5,10,15,20]">
 </adf-pagination>
