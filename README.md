@@ -3,7 +3,7 @@
 | branch | status |
 | --- | --- |
 | master | [![Build Status](https://travis-ci.com/Alfresco/generator-alfresco-adf-app.svg?branch=master)](https://travis-ci.com/Alfresco/generator-alfresco-adf-app) |
-| development | [![Build Status](https://travis-ci.com/Alfresco/generator-alfresco-adf-app.svg?branch=development)](https://travis-ci.com/Alfresco/generator-alfresco-adf-app) |
+| develop | [![Build Status](https://travis-ci.com/Alfresco/generator-alfresco-adf-app.svg?branch=develop)](https://travis-ci.com/Alfresco/generator-alfresco-adf-app) |
 
 
 [![npm](https://img.shields.io/npm/v/generator-alfresco-adf-app)](https://www.npmjs.com/package/generator-alfresco-adf-app)
@@ -66,7 +66,7 @@ For example :
   "alfresco-deployed-apps" : [{"name": "simple-app"}]  
 ```
 
-For more information about the app list component refer to the [documentation](https://github.com/Alfresco/alfresco-ng2-components/blob/development/docs/process-services-cloud/app-list-cloud.component.md)
+For more information about the app list component refer to the [documentation](https://github.com/Alfresco/alfresco-ng2-components/blob/develop/docs/process-services-cloud/app-list-cloud.component.md)
 
 ### Using from the command line
 
