@@ -7,7 +7,7 @@ sudo: required
 branches:
   only:
     - master
-    - development
+    - develop
     - /.*beta.*/
 
 addons:
