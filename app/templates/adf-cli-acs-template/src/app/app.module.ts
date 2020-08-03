@@ -15,7 +15,7 @@ import { FileViewComponent } from './file-view/file-view.component';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { DocumentlistComponent } from './documentlist/documentlist.component';
+import { DocumentlistComponent } from './document-list/document-list.component';
 import { AppLayoutComponent } from './app-layout/app-layout.component';
 
 // Localization
@@ -58,11 +58,7 @@ registerLocaleData(localeSv);
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
-        RouterModule.forRoot(
-            appRoutes // ,
-            // { enableTracing: true } // <-- debugging purposes only
-        ),
-
+        RouterModule.forRoot(appRoutes, { initialNavigation: true }),
         // ADF modules
         CoreModule.forRoot(),
         ContentModule.forRoot(),

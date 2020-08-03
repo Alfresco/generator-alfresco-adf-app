@@ -6,7 +6,8 @@
   "main": "app/index.js",
   "scripts": {
     "test": "rimraf temp && jest",
-    "lite-server-e2e": "lite-server  -c ./e2e/lite-server-proxy.js"
+    "lite-server-e2e": "lite-server  -c ./e2e/lite-server-proxy.js",
+    "postinstall": "ngcc"
   },
   "dependencies": {
     "alfresco-logo": "1.0.1",

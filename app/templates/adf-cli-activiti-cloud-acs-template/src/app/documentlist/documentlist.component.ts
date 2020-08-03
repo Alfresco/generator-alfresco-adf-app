@@ -11,11 +11,11 @@ import { PreviewService } from '../services/preview.service';
 export class DocumentlistComponent {
 
   @Input()
-  showViewer: boolean = false;
+  showViewer = false;
 
   nodeId: string = null;
 
-  @ViewChild('documentList')
+  @ViewChild('documentList', { static: true })
   documentList: DocumentListComponent;
 
   constructor(private notificationService: NotificationService, private preview: PreviewService) {
