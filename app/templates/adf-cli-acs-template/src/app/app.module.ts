@@ -58,11 +58,7 @@ registerLocaleData(localeSv);
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
-        RouterModule.forRoot(
-            appRoutes // ,
-            // { enableTracing: true } // <-- debugging purposes only
-        ),
-
+        RouterModule.forRoot(appRoutes, { initialNavigation: true }),
         // ADF modules
         CoreModule.forRoot(),
         ContentModule.forRoot(),

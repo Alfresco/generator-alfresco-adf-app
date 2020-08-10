@@ -10,7 +10,7 @@
     "experimentalDecorators": true,
     "skipLibCheck": true,
     "noUnusedLocals": true,
-    "target": "es5",
+    "target": "es2015",
     "allowSyntheticDefaultImports": true,
     "typeRoots": [
       "node_modules/@types"
@@ -27,5 +27,9 @@
     "assets",
     "tools",
     "node_modules"
-  ]
+  ],
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true
+  }
 }

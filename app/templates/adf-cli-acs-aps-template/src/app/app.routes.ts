@@ -15,8 +15,7 @@
  * limitations under the License.
  */
 
-import { ModuleWithProviders } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 import { AuthGuardBpm, AuthGuardEcm } from '@alfresco/adf-core';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -77,5 +76,3 @@ export const appRoutes: Routes = [
     component: LoginComponent
   }
 ];
-
-export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
