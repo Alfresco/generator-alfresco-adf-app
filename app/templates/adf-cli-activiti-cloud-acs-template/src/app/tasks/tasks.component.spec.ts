@@ -34,7 +34,8 @@ describe('TasksComponent', () => {
       }
     },
     isEcmBpmConfiguration: () => false,
-    isEcmConfiguration: () => false
+    isEcmConfiguration: () => false,
+    isEcmLoggedIn: () => false
   };
 
   beforeEach(() => {

@@ -1,136 +1,142 @@
 {
-    "$schema": "../node_modules/@alfresco/adf-core/app.config.schema.json",
-    "ecmHost": "{protocol}//{hostname}{:port}",
-    "bpmHost": "{protocol}//{hostname}{:port}",
-    "identityHost": "{protocol}//{hostname}{:port}/auth/admin/realms/activiti",
-    "providers": "BPM",
-    "application": {
-        "name": "Alfresco ADF Application"
+  "$schema": "../node_modules/@alfresco/adf-core/app.config.schema.json",
+  "ecmHost": "{protocol}//{hostname}{:port}",
+  "bpmHost": "{protocol}//{hostname}{:port}",
+  "identityHost": "{protocol}//{hostname}{:port}/auth/admin/realms/activiti",
+  "providers": "BPM",
+  "application": {
+    "name": "Alfresco ADF Application"
+  },
+  "authType": "OAUTH",
+  "oauth2": {
+    "host": "{protocol}//{hostname}{:port}/auth/realms/activiti",
+    "clientId": "activiti",
+    "scope": "openid",
+    "secret": "",
+    "implicitFlow": false,
+    "redirectSilentIframeUri": "{protocol}//{hostname}{:port}/assets/silent-refresh.html",
+    "redirectUri": "/",
+    "redirectUriLogout": "/logout"
+  },
+  "languages": [
+    {
+      "key": "en",
+      "label": "English"
     },
-    "authType": "OAUTH",
-    "oauth2": {
-        "host": "{protocol}//{hostname}{:port}/auth/realms/activiti",
-        "clientId": "activiti",
-        "scope": "openid",
-        "secret": "",
-        "implicitFlow": false,
-        "redirectSilentIframeUri": "{protocol}//{hostname}{:port}/assets/silent-refresh.html",
-        "redirectUri": "/",
-        "redirectUriLogout": "/logout"
+    {
+      "key": "fr",
+      "label": "French"
     },
-    "languages": [
+    {
+      "key": "de",
+      "label": "German"
+    },
+    {
+      "key": "it",
+      "label": "Italian"
+    },
+    {
+      "key": "es",
+      "label": "Spanish"
+    },
+    {
+      "key": "ja",
+      "label": "Japanese"
+    },
+    {
+      "key": "nl",
+      "label": "Dutch"
+    },
+    {
+      "key": "pt-BR",
+      "label": "Brazilian Portuguese"
+    },
+    {
+      "key": "nb",
+      "label": "Norwegian"
+    },
+    {
+      "key": "ru",
+      "label": "Russian"
+    },
+    {
+      "key": "zh-CN",
+      "label": "Simplified Chinese"
+    }
+  ],
+  "logLevel": "trace",
+  "adf-cloud-task-list": {
+    "presets": {
+      "default": [
         {
-            "key": "en",
-            "label": "English"
+          "key": "entry.id",
+          "type": "text",
+          "title": "Id",
+          "sortable": true
         },
         {
-            "key": "fr",
-            "label": "French"
+          "key": "entry.name",
+          "type": "text",
+          "title": "Name",
+          "sortable": true,
+          "cssClass": "full-width name-column ellipsis-cell"
         },
         {
-            "key": "de",
-            "label": "German"
+          "key": "entry.status",
+          "type": "text",
+          "title": "Status",
+          "sortable": true
         },
         {
-            "key": "it",
-            "label": "Italian"
-        },
-        {
-            "key": "es",
-            "label": "Spanish"
-        },
-        {
-            "key": "ja",
-            "label": "Japanese"
-        },
-        {
-            "key": "nl",
-            "label": "Dutch"
-        },
-        {
-            "key": "pt-BR",
-            "label": "Brazilian Portuguese"
-        },
-        {
-            "key": "nb",
-            "label": "Norwegian"
-        },
-        {
-            "key": "ru",
-            "label": "Russian"
-        },
-        {
-            "key": "zh-CN",
-            "label": "Simplified Chinese"
+          "key": "entry.priority",
+          "type": "text",
+          "title": "Priority",
+          "sortable": true
         }
-    ],
-    "logLevel": "trace",
-    "adf-cloud-task-list": {
-        "presets": {
-            "default": [
-                {
-                    "key": "entry.id",
-                    "type": "text",
-                    "title": "Id",
-                    "sortable": true
-                },
-                {
-                    "key": "entry.name",
-                    "type": "text",
-                    "title": "Name",
-                    "sortable": true,
-                    "cssClass": "full-width name-column ellipsis-cell"
-                },
-                {
-                    "key": "entry.status",
-                    "type": "text",
-                    "title": "Status",
-                    "sortable": true
-                },
-                {
-                    "key": "entry.priority",
-                    "type": "text",
-                    "title": "Priority",
-                    "sortable": true
-                }
-            ]
+      ]
+    }
+  },
+  "adf-cloud-task-header": {
+    "presets": {
+      "properties": [
+        "description",
+        "assignee",
+        "status",
+        "priority",
+        "created"
+      ]
+    }
+  },
+  "adf-cloud-process-list": {
+    "presets": {
+      "default": [
+        {
+          "key": "entry.id",
+          "type": "text",
+          "title": "ADF_CLOUD_PROCESS_LIST.PROPERTIES.ID",
+          "sortable": true
+        },
+        {
+          "key": "entry.name",
+          "type": "text",
+          "title": "ADF_CLOUD_PROCESS_LIST.PROPERTIES.NAME",
+          "sortable": true
+        },
+        {
+          "key": "entry.status",
+          "type": "text",
+          "title": "ADF_CLOUD_PROCESS_LIST.PROPERTIES.STATUS",
+          "sortable": true
+        },
+        {
+          "key": "entry.startDate",
+          "type": "date",
+          "title": "ADF_CLOUD_PROCESS_LIST.PROPERTIES.START_DATE",
+          "sortable": true,
+          "format": "timeAgo"
         }
-    },
-    "adf-cloud-task-header": {
-        "presets": {
-            "properties" : [ "description", "assignee", "status", "priority", "created"]
-        }
-    },
-    "adf-cloud-process-list": {
-      "presets": {
-        "default": [
-          {
-            "key": "entry.id",
-            "type": "text",
-            "title": "ADF_CLOUD_PROCESS_LIST.PROPERTIES.ID",
-            "sortable": true
-          },
-          {
-            "key": "entry.name",
-            "type": "text",
-            "title": "ADF_CLOUD_PROCESS_LIST.PROPERTIES.NAME",
-            "sortable": true
-          },
-          {
-            "key": "entry.status",
-            "type": "text",
-            "title": "ADF_CLOUD_PROCESS_LIST.PROPERTIES.STATUS",
-            "sortable": true
-          },
-          {
-            "key": "entry.startDate",
-            "type": "date",
-            "title": "ADF_CLOUD_PROCESS_LIST.PROPERTIES.START_DATE",
-            "sortable": true,
-            "format": "timeAgo"
-          }
-        ]
-      }
-    },
-    "alfresco-deployed-apps": []
+      ]
+    }
+  },
+  "alfresco-deployed-apps": []
 }
