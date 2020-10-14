@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { ProcessServicesCloudModule, TaskListCloudService } from '@alfresco/adf-process-services-cloud';
+import { ProcessListCloudService, ProcessServicesCloudModule, TaskListCloudService } from '@alfresco/adf-process-services-cloud';
 import { CoreModule, AppConfigService, AppConfigServiceMock, TranslationService, TranslationMock } from '@alfresco/adf-core';
 import { TasksComponent } from './tasks.component';
 import { AlfrescoApiServiceMock, AlfrescoApiService } from '@alfresco/adf-core';
@@ -13,8 +13,9 @@ describe('TasksComponent', () => {
   let fixture: ComponentFixture<TasksComponent>;
   let alfrescoApiService: AlfrescoApiService;
   let taskListCloudService: TaskListCloudService;
+  let processListCloudService: ProcessListCloudService;
 
-  const fakeTaskCloudList = {
+  const fakeList = {
     list: {
       entries: [],
       pagination: {
@@ -56,11 +57,13 @@ describe('TasksComponent', () => {
     });
 
     fixture = TestBed.createComponent(TasksComponent);
-    alfrescoApiService = TestBed.get(AlfrescoApiService);
-    taskListCloudService = TestBed.get(TaskListCloudService);
+    alfrescoApiService = TestBed.inject(AlfrescoApiService);
+    taskListCloudService = TestBed.inject(TaskListCloudService);
+    processListCloudService = TestBed.inject(ProcessListCloudService);
     component = fixture.componentInstance;
     spyOn(alfrescoApiService, 'getInstance').and.returnValue(oauth2AuthMock);
-    spyOn(taskListCloudService, 'getTaskByRequest').and.returnValue(of(fakeTaskCloudList));
+    spyOn(taskListCloudService, 'getTaskByRequest').and.returnValue(of(fakeList));
+    spyOn(processListCloudService, 'getProcessByRequest').and.returnValue(of(fakeList));
     fixture.detectChanges();
   });
 
