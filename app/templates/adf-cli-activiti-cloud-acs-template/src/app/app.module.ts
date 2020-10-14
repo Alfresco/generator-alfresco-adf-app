@@ -78,7 +78,7 @@ registerLocaleData(localeSv);
         // ADF modules
         CoreModule.forRoot(),
         ContentModule.forRoot(),
-        ProcessServicesCloudModule,
+        ProcessServicesCloudModule.forRoot(),
         TranslateModule.forRoot({
             loader: { provide: TranslateLoader, useClass: TranslateLoaderService }
         }),
