@@ -40,6 +40,9 @@ exports.config = {
     chromeOptions: {
       binary: require('puppeteer').executablePath(),
       args: args_options
+    },
+    loggingPrefs: {
+      browser: 'SEVERE' // "OFF", "SEVERE", "WARNING", "INFO", "CONFIG", "FINE", "FINER", "FINEST", "ALL".
     }
   },
 
