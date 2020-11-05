@@ -71,7 +71,6 @@
     "karma-coverage-istanbul-reporter": "~2.0.0",
     "karma-jasmine": "~1.1.1",
     "karma-jasmine-html-reporter": "^0.2.2",
-    "node-sass": "^4.13.0",
     "protractor": "^5.4.0",
     "puppeteer": "1.17.0",
     "ts-node": "~4.1.0",
