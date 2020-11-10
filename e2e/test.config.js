@@ -16,24 +16,24 @@ module.exports = {
 
     presence_timeout: 60000,
 
-    rootPath: __dirname
+    rootPath: __dirname,
   },
 
   adf: {
     /**
      * base
      */
-    url: 'http://' + HOST,
+    url: "http://" + HOST,
 
     /**
      * adf port
      */
-    port: '',
+    port: "",
 
     /**
      * adf login
      */
-    login: '/login',
+    login: "/login",
 
     /**
      * admin username
@@ -48,7 +48,7 @@ module.exports = {
     /**
      * main admin password
      */
-    adminPassword: PASSWORD
+    adminPassword: PASSWORD,
   },
 
   adf_acs: {
@@ -56,7 +56,7 @@ module.exports = {
      * The protocol where the app runs.
      * @config main.protocol {String}
      */
-    protocol: 'http',
+    protocol: "http",
 
     /**
      * The protocol where the app runs.
@@ -68,13 +68,13 @@ module.exports = {
      * * The port where the app runs.
      * * @config main.port {String}
      */
-    port: '',
+    port: "",
 
     /**
      * The ECM API context required for calls
      * @config adf.ACSAPIContextRoot {String}
      */
-    apiContextRoot: '/alfresco/api/-default-/public'
+    apiContextRoot: "/alfresco/api/-default-/public",
   },
 
   adf_aps: {
@@ -82,7 +82,7 @@ module.exports = {
      * The protocol where the app runs.
      * @config main.protocol {String}
      */
-    protocol: 'http',
+    protocol: "http",
 
     /**
      * The host where the app runs.
@@ -94,12 +94,12 @@ module.exports = {
      * * The port where the app runs.
      * * @config main.port {String}
      * */
-    port: '',
+    port: "",
 
     /**
      * The BPM API context required for calls
      * @config adf.APSAPIContextRoot {String}
      */
-    apiContextRoot: '/activiti-app'
-  }
+    apiContextRoot: "/activiti-app",
+  },
 };

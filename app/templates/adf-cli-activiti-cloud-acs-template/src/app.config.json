@@ -98,13 +98,7 @@
   },
   "adf-cloud-task-header": {
     "presets": {
-      "properties": [
-        "description",
-        "assignee",
-        "status",
-        "priority",
-        "created"
-      ]
+      "properties": ["description", "assignee", "status", "priority", "created"]
     }
   },
   "adf-cloud-process-list": {

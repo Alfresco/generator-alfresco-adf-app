@@ -1,11 +1,11 @@
-import { browser, by, element } from 'protractor';
+import { browser, by, element } from "protractor";
 
 export class AdfAppPage {
   navigateTo() {
-    return browser.get('/');
+    return browser.get("/");
   }
 
   getToolbar() {
-    return element(by.tagName('adf-toolbar'));
+    return element(by.tagName("adf-toolbar"));
   }
 }

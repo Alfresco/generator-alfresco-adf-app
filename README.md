@@ -1,10 +1,9 @@
 # ADF application generator for Yeoman
 
-| branch | status |
-| --- | --- |
-| master | [![Build Status](https://travis-ci.com/Alfresco/generator-alfresco-adf-app.svg?branch=master)](https://travis-ci.com/Alfresco/generator-alfresco-adf-app) |
+| branch  | status                                                                                                                                                     |
+| ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| master  | [![Build Status](https://travis-ci.com/Alfresco/generator-alfresco-adf-app.svg?branch=master)](https://travis-ci.com/Alfresco/generator-alfresco-adf-app)  |
 | develop | [![Build Status](https://travis-ci.com/Alfresco/generator-alfresco-adf-app.svg?branch=develop)](https://travis-ci.com/Alfresco/generator-alfresco-adf-app) |
-
 
 [![npm](https://img.shields.io/npm/v/generator-alfresco-adf-app)](https://www.npmjs.com/package/generator-alfresco-adf-app)
 
@@ -60,10 +59,10 @@ yo alfresco-adf-app --install
 
 If you are generating a project for activiti7 you need to add in the **app.config.json** the list of the apps that you desire to use.
 
-For example : 
+For example :
 
 ```json
-  "alfresco-deployed-apps" : [{"name": "simple-app"}]  
+  "alfresco-deployed-apps" : [{"name": "simple-app"}]
 ```
 
 For more information about the app list component refer to the [documentation](https://github.com/Alfresco/alfresco-ng2-components/blob/develop/docs/process-services-cloud/app-list-cloud.component.md)
@@ -78,11 +77,11 @@ yo ng2-alfresco-app -n app2 -b adf-cli-aps-template -i
 
 Options:
 
-| Name | Alias | Type | Description |
-| --- | --- | --- | --- |
-| --name=\<value> | -n \<value> | string | Application name |
-| --blueprint=\<value> | -b \<value> | string | Blueprint name |
-| --install | -i | boolean | Install dependencies upon generation |
+| Name                 | Alias       | Type    | Description                          |
+| -------------------- | ----------- | ------- | ------------------------------------ |
+| --name=\<value>      | -n \<value> | string  | Application name                     |
+| --blueprint=\<value> | -b \<value> | string  | Blueprint name                       |
+| --install            | -i          | boolean | Install dependencies upon generation |
 
 Default blueprint names:
 
@@ -98,7 +97,7 @@ npm update -g generator-alfresco-adf-app
 
 ## Getting current version
 
-* Show current version generator-alfresco-adf-app installed
+- Show current version generator-alfresco-adf-app installed
 
 ```sh
 yo alfresco-adf-app --version
@@ -127,8 +126,9 @@ npm test
 In order to add a new blueprint just put the project template to the `app/templates` folder.
 
 Requirements for new projects:
-* must contain `package.json` file
-* the `package.json` file must contain at least `name` and `version` attributes
+
+- must contain `package.json` file
+- the `package.json` file must contain at least `name` and `version` attributes
 
 ### Debugging generator
 

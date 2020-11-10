@@ -6,37 +6,50 @@
  * agreement is prohibited.
  */
 
-import { Injectable, } from '@angular/core';
-import { AppConfigService, LogService, AlfrescoApiService } from '@alfresco/adf-core';
-import { Observable, of } from 'rxjs';
-import { AppsProcessCloudService, ApplicationInstanceModel } from '@alfresco/adf-process-services-cloud';
+import { Injectable } from "@angular/core";
+import {
+  AppConfigService,
+  LogService,
+  AlfrescoApiService,
+} from "@alfresco/adf-core";
+import { Observable, of } from "rxjs";
+import {
+  AppsProcessCloudService,
+  ApplicationInstanceModel,
+} from "@alfresco/adf-process-services-cloud";
 
 @Injectable()
 export class ApplicationDeploymentService extends AppsProcessCloudService {
+  deployedApps: ApplicationInstanceModel[];
 
-    deployedApps: ApplicationInstanceModel[];
+  constructor(
+    apiService: AlfrescoApiService,
+    logService: LogService,
+    private appConfig: AppConfigService
+  ) {
+    super(apiService, logService, appConfig);
 
-    constructor(apiService: AlfrescoApiService, logService: LogService, private appConfig: AppConfigService) {
-        super(apiService, logService, appConfig);
+    this.loadApps();
+  }
 
-        this.loadApps();
-    }
+  getDeployedApplicationsByStatus(
+    status: string
+  ): Observable<ApplicationInstanceModel[]> {
+    return this.hasDeployedApps()
+      ? of(this.deployedApps)
+      : super.getDeployedApplicationsByStatus(status);
+  }
 
-    getDeployedApplicationsByStatus(status: string): Observable<ApplicationInstanceModel[]> {
-        return this.hasDeployedApps() ? of(this.deployedApps) : super.getDeployedApplicationsByStatus(status);
-    }
+  hasDeployedApps(): boolean {
+    return this.deployedApps && this.deployedApps.length > 0;
+  }
 
-    hasDeployedApps(): boolean {
-        return this.deployedApps && this.deployedApps.length > 0;
-    }
-
-    loadApps() {
-        const apps = this.appConfig.get<any>('alfresco-deployed-apps', []);
-        apps.map((app) => {
-            app.theme = app.theme ? app.theme : 'theme-1';
-            app.icon = app.icon ? app.icon : 'favorite';
-        });
-        this.deployedApps = apps;
-    }
-
+  loadApps() {
+    const apps = this.appConfig.get<any>("alfresco-deployed-apps", []);
+    apps.map((app) => {
+      app.theme = app.theme ? app.theme : "theme-1";
+      app.icon = app.icon ? app.icon : "favorite";
+    });
+    this.deployedApps = apps;
+  }
 }

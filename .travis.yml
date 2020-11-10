@@ -84,7 +84,7 @@ matrix:
       name: Release
       if: branch = master AND type = push
       script:
-      - ./scripts/publish.sh
+        - ./scripts/publish.sh
 
     - stage: Release beta tag
       if: branch = master AND type = push

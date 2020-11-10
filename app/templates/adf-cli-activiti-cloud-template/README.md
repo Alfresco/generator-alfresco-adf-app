@@ -33,8 +33,7 @@ List of URLs being proxied:
 
 - `/` -> `http://0.0.0.0:9999`
 - `/auth/realms/myrealm` -> `http://0.0.0.0:9999/YOUR_OAUTH_HOST`
-- `/auth/admin/realms/myrealm` -> `http://0.0.0.0:9999/
-YOUR_IDENTITY_HOST`
+- `/auth/admin/realms/myrealm` -> `http://0.0.0.0:9999/ YOUR_IDENTITY_HOST`
 
 ## Code scaffolding
 

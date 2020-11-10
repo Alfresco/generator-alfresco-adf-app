@@ -15,30 +15,29 @@
  * limitations under the License.
  */
 
-import { browser } from 'protractor';
-import TestConfig = require('./test.config');
-import { LoginPage } from './loginPage';
-import { AdfAppPage } from './app.po';
+import { browser } from "protractor";
+import TestConfig = require("./test.config");
+import { LoginPage } from "./loginPage";
+import { AdfAppPage } from "./app.po";
 
-describe('Content Services Viewer', () => {
-
+describe("Content Services Viewer", () => {
   const loginPage = new LoginPage();
-  const loginURL = TestConfig.adf.url + TestConfig.adf.port + '/login';
+  const loginURL = TestConfig.adf.url + TestConfig.adf.port + "/login";
   const page = new AdfAppPage();
 
   beforeAll(async (done) => {
-
     browser.driver.get(loginURL);
 
-    await loginPage.login(TestConfig.adf.adminEmail, TestConfig.adf.adminPassword);
+    await loginPage.login(
+      TestConfig.adf.adminEmail,
+      TestConfig.adf.adminPassword
+    );
 
     done();
   });
 
-  it('[C276758] Check side-bar for generated app', () => {
+  it("[C276758] Check side-bar for generated app", () => {
     page.navigateTo();
     expect(page.getToolbar()).toBeDefined();
   });
-
 });
-

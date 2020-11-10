@@ -1,4 +1,3 @@
-
 ## Publishing to Docker Hub
 
 First of all, if you do not have a Docker Hub account, you can register here: https://hub.docker.com/, the registration is absolutely free.
@@ -58,4 +57,3 @@ travis env set DOCKER_PASSWORD secretsecr
 ```
 
 For more information [see also Pushing a Docker Image to a Registry ](https://docs.travis-ci.com/user/docker/)
-

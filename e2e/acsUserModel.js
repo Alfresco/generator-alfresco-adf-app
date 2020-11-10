@@ -15,42 +15,40 @@
  * limitations under the License.
  */
 
-var Util = require('./util');
+var Util = require("./util");
 
-var AcsUserModel = function(details) {
-
+var AcsUserModel = function (details) {
   this.firstName = Util.generateRandomString();
   this.lastName = Util.generateRandomString();
   this.password = Util.generateRandomString();
   this.email = Util.generateRandomString();
   this.id = Util.generateRandomString();
-  this.jobTitle = 'N/A';
+  this.jobTitle = "N/A";
 
-  this.getFirstName = function() {
+  this.getFirstName = function () {
     return this.firstName;
   };
 
-  this.getLastName = function() {
+  this.getLastName = function () {
     return this.lastName;
   };
 
-  this.getPassword = function() {
+  this.getPassword = function () {
     return this.password;
   };
 
-  this.getEmail = function() {
+  this.getEmail = function () {
     return this.email;
   };
 
-  this.getId = function() {
+  this.getId = function () {
     return this.id;
   };
 
-  this.getJobTitle = function() {
+  this.getJobTitle = function () {
     return this.jobTitle;
   };
 
   Object.assign(this, details);
-
 };
 module.exports = AcsUserModel;

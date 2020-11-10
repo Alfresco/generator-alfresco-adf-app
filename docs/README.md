@@ -56,7 +56,7 @@ npm update -g generator-alfresco-adf-app
 
 ## Getting current version
 
-* Show current version generator-alfresco-adf-app installed
+- Show current version generator-alfresco-adf-app installed
 
 ```sh
 yo alfresco-adf-app --version
@@ -86,13 +86,13 @@ In order to add a new blueprint just put the project template to the `app/templa
 
 Requirements for new projects:
 
-* must contain `package.json` file
-* the `package.json` file must contain at least `name` and `version` attributes
+- must contain `package.json` file
+- the `package.json` file must contain at least `name` and `version` attributes
 
 If you want to create a new blueprint based on the existing git repository follow the following steps:
 
-* run `git clone <project-url>` in the `app/templates` folder
-* remove `.git` folder from the cloned project
+- run `git clone <project-url>` in the `app/templates` folder
+- remove `.git` folder from the cloned project
 
 ### Debugging generator
 

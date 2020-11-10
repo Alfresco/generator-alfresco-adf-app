@@ -15,19 +15,18 @@
  * limitations under the License.
  */
 
-import Util = require('./util');
-import { browser, by, element } from 'protractor';
+import Util = require("./util");
+import { browser, by, element } from "protractor";
 
 export class LoginPage {
-
   header = element(by.css('[data-automation-id="adf-layout-container"]'));
-  signInButton = element(by.id('login-button'));
+  signInButton = element(by.id("login-button"));
   txtUsername = element(by.css('input[id="username"]'));
   txtPassword = element(by.css('input[id="password"]'));
 
   enterUsername(username: string) {
     Util.waitUntilElementIsVisible(this.txtUsername);
-    this.txtUsername.sendKeys('');
+    this.txtUsername.sendKeys("");
     this.txtUsername.clear();
     return this.txtUsername.sendKeys(username);
   }
@@ -44,7 +43,6 @@ export class LoginPage {
   }
 
   async login(username: string, password: string) {
-
     browser.waitForAngularEnabled(false);
 
     this.enterUsername(username);

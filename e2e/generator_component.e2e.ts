@@ -15,56 +15,67 @@
  * limitations under the License.
  */
 
-import { browser } from 'protractor';
-import TestConfig = require('./test.config');
-import { ViewerPage } from './viewerPage';
-import { LoginPage } from './loginPage';
-import { AlfrescoApiCompatibility as AlfrescoApi } from '@alfresco/js-api';
-import { UploadActions } from './upload.actions';
+import { browser } from "protractor";
+import TestConfig = require("./test.config");
+import { ViewerPage } from "./viewerPage";
+import { LoginPage } from "./loginPage";
+import { AlfrescoApiCompatibility as AlfrescoApi } from "@alfresco/js-api";
+import { UploadActions } from "./upload.actions";
 
-describe('Content Services Viewer', () => {
-
+describe("Content Services Viewer", () => {
   let viewerPage = new ViewerPage();
   let loginPage = new LoginPage();
   let alfrescoJsApi: AlfrescoApi;
 
   let pdfFile: any = {
-    'name': 'a_file_supported.pdf',
-    'firstPageText': 'A Journey into Test Frameworks'
+    name: "a_file_supported.pdf",
+    firstPageText: "A Journey into Test Frameworks",
   };
 
-  let loginURL = TestConfig.adf.url + TestConfig.adf.port + '/login';
+  let loginURL = TestConfig.adf.url + TestConfig.adf.port + "/login";
 
   beforeAll(async (done) => {
     let uploadActions = new UploadActions();
 
     alfrescoJsApi = new AlfrescoApi({
-      provider: 'ECM',
-      hostEcm: TestConfig.adf.url
+      provider: "ECM",
+      hostEcm: TestConfig.adf.url,
     });
 
-    await alfrescoJsApi.login(TestConfig.adf.adminEmail, TestConfig.adf.adminPassword);
+    await alfrescoJsApi.login(
+      TestConfig.adf.adminEmail,
+      TestConfig.adf.adminPassword
+    );
 
-    let pdfFileUploaded = await uploadActions.uploadFile(alfrescoJsApi, '/pdf_file.pdf', 'pdf_file.pdf', '-my-');
+    let pdfFileUploaded = await uploadActions.uploadFile(
+      alfrescoJsApi,
+      "/pdf_file.pdf",
+      "pdf_file.pdf",
+      "-my-"
+    );
     Object.assign(pdfFile, pdfFileUploaded.entry);
 
     browser.driver.get(loginURL);
 
-    await loginPage.login(TestConfig.adf.adminEmail, TestConfig.adf.adminPassword);
+    await loginPage.login(
+      TestConfig.adf.adminEmail,
+      TestConfig.adf.adminPassword
+    );
 
     done();
   });
 
-  it('[C260498] Check viewer for a generated app', () => {
-
-    let viewerUrl = TestConfig.adf.url + TestConfig.adf.port + `/documentlist(overlay:files/${pdfFile.id}/view)`;
+  it("[C260498] Check viewer for a generated app", () => {
+    let viewerUrl =
+      TestConfig.adf.url +
+      TestConfig.adf.port +
+      `/documentlist(overlay:files/${pdfFile.id}/view)`;
 
     browser.driver.get(viewerUrl);
     browser.driver.sleep(3000); // wait open file
 
-    viewerPage.checkFileContent('1', pdfFile.firstPageText);
+    viewerPage.checkFileContent("1", pdfFile.firstPageText);
     viewerPage.checkCloseButtonIsDisplayed();
     viewerPage.clickCloseButton();
   });
-
 });

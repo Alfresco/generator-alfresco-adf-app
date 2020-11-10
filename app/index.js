@@ -1,7 +1,7 @@
-const utils = require('./utils');
-const alflogo = require('alfresco-logo');
-const CLIGenerator = require('generator-alfresco-common').cli_generator;
-const filters = require('generator-alfresco-common').prompt_filters;
+const utils = require("./utils");
+const alflogo = require("alfresco-logo");
+const CLIGenerator = require("generator-alfresco-common").cli_generator;
+const filters = require("generator-alfresco-common").prompt_filters;
 
 module.exports = class extends CLIGenerator {
   constructor(args, opts) {
@@ -14,73 +14,82 @@ module.exports = class extends CLIGenerator {
 
     this.prompts = [
       {
-        type: 'input',
-        name: 'name',
-        message: 'Your project name',
+        type: "input",
+        name: "name",
+        message: "Your project name",
         default: this.appname, // Default to current folder name
         option: {
-          name: 'name',
+          name: "name",
           config: {
-            name: 'name',
-            alias: 'n',
+            name: "name",
+            alias: "n",
             required: true,
-            type: String
-          }
+            type: String,
+          },
         },
-        commonFilter: filters.requiredTextFilter
+        commonFilter: filters.requiredTextFilter,
       },
       {
-        type: 'list',
-        name: 'blueprint',
-        message: 'Application blueprint',
-        choices: this.blueprints.map(bp => {
+        type: "list",
+        name: "blueprint",
+        message: "Application blueprint",
+        choices: this.blueprints.map((bp) => {
           return {
             name: bp.displayName,
-            value: bp.name
+            value: bp.name,
           };
         }),
         option: {
-          name: 'blueprint',
+          name: "blueprint",
           config: {
-            alias: 'b',
+            alias: "b",
             required: true,
-            type: String
-          }
+            type: String,
+          },
         },
-        commonFilter: filters.chooseOneFilterFactory(this.blueprints.map(bp => bp.name))
+        commonFilter: filters.chooseOneFilterFactory(
+          this.blueprints.map((bp) => bp.name)
+        ),
       },
       {
-        type: 'confirm',
-        name: 'install',
-        message: 'Would you like to install dependencies now?',
+        type: "confirm",
+        name: "install",
+        message: "Would you like to install dependencies now?",
         option: {
-          name: 'install',
+          name: "install",
           config: {
-            alias: 'i',
+            alias: "i",
             required: false,
-            type: Boolean
-          }
+            type: Boolean,
+          },
         },
-        commonFilter: filters.booleanFilter
-      }
+        commonFilter: filters.booleanFilter,
+      },
     ];
 
-    this.composeWith(require.resolve('generator-license'), {
-      defaultLicense: 'MIT'
+    this.composeWith(require.resolve("generator-license"), {
+      defaultLicense: "MIT",
     });
 
     this.setupArgumentsAndOptions(this.prompts);
   }
 
   prompting() {
-    this.log(alflogo(
-      'ADF Angular app generator for Alfresco\n Version ' + this.rootGeneratorVersion() + '\n',
-      {'left-pad': '     '}));
+    this.log(
+      alflogo(
+        "ADF Angular app generator for Alfresco\n Version " +
+          this.rootGeneratorVersion() +
+          "\n",
+        { "left-pad": "     " }
+      )
+    );
 
-    return this.subgeneratorPrompt(this.prompts, '', props => {
+    return this.subgeneratorPrompt(this.prompts, "", (props) => {
       this.state.name = props.name;
       console.log(props.blueprint);
-      this.state.blueprint = this.blueprints.find(bp => bp.name === props.blueprint);
+      this.state.blueprint = this.blueprints.find(
+        (bp) => bp.name === props.blueprint
+      );
       this.state.install = props.install;
 
       if (props.name !== this.appname) {
@@ -90,11 +99,9 @@ module.exports = class extends CLIGenerator {
   }
 
   writing() {
-    this.fs.copy(
-      this.state.blueprint.path + '/**/*',
-      this.destinationPath(),
-      { globOptions: { dot: true } }
-    );
+    this.fs.copy(this.state.blueprint.path + "/**/*", this.destinationPath(), {
+      globOptions: { dot: true },
+    });
   }
 
   install() {

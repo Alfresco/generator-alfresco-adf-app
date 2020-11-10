@@ -1,27 +1,28 @@
-import { Component, ViewChild, Input } from '@angular/core';
-import { NotificationService } from '@alfresco/adf-core';
-import { DocumentListComponent } from '@alfresco/adf-content-services';
-import { PreviewService } from '../services/preview.service';
+import { Component, ViewChild, Input } from "@angular/core";
+import { NotificationService } from "@alfresco/adf-core";
+import { DocumentListComponent } from "@alfresco/adf-content-services";
+import { PreviewService } from "../services/preview.service";
 
 @Component({
-  selector: 'app-documentlist',
-  templateUrl: './documentlist.component.html',
-  styleUrls: ['./documentlist.component.css']
+  selector: "app-documentlist",
+  templateUrl: "./documentlist.component.html",
+  styleUrls: ["./documentlist.component.css"],
 })
 export class DocumentlistComponent {
-
   @Input()
   showViewer = false;
   nodeId: string = null;
 
-  @ViewChild('documentList')
+  @ViewChild("documentList")
   documentList: DocumentListComponent;
 
-  constructor(private notificationService: NotificationService, private preview: PreviewService) {
-  }
+  constructor(
+    private notificationService: NotificationService,
+    private preview: PreviewService
+  ) {}
 
   uploadSuccess(event: any) {
-    this.notificationService.openSnackMessage('File uploaded');
+    this.notificationService.openSnackMessage("File uploaded");
     this.documentList.reload();
   }
 
@@ -36,5 +37,4 @@ export class DocumentlistComponent {
     this.showViewer = false;
     this.nodeId = null;
   }
-
 }

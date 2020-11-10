@@ -28,9 +28,7 @@
             "tsConfig": "src/tsconfig.app.json",
             "polyfills": "src/polyfills.ts",
             "stylePreprocessorOptions": {
-              "includePaths": [
-                "node_modules"
-              ]
+              "includePaths": ["node_modules"]
             },
             "assets": [
               "src/assets",
@@ -78,9 +76,7 @@
                 "output": "/"
               }
             ],
-            "styles": [
-              "src/custom-style.scss"
-            ],
+            "styles": ["src/custom-style.scss"],
             "scripts": [
               "node_modules/pdfjs-dist/build/pdf.js",
               "node_modules/pdfjs-dist/web/pdf_viewer.js",
@@ -140,9 +136,7 @@
               "node_modules/raphael/raphael.min.js",
               "node_modules/moment/min/moment.min.js"
             ],
-            "styles": [
-              "src/custom-style.scss"
-            ],
+            "styles": ["src/custom-style.scss"],
             "assets": [
               "src/assets",
               "src/favicon-96x96.png",
@@ -188,10 +182,7 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "src/tsconfig.app.json",
-              "src/tsconfig.spec.json"
-            ],
+            "tsConfig": ["src/tsconfig.app.json", "src/tsconfig.spec.json"],
             "exclude": []
           }
         }

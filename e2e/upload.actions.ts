@@ -15,34 +15,32 @@
  * limitations under the License.
  */
 
-import path = require('path');
-import fs = require('fs');
-import TestConfig = require('./test.config');
+import path = require("path");
+import fs = require("fs");
+import TestConfig = require("./test.config");
 
 export class UploadActions {
+  async uploadFile(alfrescoJsApi, fileLocation, fileName, parentFolderId) {
+    let pathFile = path.join(TestConfig.main.rootPath + fileLocation);
+    let file = fs.createReadStream(pathFile);
 
-    async uploadFile(alfrescoJsApi, fileLocation, fileName, parentFolderId) {
-        let pathFile = path.join(TestConfig.main.rootPath + fileLocation);
-        let file = fs.createReadStream(pathFile);
+    return alfrescoJsApi.upload.uploadFile(file, "", parentFolderId, null, {
+      name: fileName,
+      nodeType: "cm:content",
+      renditions: "doclib",
+      autoRename: true,
+    });
+  }
 
-        return alfrescoJsApi.upload.uploadFile(
-            file,
-            '',
-            parentFolderId,
-            null,
-            {
-                'name': fileName,
-                'nodeType': 'cm:content',
-                'renditions': 'doclib',
-                'autoRename': true
-            }
-        );
-    }
-
-    async uploadFolder(alfrescoJsApi, folderName, parentFolderId) {
-        return alfrescoJsApi.nodes.addNode(parentFolderId, {
-            'name': folderName,
-            'nodeType': 'cm:folder'
-        }, {}, {});
-    }
+  async uploadFolder(alfrescoJsApi, folderName, parentFolderId) {
+    return alfrescoJsApi.nodes.addNode(
+      parentFolderId,
+      {
+        name: folderName,
+        nodeType: "cm:folder",
+      },
+      {},
+      {}
+    );
+  }
 }

@@ -15,19 +15,18 @@
  * limitations under the License.
  */
 
-var FileModel = require('./fileModel');
+var FileModel = require("./fileModel");
 
-var FilesModel = function() {
-
+var FilesModel = function () {
   var files = null;
 
-  this.setFiles = function(arr) {
-    files = arr.map(function(item) {
+  this.setFiles = function (arr) {
+    files = arr.map(function (item) {
       return new FileModel(item.entry);
     });
   };
 
-  this.getFiles = function() {
+  this.getFiles = function () {
     return files;
   };
 };

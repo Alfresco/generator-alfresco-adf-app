@@ -15,51 +15,60 @@
  * limitations under the License.
  */
 
-var exports = module.exports = {};
-var TestConfig = require('./test.config');
+var exports = (module.exports = {});
+var TestConfig = require("./test.config");
 
 var DEFAULT_TIMEOUT = parseInt(TestConfig.main.timeout);
 
-exports.waitUntilElementIsVisible = function(elementToCheck, timeout) {
+exports.waitUntilElementIsVisible = function (elementToCheck, timeout) {
   var waitTimeout = timeout || DEFAULT_TIMEOUT;
 
   this.waitUntilElementIsPresent(elementToCheck, timeout);
 
   var isDisplayed = false;
-  return browser.wait(() => {
-    elementToCheck.isDisplayed().then(
-      () => {
-        isDisplayed = true;
-      },
-      () => {
-        isDisplayed = false;
-      }
-    );
-    return isDisplayed;
-  }, waitTimeout, 'Element is not visible ' + elementToCheck.locator());
+  return browser.wait(
+    () => {
+      elementToCheck.isDisplayed().then(
+        () => {
+          isDisplayed = true;
+        },
+        () => {
+          isDisplayed = false;
+        }
+      );
+      return isDisplayed;
+    },
+    waitTimeout,
+    "Element is not visible " + elementToCheck.locator()
+  );
 };
 
-exports.waitUntilElementIsPresent = function(elementToCheck, timeout) {
+exports.waitUntilElementIsPresent = function (elementToCheck, timeout) {
   var waitTimeout = timeout || DEFAULT_TIMEOUT;
 
   var isPresent = false;
-  return browser.wait(() => {
-    elementToCheck.isPresent().then(
-      () => {
-        isPresent = true;
-      },
-      () => {
-        isPresent = false;
-      }
-    );
-    return isPresent;
-  }, waitTimeout, 'Element is not present ' + elementToCheck.locator());
+  return browser.wait(
+    () => {
+      elementToCheck.isPresent().then(
+        () => {
+          isPresent = true;
+        },
+        () => {
+          isPresent = false;
+        }
+      );
+      return isPresent;
+    },
+    waitTimeout,
+    "Element is not present " + elementToCheck.locator()
+  );
 };
 
-exports.generateRandomString = function(length) {
-  length = typeof length !== 'undefined' ? length : 8;
-  var text = '';
-  var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+exports.generateRandomString = function (length) {
+  length = typeof length !== "undefined" ? length : 8;
+  var text = "";
+  var possible =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
   for (var i = 0; i < length; i++) {
     text += possible.charAt(Math.floor(Math.random() * possible.length));
@@ -68,10 +77,14 @@ exports.generateRandomString = function(length) {
   return text;
 };
 
-exports.waitUntilElementIsClickable = function(elementToCheck, timeout) {
+exports.waitUntilElementIsClickable = function (elementToCheck, timeout) {
   var waitTimeout = timeout || DEFAULT_TIMEOUT;
 
-  return browser.wait(() => {
-    return until.elementToBeClickable(elementToCheck);
-  }, waitTimeout, 'Element is not Clickable' + elementToCheck.locator());
+  return browser.wait(
+    () => {
+      return until.elementToBeClickable(elementToCheck);
+    },
+    waitTimeout,
+    "Element is not Clickable" + elementToCheck.locator()
+  );
 };
