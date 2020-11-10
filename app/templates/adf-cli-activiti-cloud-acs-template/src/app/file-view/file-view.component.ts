@@ -15,47 +15,53 @@
  * limitations under the License.
  */
 
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { AlfrescoApiService } from '@alfresco/adf-core';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { Component, OnInit, ViewEncapsulation } from "@angular/core";
+import { ActivatedRoute, PRIMARY_OUTLET, Router } from "@angular/router";
+import { AlfrescoApiService } from "@alfresco/adf-core";
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 @Component({
-    selector: 'app-file-view',
-    templateUrl: 'file-view.component.html',
-    styleUrls: ['file-view.component.scss'],
-    encapsulation: ViewEncapsulation.None
+  selector: "app-file-view",
+  templateUrl: "file-view.component.html",
+  styleUrls: ["file-view.component.scss"],
+  encapsulation: ViewEncapsulation.None,
 })
 export class FileViewComponent implements OnInit {
+  nodeId: string = null;
 
-    nodeId: string = null;
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private snackBar: MatSnackBar,
+    private nodeApiService: NodesApiService
+  ) {}
 
-    constructor(private router: Router,
-                private route: ActivatedRoute,
-                private snackBar: MatSnackBar,
-                private apiService: AlfrescoApiService) {
-    }
-
-    ngOnInit() {
-
-        this.route.params.subscribe(params => {
-            const id = params.nodeId;
-            if (id) {
-                this.apiService.getInstance().nodes.getNodeInfo(id).then(
-                    (node) => {
-                        if (node) {
-                            this.nodeId = id;
-                            return;
-                        }
-                        this.router.navigate(['/files', id]);
-                    },
-                    () => this.router.navigate(['/files', id])
-                );
+  ngOnInit() {
+    this.route.params.subscribe((params) => {
+      const id = params.nodeId;
+      if (id) {
+        this.nodeApiService.getNode(id).subscribe(
+          (node) => {
+            if (node && node.isFile) {
+              this.nodeId = id;
+              return;
             }
-        });
-    }
+            this.router.navigate(["/files", id]);
+          },
+          () => this.router.navigate(["/files", id])
+        );
+      }
+    });
+  }
 
-    onUploadError(errorMessage: string) {
-        this.snackBar.open(errorMessage, '', { duration: 4000 });
-    }
+  onUploadError(errorMessage: string) {
+    this.snackBar.open(errorMessage, "", { duration: 4000 });
+  }
+
+  onViewerVisibilityChanged() {
+    const primaryUrl = this.router
+      .parseUrl(this.router.url)
+      .root.children[PRIMARY_OUTLET].toString();
+    this.router.navigateByUrl(primaryUrl);
+  }
 }
