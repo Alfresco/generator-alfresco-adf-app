@@ -15,8 +15,8 @@
  * limitations under the License.
  */
 
-import Util = require('./util');
-import { element, by } from 'protractor';
+import { Util } from "../util";
+import { element, by } from "protractor";
 
 export class ViewerPage {
 

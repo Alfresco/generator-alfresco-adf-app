@@ -66,19 +66,19 @@ matrix:
     #E2e tests
     - stage: E2e tests
       name: adf-cli-acs-template
-      script: travis_retry ./scripts/test-e2e.sh --proxy "$E2E_HOST" -host "localhost:4200"  -host_sso "$E2E_HOST_SSO" -host_bpm "$E2E_HOST_BPM" -host_identity "$E2E_HOST_IDENTITY" -p "$E2E_SS0_PASSWORD" -e "$E2E_EMAIL" -save --skip-lint -b -sso -gnu -f adf-cli-acs-template --spec sidebar_component.e2e.ts
+      script: travis_retry ./scripts/test-e2e.sh -host "localhost:4200"  -host_sso "$HOST_SSO" -p "$E2E_SS0_PASSWORD" -u "$E2E_EMAIL" -b -gnu -f adf-cli-acs-template --spec sidebar_component.e2e.ts
     - stage: E2e tests
       name: adf-cli-aps-template
-      script: travis_retry ./scripts/test-e2e.sh --proxy "$E2E_HOST" -host "localhost:4200"  -host_sso "$E2E_HOST_SSO" -host_bpm "$E2E_HOST_BPM" -host_identity "$E2E_HOST_IDENTITY" -p "$E2E_SS0_PASSWORD" -e "$E2E_EMAIL" -save --skip-lint -b -sso -gnu -f adf-cli-aps-template --spec sidebar_component.e2e.ts
+      script: travis_retry ./scripts/test-e2e.sh -host "localhost:4200"  -host_sso "$HOST_SSO" -p "$E2E_SS0_PASSWORD" -u "$E2E_EMAIL" -b -gnu -f adf-cli-aps-template --spec sidebar_component.e2e.ts
     - stage: E2e tests
       name: adf-cli-acs-aps-template
-      script: travis_retry  ./scripts/test-e2e.sh --proxy "$E2E_HOST" -host "localhost:4200"  -host_sso "$E2E_HOST_SSO" -host_bpm "$E2E_HOST_BPM" -host_identity "$E2E_HOST_IDENTITY" -p "$E2E_SS0_PASSWORD" -e "$E2E_EMAIL" -save --skip-lint -b -sso -gnu -f adf-cli-acs-aps-template --spec sidebar_component.e2e.ts
+      script: travis_retry ./scripts/test-e2e.sh -host "localhost:4200"  -host_sso "$HOST_SSO" -p "$E2E_SS0_PASSWORD" -u "$E2E_EMAIL" -b -gnu -f adf-cli-acs-aps-template --spec sidebar_component.e2e.ts
     - stage: E2e tests
       name: adf-cli-activiti-template
-      script: travis_retry ./scripts/test-e2e.sh --proxy "$E2E_HOST" -host "localhost:4200"  -host_sso "$E2E_HOST_SSO" -host_bpm "$E2E_HOST_BPM" -host_identity "$E2E_HOST_IDENTITY" -p "$E2E_SS0_PASSWORD" -e "$E2E_EMAIL" -save --skip-lint -b -sso -gnu -f adf-cli-activiti-template --spec sidebar_component.e2e.ts
+      script: travis_retry ./scripts/test-e2e.sh -host "localhost:4200"  -host_sso "$HOST_SSO" -p "$E2E_SS0_PASSWORD" -u "$E2E_EMAIL" -b -gnu -f adf-cli-activiti-template --spec sidebar_component.e2e.ts
     - stage: E2e tests
       name: adf-cli-activiti-acs-template
-      script: travis_retry ./scripts/test-e2e.sh --proxy "$E2E_HOST" -host "localhost:4200"  -host_sso "$E2E_HOST_SSO" -host_bpm "$E2E_HOST_BPM" -host_identity "$E2E_HOST_IDENTITY" -p "$E2E_SS0_PASSWORD" -e "$E2E_EMAIL" -save --skip-lint -b -sso -gnu -f adf-cli-activiti-acs-template --spec sidebar_component.e2e.ts
+      script: travis_retry ./scripts/test-e2e.sh -host "localhost:4200"  -host_sso "$HOST_SSO" -p "$E2E_SS0_PASSWORD" -u "$E2E_EMAIL" -b -gnu -f adf-cli-activiti-acs-template --spec sidebar_component.e2e.ts
 
     - stage: Release
       name: Release

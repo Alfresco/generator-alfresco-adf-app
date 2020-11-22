@@ -15,8 +15,8 @@
  * limitations under the License.
  */
 
-import Util = require('./util');
-import { browser, by, element } from 'protractor';
+ import { Util } from "../util";
+import { browser, by, element } from "protractor";
 
 export class LoginPage {
 

@@ -1,6 +1,8 @@
 const path = require('path');
 const jasmineReporters = require('jasmine-reporters');
-const {SpecReporter} = require('jasmine-spec-reporter');
+const { SpecReporter } = require('jasmine-spec-reporter');
+const testConfig = require('./e2e/test.config');
+const RESOURCES = require('./e2e/resources');
 
 const projectRoot = path.resolve(__dirname);
 
@@ -10,14 +12,23 @@ const height = 768;
 var HOST = process.env.URL_HOST_ADF;
 var BROWSER_RUN = process.env.BROWSER_RUN;
 var SELENIUM_SERVER = process.env.SELENIUM_SERVER || '';
-var DIRECT_CONNECCT = SELENIUM_SERVER ? false : true;
+var DIRECT_CONNECT = SELENIUM_SERVER ? false : true;
 
 var args_options = [];
 
 if (BROWSER_RUN === 'true') {
-  args_options = ['--incognito', '--window-size=1366,768', '--disable-gpu'];
+  args_options = [
+    '--incognito',
+    '--window-size=1366,768',
+    '--disable-gpu'
+  ];
 } else {
-  args_options = ['--incognito', '--headless', '--window-size=1366,768', '--disable-gpu'];
+  args_options = [
+    '--incognito',
+    '--headless',
+    '--window-size=1366,768',
+    '--disable-gpu',
+  ];
 }
 
 var specsToRun = './e2e/**/*.e2e.ts';
@@ -25,8 +36,15 @@ var specsToRun = './e2e/**/*.e2e.ts';
 if (process.env.NAME_TEST) {
   specsToRun = './e2e/**/' + process.env.NAME_TEST;
 }
+console.log(testConfig);
 
 exports.config = {
+  params: {
+    testConfig: testConfig,
+    loginRoute: '/login',
+    resources: RESOURCES
+  },
+
   allScriptsTimeout: 60000,
 
   specs: [
@@ -39,14 +57,14 @@ exports.config = {
     browserName: 'chrome',
     chromeOptions: {
       binary: require('puppeteer').executablePath(),
-      args: args_options
+      args: args_options,
     },
     loggingPrefs: {
-      browser: 'SEVERE' // "OFF", "SEVERE", "WARNING", "INFO", "CONFIG", "FINE", "FINER", "FINEST", "ALL".
-    }
+      browser: 'ALL', // 'OFF', 'SEVERE', 'WARNING', 'INFO', 'CONFIG', 'FINE', 'FINER', 'FINEST', 'ALL'.
+    },
   },
 
-  directConnect: DIRECT_CONNECCT,
+  directConnect: DIRECT_CONNECT,
 
   baseUrl: 'http://' + HOST,
 
@@ -55,8 +73,7 @@ exports.config = {
   jasmineNodeOpts: {
     showColors: true,
     defaultTimeoutInterval: 90000,
-    print: function() {
-    }
+    print: function () { },
   },
 
   /**
@@ -65,28 +82,34 @@ exports.config = {
    */
   seleniumAddress: SELENIUM_SERVER,
 
-  onPrepare() {
+  async onPrepare() {
     require('ts-node').register({
-      project: 'e2e/tsconfig.e2e.json'
+      project: 'e2e/tsconfig.e2e.json',
     });
 
     browser.manage().window().setSize(width, height);
 
-    jasmine.getEnv().addReporter(new SpecReporter({spec: {displayStacktrace: true}}));
+    jasmine
+      .getEnv()
+      .addReporter(new SpecReporter({ spec: { displayStacktrace: true } }));
 
-    jasmine.getEnv().addReporter(new jasmineReporters.JUnitXmlReporter({
-      consolidateAll: true,
-      savePath: `${projectRoot}/e2e-output/junit-report`,
-      filePrefix: 'results.xml',
-      useDotNotation: false,
-      useFullTestName: false,
-      reportFailedUrl: true
-    }));
+    jasmine.getEnv().addReporter(
+      new jasmineReporters.JUnitXmlReporter({
+        consolidateAll: true,
+        savePath: `${projectRoot}/e2e-output/junit-report`,
+        filePrefix: 'results.xml',
+        useDotNotation: false,
+        useFullTestName: false,
+        reportFailedUrl: true,
+      })
+    );
 
-    return browser.driver.executeScript(disableCSSAnimation);
+    browser.driver.executeScript(disableCSSAnimation);
+    browser.ignoreSynchronization = true;
 
     function disableCSSAnimation() {
-      var css = '* {' +
+      var css =
+        '* {' +
         '-webkit-transition-duration: 0s !important;' +
         'transition-duration: 0s !important;' +
         '-webkit-animation-duration: 0s !important;' +
@@ -99,6 +122,8 @@ exports.config = {
       style.appendChild(document.createTextNode(css));
       head.appendChild(style);
     }
+
+
 
   }
 
