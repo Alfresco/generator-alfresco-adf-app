@@ -12,33 +12,6 @@
     </ng-template>
   </adf-sidenav-layout-header>
 
-  <adf-sidenav-layout-navigation>
-    <ng-template let-isMenuMinimized="isMenuMinimized">
-      <mat-nav-list class="adf-sidenav-linklist">
-        <a mat-list-item class="adf-sidenav-link" routerLink="/login" id="login">
-          <mat-icon matListIcon class="sidenav-menu-icon">vpn_key</mat-icon>
-          <div class="sidenav-menu-label" *ngIf="!isMenuMinimized()">Login</div>
-        </a>
-        <a mat-list-item class="adf-sidenav-link" routerLink="/community" id="community">
-          <mat-icon matListIcon class="sidenav-menu-icon">cloud</mat-icon>
-          <div class="sidenav-menu-label" *ngIf="!isMenuMinimized()">
-            PS Cloud
-          </div>
-        </a>
-        <a mat-list-item adf-logout class="adf-sidenav-link" id="exit">
-          <mat-icon matListIcon class="sidenav-menu-icon">exit_to_app</mat-icon>
-          <div class="sidenav-menu-label" *ngIf="!isMenuMinimized()">
-            Logout
-          </div>
-        </a>
-      </mat-nav-list>
-    </ng-template>
-  </adf-sidenav-layout-navigation>
-
-            </mat-toolbar>
-        </ng-template>
-    </adf-sidenav-layout-header>
-
     <adf-sidenav-layout-navigation>
         <ng-template let-isMenuMinimized="isMenuMinimized">
             <mat-nav-list class="adf-sidenav-linklist">
