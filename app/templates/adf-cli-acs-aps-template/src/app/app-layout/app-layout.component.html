@@ -1,18 +1,10 @@
 <adf-sidenav-layout [sidenavMin]="70" [sidenavMax]="200" [stepOver]="780" [hideSidenav]="false" [expandedSidenav]="false">
 
     <adf-sidenav-layout-header>
-        <ng-template let-toggleMenu="toggleMenu">
-            <mat-toolbar color="primary" class="adf-app-layout-toolbar mat-elevation-z6">
-                <button mat-icon-button>
-                    <mat-icon>menu</mat-icon>
-                </button>
-
-                <span fxFlex="1 1 auto" fxShow fxHide.lt-sm="true">ADF</span>
-
-                <div class="adf-app-layout-menu-spacer"></div>
-
-            </mat-toolbar>
-        </ng-template>
+      <ng-template let-toggleMenu="toggleMenu">
+        <adf-layout-header id="adf-header" [title]="'ADF'" color="primary" >
+        </adf-layout-header>
+      </ng-template>
     </adf-sidenav-layout-header>
 
     <adf-sidenav-layout-navigation>
