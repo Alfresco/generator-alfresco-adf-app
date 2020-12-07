@@ -10,10 +10,11 @@
   "authType": "OAUTH",
   "oauth2": {
     "host": "{protocol}//{hostname}{:port}/auth/realms/alfresco",
-    "clientId": "activiti",
+    "clientId": "alfresco",
     "scope": "openid",
     "secret": "",
-    "implicitFlow": false,
+    "implicitFlow": true,
+    "silentLogin": true,
     "redirectSilentIframeUri": "{protocol}//{hostname}{:port}/assets/silent-refresh.html",
     "redirectUri": "/",
     "redirectUriLogout": "/logout"

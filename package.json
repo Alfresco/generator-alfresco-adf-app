@@ -12,10 +12,12 @@
     "alfresco-logo": "1.0.1",
     "generator-alfresco-common": "0.9.27",
     "generator-license": "^5.4.0",
-    "yeoman-generator": "^4.2.0"
+    "yeoman-generator": "^4.2.0",
+    "moment-es6": "^1.0.0"
   },
   "devDependencies": {
-    "@alfresco/js-api": "3.9.0",
+    "@alfresco/js-api": "4.2.0-f9c54eaf48fe91e8d4671269cb5d6b8d00445bc0",
+    "@alfresco/adf-testing": "4.2.0-beta4",
     "@types/jasmine": "^3.4.6",
     "connect-history-api-fallback": "1.6.0",
     "eslint": "^6.6.0",
