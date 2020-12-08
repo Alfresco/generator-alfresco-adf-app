@@ -1,6 +1,6 @@
 {
   "name": "adf-cli-acs-template",
-  "version": "4.2.0-beta8",
+  "version": "4.2.0",
   "blueprint": "Content Services",
   "description": "ACS ADF Application with Angular CLI",
   "license": "MIT",
@@ -17,10 +17,10 @@
   },
   "private": true,
   "dependencies": {
-    "@alfresco/adf-content-services": "4.2.0-beta8",
-    "@alfresco/adf-core": "4.2.0-beta8",
-    "@alfresco/adf-extensions": "4.2.0-beta8",
-    "@alfresco/js-api": "4.2.0-6ac370e9b9c807196a9ab3bc892d0a4956d1a14f",
+    "@alfresco/adf-content-services": "4.2.0",
+    "@alfresco/adf-core": "4.2.0",
+    "@alfresco/adf-extensions": "4.2.0",
+    "@alfresco/js-api": "4.2.0",
     "@angular/animations": "10.0.6",
     "@angular/cdk": "10.0.2",
     "@angular/common": "10.0.6",
