@@ -7,7 +7,7 @@
   "application": {
     "name": "Alfresco ADF Application"
   },
-  "authType": "OAUTH",
+  "authType": "BASIC",
   "oauth2": {
     "host": "{protocol}//{hostname}{:port}/auth/realms/alfresco",
     "clientId": "alfresco",
