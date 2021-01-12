@@ -78,13 +78,7 @@ gnu_mode() {
 
 set_sso_proxy(){
     echo "====== SET SSO PROXY ======"
-
-    echo "${DIR}"
-
-    sed "${sedi[@]}" "s|\"bpmHost\": \".*\"|\"bpmHost\": \"https://${HOST_SSO}\"|g" ${DIR}/../app/templates/$FOLDER/src/app.config.json
-    sed "${sedi[@]}" "s|\"ecmHost\": \".*\"|\"ecmHost\": \"https://${HOST_SSO}\"|g" ${DIR}/../app/templates/$FOLDER/src/app.config.json
-    sed "${sedi[@]}" "s|\"identityHost\": \".*\"|\"identityHost\": \"https://${HOST_SSO}/auth/admin/realms/alfresco\"|g" ${DIR}/../app/templates/$FOLDER/src/app.config.json
-    sed "${sedi[@]}" "s|\"host\": \".*\"|\"host\": \"https://${HOST_SSO}/auth/realms/alfresco\"|g" ${DIR}/../app/templates/$FOLDER/src/app.config.json
+    node "$DIR/app-config-replace.js" --config="${DIR}/../app/templates/$FOLDER/src/app.config.json" -aoi
 }
 
 while [[ $1 == -* ]]; do
