@@ -1,12 +1,9 @@
 {
   "$schema": "../node_modules/@alfresco/adf-core/app.config.schema.json",
   "ecmHost": "{protocol}//{hostname}{:port}",
-  "identityHost": "{protocol}//{hostname}{:port}/auth/realms/alfresco",
   "providers": "ECM",
-  "application": {
-    "name": "Alfresco ADF Application"
-  },
-  "authType": "OAUTH",
+  "authType": "BASIC",
+  "identityHost": "{protocol}//{hostname}{:port}/auth/realms/alfresco",
   "oauth2": {
     "host": "{protocol}//{hostname}{:port}/auth/realms/alfresco",
     "clientId": "alfresco",
@@ -17,6 +14,9 @@
     "redirectSilentIframeUri": "{protocol}//{hostname}{:port}/assets/silent-refresh.html",
     "redirectUri": "/",
     "redirectUriLogout": "/logout"
+  },
+  "application": {
+    "name": "Alfresco ADF Application"
   },
   "languages": [
     {
