@@ -16,7 +16,7 @@
     "moment-es6": "^1.0.0"
   },
   "devDependencies": {
-    "@alfresco/adf-testing": "4.3.0-31495",
+    "@alfresco/adf-testing": "4.3.0-31497",
     "@alfresco/js-api": "4.3.0-3234",
     "@types/jasmine": "^3.4.6",
     "commander": "^5.0.0",
