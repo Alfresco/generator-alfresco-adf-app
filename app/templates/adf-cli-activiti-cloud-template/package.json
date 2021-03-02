@@ -52,6 +52,7 @@
     "raphael": "2.2.7",
     "reflect-metadata": "0.1.10",
     "rxjs": "^6.6.0",
+    "subscriptions-transport-ws": "^0.9.18",
     "systemjs": "0.19.27",
     "web-animations-js": "2.3.1",
     "zone.js": "^0.10.3"
@@ -68,6 +69,7 @@
     "ajv-cli": "^3.0.0",
     "angular2-template-loader": "0.6.2",
     "codelyzer": "^5.1.2",
+    "graphql": "^15.4.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~1.7.1",
