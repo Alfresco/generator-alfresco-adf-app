@@ -102,7 +102,9 @@
           "options": {
             "browserTarget": "dist:build",
             "port": 4200,
-            "proxyConfig": "proxy.conf.js"
+            "host": "0.0.0.0",
+            "proxyConfig": "proxy.conf.js",
+            "disableHostCheck": true
           },
           "configurations": {
             "production": {
