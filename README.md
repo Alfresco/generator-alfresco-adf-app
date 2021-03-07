@@ -129,6 +129,15 @@ To test the generator:
 ```sh
 npm test
 ```
+To scaffold app from local changes:
+
+```sh
+yo <cloned project path>
+```
+Example
+```sh
+yo ../generator-alfresco-adf-app # this generates from the local changes
+```
 
 ### Extending the blueprints
 
