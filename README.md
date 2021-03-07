@@ -129,7 +129,7 @@ To test the generator:
 ```sh
 npm test
 ```
-To scaffold app from local chanages:
+To scaffold app from local changes:
 
 ```sh
 yo <cloned project path>
