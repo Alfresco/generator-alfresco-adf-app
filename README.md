@@ -33,6 +33,14 @@ Then the Alfresco Application Generator:
 npm install -g generator-alfresco-adf-app
 ```
 
+To install a specific version, use @ followed by the version.
+
+```sh
+npm install -g generator-alfresco-adf-app@4.0.0
+```
+
+Some tags in the project may not be available in npm. [See available versions for npm](https://www.npmjs.com/package/generator-alfresco-adf-app?activeTab=versions)
+
 ## Generating a new application project
 
 First, move in the folder where you want create your project.
@@ -101,7 +109,7 @@ npm update -g generator-alfresco-adf-app
 * Show current version generator-alfresco-adf-app installed
 
 ```sh
-yo alfresco-adf-app --version
+npm ls -g generator-alfresco-adf-app
 ```
 
 ## Contributing to the generator
