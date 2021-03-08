@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { DocumentlistComponent } from './documentlist.component';
+import { DocumentsComponent } from './documents.component';
 import { PreviewService } from '../services/preview.service';
 import { AlfrescoApiServiceMock, AlfrescoApiService, CoreModule, NotificationService,
   TranslateLoaderService, AppConfigService, AppConfigServiceMock } from '@alfresco/adf-core';
@@ -10,9 +9,9 @@ import { ContentModule, DocumentListService } from '@alfresco/adf-content-servic
 import { of } from 'rxjs/internal/observable/of';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 
-describe('DocumentlistComponent', () => {
-  let component: DocumentlistComponent;
-  let fixture: ComponentFixture<DocumentlistComponent>;
+describe('DocumentsComponent', () => {
+  let component: DocumentsComponent;
+  let fixture: ComponentFixture<DocumentsComponent>;
   let documentListService: DocumentListService;
 
   const notificationServiceMock = {
@@ -30,7 +29,7 @@ describe('DocumentlistComponent', () => {
           loader: { provide: TranslateLoader, useClass: TranslateLoaderService }
         })
       ],
-      declarations: [DocumentlistComponent],
+      declarations: [DocumentsComponent],
       providers: [
         PreviewService,
         { provide: NotificationService, useValue: notificationServiceMock },
@@ -38,8 +37,8 @@ describe('DocumentlistComponent', () => {
         { provide: AppConfigService, useClass: AppConfigServiceMock }
       ]
     });
-    fixture = TestBed.createComponent(DocumentlistComponent);
-    documentListService = TestBed.get(DocumentListService);
+    fixture = TestBed.createComponent(DocumentsComponent);
+    documentListService = TestBed.inject(DocumentListService);
     component = fixture.componentInstance;
     spyOn(documentListService, 'loadFolderByNodeId').and.returnValue(of([]));
 

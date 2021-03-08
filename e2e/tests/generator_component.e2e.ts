@@ -55,7 +55,7 @@ describe('Content Services Viewer', () => {
     let viewerUrl =
       browser.params.testConfig.adf.url +
       browser.params.testConfig.adf.port +
-      `/documentlist(overlay:files/${pdfFile.id}/view)`;
+      `/documents(overlay:files/${pdfFile.id}/view)`;
 
     browser.driver.get(viewerUrl);
     browser.driver.sleep(3000); // wait open file

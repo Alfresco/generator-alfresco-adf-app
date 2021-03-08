@@ -4,14 +4,14 @@ import { DocumentListComponent } from '@alfresco/adf-content-services';
 import { PreviewService } from '../services/preview.service';
 
 @Component({
-  selector: 'app-documentlist',
-  templateUrl: './documentlist.component.html',
-  styleUrls: ['./documentlist.component.css']
+  selector: 'app-documents',
+  templateUrl: './documents.component.html',
+  styleUrls: ['./documents.component.scss']
 })
-export class DocumentlistComponent {
+export class DocumentsComponent {
 
   @Input()
-  showViewer: boolean = false;
+  showViewer = false;
 
   nodeId: string = null;
 

@@ -22,7 +22,7 @@ import { LoginComponent } from './login/login.component';
 import { AppsComponent } from './apps/apps.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { TaskDetailsComponent } from './task-details/task-details.component';
-import { DocumentlistComponent } from './documentlist/documentlist.component';
+import { DocumentsComponent } from './documents/documents.component';
 import { StartProcessComponent } from './start-process/start-process.component';
 import { AppLayoutComponent } from './app-layout/app-layout.component';
 import { FileViewComponent } from './file-view/file-view.component';
@@ -64,8 +64,8 @@ export const appRoutes: Routes = [
                 canActivate: [ AuthGuardBpm ]
               },
               {
-                path: 'documentlist',
-                component: DocumentlistComponent,
+                path: 'documents',
+                component: DocumentsComponent,
                 canActivate: [ AuthGuardEcm ]
               }
 

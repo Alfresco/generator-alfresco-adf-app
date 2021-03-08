@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ContentModule, DocumentListService } from '@alfresco/adf-content-services';
 import { ProcessServicesCloudModule } from '@alfresco/adf-process-services-cloud';
 import { CoreModule, AppConfigService, AppConfigServiceMock, TranslateLoaderService, NotificationService } from '@alfresco/adf-core';
-import { DocumentlistComponent } from './documentlist.component';
+import { DocumentsComponent } from './documents.component';
 import { PreviewService } from '../services/preview.service';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AlfrescoApiServiceMock, AlfrescoApiService } from '@alfresco/adf-core';
@@ -10,9 +10,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { of } from 'rxjs';
 
-describe('DocumentlistComponent', () => {
-  let component: DocumentlistComponent;
-  let fixture: ComponentFixture<DocumentlistComponent>;
+describe('DocumentsComponent', () => {
+  let component: DocumentsComponent;
+  let fixture: ComponentFixture<DocumentsComponent>;
   let documentListService: DocumentListService;
 
   const notificationServiceMock = {
@@ -31,7 +31,7 @@ describe('DocumentlistComponent', () => {
           loader: { provide: TranslateLoader, useClass: TranslateLoaderService }
         })
       ],
-      declarations: [DocumentlistComponent],
+      declarations: [DocumentsComponent],
       providers: [
         PreviewService,
         { provide: NotificationService, useValue: notificationServiceMock },
@@ -39,8 +39,8 @@ describe('DocumentlistComponent', () => {
         { provide: AppConfigService, useClass: AppConfigServiceMock }
       ]
     });
-    fixture = TestBed.createComponent(DocumentlistComponent);
-    documentListService = TestBed.get(DocumentListService);
+    fixture = TestBed.createComponent(DocumentsComponent);
+    documentListService = TestBed.inject(DocumentListService);
     component = fixture.componentInstance;
     spyOn(documentListService, 'loadFolderByNodeId').and.returnValue(of([]));
 

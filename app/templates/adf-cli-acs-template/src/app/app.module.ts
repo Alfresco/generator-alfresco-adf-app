@@ -6,7 +6,6 @@ import { CoreModule, TRANSLATION_PROVIDER, TranslateLoaderService, CoreAutomatio
 import { ContentModule } from '@alfresco/adf-content-services';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 
-
 import { appRoutes } from './app.routes';
 import { PreviewService } from './services/preview.service';
 import { FileViewComponent } from './file-view/file-view.component';
@@ -15,7 +14,7 @@ import { FileViewComponent } from './file-view/file-view.component';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { DocumentlistComponent } from './documentlist/documentlist.component';
+import { DocumentsComponent } from './documents/documents.component';
 import { AppLayoutComponent } from './app-layout/app-layout.component';
 
 // Localization
@@ -70,7 +69,7 @@ registerLocaleData(localeSv);
         AppComponent,
         HomeComponent,
         LoginComponent,
-        DocumentlistComponent,
+        DocumentsComponent,
         AppLayoutComponent,
         FileViewComponent
     ],

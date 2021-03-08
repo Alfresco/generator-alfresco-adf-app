@@ -5,7 +5,7 @@ import { AppDefinitionRepresentationModel } from '@alfresco/adf-process-services
 @Component({
   selector: 'app-apps',
   templateUrl: './apps.component.html',
-  styleUrls: ['./apps.component.css']
+  styleUrls: ['./apps.component.scss']
 })
 export class AppsComponent {
 

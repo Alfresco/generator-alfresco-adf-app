@@ -55,7 +55,7 @@ describe('TasksComponent', () => {
     });
 
     fixture = TestBed.createComponent(TasksComponent);
-    alfrescoApiService = TestBed.get(AlfrescoApiService);
+    alfrescoApiService = TestBed.inject(AlfrescoApiService);
     component = fixture.componentInstance;
     spyOn(alfrescoApiService, 'getInstance').and.returnValue(mock);
 
