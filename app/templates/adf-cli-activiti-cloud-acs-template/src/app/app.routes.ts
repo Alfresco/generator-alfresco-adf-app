@@ -26,7 +26,7 @@ import { StartProcessComponent } from './start-process/start-process.component';
 import { AppLayoutComponent } from './app-layout/app-layout.component';
 import { FileViewComponent } from './file-view/file-view.component';
 import { BlobViewComponent } from './file-view/blob-view.component';
-import { DocumentlistComponent } from './documentlist/documentlist.component';
+import { DocumentsComponent } from './documents/documents.component';
 import { ProcessDetailsComponent } from './process-details/process-details.component';
 import { StartTaskComponent } from './start-task/start-task.component';
 
@@ -76,8 +76,8 @@ export const appRoutes: Routes = [
         canActivate: [AuthGuardBpm]
       },
       {
-        path: 'documentlist',
-        component: DocumentlistComponent,
+        path: 'documents',
+        component: DocumentsComponent,
         canActivate: [AuthGuardEcm]
       }
 

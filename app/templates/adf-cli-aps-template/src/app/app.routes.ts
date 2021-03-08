@@ -15,7 +15,6 @@
  * limitations under the License.
  */
 
-import { ModuleWithProviders } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuardBpm, AuthGuardEcm } from '@alfresco/adf-core';
 import { HomeComponent } from './home/home.component';

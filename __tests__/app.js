@@ -38,10 +38,10 @@ describe('Alfresco component generator', () => {
         'src/app/home/home.component.css',
         'src/app/home/home.component.html',
         'src/app/home/home.component.spec.ts',
-        'src/app/documentlist/documentlist.component.spec.ts',
-        'src/app/documentlist/documentlist.component.html',
-        'src/app/documentlist/documentlist.component.css',
-        'src/app/documentlist/documentlist.component.ts',
+        'src/app/documents/documents.component.spec.ts',
+        'src/app/documents/documents.component.html',
+        'src/app/documents/documents.component.css',
+        'src/app/documents/documents.component.ts',
         'e2e/app.e2e-spec.ts'
       ];
 
@@ -160,10 +160,10 @@ describe('Alfresco component generator', () => {
         'src/app/tasks/tasks.component.html',
         'src/app/tasks/tasks.component.css',
         'src/app/tasks/tasks.component.ts',
-        'src/app/documentlist/documentlist.component.spec.ts',
-        'src/app/documentlist/documentlist.component.html',
-        'src/app/documentlist/documentlist.component.css',
-        'src/app/documentlist/documentlist.component.ts',
+        'src/app/documents/documents.component.spec.ts',
+        'src/app/documents/documents.component.html',
+        'src/app/documents/documents.component.css',
+        'src/app/documents/documents.component.ts',
         'e2e/app.e2e-spec.ts'
       ];
 

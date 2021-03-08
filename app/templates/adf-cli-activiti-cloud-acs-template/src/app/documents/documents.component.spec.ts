@@ -2,17 +2,17 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Location } from '@angular/common';
 import { SpyLocation } from '@angular/common/testing';
 import { ContentModule } from '@alfresco/adf-content-services';
-import { ProcessModule } from '@alfresco/adf-process-services';
-import { CoreModule, TranslateLoaderService, AppConfigService, AppConfigServiceMock } from '@alfresco/adf-core';
-import { DocumentlistComponent } from './documentlist.component';
+import { ProcessServicesCloudModule } from '@alfresco/adf-process-services-cloud';
+import { CoreModule, AppConfigService, AppConfigServiceMock, TranslateLoaderService } from '@alfresco/adf-core';
+import { DocumentsComponent } from './documents.component';
 import { PreviewService } from '../services/preview.service';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AlfrescoApiServiceMock, AlfrescoApiService } from '@alfresco/adf-core';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 
-describe('DocumentlistComponent', () => {
-  let component: DocumentlistComponent;
-  let fixture: ComponentFixture<DocumentlistComponent>;
+describe('DocumentsComponent', () => {
+  let component: DocumentsComponent;
+  let fixture: ComponentFixture<DocumentsComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -20,12 +20,12 @@ describe('DocumentlistComponent', () => {
         RouterTestingModule,
         CoreModule.forRoot(),
         ContentModule.forRoot(),
-        ProcessModule.forRoot(),
+        ProcessServicesCloudModule,
         TranslateModule.forRoot({
             loader: { provide: TranslateLoader, useClass: TranslateLoaderService }
         })
       ],
-      declarations: [DocumentlistComponent],
+      declarations: [DocumentsComponent],
       providers: [
         PreviewService,
         { provide: AlfrescoApiService, useClass: AlfrescoApiServiceMock },
@@ -34,7 +34,7 @@ describe('DocumentlistComponent', () => {
       ]
     });
 
-    fixture = TestBed.createComponent(DocumentlistComponent);
+    fixture = TestBed.createComponent(DocumentsComponent);
     component = fixture.componentInstance;
   });
 

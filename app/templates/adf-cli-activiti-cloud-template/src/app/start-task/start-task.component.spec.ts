@@ -35,7 +35,7 @@ describe('StartTaskComponent', () => {
     });
     fixture = TestBed.createComponent(StartTaskComponent);
     component = fixture.componentInstance;
-    service = TestBed.get(FormDefinitionSelectorCloudService);
+    service = TestBed.inject(FormDefinitionSelectorCloudService);
     spyOn(service, 'getForms').and.returnValue(of([]));
   });
 

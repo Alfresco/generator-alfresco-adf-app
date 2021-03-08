@@ -65,5 +65,5 @@ import 'zone.js/dist/zone';  // Included with Angular CLI.
  * Support custom event in IE11
  *
  * */
-import 'custom-event-polyfill/custom-event-polyfill'  // Run `npm install --save custom-event-polyfill`.
+import 'custom-event-polyfill/custom-event-polyfill';  // Run `npm install --save custom-event-polyfill`.
 
