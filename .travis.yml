@@ -2,13 +2,23 @@ language: node_js
 node_js:
   - "lts/*"
 dist: trusty
-sudo: required
 
 branches:
   only:
     - master
     - develop
     - /.*beta.*/
+
+cache:
+  directories:
+    - node_modules
+    - app/templates/adf-cli-acs-template/node_modules
+    - app/templates/adf-cli-aps-template/node_modules
+    - app/templates/adf-cli-acs-aps-template/node_modules
+    - app/templates/adf-cli-activiti-template/node_modules
+    - app/templates/adf-cli-activiti-acs-template/node_modules
+    - app/templates/adf-cli-activiti-cloud-template/node_modules
+    - app/templates/adf-cli-activiti-cloud-acs-template/node_modules
 
 addons:
   chrome: stable
