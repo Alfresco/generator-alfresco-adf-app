@@ -23,7 +23,7 @@ import { PreviewService } from '../services/preview.service';
 @Component({
   selector: 'app-documents',
   templateUrl: './documents.component.html',
-  styleUrls: ['./documents.component.css']
+  styleUrls: ['./documents.component.scss']
 })
 export class DocumentsComponent {
 

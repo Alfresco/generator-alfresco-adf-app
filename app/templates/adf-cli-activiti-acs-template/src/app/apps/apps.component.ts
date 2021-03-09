@@ -6,7 +6,7 @@ import { ApplicationDeploymentService } from '../services/application-deployment
 @Component({
   selector: 'app-apps',
   templateUrl: './apps.component.html',
-  styleUrls: ['./apps.component.css'],
+  styleUrls: ['./apps.component.scss'],
   providers: [
     { provide: AppsProcessCloudService, useClass: ApplicationDeploymentService }
   ]

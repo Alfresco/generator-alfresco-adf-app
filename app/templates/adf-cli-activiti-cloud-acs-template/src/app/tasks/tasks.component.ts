@@ -5,7 +5,7 @@ import { TaskListCloudSortingModel, ProcessListCloudSortingModel } from '@alfres
 @Component({
   selector: 'app-tasks',
   templateUrl: './tasks.component.html',
-  styleUrls: ['./tasks.component.css']
+  styleUrls: ['./tasks.component.scss']
 })
 export class TasksComponent {
 
