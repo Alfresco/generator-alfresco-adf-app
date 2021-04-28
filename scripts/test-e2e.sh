@@ -83,23 +83,23 @@ set_sso_proxy(){
 
 while [[ $1 == -* ]]; do
     case "$1" in
-      -h|--help|-\?) show_help; exit 0;;
-      -u|--username)  set_username $2; shift 2;;
-      -p|--password)  set_password $2; shift 2;;
-      -e|--email)  set_email $2; shift 2;;
-      -timeout|--timeout)  set_timeout $2; shift 2;;
-      -b|--browser)  set_browser; shift;;
-      -dev|--dev)  set_development; shift;;
-      -s|--spec)  set_test $2; shift 2;;
-      -gnu) gnu_mode; shift;;
-      -save)   set_save_screenshot; shift;;
-      -f|--folder)  set_test_folder $2; shift 2;;
-      -proxy|--proxy)  set_proxy $2; shift 2;;
-      -s|--seleniumServer) set_selenium $2; shift 2;;
-      -host|--host)  set_host $2; shift 2;;
-      -host_sso|--host_sso) set_host_sso $2; shift 2;;
-      -sl|--skip-lint)  skip_lint; shift;;
-      -*) echo "invalid option: $1" 1>&2; show_help; exit 1;;
+        -h|--help|-\?) show_help; exit 0;;
+        -u|--username)  set_username $2; shift 2;;
+        -p|--password)  set_password $2; shift 2;;
+        -e|--email)  set_email $2; shift 2;;
+        -timeout|--timeout)  set_timeout $2; shift 2;;
+        -b|--browser)  set_browser; shift;;
+        -dev|--dev)  set_development; shift;;
+        -s|--spec)  set_test $2; shift 2;;
+        -gnu) gnu_mode; shift;;
+        -save)   set_save_screenshot; shift;;
+        -f|--folder)  set_test_folder $2; shift 2;;
+        -proxy|--proxy)  set_proxy $2; shift 2;;
+        -s|--seleniumServer) set_selenium $2; shift 2;;
+        -host|--host)  set_host $2; shift 2;;
+        -host_sso|--host_sso) set_host_sso $2; shift 2;;
+        -sl|--skip-lint)  skip_lint; shift;;
+        -*) echo "invalid option: $1" 1>&2; show_help; exit 1;;
     esac
 done
 
@@ -121,9 +121,9 @@ export SELENIUM_SERVER=$SELENIUM_SERVER
 export NAME_TEST=$NAME_TEST
 
 if $GNU; then
- sedi='-i'
+    sedi='-i'
 else
- sedi=('-i' '')
+    sedi=('-i' '')
 fi
 
 npm install
@@ -147,14 +147,9 @@ cd ../../../
 echo "webdriver update"
 
 echo "====== Update webdriver-manager ====="
-if [ "$CI" = "true" ]; then
-    export chrome=$(google-chrome --product-version)
-    echo "Updating wedriver-manager with chromedriver: $chrome."
-    ./node_modules/protractor/bin/webdriver-manager update --gecko=false --versions.chrome=$chrome
-else
-    echo "Updating wedriver-manager with latest chromedriver, be sure to use evergreen Chrome."
-    ./node_modules/protractor/bin/webdriver-manager update --gecko=false
-fi
+echo "Updating wedriver-manager with latest chromedriver, be sure to use evergreen Chrome."
+./node_modules/protractor/bin/webdriver-manager update --gecko=false
+
 
 echo "RUN TEST E2E"
 
