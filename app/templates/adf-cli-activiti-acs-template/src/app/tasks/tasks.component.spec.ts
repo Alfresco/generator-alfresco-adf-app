@@ -29,6 +29,9 @@ describe('TasksComponent', () => {
   const mock = {
     oauth2Auth: {
       callCustomApi: () => Promise.resolve(fakeTaskCloudList)
+    },
+    isEcmLoggedIn() {
+      return false;
     }
   };
 

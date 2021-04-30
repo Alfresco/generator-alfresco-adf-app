@@ -146,7 +146,15 @@ cd ../../../
 
 echo "webdriver update"
 
-./node_modules/protractor/node_modules/webdriver-manager/bin/webdriver-manager update --standalone false --gecko false
+echo "====== Update webdriver-manager ====="
+if [ "$CI" = "true" ]; then
+    export chrome=$(google-chrome --product-version)
+    echo "Updating wedriver-manager with chromedriver: $chrome."
+    ./node_modules/protractor/bin/webdriver-manager update --gecko=false --versions.chrome=$chrome
+else
+    echo "Updating wedriver-manager with latest chromedriver, be sure to use evergreen Chrome."
+    ./node_modules/protractor/bin/webdriver-manager update --gecko=false
+fi
 
 echo "RUN TEST E2E"
 
