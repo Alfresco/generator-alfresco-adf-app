@@ -11,9 +11,6 @@ branches:
     - develop
     - /.*beta.*/
 
-cache:
-  npm: true
-
 addons:
   chrome: stable
 services:
