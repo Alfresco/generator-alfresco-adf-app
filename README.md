@@ -5,10 +5,9 @@
 | master | [![Build Status](https://travis-ci.com/Alfresco/generator-alfresco-adf-app.svg?branch=master)](https://travis-ci.com/Alfresco/generator-alfresco-adf-app) |
 | develop | [![Build Status](https://travis-ci.com/Alfresco/generator-alfresco-adf-app.svg?branch=develop)](https://travis-ci.com/Alfresco/generator-alfresco-adf-app) |
 
-
 [![npm](https://img.shields.io/npm/v/generator-alfresco-adf-app)](https://www.npmjs.com/package/generator-alfresco-adf-app)
 
-> Yeoman generator generating a ADF Angular Alfresco App scaffold
+An extension for the Yeoman generator that allows creating Alfresco ADF applications.
 
 ## Introduction
 
@@ -17,17 +16,49 @@ See the following [page](https://github.com/Alfresco/alfresco-ng2-components/blo
 ## Prerequisites
 
 Before you start using this development framework and the generator, make sure you have installed all required software and done all the
-necessary configuration, see this [page](https://github.com/Alfresco/app-dev-framework/blob/master/PREREQUISITES.md).
+necessary configuration, see this [page](https://github.com/Alfresco/alfresco-ng2-components/blob/master/PREREQUISITES.md).
 
-## Installing Yeoman and the App Generator
+## Installing Node.js and NPM
 
-First, install [Yeoman](http://yeoman.io):
+Install the LTS (Long-Term Support) version of the Node.js: <https://nodejs.org/en/download/>
+
+### MacOS
+
+You can use the official macOS installer from the <https://nodejs.org/en/download/> page, it includes the NPM as well.
+
+### Ubuntu
+
+Use this article to get details on how to install Node.js and NPM on Ubuntu:
+<https://linuxize.com/post/how-to-install-node-js-on-ubuntu-20-04/>
+
+It is important to install the developer tools:
+
+```sh
+sudo apt install build-essential
+```
+
+### CentOS
+
+Use this article to get details on how to install Node.js and NPM on CentOS:
+<https://linuxize.com/post/how-to-install-node-js-on-centos-7/>
+
+It is important to install the developer tools:
+
+```sh
+sudo yum install gcc-c++ make
+```
+
+## Installing Yeoman
+
+First, install the [Yeoman](http://yeoman.io) tool:
 
 ```sh
 npm install -g yo
 ```
 
-Then the Alfresco Application Generator:
+## Installing the App Generator
+
+Use the following command to install the Alfresco App Generator for the Yeoman:
 
 ```sh
 npm install -g generator-alfresco-adf-app
@@ -41,7 +72,7 @@ npm install -g generator-alfresco-adf-app@4.0.0
 
 Some tags in the project may not be available in npm. [See available versions for npm](https://www.npmjs.com/package/generator-alfresco-adf-app?activeTab=versions)
 
-## Generating a new application project
+## Generating a New Application Project
 
 First, move in the folder where you want create your project.
 
@@ -66,17 +97,19 @@ yo alfresco-adf-app --install
 
 ## Activiti 7
 
-If you are generating a project for activiti7 you need to add in the **app.config.json** the list of the apps that you desire to use.
+For the projects running with Activiti 7 you need to update the **app.config.json** with the list of the apps to use.
 
-For example : 
+For example:
 
 ```json
+{
   "alfresco-deployed-apps" : [{"name": "simple-app"}]  
+}
 ```
 
 For more information about the app list component refer to the [documentation](https://github.com/Alfresco/alfresco-ng2-components/blob/develop/docs/process-services-cloud/app-list-cloud.component.md)
 
-### Using from the command line
+### Using from the Command Line
 
 You can use the generator in the unattended mode by providing all necessary options from the command line:
 
@@ -98,21 +131,21 @@ Default blueprint names:
 - adf-cli-acs-template
 - adf-cli-aps-template
 
-## Updating generator
+## Updating Generator
 
 ```sh
 npm update -g generator-alfresco-adf-app
 ```
 
-## Getting current version
+## Getting Current Version
 
-* Show current version generator-alfresco-adf-app installed
+Show current version generator-alfresco-adf-app installed
 
 ```sh
 npm ls -g generator-alfresco-adf-app
 ```
 
-## Contributing to the generator
+## Contributing to the Generator
 
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-new-feature`
@@ -129,25 +162,29 @@ To test the generator:
 ```sh
 npm test
 ```
+
 To scaffold app from local changes:
 
 ```sh
 yo <cloned project path>
 ```
+
 Example
+
 ```sh
 yo ../generator-alfresco-adf-app # this generates from the local changes
 ```
 
-### Extending the blueprints
+### Extending the Blueprints
 
 In order to add a new blueprint just put the project template to the `app/templates` folder.
 
 Requirements for new projects:
-* must contain `package.json` file
-* the `package.json` file must contain at least `name` and `version` attributes
 
-### Debugging generator
+- must contain `package.json` file
+- the `package.json` file must contain at least `name` and `version` attributes
+
+### Debugging Generator
 
 ```sh
 # OS X / Linux
