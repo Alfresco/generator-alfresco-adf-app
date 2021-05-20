@@ -36,7 +36,8 @@ describe('TasksComponent', () => {
     },
     isEcmBpmConfiguration: () => false,
     isEcmConfiguration: () => false,
-    isEcmLoggedIn: () => false
+    isEcmLoggedIn: () => false,
+    reply: jasmine.createSpy('reply')
   };
 
   beforeEach(() => {
