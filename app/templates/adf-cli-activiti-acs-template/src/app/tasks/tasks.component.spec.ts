@@ -32,7 +32,8 @@ describe('TasksComponent', () => {
     },
     isEcmLoggedIn() {
       return false;
-    }
+    },
+    reply: jasmine.createSpy('reply')
   };
 
   beforeEach(() => {
