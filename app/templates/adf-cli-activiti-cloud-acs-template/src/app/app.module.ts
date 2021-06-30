@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 
-
 // ADF modules
 import { ContentModule } from '@alfresco/adf-content-services';
 import { ProcessServicesCloudModule } from '@alfresco/adf-process-services-cloud';
@@ -26,7 +25,7 @@ import { PreviewService } from './services/preview.service';
 
 import { appRoutes } from './app.routes';
 import { AppLayoutComponent } from './app-layout/app-layout.component';
-import { DocumentlistComponent } from './documentlist/documentlist.component';
+import { DocumentsComponent } from './documents/documents.component';
 import { StartTaskComponent } from './start-task/start-task.component';
 import { ProcessDetailsComponent } from './process-details/process-details.component';
 
@@ -96,7 +95,7 @@ registerLocaleData(localeSv);
         AppLayoutComponent,
         BlobViewComponent,
         FileViewComponent,
-        DocumentlistComponent
+        DocumentsComponent
     ],
     providers: [
         PreviewService,

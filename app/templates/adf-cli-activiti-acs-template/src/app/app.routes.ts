@@ -27,7 +27,7 @@ import { StartProcessComponent } from './start-process/start-process.component';
 import { AppLayoutComponent } from './app-layout/app-layout.component';
 import { FileViewComponent } from './file-view/file-view.component';
 import { BlobViewComponent } from './file-view/blob-view.component';
-import { DocumentlistComponent } from './documentlist/documentlist.component';
+import { DocumentsComponent } from './documents/documents.component';
 
 export const appRoutes: Routes = [
   { path: 'files/:nodeId/view', component: FileViewComponent, canActivate: [AuthGuardEcm], outlet: 'overlay' },
@@ -65,8 +65,8 @@ export const appRoutes: Routes = [
                 canActivate: [ AuthGuardBpm ]
               },
               {
-                path: 'documentlist',
-                component: DocumentlistComponent,
+                path: 'documents',
+                component: DocumentsComponent,
                 canActivate: [ AuthGuardEcm ]
               }
 

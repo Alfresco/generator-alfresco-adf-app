@@ -27,7 +27,7 @@ import { PreviewService } from './services/preview.service';
 
 import { appRoutes } from './app.routes';
 import { AppLayoutComponent } from './app-layout/app-layout.component';
-import { DocumentlistComponent } from './documentlist/documentlist.component';
+import { DocumentsComponent } from './documents/documents.component';
 
 // Localization
 import { registerLocaleData } from '@angular/common';
@@ -94,7 +94,7 @@ registerLocaleData(localeSv);
         AppLayoutComponent,
         BlobViewComponent,
         FileViewComponent,
-        DocumentlistComponent
+        DocumentsComponent
     ],
     providers: [
         PreviewService,

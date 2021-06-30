@@ -15,15 +15,15 @@
  * limitations under the License.
  */
 
-import { Component, OnInit, ViewEncapsulation } from "@angular/core";
-import { ActivatedRoute, Router } from "@angular/router";
-import { AlfrescoApiService } from "@alfresco/adf-core";
-import { MatSnackBar } from "@angular/material/snack-bar";
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NodesApiService } from '@alfresco/adf-core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
-  selector: "app-file-view",
-  templateUrl: "file-view.component.html",
-  styleUrls: ["file-view.component.scss"],
+  selector: 'app-file-view',
+  templateUrl: 'file-view.component.html',
+  styleUrls: ['file-view.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
 export class FileViewComponent implements OnInit {
@@ -33,31 +33,28 @@ export class FileViewComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private snackBar: MatSnackBar,
-    private apiService: AlfrescoApiService
+    private nodeApiService: NodesApiService
   ) {}
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
       const id = params.nodeId;
       if (id) {
-        this.apiService
-          .getInstance()
-          .nodes.getNodeInfo(id)
-          .then(
-            (node) => {
-              if (node) {
-                this.nodeId = id;
-                return;
-              }
-              this.router.navigate(["/files", id]);
-            },
-            () => this.router.navigate(["/files", id])
-          );
+        this.nodeApiService.getNode(id).subscribe(
+          (node) => {
+            if (node && node.isFile) {
+              this.nodeId = id;
+              return;
+            }
+            this.router.navigate(['/files', id]);
+          },
+          () => this.router.navigate(['/files', id])
+        );
       }
     });
   }
 
   onUploadError(errorMessage: string) {
-    this.snackBar.open(errorMessage, "", { duration: 4000 });
+    this.snackBar.open(errorMessage, '', { duration: 4000 });
   }
 }

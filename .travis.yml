@@ -1,7 +1,7 @@
 language: node_js
 node_js:
   - "lts/*"
-  
+
 dist: focal
 sudo: required
 
@@ -15,22 +15,27 @@ addons:
   chrome: stable
 services:
     - xvfb
-    
+
 matrix:
   include:
     - stage: generator
       node_js: "11"
-      name: Genetator test Node 11
+      name: Generator test Node 11
       install: npm install
       script: npm run test
     - stage: generator
       node_js: "12"
-      name: Genetator test Node 12
+      name: Generator test Node 12
       install: npm install
       script: npm run test
     - stage: generator
       node_js: "13"
-      name: Genetator test Node 13
+      name: Generator test Node 13
+      install: npm install
+      script: npm run test
+    - stage: generator
+      node_js: "14"
+      name: Generator test Node 14
       install: npm install
       script: npm run test
 
