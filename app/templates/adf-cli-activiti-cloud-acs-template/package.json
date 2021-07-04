@@ -21,7 +21,7 @@
     "@alfresco/adf-core": "4.5.0-32998",
     "@alfresco/adf-extensions": "4.5.0-32998",
     "@alfresco/adf-process-services": "4.5.0-32998",
-    "@alfresco/adf-process-services-cloud": "4.5.0-32995",
+    "@alfresco/adf-process-services-cloud": "4.5.0-32998",
     "@alfresco/js-api": "4.5.0-3650",
     "@angular/animations": "10.1.4",
     "@angular/cdk": "10.2.3",
