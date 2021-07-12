@@ -20,7 +20,8 @@ eval libs=( "core"
     "process-services-cloud"
     "content-services"
     "process-services"
-    "insights" )
+    "insights"
+    "testing" )
 
 cd `dirname $0`
 
