@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "@alfresco/adf-testing": "4.6.0-33076",
-    "@alfresco/js-api": "4.5.0",
+    "@alfresco/js-api": "4.6.0-3694",
     "@types/jasmine": "^3.4.6",
     "commander": "^5.0.0",
     "connect-history-api-fallback": "1.6.0",
