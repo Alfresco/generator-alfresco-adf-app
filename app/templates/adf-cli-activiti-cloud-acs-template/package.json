@@ -19,7 +19,7 @@
   "dependencies": {
     "@alfresco/adf-content-services": "4.6.0-33133",
     "@alfresco/adf-core": "4.6.0-33133",
-    "@alfresco/adf-extensions": "4.6.0-33133",
+    "@alfresco/adf-extensions": "4.6.0-33134",
     "@alfresco/adf-process-services": "4.6.0-33133",
     "@alfresco/adf-process-services-cloud": "4.6.0-33133",
     "@alfresco/js-api": "4.6.0-3694",
