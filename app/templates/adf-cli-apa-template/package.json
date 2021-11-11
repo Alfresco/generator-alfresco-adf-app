@@ -1,8 +1,8 @@
 {
-  "name": "adf-cli-activiti-template",
+  "name": "adf-cli-apa-template",
   "version": "4.5.0",
-  "blueprint": "Process Services with Activiti",
-  "description": "APS ADF Application with Angular CLI",
+  "blueprint": "Process Services with APA",
+  "description": "APA ADF Application with Angular CLI",
   "license": "MIT",
   "scripts": {
     "ng": "ng",

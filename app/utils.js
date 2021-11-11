@@ -25,7 +25,6 @@ class Utils {
 
   async getBlueprints() {
     const result = [];
-    const excludedTemplates = ['adf-cli-activiti-template', 'adf-cli-activiti-acs-template'];
     const dir = path.join(__dirname, 'templates');
 
     try {
@@ -38,7 +37,7 @@ class Utils {
         if (exists) {
           const packageInfo = require(packagePath);
 
-          if (this.isPackageValid(packageInfo) && !excludedTemplates.includes(packageInfo.name)) {
+          if (this.isPackageValid(packageInfo)) {
             result.push({
               name: packageInfo.name,
               version: packageInfo.version,
