@@ -1,0 +1,14 @@
+<h3>Tasks > {{ appName }}</h3>
+
+<button
+    *ngIf="appName"
+    mat-raised-button
+    routerLink="/apps/{{appName}}/start-process"
+    color="primary">
+    Start new process
+</button>
+
+<adf-cloud-task-list
+    [appName]="appName"
+    (rowClick)="onRowClick($event)">
+</adf-cloud-task-list>

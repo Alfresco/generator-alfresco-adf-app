@@ -1,15 +1,10 @@
 import { Component } from '@angular/core';
-import { AppsProcessCloudService } from '@alfresco/adf-process-services-cloud';
 import { Router } from '@angular/router';
-import { ApplicationDeploymentService } from '../services/application-deployment.service';
 
 @Component({
   selector: 'app-apps',
   templateUrl: './apps.component.html',
-  styleUrls: ['./apps.component.scss'],
-  providers: [
-    { provide: AppsProcessCloudService, useClass: ApplicationDeploymentService }
-  ]
+  styleUrls: ['./apps.component.scss']
 })
 export class AppsComponent {
 

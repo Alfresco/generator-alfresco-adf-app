@@ -4,10 +4,8 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 import { ApplicationDeploymentService } from '../app/services/application-deployment.service';
-import { DebugAppConfigService } from '../app/services/debug-app-config.service';
 
 export const environment = {
     production: false,
-    appConfigServiceType: DebugAppConfigService,
     applicationDeploymentService: ApplicationDeploymentService
 };
