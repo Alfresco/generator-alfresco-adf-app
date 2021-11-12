@@ -1,8 +1,6 @@
-@import '~@alfresco/adf-content-services/theming';
-@import '~@alfresco/adf-process-services/theming';
-@import '~@alfresco/adf-core/theming';
-
 @import '~@angular/material/theming';
+
+@import '~@alfresco/adf-core/theming';
 
 @include mat-core($alfresco-typography);
 
@@ -12,22 +10,17 @@ $warn:    mat-palette($alfresco-warn);
 $theme:   mat-light-theme($primary, $accent, $warn);
 
 @include angular-material-theme($theme);
-@include adf-content-services-theme($theme);
-@include adf-process-services-theme($theme);
 @include adf-core-theme($theme);
 
-$background: map-get($theme, background);
-
 body, html {
-    margin: 0;
-    height: 100%;
-    overflow: hidden;
-    background: mat-color($background, 'card');
-    font-size: mat-font-size($alfresco-typography, body-1);
-    font-family: mat-font-family($alfresco-typography);
-    line-height: mat-line-height($alfresco-typography, body-1);
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  font-size: mat-font-size($alfresco-typography, body-1);
+  font-family: mat-font-family($alfresco-typography);
+  line-height: mat-line-height($alfresco-typography, body-1);
 }
 
 body {
-    overflow: auto;
+  overflow: auto;
 }

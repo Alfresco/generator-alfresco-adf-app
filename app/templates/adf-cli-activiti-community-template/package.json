@@ -1,12 +1,12 @@
 {
-  "name": "adf-cli-acs-template",
+  "name": "adf-cli-activiti-cloud-template",
   "version": "4.5.0",
-  "blueprint": "Content Services",
-  "description": "ACS ADF Application with Angular CLI",
+  "blueprint": "Process Services with Activiti Community",
+  "description": "APS ADF Application with Angular CLI",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --open",
+    "start": "npm run validate-config && ng serve --open",
     "build": "ng build",
     "build:dist": "ng build --prod",
     "test": "ng test",

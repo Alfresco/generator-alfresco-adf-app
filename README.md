@@ -67,7 +67,7 @@ npm install -g generator-alfresco-adf-app
 To install a specific version, use @ followed by the version.
 
 ```sh
-npm install -g generator-alfresco-adf-app@4.0.0
+npm install -g generator-alfresco-adf-app@WHERSION_YOU_WANT
 ```
 
 Some tags in the project may not be available in npm. [See available versions for npm](https://www.npmjs.com/package/generator-alfresco-adf-app?activeTab=versions)
