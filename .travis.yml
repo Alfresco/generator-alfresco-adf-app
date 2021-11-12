@@ -72,12 +72,12 @@ matrix:
     - stage: E2e tests
       name: adf-cli-activiti-community-template
       if: branch != master
-      script: travis_retry ./scripts/test-e2e.sh -host "localhost:4200"  -host_sso "$HOST_SSO" -p "$E2E_SS0_PASSWORD" -u "$E2E_EMAIL" -b -gnu -f adf-cli-activiti-template --spec sidebar_component.e2e.ts
+      script: travis_retry ./scripts/test-e2e.sh -host "localhost:4200"  -host_sso "$HOST_SSO" -p "$E2E_SS0_PASSWORD" -u "$E2E_EMAIL" -b -gnu -f adf-cli-activiti-community-template --spec sidebar_component.e2e.ts
 
     - stage: E2e tests
       name: adf-cli-activiti-community-acs-template
       if: branch != master
-      script: travis_retry ./scripts/test-e2e.sh -host "localhost:4200"  -host_sso "$HOST_SSO" -p "$E2E_SS0_PASSWORD" -u "$E2E_EMAIL" -b -gnu -f adf-cli-activiti-acs-template --spec sidebar_component.e2e.ts
+      script: travis_retry ./scripts/test-e2e.sh -host "localhost:4200"  -host_sso "$HOST_SSO" -p "$E2E_SS0_PASSWORD" -u "$E2E_EMAIL" -b -gnu -f adf-cli-activiti-community-acs-template --spec sidebar_component.e2e.ts
 
     - stage: E2e tests
       name: adf-cli-apa-template
