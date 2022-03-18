@@ -10,6 +10,7 @@ module.exports = function(config) {
       require('karma-chrome-launcher'),
       require('karma-jasmine-html-reporter'),
       require('karma-coverage-istanbul-reporter'),
+      require('karma-mocha-reporter'),
       require('@angular-devkit/build-angular/plugins/karma')
     ],
     files: [
@@ -18,7 +19,8 @@ module.exports = function(config) {
       { pattern: './node_modules/@alfresco/adf-core/bundles/assets/adf-core/i18n/en.json', watched: false, served: true, included: false },
       { pattern: './node_modules/@alfresco/adf-process-services/bundles/assets/adf-process-services/i18n/en.json', watched: false, served: true, included: false },
       { pattern: './node_modules/@alfresco/adf-content-services/bundles/assets/adf-content-services/i18n/en.json', watched: false, served: true, included: false },
-      { pattern: './node_modules/@alfresco/adf-process-services-cloud/bundles/assets/adf-process-services-cloud/i18n/en.json', watched: false, served: true, included: false }    ],
+      { pattern: './node_modules/@alfresco/adf-process-services-cloud/bundles/assets/adf-process-services-cloud/i18n/en.json', watched: false, served: true, included: false }
+    ],
     proxies: {
       '/assets/adf-core/i18n/en.json': '/base/node_modules/@alfresco/adf-core/bundles/assets/adf-core/i18n/en.json',
       '/assets/adf-core/i18n/en-US.json': '/base/node_modules/@alfresco/adf-core/bundles/assets/adf-core/i18n/en.json',
@@ -37,7 +39,11 @@ module.exports = function(config) {
       fixWebpackSourcePaths: true
     },
 
-    reporters: ['progress', 'kjhtml'],
+    reporters: ['mocha', 'kjhtml'],
+    mochaReporter: {
+      maxLogLines: 5,
+      output: 'minimal'
+    },
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
