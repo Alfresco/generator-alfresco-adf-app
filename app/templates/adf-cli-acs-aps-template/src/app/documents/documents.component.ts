@@ -5,8 +5,7 @@ import { PreviewService } from '../services/preview.service';
 
 @Component({
   selector: 'app-documents',
-  templateUrl: './documents.component.html',
-  styleUrls: ['./documents.component.scss']
+  templateUrl: './documents.component.html'
 })
 export class DocumentsComponent {
 

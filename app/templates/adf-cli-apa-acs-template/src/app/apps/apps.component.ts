@@ -3,8 +3,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-apps',
-  templateUrl: './apps.component.html',
-  styleUrls: ['./apps.component.scss']
+  templateUrl: './apps.component.html'
 })
 export class AppsComponent {
 
@@ -14,5 +13,4 @@ export class AppsComponent {
   onAppClicked(app: any) {
     this.router.navigate(['/apps', app.name, 'tasks']);
   }
-
 }

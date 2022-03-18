@@ -10,7 +10,7 @@ export class StartTaskComponent {
 
   constructor(private router: Router) { }
 
-  onTaskStarted(task: any) {
+  onTaskStarted() {
     this.router.navigate(['/community/tasks']);
   }
 

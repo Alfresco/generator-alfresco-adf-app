@@ -3,8 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'app-process-details',
-    templateUrl: './process-details.component.html',
-    styleUrls: ['./process-details.component.scss']
+    templateUrl: './process-details.component.html'
 })
 export class ProcessDetailsComponent implements OnInit {
 
