@@ -3,8 +3,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-start-task',
-  templateUrl: './start-task.component.html',
-  styleUrls: ['./start-task.component.scss']
+  templateUrl: './start-task.component.html'
 })
 export class StartTaskComponent {
 
