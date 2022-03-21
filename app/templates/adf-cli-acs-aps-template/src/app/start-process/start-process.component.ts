@@ -4,8 +4,7 @@ import { ProcessInstance } from '@alfresco/adf-process-services';
 
 @Component({
   selector: 'app-start-process',
-  templateUrl: './start-process.component.html',
-  styleUrls: ['./start-process.component.scss']
+  templateUrl: './start-process.component.html'
 })
 export class StartProcessComponent implements OnInit {
 

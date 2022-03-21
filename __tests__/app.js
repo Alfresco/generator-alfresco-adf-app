@@ -35,12 +35,8 @@ describe('Alfresco component generator', () => {
         'tslint.json',
         'src/index.html',
         'src/app/home/home.component.ts',
-        'src/app/home/home.component.scss',
         'src/app/home/home.component.html',
-        'src/app/home/home.component.spec.ts',
-        'src/app/documents/documents.component.spec.ts',
         'src/app/documents/documents.component.html',
-        'src/app/documents/documents.component.scss',
         'src/app/documents/documents.component.ts',
         'e2e/app.e2e-spec.ts'
       ];
@@ -90,16 +86,10 @@ describe('Alfresco component generator', () => {
         'tslint.json',
         'src/index.html',
         'src/app/home/home.component.ts',
-        'src/app/home/home.component.scss',
         'src/app/home/home.component.html',
-        'src/app/home/home.component.spec.ts',
-        'src/app/task-details/task-details.component.spec.ts',
         'src/app/task-details/task-details.component.html',
-        'src/app/task-details/task-details.component.scss',
         'src/app/task-details/task-details.component.ts',
-        'src/app/tasks/tasks.component.spec.ts',
         'src/app/tasks/tasks.component.html',
-        'src/app/tasks/tasks.component.scss',
         'src/app/tasks/tasks.component.ts',
         'e2e/app.e2e-spec.ts'
       ];
@@ -149,20 +139,12 @@ describe('Alfresco component generator', () => {
         'tslint.json',
         'src/index.html',
         'src/app/home/home.component.ts',
-        'src/app/home/home.component.scss',
         'src/app/home/home.component.html',
-        'src/app/home/home.component.spec.ts',
-        'src/app/task-details/task-details.component.spec.ts',
         'src/app/task-details/task-details.component.html',
-        'src/app/task-details/task-details.component.scss',
         'src/app/task-details/task-details.component.ts',
-        'src/app/tasks/tasks.component.spec.ts',
         'src/app/tasks/tasks.component.html',
-        'src/app/tasks/tasks.component.scss',
         'src/app/tasks/tasks.component.ts',
-        'src/app/documents/documents.component.spec.ts',
         'src/app/documents/documents.component.html',
-        'src/app/documents/documents.component.scss',
         'src/app/documents/documents.component.ts',
         'e2e/app.e2e-spec.ts'
       ];
@@ -179,8 +161,5 @@ describe('Alfresco component generator', () => {
     it('fills the README with project data', () => {
       assert.fileContent('README.md', 'ADF/APS/ACS Application with Angular CLI');
     });
-
   });
-
-
 });

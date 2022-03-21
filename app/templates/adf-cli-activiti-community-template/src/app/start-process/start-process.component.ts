@@ -3,14 +3,13 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-start-process',
-  templateUrl: './start-process.component.html',
-  styleUrls: ['./start-process.component.scss']
+  templateUrl: './start-process.component.html'
 })
 export class StartProcessComponent {
 
   constructor(private router: Router) { }
 
-  onProcessStarted(process: any) {
+  onProcessStarted() {
     this.router.navigate(['/community/tasks']);
   }
 

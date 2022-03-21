@@ -3,8 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'app-task-details',
-    templateUrl: './task-details.component.html',
-    styleUrls: ['./task-details.component.scss']
+    templateUrl: './task-details.component.html'
 })
 export class TaskDetailsComponent implements OnInit {
 

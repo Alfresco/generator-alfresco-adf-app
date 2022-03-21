@@ -2,17 +2,10 @@ import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ContentModule } from '@alfresco/adf-content-services';
 import { AppComponent } from './app.component';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { ProcessServicesCloudModule } from '@alfresco/adf-process-services-cloud';
-import {
-    CoreModule,
-    TranslateLoaderService,
-    AlfrescoApiService,
-    AlfrescoApiServiceMock,
-    AppConfigService,
-    AppConfigServiceMock
-} from '@alfresco/adf-core';
+import { AlfrescoApiService, AlfrescoApiServiceMock, AppConfigService, AppConfigServiceMock, CoreModule } from '@alfresco/adf-core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TranslateModule } from '@ngx-translate/core';
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -23,22 +16,19 @@ describe('AppComponent', () => {
       imports: [
         RouterTestingModule,
         BrowserAnimationsModule,
+        TranslateModule.forRoot(),
         CoreModule.forRoot(),
         ContentModule.forRoot(),
-        ProcessServicesCloudModule,
-        TranslateModule.forRoot({
-          loader: { provide: TranslateLoader, useClass: TranslateLoaderService }
-        })
+        ProcessServicesCloudModule
       ],
-      declarations: [AppComponent],
       providers: [
         { provide: AlfrescoApiService, useClass: AlfrescoApiServiceMock },
         { provide: AppConfigService, useClass: AppConfigServiceMock }
-      ]
+      ],
+      declarations: [AppComponent],
     });
     fixture = TestBed.createComponent(AppComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {

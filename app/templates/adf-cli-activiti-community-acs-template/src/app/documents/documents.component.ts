@@ -5,8 +5,7 @@ import { PreviewService } from '../services/preview.service';
 
 @Component({
   selector: 'app-documents',
-  templateUrl: './documents.component.html',
-  styleUrls: ['./documents.component.scss']
+  templateUrl: './documents.component.html'
 })
 export class DocumentsComponent {
 
@@ -21,7 +20,7 @@ export class DocumentsComponent {
   constructor(private notificationService: NotificationService, private preview: PreviewService) {
   }
 
-  uploadSuccess(event: any) {
+  uploadSuccess() {
     this.notificationService.openSnackMessage('File uploaded');
     this.documentList.reload();
   }
@@ -32,10 +31,4 @@ export class DocumentsComponent {
       this.preview.showResource(entry.id);
     }
   }
-
-  onGoBack(event: any) {
-    this.showViewer = false;
-    this.nodeId = null;
-  }
-
 }
