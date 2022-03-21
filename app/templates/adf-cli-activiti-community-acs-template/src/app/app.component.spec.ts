@@ -3,7 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { ContentModule } from '@alfresco/adf-content-services';
 import { AppComponent } from './app.component';
 import { ProcessServicesCloudModule } from '@alfresco/adf-process-services-cloud';
-import { CoreModule } from '@alfresco/adf-core';
+import { AlfrescoApiService, AlfrescoApiServiceMock, AppConfigService, AppConfigServiceMock, CoreModule } from '@alfresco/adf-core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -20,6 +20,10 @@ describe('AppComponent', () => {
         CoreModule.forRoot(),
         ContentModule.forRoot(),
         ProcessServicesCloudModule
+      ],
+      providers: [
+        { provide: AlfrescoApiService, useClass: AlfrescoApiServiceMock },
+        { provide: AppConfigService, useClass: AppConfigServiceMock }
       ],
       declarations: [AppComponent],
     });
