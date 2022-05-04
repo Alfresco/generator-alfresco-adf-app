@@ -1,6 +1,6 @@
 {
   "name": "adf-cli-apa-template",
-  "version": "4.10.0",
+  "version": "4.10.1",
   "blueprint": "Process Services with APA",
   "description": "APA ADF Application with Angular CLI",
   "license": "MIT",
