@@ -79,8 +79,8 @@
               }
             ],
             "styles": [
-              "app/src/assets/fonts/material-icons/material-icons.css",
-              "app/src/assets/fonts/muli/muli.css",
+              "src/app/assets/fonts/material-icons/material-icons.css",
+              "src/app/assets/fonts/muli/muli.css",
               "node_modules/cropperjs/dist/cropper.min.css",
               "src/custom-style.scss"
             ],
