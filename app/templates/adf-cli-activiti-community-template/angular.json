@@ -83,12 +83,14 @@
               }
             ],
             "styles": [
-              "src/custom-style.scss",
-              "node_modules/cropperjs/dist/cropper.min.css"
+              "app/src/assets/fonts/material-icons/material-icons.css",
+              "app/src/assets/fonts/muli/muli.css",
+              "node_modules/cropperjs/dist/cropper.min.css",
+              "src/custom-style.scss"
             ],
             "scripts": [
               "node_modules/pdfjs-dist/build/pdf.js",
-              "node_modules/pdfjs-dist/web/pdf_viewer.js",
+              "node_modules/pdfjs-dist/web/pdf_viewer.js"
             ]
           },
           "configurations": {
