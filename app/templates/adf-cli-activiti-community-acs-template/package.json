@@ -1,6 +1,6 @@
 {
   "name": "adf-cli-activiti-cloud-acs-template",
-  "version": "4.10.0",
+  "version": "4.10.1",
   "blueprint": "Content and Process Services with Activiti Community",
   "description": "APS ADF Application with Angular CLI",
   "license": "MIT",
