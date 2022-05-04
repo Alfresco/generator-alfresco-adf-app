@@ -68,8 +68,8 @@
               }
             ],
             "styles": [
-              "src/app/assets/fonts/material-icons/material-icons.css",
-              "src/app/assets/fonts/muli/muli.css",
+              "src/assets/fonts/material-icons/material-icons.css",
+              "src/assets/fonts/muli/muli.css",
               "node_modules/cropperjs/dist/cropper.min.css",
               "src/custom-style.scss"
             ],
