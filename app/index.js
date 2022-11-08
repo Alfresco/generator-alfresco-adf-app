@@ -1,5 +1,4 @@
 const utils = require('./utils');
-const alflogo = require('alfresco-logo');
 const CLIGenerator = require('generator-alfresco-common').cli_generator;
 const filters = require('generator-alfresco-common').prompt_filters;
 
@@ -73,10 +72,6 @@ module.exports = class extends CLIGenerator {
   }
 
   prompting() {
-    this.log(alflogo(
-      'ADF Angular app generator for Alfresco\n Version ' + this.rootGeneratorVersion() + '\n',
-      {'left-pad': '     '}));
-
     return this.subgeneratorPrompt(this.prompts, '', props => {
       this.state.name = props.name;
       this.state.blueprint = this.blueprints.find(bp => bp.name === props.blueprint);
