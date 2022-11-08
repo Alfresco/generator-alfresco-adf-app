@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "dist": {
+    "app": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -181,7 +181,7 @@
       }
     }
   },
-  "defaultProject": "dist",
+  "defaultProject": "app",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",
