@@ -24,7 +24,6 @@ matrix:
       install: npm install
       script: npm run test
 
-    #Unit tests
     - stage: Unit tests
       name: adf-cli-acs-template
       script: travis_retry cd app/templates/adf-cli-acs-template && npm install && npm test -- --watch=false
@@ -52,42 +51,6 @@ matrix:
     - stage: Unit tests
       name: adf-cli-apa-acs-template
       script: travis_retry cd app/templates/adf-cli-apa-acs-template && npm install && npm test -- --watch=false
-
-    #E2e tests
-    - stage: E2e tests
-      name: adf-cli-acs-template
-      if: branch != master
-      script: travis_retry ./scripts/test-e2e.sh -host "localhost:4200"  -host_sso "$HOST_SSO" -p "$E2E_SS0_PASSWORD" -u "$E2E_EMAIL" -b -gnu -f adf-cli-acs-template --spec sidebar_component.e2e.ts
-
-    - stage: E2e tests
-      name: adf-cli-aps-template
-      if: branch != master
-      script: travis_retry ./scripts/test-e2e.sh -host "localhost:4200"  -host_sso "$HOST_SSO" -p "$E2E_SS0_PASSWORD" -u "$E2E_EMAIL" -b -gnu -f adf-cli-aps-template --spec sidebar_component.e2e.ts
-
-    - stage: E2e tests
-      name: adf-cli-acs-aps-template
-      if: branch != master
-      script: travis_retry ./scripts/test-e2e.sh -host "localhost:4200"  -host_sso "$HOST_SSO" -p "$E2E_SS0_PASSWORD" -u "$E2E_EMAIL" -b -gnu -f adf-cli-acs-aps-template --spec sidebar_component.e2e.ts
-
-    - stage: E2e tests
-      name: adf-cli-activiti-community-template
-      if: branch != master
-      script: travis_retry ./scripts/test-e2e.sh -host "localhost:4200"  -host_sso "$HOST_SSO" -p "$E2E_SS0_PASSWORD" -u "$E2E_EMAIL" -b -gnu -f adf-cli-activiti-community-template --spec sidebar_component.e2e.ts
-
-    - stage: E2e tests
-      name: adf-cli-activiti-community-acs-template
-      if: branch != master
-      script: travis_retry ./scripts/test-e2e.sh -host "localhost:4200"  -host_sso "$HOST_SSO" -p "$E2E_SS0_PASSWORD" -u "$E2E_EMAIL" -b -gnu -f adf-cli-activiti-community-acs-template --spec sidebar_component.e2e.ts
-
-    - stage: E2e tests
-      name: adf-cli-apa-template
-      if: branch != master
-      script: travis_retry ./scripts/test-e2e.sh -host "localhost:4200"  -host_sso "$HOST_SSO" -p "$E2E_SS0_PASSWORD" -u "$E2E_EMAIL" -b -gnu -f adf-cli-apa-template --spec sidebar_component.e2e.ts
-
-    - stage: E2e tests
-      name: adf-cli-apa-acs-template
-      if: branch != master
-      script: travis_retry ./scripts/test-e2e.sh -host "localhost:4200"  -host_sso "$HOST_SSO" -p "$E2E_SS0_PASSWORD" -u "$E2E_EMAIL" -b -gnu -f adf-cli-apa-acs-template --spec sidebar_component.e2e.ts
 
     - stage: Release
       name: Release
