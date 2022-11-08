@@ -1,13 +1,6 @@
 # ADF application generator for Yeoman
 
-| branch | status |
-| --- | --- |
-| master | [![Build Status](https://travis-ci.com/Alfresco/generator-alfresco-adf-app.svg?branch=master)](https://travis-ci.com/Alfresco/generator-alfresco-adf-app) |
-| develop | [![Build Status](https://travis-ci.com/Alfresco/generator-alfresco-adf-app.svg?branch=develop)](https://travis-ci.com/Alfresco/generator-alfresco-adf-app) |
-
-[![npm](https://img.shields.io/npm/v/generator-alfresco-adf-app)](https://www.npmjs.com/package/generator-alfresco-adf-app)
-
-An extension for the Yeoman generator that allows creating Alfresco ADF applications.
+An extension for the Yeoman generator to create minimal Alfresco ADF applications.
 
 ## Introduction
 
