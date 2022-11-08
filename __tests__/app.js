@@ -22,8 +22,6 @@ describe('Alfresco component generator', () => {
       const expected = [
         '.editorconfig',
         'angular.json',
-        '.npmignore',
-        '.travis.yml',
         'LICENSE',
         'README.md',
         'karma.conf.js',
@@ -73,8 +71,6 @@ describe('Alfresco component generator', () => {
       const expected = [
         'angular.json',
         '.editorconfig',
-        '.npmignore',
-        '.travis.yml',
         'LICENSE',
         'README.md',
         'karma.conf.js',
@@ -126,8 +122,6 @@ describe('Alfresco component generator', () => {
       const expected = [
         '.editorconfig',
         'angular.json',
-        '.npmignore',
-        '.travis.yml',
         'LICENSE',
         'README.md',
         'karma.conf.js',
