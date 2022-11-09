@@ -120,7 +120,6 @@ describe('Alfresco component generator', () => {
         'package.json',
         'proxy.conf.js',
         'tsconfig.json',
-        'tslint.json',
         'src/index.html',
         'src/app/home/home.component.ts',
         'src/app/home/home.component.html',
