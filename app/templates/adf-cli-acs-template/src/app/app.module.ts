@@ -57,7 +57,7 @@ registerLocaleData(localeSv);
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
-        RouterModule.forRoot(appRoutes, { initialNavigation: true }),
+        RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledNonBlocking', relativeLinkResolution: 'legacy' }),
         // ADF modules
         CoreModule.forRoot(),
         ContentModule.forRoot(),
