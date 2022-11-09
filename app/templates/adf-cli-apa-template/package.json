@@ -5,13 +5,10 @@
   "description": "APA ADF Application with Angular CLI",
   "license": "MIT",
   "scripts": {
-    "ng": "ng",
     "start": "ng serve --open",
     "build": "ng build",
     "build:dist": "ng build --configuration production",
     "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e",
     "postinstall": "ngcc"
   },
   "private": true,
