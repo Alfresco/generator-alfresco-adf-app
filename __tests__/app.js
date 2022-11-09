@@ -22,14 +22,10 @@ describe('Alfresco component generator', () => {
       const expected = [
         '.editorconfig',
         'angular.json',
-        '.npmignore',
-        '.travis.yml',
         'LICENSE',
         'README.md',
         'karma.conf.js',
         'package.json',
-        'protractor-ci.conf.js',
-        'protractor.conf.js',
         'proxy.conf.js',
         'tsconfig.json',
         'tslint.json',
@@ -37,8 +33,7 @@ describe('Alfresco component generator', () => {
         'src/app/home/home.component.ts',
         'src/app/home/home.component.html',
         'src/app/documents/documents.component.html',
-        'src/app/documents/documents.component.ts',
-        'e2e/app.e2e-spec.ts'
+        'src/app/documents/documents.component.ts'
       ];
 
       assert.file(expected);
@@ -73,14 +68,10 @@ describe('Alfresco component generator', () => {
       const expected = [
         'angular.json',
         '.editorconfig',
-        '.npmignore',
-        '.travis.yml',
         'LICENSE',
         'README.md',
         'karma.conf.js',
         'package.json',
-        'protractor-ci.conf.js',
-        'protractor.conf.js',
         'proxy.conf.js',
         'tsconfig.json',
         'tslint.json',
@@ -90,8 +81,7 @@ describe('Alfresco component generator', () => {
         'src/app/task-details/task-details.component.html',
         'src/app/task-details/task-details.component.ts',
         'src/app/tasks/tasks.component.html',
-        'src/app/tasks/tasks.component.ts',
-        'e2e/app.e2e-spec.ts'
+        'src/app/tasks/tasks.component.ts'
       ];
 
       assert.file(expected);
@@ -126,14 +116,10 @@ describe('Alfresco component generator', () => {
       const expected = [
         '.editorconfig',
         'angular.json',
-        '.npmignore',
-        '.travis.yml',
         'LICENSE',
         'README.md',
         'karma.conf.js',
         'package.json',
-        'protractor-ci.conf.js',
-        'protractor.conf.js',
         'proxy.conf.js',
         'tsconfig.json',
         'tslint.json',
@@ -145,8 +131,7 @@ describe('Alfresco component generator', () => {
         'src/app/tasks/tasks.component.html',
         'src/app/tasks/tasks.component.ts',
         'src/app/documents/documents.component.html',
-        'src/app/documents/documents.component.ts',
-        'e2e/app.e2e-spec.ts'
+        'src/app/documents/documents.component.ts'
       ];
 
       assert.file(expected);

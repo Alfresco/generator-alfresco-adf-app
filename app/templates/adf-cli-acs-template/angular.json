@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "dist": {
+    "app": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -76,7 +76,6 @@
             "scripts": [
               "node_modules/pdfjs-dist/build/pdf.js",
               "node_modules/pdfjs-dist/web/pdf_viewer.js",
-              "node_modules/raphael/raphael.min.js",
               "node_modules/moment/min/moment.min.js"
             ]
           },
@@ -103,7 +102,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "dist:build",
+            "browserTarget": "app:build",
             "port": 4200,
             "host": "0.0.0.0",
             "proxyConfig": "proxy.conf.js",
@@ -111,14 +110,14 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "dist:build:production"
+              "browserTarget": "app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "dist:build"
+            "browserTarget": "app:build"
           }
         },
         "test": {
@@ -131,7 +130,6 @@
             "scripts": [
               "node_modules/pdfjs-dist/build/pdf.js",
               "node_modules/pdfjs-dist/web/pdf_viewer.js",
-              "node_modules/raphael/raphael.min.js",
               "node_modules/moment/min/moment.min.js"
             ],
             "styles": [
@@ -183,7 +181,7 @@
       }
     }
   },
-  "defaultProject": "dist",
+  "defaultProject": "app",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",
