@@ -20,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { ApolloModule } from 'apollo-angular';
 
 // ADF modules
 import { ContentModule } from '@alfresco/adf-content-services';
@@ -48,10 +49,9 @@ import { AppLayoutComponent } from './app-layout/app-layout.component';
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
-        RouterModule.forRoot(
-            appRoutes // ,
-            // { enableTracing: true } // <-- debugging purposes only
-        ),
+        RouterModule.forRoot(appRoutes // ,
+// { enableTracing: true } // <-- debugging purposes only
+, { relativeLinkResolution: 'legacy' }),
 
         // ADF modules
         CoreModule.forRoot(),
@@ -60,7 +60,8 @@ import { AppLayoutComponent } from './app-layout/app-layout.component';
         TranslateModule.forRoot({
             loader: { provide: TranslateLoader, useClass: TranslateLoaderService }
         }),
-        StencilsModule
+        StencilsModule,
+        ApolloModule
     ],
     declarations: [
         AppComponent,
