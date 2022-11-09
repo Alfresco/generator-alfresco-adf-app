@@ -9,6 +9,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { ContentModule } from '@alfresco/adf-content-services';
 import { ProcessServicesCloudModule } from '@alfresco/adf-process-services-cloud';
 import { CoreModule, TRANSLATION_PROVIDER, TranslateLoaderService } from '@alfresco/adf-core';
+import { ApolloModule } from 'apollo-angular';
 
 // Custom stencils
 import { StencilsModule } from './stencils.module';
@@ -32,10 +33,9 @@ import { AppLayoutComponent } from './app-layout/app-layout.component';
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
-        RouterModule.forRoot(
-            appRoutes // ,
-            // { enableTracing: true } // <-- debugging purposes only
-        ),
+        RouterModule.forRoot(appRoutes // ,
+// { enableTracing: true } // <-- debugging purposes only
+, { relativeLinkResolution: 'legacy' }),
 
         // ADF modules
         CoreModule.forRoot(),
@@ -44,7 +44,8 @@ import { AppLayoutComponent } from './app-layout/app-layout.component';
         TranslateModule.forRoot({
             loader: { provide: TranslateLoader, useClass: TranslateLoaderService }
         }),
-        StencilsModule
+        StencilsModule,
+        ApolloModule
     ],
     declarations: [
         AppComponent,
