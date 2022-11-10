@@ -20,3 +20,16 @@ jobs:
           cache: 'npm'
       - run: npm install
       - run: npm test
+
+  test-adf-cli-acs-template:
+    name: adf-cli-acs-template
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+          cache: 'npm'
+      - run: cd app/templates/adf-cli-acs-template && npm install && npm test -- --watch=false
