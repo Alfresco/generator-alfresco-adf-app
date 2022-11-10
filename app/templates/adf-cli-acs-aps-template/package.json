@@ -57,8 +57,6 @@
     "@types/jasminewd2": "~2.0.2",
     "@types/minimatch": "^3.0.3",
     "@types/node": "^14.14.26",
-    "graphql": "^15.6.1",
-    "graphql-request": "^3.6.1",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "^6.3.6",
