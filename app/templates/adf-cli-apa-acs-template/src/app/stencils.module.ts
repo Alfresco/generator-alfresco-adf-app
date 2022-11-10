@@ -5,19 +5,17 @@ import { WidgetComponent } from "@alfresco/adf-core";
 
 @Component({
   selector: "custom-editor",
-  template: ` <div style="color: red">Look, I'm a custom editor!</div> `,
+  template: ` <div style="color: red">Look, I'm a custom editor!</div> `
 })
-export class CustomEditorComponent extends WidgetComponent {
-}
+export class CustomEditorComponent extends WidgetComponent {}
 
 @Component({
   selector: "custom-stencil-01",
   template: `<div style="color: green">
     ADF version of custom Activiti stencil
-  </div>`,
+  </div>`
 })
-export class CustomStencil01 extends WidgetComponent {
-}
+export class CustomStencil01 extends WidgetComponent {}
 
 @NgModule({
   declarations: [CustomEditorComponent, CustomStencil01],
