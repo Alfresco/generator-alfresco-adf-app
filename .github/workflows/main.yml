@@ -8,7 +8,7 @@ on:
 
 jobs:
   test:
-    name: Test
+    name: generator
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -32,4 +32,4 @@ jobs:
         with:
           node-version: '14'
           cache: 'npm'
-      - run: cd app/templates/adf-cli-acs-template && npm install && npm test -- --watch=false
+      - run: cd app/templates/adf-cli-acs-template && npm install && npm test -- --browsers=ChromeHeadless --watch=false
