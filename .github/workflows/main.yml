@@ -1,4 +1,4 @@
-name: Yeoman Generator
+name: Test
 
 on:
   push:
