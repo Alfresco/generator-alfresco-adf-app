@@ -33,3 +33,81 @@ jobs:
           node-version: '14'
           cache: 'npm'
       - run: cd app/templates/adf-cli-acs-template && npm install && npm test -- --browsers=ChromeHeadless --watch=false
+
+  test-adf-cli-aps-template:
+    name: adf-cli-aps-template
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+          cache: 'npm'
+      - run: cd app/templates/adf-cli-aps-template && npm install && npm test -- --browsers=ChromeHeadless --watch=false
+
+  test-adf-cli-acs-aps-template:
+    name: adf-cli-acs-aps-template
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+          cache: 'npm'
+      - run: cd app/templates/adf-cli-acs-aps-template && npm install && npm test -- --browsers=ChromeHeadless --watch=false
+
+  test-adf-cli-activiti-community-template:
+    name: adf-cli-activiti-community-template
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+          cache: 'npm'
+      - run: cd app/templates/adf-cli-activiti-community-template && npm install && npm test -- --browsers=ChromeHeadless --watch=false
+
+  test-adf-cli-activiti-community-acs-template:
+    name: adf-cli-activiti-community-acs-template
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+          cache: 'npm'
+      - run: cd app/templates/adf-cli-activiti-community-acs-template && npm install && npm test -- --browsers=ChromeHeadless --watch=false
+
+  test-adf-cli-apa-template:
+    name: adf-cli-apa-template
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+          cache: 'npm'
+      - run: cd app/templates/adf-cli-apa-template && npm install && npm test -- --browsers=ChromeHeadless --watch=false
+
+  test-adf-cli-apa-acs-template:
+    name: adf-cli-apa-acs-template
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+          cache: 'npm'
+      - run: cd app/templates/adf-cli-apa-acs-template && npm install && npm test -- --browsers=ChromeHeadless --watch=false
