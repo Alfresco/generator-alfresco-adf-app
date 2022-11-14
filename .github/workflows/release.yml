@@ -1,0 +1,20 @@
+name: Release
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  release:
+    name: generator
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+          cache: 'npm'
+      - run: ./scripts/git-tag.sh && ./scripts/publish.sh
