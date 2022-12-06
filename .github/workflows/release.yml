@@ -4,6 +4,10 @@ on:
   push:
     branches: [ master ]
 
+env:
+  NPM_REGISTRY_TOKEN: ${{ secrets.NPM_REGISTRY_TOKEN }}
+  NPM_REGISTRY_ADDRESS: ${{ secrets.NPM_REGISTRY_ADDRESS }}
+
 jobs:
   release:
     name: generator
