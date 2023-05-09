@@ -34,7 +34,7 @@
     "@mat-datetimepicker/core": "^10.0.10",
     "@mat-datetimepicker/moment": "^10.0.10",
     "@ngx-translate/core": "^14.0.0",
-    "apollo-angular": "^2.6.0",
+    "apollo-angular": "^4.2.1",
     "chart.js": "2.9.4",
     "cropperjs": "1.5.12",
     "minimatch": "^3.0.4",
