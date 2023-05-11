@@ -2,12 +2,12 @@
 
 @import '@alfresco/adf-core/theming';
 
-@include mat.core($alfresco-typography);
-
-$primary: mat.define-palette($alfresco-accent-orange);
-$accent:  mat.define-palette($alfresco-accent-purple);
-$warn:    mat.define-palette($alfresco-warn);
-$theme:   mat.define-light-theme($primary, $accent, $warn);
+$typography: mat.define-typography-config(
+  $primary: mat.define-palette($alfresco-accent-orange),
+  $accent:  mat.define-palette($alfresco-accent-purple),
+  $warn:    mat.define-palette($alfresco-warn),
+  $theme:   mat.define-light-theme($primary, $accent, $warn)
+);
 
 @include mat.all-component-themes($theme);
 @include adf-core-theme($theme);
