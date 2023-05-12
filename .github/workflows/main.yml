@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ master, develop ]
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test:
     name: generator
@@ -16,7 +20,7 @@ jobs:
           fetch-depth: 2
       - uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version-file: '.nvmrc'
           cache: 'npm'
       - run: npm install
       - run: npm test
@@ -30,7 +34,7 @@ jobs:
           fetch-depth: 2
       - uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version-file: '.nvmrc'
           cache: 'npm'
       - run: cd app/templates/adf-cli-acs-template && npm install && npm test -- --browsers=ChromeHeadless --watch=false
 
@@ -43,7 +47,7 @@ jobs:
           fetch-depth: 2
       - uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version-file: '.nvmrc'
           cache: 'npm'
       - run: cd app/templates/adf-cli-aps-template && npm install && npm test -- --browsers=ChromeHeadless --watch=false
 
@@ -56,7 +60,7 @@ jobs:
           fetch-depth: 2
       - uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version-file: '.nvmrc'
           cache: 'npm'
       - run: cd app/templates/adf-cli-acs-aps-template && npm install && npm test -- --browsers=ChromeHeadless --watch=false
 
@@ -69,7 +73,7 @@ jobs:
           fetch-depth: 2
       - uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version-file: '.nvmrc'
           cache: 'npm'
       - run: cd app/templates/adf-cli-activiti-community-template && npm install && npm test -- --browsers=ChromeHeadless --watch=false
 
@@ -82,7 +86,7 @@ jobs:
           fetch-depth: 2
       - uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version-file: '.nvmrc'
           cache: 'npm'
       - run: cd app/templates/adf-cli-activiti-community-acs-template && npm install && npm test -- --browsers=ChromeHeadless --watch=false
 
@@ -95,7 +99,7 @@ jobs:
           fetch-depth: 2
       - uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version-file: '.nvmrc'
           cache: 'npm'
       - run: cd app/templates/adf-cli-apa-template && npm install && npm test -- --browsers=ChromeHeadless --watch=false
 
@@ -108,6 +112,6 @@ jobs:
           fetch-depth: 2
       - uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version-file: '.nvmrc'
           cache: 'npm'
       - run: cd app/templates/adf-cli-apa-acs-template && npm install && npm test -- --browsers=ChromeHeadless --watch=false
