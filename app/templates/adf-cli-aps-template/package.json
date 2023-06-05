@@ -1,6 +1,6 @@
 {
   "name": "adf-cli-aps-template",
-  "version": "6.1.0",
+  "version": "6.1.1",
   "blueprint": "Process Services with APS 1",
   "description": "APS ADF Application with Angular CLI",
   "license": "MIT",
